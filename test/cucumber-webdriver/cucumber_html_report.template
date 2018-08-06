@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title>Cucumber Report</title>
+		<style>
+			#main-table {
+				width: 100%;
+			}
+			table, td {
+				border: 1px solid black;
+				text-align: left;
+			}
+			tr:hover{
+				background-color:#f5f5f5
+			}
+			.pane-header{
+				font-family: Verdana, Helvetica, sans serif;
+				font-weight: bold;
+				font-size: 15px;
+				background-color:#cccccc
+			}
+			.pane{
+				font-family: Verdana, Helvetica, sans serif;
+				font-weight: bold;
+				font-size: 12px;
+			}
+			.subpane{
+				font-family: Verdana, Helvetica, sans serif;
+				font-weight: noraml;
+				font-size: 11px;
+			}
+			#Failed{
+				color: red;
+			}
+			#Passed{
+				color: blue;
+			}
+			#fail{
+				color: red;
+			}
+			#pass{
+				color: blue;
+			}
+		</style>
+    </head>
+    <body>
+		<div class="main-class">
+			<h2>Cucumber HTML Reports</h2>
+			<table id="main-table">
+				<tr>
+					<td class="pane-header">Feature Path</td>
+					<td class="pane-header">Feature</td>
+					<td class="pane-header">Scenario</td>					
+					<td class="pane-header">HTML Reports</td>
+					<td class="pane-header">Total Time(in seconds)</td>
+					<td class="pane-header">Outcome</td>			
+				</tr>
+				
+				 <%
+					import java.util.regex.Matcher;
+					import java.util.regex.Pattern;
+					import java.util.concurrent.TimeUnit;
+					
+                    html_folder.eachFile{ file ->	
+						def featurePath = null
+						def feature = null
+						def scenario = null					
+						def htmlFileName = null
+						def htmlFilePath = null
+						def outcome = null					
+						Long duration = 0L
+					
+						def jsFile = new File(file.absolutePath + File.separator + "report.js")
+						def htmlFile = new File(file.absolutePath + File.separator + "index.html")
+						htmlFilePath = file.name + "/" + htmlFile.name
+						htmlFileName= htmlFile.name
+						def data = jsFile.text
+						Pattern p = Pattern.compile("uri\\(\"(.*?)\"\\)");
+						data = data.replace("\n","");
+						Matcher m = p.matcher(data);
+						if(m.find()) {
+							featurePath = m.group(1)
+						}
+
+						p = Pattern.compile("formatter\\.feature\\(\\{((?:.|\\\\n)*?)\\}\\)", Pattern.DOTALL);
+						m = p.matcher(data);
+						if (m.find()) {
+                            String str = m.group(1);
+                            Pattern p2 = Pattern.compile("\"name\": \"(.*?)\",");
+                            Matcher m2 = p2.matcher(str);
+                            while (m2.find()) {
+                                feature = m2.group(1);
+                                if (!feature.startsWith("@")) {
+									feature = feature.replace("\\", "");
+                                    break;
+                                }
+                            }
+						}
+
+						p = Pattern.compile("formatter\\.scenario\\(\\{((?:.|\\\\n)*?)\\}\\)", Pattern.DOTALL);
+						data = data.replaceAll('\"value\": \"#(.*?)\"', '')
+                        m = p.matcher(data);
+                        if (m.find()) {
+                            String str = m.group(1);
+                            Pattern p2 = Pattern.compile("\"name\": \"(.*?)\",");
+                            Matcher m2 = p2.matcher(str);
+                            while (m2.find()) {
+                                scenario = m2.group(1);
+                                if (!scenario.startsWith("@")) {
+									scenario = scenario.replace("\\", "");
+                                    break;
+                                }
+                            }
+                        }
+
+						outcome = data.contains("failed") || data.contains("skipped") ? "Failed" : "Passed"						
+						p = Pattern.compile("\"duration\": (.*?),");
+						m = p.matcher(data);
+						while(m.find()) {
+							duration = duration + Long.parseLong(m.group(1));
+						}
+                                                                        					
+                    %>
+				<tr>
+					<td class="pane">${featurePath}</td>
+                     <td class="pane">${feature}</td>
+					 <td class="pane">${scenario}</td>
+		
+					<td style="cursor:pointer" class="pane"><a href="${htmlFilePath}"><B>${htmlFileName}</B></a></td>
+					<td class="pane"><%println(TimeUnit.MILLISECONDS.convert(duration, TimeUnit.NANOSECONDS) / 1000.0)%></td>
+					<td style="cursor:pointer" class="pane"><span id="${outcome}">${outcome}</span></td>
+				</tr>
+				<%
+				}
+				%>
+			</table>
+		</div>
+    </body>
+    </html>

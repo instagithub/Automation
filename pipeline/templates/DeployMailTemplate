@@ -1,0 +1,109 @@
+import
+<font face="calibri">
+    <%
+        def pipelineInstance = PipelineInstance
+        def exception = Exceptions
+        def classMap = ClassMap
+
+        def jobName = pipelineInstance.env.JOB_NAME
+        def sourceBranchName = pipelineInstance.env.SOURCE_BRANCH_NAME
+        def branchName = pipelineInstance.env.BRANCH_NAME
+        def prpcBranchList = pipelineInstance.env.BRANCH_LIST
+        def buildNumber = pipelineInstance.env.BUILD_NUMBER
+        def build = pipelineInstance.manager.hudson.getInstance().getItemByFullName(jobName).getBuild(buildNumber)
+        def buildProperties = build.getProperties()
+        def buildURL = URLDecoder.decode(build.getAbsoluteUrl(), "UTF-8")
+        def buildActions = build.getActions()
+        def blueOceanURL = buildURL.replaceFirst('job', "blue/organizations/jenkins/${jobName}/detail") + 'pipeline'
+        sourceBranchName = URLDecoder.decode("${sourceBranchName}","UTF-8")
+        branchName = URLDecoder.decode("${branchName}","UTF-8")
+        def crmBuildLinkHyd = "https://meshbinhyd.pega.com/artifactory/repo2/com/pega/applications/${pipelineInstance.env.CRM_BUILD_ARTIFACT_ID}/${pipelineInstance.env.crmVersion}/${pipelineInstance.env.CRM_BUILD_ARTIFACT_ID}-${pipelineInstance.env.crmVersion}-distimage.zip"
+        def crmBuildLinkCam = "https://meshbincam.pega.com/artifactory/repo2/com/pega/applications/${pipelineInstance.env.CRM_BUILD_ARTIFACT_ID}/${pipelineInstance.env.crmVersion}/${pipelineInstance.env.CRM_BUILD_ARTIFACT_ID}-${pipelineInstance.env.crmVersion}-distimage.zip"
+    %>
+        <h1 align="center">CRM Build Deployment</h1>
+        <h3 align='left'>Build Summary</h3>
+             Job Name: ${jobName}
+        </br>Build Duration: ${buildProperties.get("durationString")}
+        </br>Build Start Time: ${buildProperties.get("time")}
+        </br>
+        </br>Classic View: ${buildURL}
+        </br>Blue Ocean View: ${blueOceanURL}
+        </br>Flow Graph Table: ${buildURL}flowGraphTable
+        </br>
+
+        </br><h3>CRM Build Information</h3>
+        </br>CRM Build: ${pipelineInstance.env.crmVersion}
+        </br>Servers deployed to: ${pipelineInstance.env.servers}
+        </br><a href='${crmBuildLinkHyd}'>Hyderabad build location:${crmBuildLinkHyd}</a>
+        </br><a href='${crmBuildLinkCam}'>Cambridge build location:${crmBuildLinkCam}</a>
+        <h3 align='left'>Exceptions</h3>
+    <%
+        if(exception){
+            def writer = new StringWriter()
+            def printStream = new PrintWriter(writer, true)
+            try{
+                exception.printStackTrace(printStream)
+            }catch(Exception ex){
+                println ex
+            }finally{
+                printStream.close()
+            }
+            %>
+                ${writer.toString().replaceAll("(\\r|\\n|\\r\\n)+", "<br>")}
+            <%
+        }else{
+            %>
+                -----
+            <%
+        }
+    %>
+
+        <h3 align='left'>Post Build Summary</h3>
+    <%
+        def postBuildText = []
+        def actionsCollection = buildProperties.get("actions")
+        if(actionsCollection && actionsCollection.size() > 0){
+            for(int i=0; i<actionsCollection.size(); i++){
+                if(actionsCollection[i].getClass().getName() == "org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildSummaryAction"){
+                    postBuildText.add(actionsCollection[i].getText())
+                }
+            }
+        }
+        if(postBuildText.size() > 0){
+            for(int i=0;i<postBuildText.size();i++){
+                %>
+                    ${postBuildText[i]}<br>
+                <%
+            }
+        }else{
+            %>
+                -----
+            <%
+        }
+    %>
+
+        <h3 align='left'>GIT Changes</h3>
+    <%
+        def changeSets = buildProperties.get("changeSets")
+        if(changeSets && changeSets.size() > 0){
+            for(int i=0; i<changeSets.size(); i++){
+                def getLogs = changeSets[i].getLogs()
+                for(int k=0; k<getLogs.size(); k++){
+                    %>
+                        Commit ID: ${getLogs[k].getCommitId()}
+                        </br>Committer: ${getLogs[k].committer}
+                        </br>Committer Email: ${getLogs[k].committerEmail}
+                        </br>Commit Date: ${getLogs[k].getDate()}
+                        </br>Files Affected: ${getLogs[k].getAffectedPaths()}
+                        </br>Comments: ${getLogs[k].comment}
+                        </br></br>
+                    <%
+                }
+            }
+        }else{
+              %>
+                -----
+              <%
+        }
+    %>
+</font>

@@ -1,0 +1,60 @@
+{
+  "appServersList": [
+    {
+      "jenkinsNodeName": "CRMDev-1",
+      "hostAddress": "10.225.71.211",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-2",
+      "hostAddress": "10.225.71.212",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-3",
+      "hostAddress": "10.225.71.213",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-4",
+      "hostAddress": "10.225.71.214",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-cti",
+      "hostAddress": "10.225.71.215",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-ci",
+      "hostAddress": "10.225.71.216",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-7",
+      "hostAddress": "10.225.71.217",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    }
+  ]
+}

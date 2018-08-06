@@ -1,0 +1,137 @@
+@Library("apps-pipeline-shared-lib@master") _
+
+env.CHECK_VERSION_ARTIFACTORY_URL = "https://internal.bin.pega.io/artifactory"
+env.ARTIFACTORY_URL = "https://meshbincam.pega.com/artifactory"
+env.EE_LAB_BUILD_MAIL_GROUP = "CRM.RM@pega.com,baahubalis@pega.com,Cheetahs@pega.com"
+env.PRPC_VERSION = "HEAD-+"
+env.PRPC_VAL_REPO = "builds-prpc-val-local"
+
+def nodeToUse = isDevUpgrade.toBoolean() ? 'CRMDev-cti' : 'blr_executor'
+def buildStatus = ""
+def desc = ""
+def subject = ""
+
+node(nodeToUse) {
+    try {
+
+        echo '------------------ Start of Code Checkout ------------------'
+        checkout scm
+
+        stage('Build Available?') {
+            withCredentials([usernamePassword(credentialsId: 'artifactory2', passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
+                //Query for fetching the PRPC build version from builds-prpc-val-local
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew clean -b gradle/upgrade.gradle buildProps -Pversion=${env.PRPC_VERSION} -PartifactoryURL=${env.CHECK_VERSION_ARTIFACTORY_URL} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword='${ARTIFACTORY_PASSWORD}'"
+                def buildProps = readProperties file: "gradle/build/build.properties"
+                env.PRPC_VERSION = buildProps['build.version']
+
+                //Query for fetching the PRPC build version in apps-dev-local
+                sh "./gradlew clean lastValidatedBuild -PartifactoryURL=${env.CHECK_VERSION_ARTIFACTORY_URL} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword='${ARTIFACTORY_PASSWORD}'"
+                buildProps = readProperties file: "build/build.properties"
+                env.prpcVersion = buildProps['build.version']
+            }
+
+            if (this.Pega_Version?.trim()) {
+                env.PRPC_VERSION = this.Pega_Version
+            }
+            if (env.PRPC_VERSION && env.PRPC_VERSION.trim()) {
+                desc += " Target PRPC Version: ${env.PRPC_VERSION}"
+                currentBuild.description = "${desc}"
+            }
+
+            echo "Target PRPC Version : ${env.PRPC_VERSION}"
+        }
+        if (this.isForceUpgrade.toBoolean()) {
+            platformValidation()
+            upgrade()
+        } else {
+            if (env.prpcVersion.equals(env.PRPC_VERSION)) {
+                echo "Repo: apps-dev-local already has latest PRPC version : ${env.PRPC_VERSION}"
+
+                def props = readProperties file: 'gradle.properties'
+                def sharedDevURL = props['sharedDevURL']
+                echo "Shared Dev URL : ${sharedDevURL}"
+
+                getPRPCVersion(sharedDevURL, "gradle/upgrade.gradle") {}
+
+                def currentPRPCBuildNo = env.CURRENT_PRPC_VERSION.substring(env.CURRENT_PRPC_VERSION.lastIndexOf('-') + 1)
+                echo "Current PRPC build no: ${currentPRPCBuildNo}"
+                def targetPRPCBuildNo = env.PRPC_VERSION.substring(env.PRPC_VERSION.lastIndexOf('-') + 1)
+                echo "Target PRPC build no: ${targetPRPCBuildNo}"
+
+                if (Integer.parseInt(targetPRPCBuildNo) <= Integer.parseInt(currentPRPCBuildNo)) {
+                    currentBuild.result = 'ABORTED'
+                    buildStatus = "ABORTED"
+                    subject = setEmailSubject(buildStatus)
+                    currentBuild.description = "No new build available"
+                } else {
+                    echo "Continuing upgrade with: ${env.PRPC_VERSION}"
+                    upgrade()
+                }
+            } else {
+                stage('Validate Platform Build') {
+                    platformValidation()
+                }
+                if (env.triggeredJobResult.equals("FAILED")) {
+                    error 'Build failed because platform validation job failed'
+                    currentBuild.result = 'FAILURE'
+                }
+                if (env.triggeredJobResult.equals("UNSTABLE")) {
+                    echo 'Build unstable because platform validation job is unstable'
+                    buildStatus = "UNSTABLE"
+                    subject = setEmailSubject(buildStatus)
+                    currentBuild.result = 'UNSTABLE'
+                } else {
+                    echo "Continuing upgrade with: ${env.PRPC_VERSION}"
+                    upgrade()
+                }
+            }
+        }
+    } catch (Exception e) {
+        buildStatus = "FAILURE"
+        subject = setEmailSubject(buildStatus)
+        throw e
+    } finally {
+        if (buildStatus.equals("")) {
+            buildStatus = "SUCCESS"
+            subject = setEmailSubject(buildStatus)
+        }
+        emailext body: "Build URL: ${env.BUILD_URL}", subject: "${subject}", to: this.env.EE_LAB_BUILD_MAIL_GROUP
+    }
+}
+
+def upgrade() {
+    stage('Upgrade Dev & Build'){
+        parallel(
+            'Build' : {
+                if (this.isDevUpgrade.toBoolean()) {
+                    build job: 'platform-cd-crm-build', parameters: [string(name: 'PRPC_VERSION', value: "${this.env.PRPC_VERSION}"), string(name: 'nodeName', value: 'crm-build-server'), string(name: 'stage', value: 'Upgrade CRM Build')], wait: true
+                }
+            },
+            'Dev' : {
+                if (this.isDevUpgrade.toBoolean()) {
+                    build job: 'platform-cd-crm-dev', parameters: [string(name: 'PRPC_VERSION', value: "${env.PRPC_VERSION}"), booleanParam(name: 'isDevUpgrade', value: true)], wait: true
+                }
+            }
+        )
+    }
+}
+
+def platformValidation() {
+    triggerRemoteJob {
+        jenkinsURL = "https://apps.build.pega.io"
+        job = "CRM/crm-gated-merges/platform-cd-to-crm-dev"
+        token = "12345"
+        timeout = "6"
+        paramMap = "PRPC_version:${this.env.PRPC_VERSION}"
+    }
+}
+
+def setEmailSubject(def buildStatus) {
+    if (buildStatus.equals("ABORTED")) {
+        subject = "Skipping upgrade as target version ${env.PRPC_VERSION} is less than or same as current verion ${env.CURRENT_PRPC_VERSION}"
+    }
+    else {
+        subject = "CRM-PCD: Upgrade ${buildStatus} (to ${env.PRPC_VERSION})"
+    }
+    return subject
+}

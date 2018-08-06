@@ -1,0 +1,34 @@
+{
+  "appServersList": [
+    {
+      "jenkinsNodeName": "CRMDev-ci",
+      "hostAddress": "10.225.71.216",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    },
+    {
+      "jenkinsNodeName": "CRMDev-7",
+      "hostAddress": "10.225.71.217",
+      "tomcatHome": "/home/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    }
+  ]
+  /*{
+  "appServersList": [
+    {
+      "jenkinsNodeName": "CRMClone",
+      "hostAddress": "10.150.70.100",
+      "tomcatHome": "/opt/pegauser/apache-tomcat-9.0.1",
+      "port": "8080",
+      "osType": "linux",
+      "context": "prweb"
+    }
+  ]
+}*/
+}
+
+

@@ -1,0 +1,201 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+    "Parameters" : {
+      "clustername" : {
+        "Description" : "ECS Cluster name",
+        "Type" : "String"
+      },
+	  "bucketName" : {
+	    "Description" : "s3 bucket name",
+        "Type" : "String",
+        "Default" : ""
+	  },
+	  "s3Key" : {
+	    "Description" : "s3 key",
+        "Type" : "String",
+        "Default" : ""
+	  },
+      "artifactoryURL" : {
+        "Type" : "String",
+        "Default" : "https://internal.bin.pega.io/artifactory"
+      },
+      "artifactoryUser" : {
+        "Type" : "String",
+        "Default" : ""
+      },
+      "artifactoryPassword" : {
+        "Type" : "String",
+        "Default" : ""
+      },
+      "vid" : {
+        "Description" : "ve request-id",
+        "Type" : "String",
+        "Default" : ""
+      },
+      "testtype" : {
+        "Description" : "junit or ui",
+        "Type" : "String"
+      },
+      "elkhost" : {
+        "Description" : "logstash url",
+        "Type" : "String",
+        "Default" : ""
+      },
+      "dbname" : {
+        "Type" : "String",
+        "Default" : "postgres"
+      },
+      "timezone" : {
+        "Type" : "String",
+        "Default" : "America/New_York"
+      },
+      "dbusername" : {
+        "Type" : "String",
+        "Default" : "postgres"
+      },
+      "dbpassword" : {
+        "Type" : "String",
+        "Default" : "postgres"
+      },
+      "rodbusername" : {
+        "Type" : "String",
+        "Default" : "postgres"
+      },
+      "rodbpassword" : {
+        "Type" : "String",
+        "Default" : "postgres"
+      },
+      "ruleschema" : {
+        "Type" : "String",
+        "Default" : "public"
+      },
+      "dataschema" : {
+        "Type" : "String",
+        "Default" : "public"
+      },
+      "dbhost" : {
+        "Type" : "String",
+        "Default" : "127.0.0.1"
+      },
+      "dbport" : {
+        "Type" : "String",
+        "Default" : "5432"
+      },
+      "imageName" : {
+        "Type" : "String",
+        "Default" : "docker-dev-local.bin.pega.io/tomcat-ve:latest"
+      }
+    },
+  "Resources" : {
+    "taskdefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties" : {
+        "ContainerDefinitions" : [{
+            "Name": "tomcatOne",
+            "Cpu": "4",
+	        "Memory" : 4096,
+            "Image": { "Ref" : "imageName" } ,
+            "PortMappings": [{
+          	  "HostPort": 0,
+          	  "ContainerPort": 8080
+            }],
+	        "Command" : [ "run" ],
+            "ReadonlyRootFilesystem" : false,
+            "Privileged" : true,
+	        "Environment": [{
+          	  "Name": "DB_NAME",
+              "Value": { "Ref" : "dbname" }
+            },
+            {
+              "Name": "DB_HOST",
+              "Value": { "Ref" : "dbhost" }
+            },
+            {
+          	  "Name": "DB_PORT",
+          	  "Value": { "Ref" : "dbport" }
+            },
+            {
+          	  "Name": "DB_USERNAME",
+              "Value": { "Ref" : "dbusername" }
+            },
+            {
+              "Name": "DB_PASSWORD",
+              "Value": { "Ref" : "dbpassword" }
+            },
+            {
+              "Name": "DATA_SCHEMA",
+              "Value": { "Ref" : "dataschema" }
+            },
+            {
+          	  "Name": "RULES_SCHEMA",
+              "Value": { "Ref" : "ruleschema" }
+            },
+            {
+              "Name": "ve",
+              "Value":"true"
+            },
+			{
+              "Name": "bucketName",
+              "Value": { "Ref" : "bucketName" }
+            },
+			{
+              "Name": "s3Key",
+              "Value": { "Ref" : "s3Key" }
+            },
+            {
+              "Name": "vid",
+              "Value":{ "Ref" : "vid" }
+            },
+            {
+              "Name": "elk_host",
+              "Value":{ "Ref" : "elkhost" }
+            },
+            {
+              "Name": "test_type",
+              "Value":{ "Ref" : "testtype" }
+            },
+            {
+              "Name": "tomcat_id",
+              "Value": { "Ref" : "dataschema" }
+            },
+            {
+              "Name": "RO_DB_USERNAME",
+              "Value": { "Ref" : "rodbusername" }
+            },
+            {
+              "Name": "RO_DB_PASSWORD",
+              "Value": { "Ref" : "rodbpassword" }
+            }]
+          },
+	      {
+            "Name": "haproxy",
+            "Cpu": "1",
+	        "Memory" : 1024,
+            "Image":"docker-dev-local.bin.pega.io/haproxy-ve",
+            "PortMappings": [{
+          	  "HostPort": 0,
+          	  "ContainerPort": 80
+            }],
+	        "Command" : [ "haproxy" ],
+	        "Links": [
+        	  "tomcatOne:tomcat1",
+        	  "tomcatTwo:tomcat2"
+            ]
+          }]
+	  }
+    },
+  "service": {
+      "Type": "AWS::ECS::Service",
+      "Properties" : {
+        "Cluster": { "Ref" : "clustername" },
+        "DesiredCount": "1",
+        "TaskDefinition" : {"Ref":"taskdefinition"}
+      }
+    }
+  },
+  "Outputs" : {
+    "taskdef" : {
+      "Value" : {"Ref":"taskdefinition"}
+    }
+  }
+}

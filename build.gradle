@@ -1,0 +1,141 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url "${artifactoryURL}/repo2"
+            credentials {
+                username = artifactoryUser
+                password = artifactoryPassword
+            }
+        }
+
+    }
+
+    dependencies {
+        classpath 'de.undercouch:gradle-download-task:3.1.1'
+        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.4.18'
+        classpath group: 'com.pega.gradle.plugins', name: 'gradle-prpc-plugin', version: '0.0.66-SNAPSHOT'
+        classpath group: 'com.pega.gradle', name: 'gradle-prpc-tools-plugin', version: '0.0.2.3-SNAPSHOT'
+        classpath "com.pega.prpc.plugins:prpcBuildsPlugin:72g-262"
+        classpath 'de.undercouch:gradle-download-task:3.1.1'
+        classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+        classpath 'com.pega.gradle.plugins:gradle-pega-apps-sut-launch-plugin:0.8.9-SNAPSHOT'
+        classpath group: 'com.pega.gradle.plugins', name: 'gradle-buildflow-plugin', version: '0.5.10-SNAPSHOT'
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url "${artifactoryURL}/repo2"
+        credentials {
+            username = artifactoryUser
+            password = artifactoryPassword
+        }
+    }
+}
+
+apply plugin: 'gradle-pega-apps-sut-launch-plugin'
+apply plugin: 'gradle-buildflow-plugin'
+apply plugin: 'gradle-prpc-plugin'
+
+allprojects {
+    apply plugin: 'base'
+}
+
+//temp fix - adding dependency for app server to start
+configurations {
+    prpcWebConfiguration
+    databaseBackupConfig
+}
+
+dependencies {
+    prpcWebConfiguration group: 'com.pega.prpc.web', name: 'prweb', version: "HEAD-+"
+    databaseBackupConfig group: 'com.pega.crm.db', name: 'dbBackup', version: 'HEAD-0', ext: 'zip'
+}
+
+prpcTools {
+    uniqueDirectoryNames { true }
+    artifactoryCredentials { "${artifactoryUser}:${artifactoryPassword}" }
+}
+
+app {
+    prpcVersion = System.getenv('LATEST_PRPC_VERSION') ?: project.hasProperty('prpcVersion') ? project.prpcVersion : 'HEAD-+'
+    credentials = "${System.getenv('ARTIFACTORY_USER') ?: artifactoryUser}:${System.getenv('ARTIFACTORY_PASSWORD') ?: artifactoryPassword}"
+
+    serverURL = project.hasProperty('serverURL') ? project.serverURL : "http://10.225.71.216:8080/"
+    branchList = System.getenv('BRANCH_LIST') ?: project.hasProperty('branchList') ? project.branchList : null
+    branchRAPList = System.getenv('RAP_LIST') ?: project.hasProperty('branchRAPList') ? project.branchRAPList : null
+    testRAPList = System.getenv('TEST_RAP_LIST') ?: project.hasProperty('testRAPList') ? project.testRAPList : null
+    productRAPList = System.getenv('PRODUCT_RAP_LIST') ?: project.hasProperty('productRAPList') ? project.productRAPList : null
+    dbCFTPath = project.hasProperty('dbCFT') ? project.property('dbCFT') : null
+    tomcatCFTPath = project.hasProperty('tomcatCFT') ? project.property('tomcatCFT') : null
+
+    smokeAppName = project.hasProperty('smokeAppName') ? project.property('smokeAppName') : 'appssmoke'
+    smokeAppUser = project.hasProperty('smokeAppUser') ? project.property('smokeAppUser') : 'appssmokedeveloper'
+    smokeAppPassword = project.hasProperty('smokeAppPassword') ? project.property('smokeAppPassword') : 'pegarules1+'
+}
+
+databaseConfig {
+    url {
+        project.hasProperty("JDBC_URL") ? project.JDBC_URL : null
+    }
+    username { project.hasProperty("DB_USERNAME") ? project.DB_USERNAME : null }
+    password { project.hasProperty("DB_PASSWORD") ? project.DB_PASSWORD : null }
+    rulesSchema { project.hasProperty("RULES_SCHEMA") ? project.RULES_SCHEMA : null }
+    dataSchema { project.hasProperty("DATA_SCHEMA") ? project.DATA_SCHEMA : null }
+}
+
+import com.pega.gradle.apps.utils.*
+import groovyx.net.http.ContentType
+ant.importBuild 'BackupOracle.xml'
+
+task clearCDHConfigDataPage() {
+    doFirst {
+        assert project.hasProperty('crmURL')
+        def config = [:]
+        config['contentType'] = ContentType.TEXT
+        config['uri'] = project.property('crmURL')
+        config['path'] = "prweb/PRRestService/remove/v1/removeDataPage"
+        config['user'] = 'appssmokedeveloper'
+        config['password'] = 'pegarules1+'
+        HttpRequestor.GET(config)
+    }
+}
+
+task updateMKTDatabase() {
+    doFirst {
+        assert project.hasProperty('mktURL') && project.hasProperty('mktDBHost') && project.hasProperty('mktDBPort')
+        def config = [:]
+        config['contentType'] = ContentType.TEXT
+        config['uri'] = project.property('mktURL')
+        config['path'] = "prweb/PRRestService/updatedb/v1/updatemktdb/${project.property('mktDBHost')}/${project.property('mktDBPort')}"
+        config['user'] = 'mktappssmokeadmin'
+        config['password'] = 'pega'
+        HttpRequestor.GET(config)
+    }
+}
+
+task push(type: com.pega.gradle.ve.aws.tasks.PushDebugAssets) {
+    stackName = project.hasProperty("stackName") ? project.stackName : null
+    sshKeyLocation = file("${sshKeyPath}")
+    bucketName = System.getenv('BUCKET_NAME') ?: project.findProperty('bucketName')
+    ip = project.hasProperty('ip') ? project.ip : null
+    jsonContainersData = project.hasProperty('containersData') ? project.containersData : null
+    s3Location = project.findProperty('vid') ? project.vid + "/ui" : ""
+    containerNameAndMountPoint{
+        containerType = "tomcat"
+        containerMountPoints = ["/usr/local/tomcat/work/Catalina/localhost/prweb/PRGenJava", "/usr/local/tomcat/logs"]
+    }
+    containerNameAndMountPoint{
+        containerType = "postgres"
+        containerMountPoints = ["/var/lib/postgresql/data/pg_log"]
+
+    }
+}
+
+task copyDBBackupDependencies (type: Copy) {
+    from zipTree(file(project.configurations.databaseBackupConfig.find{it.name.startsWith("dbBackup")}))
+    into file("$projectDir/lib")
+}
+

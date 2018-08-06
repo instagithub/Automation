@@ -1,0 +1,131 @@
+@Library("ve-lib@test/apps/branchlib")
+@Library("apps-lib@master") _
+
+env.baseVersion = "PegaCRM"
+env.GIT_REPO_URL = "https://git.pega.io/scm/crm/crm-all.git"
+env.ARTIFACTORY_URL = "https://internal.bin.pega.io/artifactory"
+env.ARTIFACTORY_REPO = "https://internal.bin.pega.io/artifactory/repo2"
+env.LATEST_CRM_VERSION = ""
+
+node('CRM-image-jdk8') {
+    timestamps {
+        ansiColor('xterm') {
+            def pipelineException
+            def stackId = env.baseVersion + "-" + env.BUILD_NUMBER + "-Validate"
+            def crmSutURL
+            def mktSutProps
+            def sutProps
+            try {
+                echo '------------------ Start of Code Checkout ------------------'
+
+                checkout scm
+
+                withCredentials([usernamePassword(credentialsId: 'artifactory2', passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'readonlycreds-artifactory', passwordVariable: 'READONLY_ARTIFACTORY_PASSWORD', usernameVariable: 'READONLY_ARTIFACTORY_USER')]) {
+                        writeFile file: "/root/.gradle/gradle.properties",
+                                text: "artifactoryUser=${ARTIFACTORY_USER}\n" +
+                                        "artifactoryPassword=${ARTIFACTORY_PASSWORD}\n" +
+                                        "artifactoryURL=${CI_ARTIFACTORY_URL}\n" +
+                                        "readonlyArtifactoryUser=${READONLY_ARTIFACTORY_USER}\n" +
+                                        "readonlyArtifactoryPassword=${READONLY_ARTIFACTORY_PASSWORD}"
+                    }
+                }
+
+                def props = readProperties file: 'gradle.properties'
+                def CRM_BUILD_BASE_VERSION = props['CRM_BUILD_BASE_VERSION']
+
+                //get latest validated CRM build
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew clean -b gradle/upgrade.gradle buildProps -PgroupId=com.pega.crm.docker -PartifactId=prpc-data-PegaCRM-postgres-9.4-ss-st -Pversion=${CRM_BUILD_BASE_VERSION}-+ -PartifactExt=tgz -PartifactName=prpc-data-PegaCRM-postgres-9.4-ss-st -PartifactoryRepo=apps-release-local -PartifactoryURL=${env.ARTIFACTORY_URL}"
+                def crmBuildProps = readProperties file: "gradle/build/build.properties"
+                env.LATEST_CRM_VERSION = crmBuildProps['build.version']
+                echo "Last Available TARBALL version : ${env.LATEST_CRM_VERSION}"
+
+                if (LATEST_CRM_VERSION && LATEST_CRM_VERSION.trim()) {
+                    def desc = " CRM Version: ${LATEST_CRM_VERSION}"
+                    currentBuild.description = "${desc}"
+                }
+
+                echo '--------------- Launch PRPC and load PegaCRM -----------------'
+                stage('CRM SUT Launch') {
+                    sutProps = prepareSUT {
+                        credentialsId = 'sut-deployer'
+                        stackName = stackId
+                        launchELB = false
+
+                        tarballRepo = 'apps-release-local'
+                        tarballGroupId = 'com.pega.crm.docker'
+                        tarballArtifactId = 'prpc-data-PegaCRM-postgres-9.4-ss-st'
+                        tarballVersion = "${this.env.LATEST_CRM_VERSION}"
+                    }
+                }
+
+                echo "--------------CRM SUT--------------" + sutProps['sutURL']
+                crmSutURL = sutProps['sutURL']
+                def crmSUT = "http://${sutProps['PRIVATE_IP']}:${sutProps['prpcPort']}"
+
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew clean"
+                stage('Marketing SUT Launch') {
+                    mktSutProps = prepareSUT {
+                        credentialsId = 'sut-deployer'
+                        stackName = stackId + "-mkt"
+                        launchELB = false
+                        testRAPList = ''
+                        tarballRepo = 'apps-dev-local'
+                        tarballGroupId = 'com.pega.pegamkt.docker'
+                        tarballArtifactId = 'prpc-data-PegaMKT-postgres-9.4-ss-st'
+                        tarballVersion = "3.0"
+                        dbCFT = 'templates/db/pega-mkt-postgres.json'
+                        tomcatCFT = 'templates/server/pega-mkt-tomcat.json'
+                    }
+                }
+
+                echo "--------------MKT SUT--------------" + mktSutProps['sutURL']
+                def mktSUT = "http://${mktSutProps['PRIVATE_IP']}:${mktSutProps['prpcPort']}"
+                def mktDBHost = mktSutProps['dbHost']
+                def mktDBPort = mktSutProps['dbPort']
+
+                def DSSKey = "PEGAMKT-INTEGRATION!CONNECTMKTURL"
+
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew updateDSS -PbuildServerURL=${crmSUT} -PDSSKey=${DSSKey} -PDSSValue=${mktSUT}"
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew clearCDHConfigDataPage -PcrmURL=${crmSUT}"
+                sh "chmod a+x gradlew && sleep 2 && ./gradlew updateMKTDatabase -PmktURL=${mktSUT} -PmktDBHost=${mktDBHost} -PmktDBPort=${mktDBPort}"
+
+                stage('Regression Validation') {
+                    validate {
+                        type = "LUS"
+                        profile = "Regression.groovy"
+                        profilesDir = this.pwd() + "/pipeline/profiles"
+                        sutURL = "${crmSutURL}"
+                        dbStackName = "${stackId}-db"
+                        appStackName = "${stackId}-app"
+                        pipelineImageName = "CRM-image-jdk8"
+                        cucumberProjectName = "cucumber-webdriver"
+                        repoURL = "$GIT_REPO_URL"
+                        cucumberReportTitle = "Cucumber Test Results - Regression"
+                        cucumberImage = 'ui-image-cucumber-aws'
+                        artifactoryCredentials = 'artifactory2'
+                        cucumberRerunCount = "0"
+                    }
+                }
+            } catch (Exception e) {
+                echo "failed with exception ${e.toString()}"
+                currentBuild.result = 'FAILURE'
+                throw e
+            } finally {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'sut-deployer', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    sh "chmod a+x gradlew && ./gradlew down -PstackName=${stackId}-db,${stackId}-app,${stackId}-elb,${stackId}-mkt-db,${stackId}-mkt-app"
+                }
+                def subStatus = currentBuild.result ? currentBuild.result : "SUCCESS"
+                def mailTemplate = readFile(encoding: 'UTF-8', file: "pipeline/templates/RegressionMailTemplate")
+                mailNotifier {
+                    template = "${mailTemplate}"
+                    subject = "[Pipeline] CRM Ready-To-Ship-Validation #${this.env.LATEST_CRM_VERSION} Validation - ${subStatus}!"
+                    recipient = this.env.CRM_DAILY_BUILD_MAIL_GROUP
+                    exception = pipelineException
+                    trigger = "AlwaysTrigger"
+                }
+            }
+
+        }
+    }
+}

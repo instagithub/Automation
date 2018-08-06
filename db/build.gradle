@@ -1,0 +1,110 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url "${artifactoryURL}/repo2"
+            credentials {
+                username = project.hasProperty('artifactoryUser')?${artifactoryUser}:""
+                password = project.hasProperty('artifactoryPassword')?${artifactoryPassword}:""
+            }
+        }
+    } 
+    dependencies {
+        classpath group: 'com.pega.gradle.plugins', name: 'gradle-prpc-plugin', version: '0.0.66-SNAPSHOT'
+    }
+}
+
+apply plugin: 'gradle-prpc-plugin'
+
+def CRM_VERSION = project.hasProperty('CRM_VERSION')?project.CRM_VERSION:'7.4-+'
+def PRPC_VERSION = project.hasProperty('PRPC_VERSION')?project.PRPC_VERSION:'HEAD-+'
+
+ext {
+    instanceID = UUID.randomUUID().toString()
+}
+
+configurations {
+    prpcWebConfiguration
+}
+
+dependencies {
+    prpcWebConfiguration group: 'com.pega.prpc.web', name: 'prweb', version: "${PRPC_VERSION}"
+}
+
+
+prpc {
+    version { "${CRM_VERSION}" }
+
+    if(project.hasProperty('localRepositoryName')) {
+        repositoryId { project.localRepositoryName }
+    } else {
+        repositoryId { 'repo2' }
+    }
+
+
+    if(project.hasProperty('artifactoryURL')) {
+        artifactoryURL { project.artifactoryURL }
+    }
+
+    if (project.hasProperty('artifactoryUser') && project.hasProperty('artifactoryPassword')) {
+        artifactoryCredentials { "${artifactoryUser}:${artifactoryPassword}".bytes.encodeBase64().toString() }
+    }
+
+    if(project.hasProperty('localDockerRegistryUrl')){
+        dockerRegistryURL { project.dockerRegistryUrl  }
+    } else {
+        dockerRegistryURL { "https://meshbincam.pega.com:7000" }
+    }
+
+    if(project.hasProperty('dockerImageRepo')){
+        dockerRepository { project.dockerImageRepo  }
+    }
+
+    if(project.hasProperty('dockerImageTag')){
+        dockerTag {project.dockerImageTag }
+    }
+
+    if(project.hasProperty('dockerTomcatImageTag')){
+        dockerAppserverTag {project.dockerTomcatImageTag }
+    } else {
+        dockerAppserverTag {'latest'}
+    }
+
+    if(project.hasProperty('tarballArtifactID')){
+        artifact {project.tarballArtifactID}
+    } else {
+        artifact {'prpc-data-PegaCRM-postgres-9.4-ss-st'}
+    }
+
+    if(project.hasProperty('tarballGroupID')){
+        group {project.tarballGroupID }
+    } else {
+        group {'com.pega.crm.docker'}
+    }
+
+    database {
+        portBindings = [":5432"]
+    }
+
+    if(project.hasProperty('appServerPort')) {
+        appServer {
+            portBindings = [":8080"]
+        }
+    }
+
+    if (project.hasProperty('pollTimeout')) {
+        logPollingTimeOut = project.pollTimeout.toLong()
+    } else {
+        logPollingTimeOut = 5000000L
+    }
+
+    timeZone = { "America/New_York" }
+
+}
+
+
+if(project.hasProperty('dockerURL')){
+    docker{
+        url = project.dockerURL
+    }
+}

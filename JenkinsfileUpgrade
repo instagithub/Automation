@@ -1,0 +1,9 @@
+@Library("apps-pipeline-shared-lib@master") _
+
+def params = [:]
+params['nodeToUse'] = "${this.env.nodeName}"
+params['stage'] = "${this.env.stage}"
+params['PRPC_VERSION'] = "${this.env.PRPC_VERSION}"
+
+
+upgradePegaLabs(params) {}

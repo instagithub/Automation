@@ -1,0 +1,102 @@
+<font face="calibri">
+    <%
+        def pipelineInstance = PipelineInstance
+        def exception = Exceptions
+        def classMap = ClassMap
+
+        def branchName = pipelineInstance.env.BRANCH_NAME
+        def jobName = pipelineInstance.env.JOB_NAME.replaceAll("/.*","")
+        def buildNumber = pipelineInstance.env.BUILD_NUMBER
+        def build = pipelineInstance.manager.hudson.getInstance().getItem(jobName).getAllJobs().find{it.name == URLEncoder.encode(branchName, "UTF-8")}.getBuild(buildNumber)
+        def buildProperties = build.getProperties()
+        def buildURL = URLDecoder.decode(build.getAbsoluteUrl(), "UTF-8")
+        def buildActions = build.getActions()
+        def elkLink = buildActions.find{it?.getDisplayName()?.contains("ELK")}
+
+        branchName = URLDecoder.decode("${branchName}","UTF-8")
+        elkLink  = elkLink ? "${buildURL}ELK_Links/" : "Build Failed Before ELK Link Generation"
+    %>
+        <h1 align="center">Gradle CoreAssembly Request</h1>
+        <h3 align='left'>Build Summary</h3>
+             Job Name: ${jobName}
+        </br>Branch Name: ${branchName}
+        </br>Build Duration: ${buildProperties.get("durationString")}
+        </br>Build Start Time: ${buildProperties.get("time")}
+        </br>
+        </br>Classic View: ${buildURL}
+        </br>Blue Ocean View: ${buildURL.replaceFirst('job','blue/organizations/jenkins').replaceFirst('job','detail') + 'pipeline'}
+        </br>ELK Links: ${elkLink}
+        </br>Flow Graph Table: ${buildURL}flowGraphTable
+        </br></br>
+
+        <h3 align='left'>Exceptions</h3>
+    <%
+        if(exception){
+            def writer = new StringWriter()
+            def printStream = new PrintWriter(writer, true)
+            try{
+                exception.printStackTrace(printStream)
+            }catch(Exception ex){
+                println ex
+            }finally{
+                printStream.close()
+            }
+            %>
+                ${writer.toString().replaceAll("(\\r|\\n|\\r\\n)+", "<br>")}
+            <%
+        }else{
+            %>
+                -----
+            <%
+        }
+    %>
+
+        <h3 align='left'>Post Build Summary</h3>
+    <%
+        def postBuildText = []
+        def actionsCollection = buildProperties.get("actions")
+        if(actionsCollection && actionsCollection.size() > 0){
+            for(int i=0; i<actionsCollection.size(); i++){
+                if(actionsCollection[i].getClass().getName() == "org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildSummaryAction"){
+                    postBuildText.add(actionsCollection[i].getText())
+                }
+            }
+        }
+        if(postBuildText.size() > 0){
+            for(int i=0;i<postBuildText.size();i++){
+                %>
+                    ${postBuildText[i]}<br>
+                <%
+            }
+        }else{
+            %>
+                -----
+            <%
+        }
+    %>
+
+        <h3 align='left'>Change Sets</h3>
+    <%
+        def changeSets = buildProperties.get("changeSets")
+        if(changeSets && changeSets.size() > 0){
+            for(int i=0; i<changeSets.size(); i++){
+                def getLogs = changeSets[i].getLogs()
+                for(int k=0; k<getLogs.size(); k++){
+                    %>
+                        Commit ID: ${getLogs[k].getCommitId()}
+                        </br>Committer: ${getLogs[k].committer}
+                        </br>Committer Email: ${getLogs[k].committerEmail}
+                        </br>Commit Date: ${getLogs[k].getDate()}
+                        </br>Files Affected: ${getLogs[k].getAffectedPaths()}
+                        </br>Comments: ${getLogs[k].comment}
+                        </br></br>
+                    <%
+                }
+            }
+        }else{
+              %>
+                -----
+              <%
+        }
+    %>
+</font>

@@ -1,0 +1,69 @@
+# Directories #
+######################
+build/
+bin/
+out/
+target/
+binaries/
+.gradle/
+.svn/
+
+# OS generated files #
+######################
+.DS_Store
+
+# IDE generated files #
+######################
+.settings/
+.classpath
+.project
+.README*
+.idea
+*.iml
+*.ipr
+*.iws
+org.eclipse.buildship.core.prefs
+*.log
+.nb-gradle/
+.metadata/
+.externalToolBuilders/
+git/
+
+# binaries #
+###########
+*.zip
+*.ZIP
+*.msi
+*.dll
+*.exe
+*.tgz
+*.tar
+*.tar.gz
+*.jar
+*.JAR
+*.war
+*.PEGA
+*.ser
+*.ipa
+*.apk
+*.httpstream
+*.log.gz
+*.class
+!gradle/wrapper/*
+!dist/gradle/wrapper/*
+
+# rulesync private metadata #
+#############################
+.rulesync.private
+# vim files
+# # ###########################
+# ## swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# # session
+Session.vim
+# # temporary
+.netrwhist
+*~
+# # auto-generated tag files
+tags

@@ -1,0 +1,48 @@
+import groovy.json.internal.Exceptions
+
+@Library("apps-pipeline-shared-lib@master") _
+
+env.PRPC_VERSION = this.PRPC_VERSION
+
+def nodeToUse = isDevUpgrade.toBoolean() ? 'CRMDev-cti' : 'blr_executor'
+
+node(nodeToUse) {
+    stage('Upgrade CRM Dev') {
+
+        checkout scm
+		
+		stage('Database BackUp') {
+			echo "-----------Database backup started-----------"
+
+			try {
+				sh "chmod a+x ./gradlew && ./gradlew copyDBBackupDependencies -s"
+				sh "./gradlew Init -s"
+				echo "-----------Database backup completed-----------"
+			} catch (Exception e) {
+				echo "DB backup failed: ${e.toString()}"
+			}
+		}
+
+        upgradeAppPipelineFlow {
+            parameters {
+                createBugs = false
+                deployPrweb = true
+                appServerInfoFilePath = "${this.isDevUpgrade.toBoolean() ? "AppServerInfoDev.json" : "AppServerInfoClone.json"}"
+                //gradle file details
+                gradleFileToBuild = 'gradle/upgrade.gradle'
+                gradleProjectDir = 'gradle'
+                additionalParams = "-Pversion=${this.env.PRPC_VERSION}"
+                //dbInfo
+                jdbcURL = "${this.isDevUpgrade.toBoolean() ? 'jdbc:oracle:thin:@10.225.69.174:1521:H3CRMDEV' : 'jdbc:oracle:thin:@10.150.68.156:1521:BCRMCICD'}"
+                dbCredentialID = "${this.isDevUpgrade.toBoolean() ? 'CRM-dev-7.5' : 'CRM-Clone'}"
+                rulesSchema = 'crmrules75'
+                dataSchema = 'crmdata75'
+            }
+        }
+
+        def buildStatus = currentBuild.result
+        if (buildStatus == null) {
+            buildStatus = "SUCCESS"
+        }
+    }
+}

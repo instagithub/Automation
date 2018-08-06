@@ -1,0 +1,121 @@
+env.baseVersion = "PegaCRM"
+env.SQUID_ARTIFACTORY_URL = 'https://internal.bin.pega.io/artifactory'
+env.ARTIFACTORY_URL = 'https://meshbincam.pega.com/artifactory'
+
+@Library("ve-lib@test/apps/branchlib")
+@Library("apps-lib@master") _
+
+
+// add timestamp & color logging for node
+def wrapNode(label, body) {
+    node(label) {
+        timestamps {
+            ansiColor('xterm') {
+                body()
+            }
+        }
+    }
+}
+
+def cleanupDiskSpaceInCRMExecutor() {
+    try {
+        sh '''
+            rm -rf ~/.gradle/caches/modules-2/files-2.1/com.pega.applications
+            rm -rf ~/.gradle/caches/modules-2/files-2.1/com.pega.prpc.assemblies
+        '''
+    } catch(def e) {
+        echo "Error occured while deleting caches on server:" + e.toString()
+    }
+}
+
+def serverstoDeploy = []
+try {
+    stage('Deploy CRM') {
+        def deployCRM = [:]
+        def serverData
+        def serverList
+        def productRAPList
+        def testRapList
+        wrapNode('master') {
+            echo '------------------ Start of Code Checkout ------------------'
+            checkout scm
+
+            def props = readProperties file: 'gradle.properties'
+            def CRM_BUILD_BASE_VERSION = props['CRM_BUILD_BASE_VERSION']
+            def CRM_BUILD_GROUP_ID = props['CRM_BUILD_GROUP_ID']
+
+            serverData = readJSON file: "${this.DEPLOY_SERVERS_JSON}", text: ''
+            serverList = serverData['serverList']
+            if(this.CRM_BUILD?.trim()) {
+                env.crmVersion = this.CRM_BUILD
+            } else {
+                //get latest validated CRM build
+                withCredentials([usernamePassword(credentialsId: 'squid-artifactory', passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
+                    sh "chmod a+x gradlew && sleep 2 && ./gradlew clean -b gradle/upgrade.gradle buildProps -PgroupId=com.pega.crm.docker -PartifactId=prpc-data-PegaCRM-postgres-9.4-ss-st -Pversion=${CRM_BUILD_BASE_VERSION}-+ -PartifactExt=tgz -PartifactName=prpc-data-PegaCRM-postgres-9.4-ss-st -PartifactoryRepo=apps-release-local -PartifactoryURL=${SQUID_ARTIFACTORY_URL} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword='${ARTIFACTORY_PASSWORD}'"
+                }
+                def crmBuildProps = readProperties file: "gradle/build/build.properties"
+                env.crmVersion = crmBuildProps['build.version']
+            }
+            echo "CRM Build to be deployed: ${env.crmVersion}"
+            productRAPList = "${CRM_BUILD_GROUP_ID}:PegaCRM:${crmVersion},${CRM_BUILD_GROUP_ID}:PegaCRMSample_DDL:${crmVersion},${CRM_BUILD_GROUP_ID}:PegaCRMSample_DML:${crmVersion},${CRM_BUILD_GROUP_ID}:KMSampleData:${crmVersion}"
+
+        }
+        serverList.each { server ->
+            def splitName = server['jenkinsNodeName']
+            serverstoDeploy << splitName
+            deployCRM[splitName] = {
+                node(server['jenkinsNodeName']) {
+                    echo '------------------ Start of Code Checkout ------------------'
+                    checkout scm
+                    def serverName = server['jenkinsNodeName']
+                    def redirectLogFileName = "deploy-log-${serverName}.txt"
+
+                    def jdbcURL = server['JDBC_URL']
+                    def dbUserName = server['DB_USERNAME']
+                    def dbUserPassword = server['DB_PASSWORD']
+                    def dbrulesSchema = server['RULES_SCHEMA']
+                    def dbdataSchema = server['DATA_SCHEMA']
+                    def command = "chmod a+x gradlew && sleep 2 && ./gradlew --no-daemon -Porg.gradle.jvmargs='-Xms256m -Xmx512m -XX:MaxPermSize=512m' clean importRAPs -PproductRAPList=${productRAPList} -PJDBC_URL='${jdbcURL}' -PDB_USERNAME='${dbUserName}' -PDB_PASSWORD='${dbUserPassword}' -PRULES_SCHEMA='${dbrulesSchema}' -PDATA_SCHEMA='${dbdataSchema}' -PartifactoryURL=${ARTIFACTORY_URL}"
+                    if(!server['importTestRaps']) {
+                        echo 'skipping importing test raps on this server'
+                        command = command + " -PtestRAPList= "
+                    }
+                    try {
+                        timeout(120) {
+                            sh command + " > ${redirectLogFileName}"
+                            if(server['postImportCommand']?.trim()) {
+                                httpRequest responseHandle: 'NONE', url: server['postImportCommand']
+                            }
+                        }
+                    } catch (def e) {
+                    	 currentBuild.result = 'FAILURE'
+                        throw e
+                    } finally{
+                        cleanupDiskSpaceInCRMExecutor()
+                        archive redirectLogFileName
+                    }
+                }
+            }
+        }
+        parallel deployCRM
+    }
+
+} catch (Exception e) {
+	currentBuild.result = 'FAILURE'
+    throw e
+} finally {
+    def subStatus = currentBuild.result ? currentBuild.result : "SUCCESS"
+    def mailTemplate
+    node('master'){
+        mailTemplate = readFile(encoding: 'UTF-8', file: "pipeline/templates/DeployMailTemplate")
+    }
+    env.servers = serverstoDeploy
+    mailNotifier {
+        template = "${mailTemplate}"
+        subject = "[Pipeline] CRM Build #${this.env.crmVersion} Deployment - ${subStatus}!"
+        recipient = "${this.EMAIL_RECIPIENTS}"
+        exception = pipelineException
+        trigger = "AlwaysTrigger"
+    }
+}
+

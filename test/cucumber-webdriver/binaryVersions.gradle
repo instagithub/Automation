@@ -1,0 +1,4 @@
+ext.binaries = [
+	"webdriver-assets:HEAD-28" : "./"
+]
+

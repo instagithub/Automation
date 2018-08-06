@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="Init" name="Reading Files In Perticular Directory" xmlns:ac="antlib:net.sf.antcontrib">
+	<tstamp>
+		<format property="time.stamp" pattern="yyyyMMddHHmmss"/>
+	</tstamp>
+
+	<available property="ant-jsch.present" file="${ant.home}/lib/ant-jsch.jar"/>
+	<fail if="ant-jsch.present" message="Please remove ant-jsch.jar from ANT_HOME/lib see [http://ant.apache.org/faq.html#delegating-classloader]"/>
+
+	<path id="jsch.path">
+		<pathelement location="lib/ant-jsch.jar" />
+		<pathelement location="lib/jsch-0.1.50.jar" />
+	</path>
+
+	<property environment="env"/>
+	<property name="lib.dir" value="${basedir}/lib" />
+
+	<property name="db.hostip" value="10.225.69.174" />
+	<property name="db.os.user" value="prpcadmin" />
+	<property name="db.os.pass" value="Welcome123" />
+	<property name="db.os.user.profile.file" value="/home/prpcadmin/profileH3CRMDEV" />
+	<property name="db.name" value="H3CRMDEV"/>
+	<property name="db.adm.user" value="EISBKPUSR" />
+	<property name="db.adm.pass" value="bkpUsr123"/>
+	<property name="db.datapump.dir.name" value="CRMPREUPGRADE_DPD"/>
+
+	<property name="sshexe.timeout.millisecond" value="60000"/>
+
+	<target name="Init" depends="OracleDBExportBackup" />
+  
+  	<target name="testTask">
+        <echo>Sample test task</echo>
+    </target>
+
+	<target name="Load-Libs" >
+		<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+		<path id="path.lib.dir"><fileset dir="${lib.dir}" includes="*.jar"/></path>
+	</target>
+
+
+	<target name="OracleDBExportBackup" depends="Load-Libs">
+		<sshexec host="${db.hostip}" username="${db.os.user}" password="${db.os.pass}"
+				 command=". ${db.os.user.profile.file}; expdp ${db.adm.user}/${db.adm.pass}@${db.hostip}/${db.name} directory=${db.datapump.dir.name} dumpfile=expdp_${db.name}${time.stamp}_%U.dmp logfile=expdp_${db.name}${time.stamp}.log full=y parallel=4"
+				 trust="true" verbose="false" failonerror="true" timeout="1800000"/>
+	</target>
+
+</project>

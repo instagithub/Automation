@@ -1,0 +1,532 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "VE Tomcat",
+  "Parameters" : {
+    "clustername" : {
+      "Description" : "ECS Cluster name",
+      "Type" : "String"
+    },
+    "env":{
+      "Type":"String",
+      "Description":"prod or dev",
+      "Default" : "dev"
+    },
+    "artifactoryURL" : {
+      "Type" : "String",
+      "Default" : "https://cirrus-cache.pega.io/artifactory"
+    },
+    "artifactoryUser" : {
+      "Type" : "String",
+      "Default" : ""
+    },
+    "artifactoryPassword" : {
+      "Type" : "String",
+      "Default" : ""
+    },
+    "s3Key" : {
+      "Description" : "s3 object location",
+      "Type" : "String"
+    },
+    "vid" : {
+      "Description" : "ve request-id",
+      "Type" : "String",
+      "Default" : ""
+    },
+    "testtype" : {
+      "Description" : "junit or ui",
+      "Type" : "String"
+    },
+    "elkhost" : {
+      "Description" : "logstash url",
+      "Type" : "String",
+      "Default" : ""
+    },
+    "timezone" : {
+      "Type" : "String",
+      "Default" : "America/New_York"
+    },
+    "dbname" : {
+      "Type" : "String",
+      "Default" : "postgres"
+    },
+    "dbusername" : {
+      "Type" : "String",
+      "Default" : "postgres"
+    },
+    "dbpassword" : {
+      "Type" : "String",
+      "Default" : "postgres"
+    },
+    "ruleschema" : {
+      "Type" : "String",
+      "Default" : "public"
+    },
+    "dataschema" : {
+      "Type" : "String",
+      "Default" : "public"
+    },
+    "dbhost" : {
+      "Type" : "String",
+      "Default" : "127.0.0.1"
+    },
+    "dbport" : {
+      "Type" : "String",
+      "Default" : "5432"
+    },
+    "rodbusername" : {
+      "Type": "String",
+      "Default":"postgres"
+    },
+    "rodbpassword" : {
+      "Type": "String",
+      "Default":"postgres"
+    },
+    "tomcatFilebeatImageName" : {
+      "Type" : "String",
+      "Default" : "docker-dev-local.bin.pega.io/tomcat-filebeat:5.6.2"
+    },
+    "tomcatImageName" : {
+      "Type" : "String",
+      "Default" : "cirrus-cache.pega.io:5002/tomcat-image:latest"
+    },
+    "haproxyImageName" : {
+      "Type" : "String",
+      "Default" : "cirrus-cache.pega.io:5002/haproxy-image:latest"
+    },
+    "bucketName" : {
+      "Type" : "String",
+      "Default" : "validationengine-dev"
+    },
+    "securityGroup" : {
+      "Type" : "String",
+      "Default" : "sg-19ffc962"
+    },
+    "hostedZoneName" : {
+      "Type" : "String",
+      "Default" : "dev.pega.io."
+    },
+    "hostedZoneId" : {
+      "Type" : "String",
+      "Default" : "ZCQV0SSFIMZ43"
+    },
+    "certificateArn" : {
+      "Type" : "String",
+      "Default" : "arn:aws:acm:us-west-2:045654838477:certificate/1246a581-a829-4ac7-9e34-bcfbaf058a2c"
+    },
+    "vpcID" : {
+      "Type" : "String",
+      "Default" : "vpc-34f55950"
+    },
+    "subnetIDs" : {
+      "Type" : "CommaDelimitedList",
+      "Default" : "subnet-66438e10,subnet-618f9338,subnet-66e94202"
+    },
+    "jdbcMinActive" : {
+      "Type" : "String",
+      "Default" : "10"
+    },
+    "jdbcMaxActive" : {
+      "Type" : "String",
+      "Default" : "40"
+    },
+    "jdbcMinIdle" : {
+      "Type" : "String",
+      "Default" : "10"
+    },
+    "jdbcMaxIdle" : {
+      "Type" : "String",
+      "Default" : "20"
+    }
+  },
+  "Resources" : {
+    "taskdefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties" : {
+        "ContainerDefinitions" : [
+          {
+            "Name": "tomcat-filebeat-1",
+            "Cpu": "5",
+            "Memory" : 512,
+            "Image": { "Ref" : "tomcatFilebeatImageName" },
+            "ReadonlyRootFilesystem" : false,
+            "Privileged" : true,
+            "VolumesFrom": [
+              {
+                "SourceContainer": "tomcat1"
+              }
+            ],
+            "Environment": [
+              {
+                "Name": "vid",
+                "Value":{ "Ref" : "vid" }
+              },
+              {
+                "Name": "elk_host",
+                "Value":{ "Ref" : "elkhost" }
+              },
+              {
+                "Name": "test_type",
+                "Value":{ "Ref" : "testtype" }
+              },
+              {
+                "Name": "pegarules.logging.configuration",
+                "Value": "VE-AWS-prlog4j2.xml"
+              },
+              {
+                "Name": "tomcat_id",
+                "Value":"tomcat1"
+              }
+            ]
+          },
+          {
+            "Name": "tomcat-filebeat-2",
+            "Cpu": "5",
+            "Memory" : 512,
+            "Image": { "Ref" : "tomcatFilebeatImageName" },
+            "ReadonlyRootFilesystem" : false,
+            "Privileged" : true,
+            "VolumesFrom": [
+              {
+                "SourceContainer": "tomcat2"
+              }
+            ],
+            "Environment": [
+              {
+                "Name": "vid",
+                "Value":{ "Ref" : "vid" }
+              },
+              {
+                "Name": "elk_host",
+                "Value":{ "Ref" : "elkhost" }
+              },
+              {
+                "Name": "test_type",
+                "Value":{ "Ref" : "testtype" }
+              },
+              {
+                "Name": "pegarules.logging.configuration",
+                "Value": "VE-AWS-prlog4j2.xml"
+              },
+              {
+                "Name": "tomcat_id",
+                "Value":"tomcat2"
+              }
+            ]
+          },
+          {
+            "Name": "tomcat1",
+            "Cpu": "10",
+            "Memory" : 10752,
+            "Image": { "Ref" : "tomcatImageName" },
+            "PortMappings": [
+              {
+                "HostPort": 0,
+                "ContainerPort": 8080
+              }
+            ],
+            "ReadonlyRootFilesystem" : false,
+            "Privileged" : true,
+            "Command" : [ "run"],
+            "MountPoints" : [
+              {
+                "ContainerPath" : "/usr/local/tomcat/work/Catalina/localhost/prweb",
+                "SourceVolume"  : "GenJava1",
+                "ReadOnly"      : false
+              },
+              {
+                "ContainerPath" : "/usr/local/tomcat/logs",
+                "SourceVolume"  : "Tomcat1Logs"
+              },
+              {
+                "ContainerPath" : "/logs",
+                "SourceVolume"  : "PRPC1Logs"
+              }
+            ],
+            "Environment": [
+              {
+                "Name": "JDBC_MIN_ACTIVE",
+                "Value": { "Ref" : "jdbcMinActive" }
+              },
+              {
+                "Name": "JDBC_MAX_ACTIVE",
+                "Value": { "Ref" : "jdbcMaxActive" }
+              },
+              {
+                "Name": "JDBC_MIN_IDLE",
+                "Value": { "Ref" : "jdbcMinIdle" }
+              },
+              {
+                "Name": "JDBC_MAX_IDLE",
+                "Value": { "Ref" : "jdbcMaxIdle" }
+              },
+              {
+                "Name": "DB_NAME",
+                "Value": { "Ref" : "dbname" }
+              },
+              {
+                "Name": "DB_HOST",
+                "Value": { "Ref" : "dbhost" }
+              },
+              {
+                "Name": "DB_PORT",
+                "Value": { "Ref" : "dbport" }
+              },
+              {
+                "Name": "DB_USERNAME",
+                "Value": { "Ref" : "dbusername" }
+              },
+              {
+                "Name": "DB_PASSWORD",
+                "Value": { "Ref" : "dbpassword" }
+              },
+              {
+                "Name": "RULES_SCHEMA",
+                "Value": { "Ref" : "ruleschema" }
+              },
+              {
+                "Name": "DATA_SCHEMA",
+                "Value": { "Ref" : "dataschema" }
+              },
+              {
+                "Name": "RO_DB_USERNAME",
+                "Value": { "Ref" : "rodbusername" }
+              },
+              {
+                "Name": "RO_DB_PASSWORD",
+                "Value": { "Ref" : "rodbpassword" }
+              },
+              {
+                "Name": "INDEX_DIRECTORY",
+                "Value":"/opt/pega/index"
+              },
+              {
+                "Name": "FILE_LISTENER_SETTINGS",
+                "Value":"Pega-SearchEngine/indexing/distributed/enableOldSearch=true;indexing/distributed/enabled=false"
+              },
+              {
+                "Name": "bucketName",
+                "Value": { "Ref" : "bucketName" }
+              },
+              {
+                "Name": "s3Key",
+                "Value": { "Ref" : "s3Key" }
+              },
+              {
+                "Name": "vid",
+                "Value":{ "Ref" : "vid" }
+              },
+              {
+                "Name": "elk_host",
+                "Value":{ "Ref" : "elkhost" }
+              },
+              {
+                "Name": "test_type",
+                "Value":{ "Ref" : "testtype" }
+              },
+              {
+                "Name": "pegarules.logging.configuration",
+                "Value": "VE-AWS-prlog4j2.xml"
+              },
+              {
+                "Name": "tomcat_id",
+                "Value":"tomcat1"
+              },
+              {
+                "Name": "JAVA_OPTS",
+                "Value":"-Xms2048m -Xmx6144m -XX:PermSize=128m -XX:MaxPermSize=1536m"
+              }
+            ]
+          },
+          {
+            "Name": "tomcat2",
+            "Cpu": "10",
+            "Memory" : 10752,
+            "Image" : { "Ref" : "tomcatImageName" },
+            "PortMappings": [
+              {
+                "HostPort": 0,
+                "ContainerPort": 8080
+              }
+            ],
+            "ReadonlyRootFilesystem" : false,
+            "Privileged" : true,
+            "Command" : [ "run" ],
+            "MountPoints" : [
+              {
+                "ContainerPath" : "/usr/local/tomcat/work/Catalina/localhost/prweb",
+                "SourceVolume"  : "GenJava2",
+                "ReadOnly"      : false
+              },
+              {
+                "ContainerPath" : "/usr/local/tomcat/logs",
+                "SourceVolume"  : "Tomcat2Logs"
+              },
+              {
+                "ContainerPath" : "/logs",
+                "SourceVolume"  : "PRPC2Logs"
+              }
+            ],
+            "Environment": [
+              {
+                "Name": "JDBC_MIN_ACTIVE",
+                "Value": { "Ref" : "jdbcMinActive" }
+              },
+              {
+                "Name": "JDBC_MAX_ACTIVE",
+                "Value": { "Ref" : "jdbcMaxActive" }
+              },
+              {
+                "Name": "JDBC_MIN_IDLE",
+                "Value": { "Ref" : "jdbcMinIdle" }
+              },
+              {
+                "Name": "JDBC_MAX_IDLE",
+                "Value": { "Ref" : "jdbcMaxIdle" }
+              },
+              {
+                "Name": "DB_NAME",
+                "Value": { "Ref" : "dbname" }
+              },
+              {
+                "Name": "DB_HOST",
+                "Value": { "Ref" : "dbhost" }
+              },
+              {
+                "Name": "DB_PORT",
+                "Value": { "Ref" : "dbport" }
+              },
+              {
+                "Name": "DB_USERNAME",
+                "Value": { "Ref" : "dbusername" }
+              },
+              {
+                "Name": "DB_PASSWORD",
+                "Value": { "Ref" : "dbpassword" }
+              },
+              {
+                "Name": "RULES_SCHEMA",
+                "Value": { "Ref" : "ruleschema" }
+              },
+              {
+                "Name": "DATA_SCHEMA",
+                "Value": { "Ref" : "dataschema" }
+              },
+              {
+                "Name": "RO_DB_USERNAME",
+                "Value": { "Ref" : "rodbusername" }
+              },
+              {
+                "Name": "RO_DB_PASSWORD",
+                "Value": { "Ref" : "rodbpassword" }
+              },
+              {
+                "Name": "INDEX_DIRECTORY",
+                "Value":"/opt/pega/index"
+              },
+              {
+                "Name": "FILE_LISTENER_SETTINGS",
+                "Value":"Pega-SearchEngine/indexing/distributed/enableOldSearch=true;indexing/distributed/enabled=false"
+              },
+              {
+                "Name": "bucketName",
+                "Value": { "Ref" : "bucketName" }
+              },
+              {
+                "Name": "s3Key",
+                "Value": { "Ref" : "s3Key" }
+              },
+              {
+                "Name": "vid",
+                "Value":{ "Ref" : "vid" }
+              },
+              {
+                "Name": "elk_host",
+                "Value":{ "Ref" : "elkhost" }
+              },
+              {
+                "Name": "test_type",
+                "Value":{ "Ref" : "testtype" }
+              },
+              {
+                "Name": "pegarules.logging.configuration",
+                "Value": "VE-AWS-prlog4j2.xml"
+              },
+              {
+                "Name": "tomcat_id",
+                "Value":"tomcat2"
+              },
+              {
+                "Name": "JAVA_OPTS",
+                "Value":"-Xms2048m -Xmx6144m -XX:PermSize=128m -XX:MaxPermSize=1536m"
+              }
+            ]
+          },
+          {
+            "Name": "haproxy",
+            "Cpu": "5",
+            "Memory" : 1024,
+            "Image" : { "Ref" : "haproxyImageName" },
+            "PortMappings": [
+              {
+                "HostPort": 0,
+                "ContainerPort": 80
+              }
+            ],
+            "Command" : [ "haproxy" ],
+            "Links": [
+              "tomcat1:tomcat1",
+              "tomcat2:tomcat2"
+            ],
+            "Ulimits" : [
+              {
+                "HardLimit" : 9000,
+                "Name" : "nofile",
+                "SoftLimit" : 9000
+              }
+            ]
+          }
+        ],
+        "Volumes" : [
+          {
+            "Name" : "GenJava1"
+          },
+          {
+            "Name" : "GenJava2"
+          },
+          {
+            "Name" : "Tomcat1Logs"
+          },
+          {
+            "Name" : "Tomcat2Logs"
+          },
+          {
+            "Name" : "PRPC1Logs"
+          },
+          {
+            "Name" : "PRPC2Logs"
+          }
+        ]
+      }
+    },
+    "service": {
+      "Type": "AWS::ECS::Service",
+      "Properties" : {
+        "Cluster": { "Ref" : "clustername" },
+        "DesiredCount": "1",
+        "TaskDefinition" : {"Ref":"taskdefinition"}
+      }
+    }
+  },
+  "Outputs" : {
+    "taskdef" : {
+      "Value" : {"Ref":"taskdefinition"}
+    },
+    "HTTPSUrl": {
+      "Value": "TBD"
+    },
+    "ECSALB":{
+      "Description":"ELB DNS URL",
+      "Value": "TBD"
+    }
+  }
+}

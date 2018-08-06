@@ -1,0 +1,485 @@
+apply plugin: 'distribution'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+
+// Notes:
+// 1. Builds are not always run from the root. Using user.dir to find the root
+// breaks builds run from individual projects. Gradle provides the property 'rootDir'.
+// 2. The project directory is 'projectDir'
+// 3. The property 'buildDir' refers to "$projectDir/build"
+// 4. Relative paths in a gradle project are relative to the project directory.
+// 5. Variables within double quotes are resolved. Single quotes work well when there are
+// no variables to resolve.
+// test
+sourceSets.main.java.srcDirs = ["CRMFramework/core.impl","CRMFramework/src","CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/AppExpress", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.test.java.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.test.resources.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.main.resources.includes = ["**/*.features"]
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url "${artifactoryURL}/repo2"
+            credentials {
+                username artifactoryUser
+                password artifactoryPassword
+            }
+        }
+
+    }
+}
+
+configurations {
+    cucumberwebdriver
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url "${artifactoryURL}/repo2"
+        credentials {
+            username artifactoryUser
+            password artifactoryPassword
+        }
+    }
+}
+
+distributions {
+    main {
+        baseName = 'cucumber-webdriver'
+        contents {
+            from { "." }
+            exclude 'build', '.gradle'
+            into '/'
+	        from(rootDir) {
+	            include 'gradlew'
+	            include 'gradlew.bat'
+	            include 'gradle/wrapper/**'
+	            into '/'
+	        }
+        }
+    }
+}
+
+dependencies {
+    cucumberwebdriver(group: 'com.pega.prpc.code', name: 'cucumber-webdriver', version: codeversion) {
+        transitive = false
+    }
+   /* compile group: 'org.samba.jcifs', name: 'jcifs', version: '1.3.14-kohsuke-1'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.15'
+    compile group: 'org.apache.poi', name: 'ooxml-security', version: '1.0'
+    compile group: 'com.github.slaout.fork.info.cukes', name: 'cucumber-core', version: '1.2.7'
+    compile group: 'com.github.slaout.fork.info.cukes', name: 'cucumber-java', version: '1.2.7'
+    compile group: 'mx4j', name: 'mx4j', version: '3.0.2'
+    compile group: 'info.cukes', name: 'cucumber-jvm-deps', version: '1.0.5'
+    compile group: 'com.github.slaout.fork.info.cukes', name: 'cucumber-junit', version: '1.2.7'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.5'
+    compile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.4', transitive: false
+    compile group: 'org.testng', name: 'testng', version: '6.8.8'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.1'
+    compile group: 'mx4j', name: 'mx4j-tools', version: '3.0.1'
+    compile group: 'com.pojosontheweb', name: 'monte-repack', version: '1.0'
+    compile group: 'org.apache.maven.plugin-tools', name: 'maven-plugin-annotations', version: '3.2'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.7.0'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.1'
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.4'
+    compile group: 'net.sf.ezmorph', name: 'ezmorph', version: '1.0.4'
+    compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.2', classifier: 'jdk15'
+    compile group: 'javax.mail', name: 'mail', version: '1.4'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.7.2'
+    compile group: 'com.google.inject', name: 'guice', version: '3.0'
+    compile group: 'info.cukes', name: 'cucumber-guice', version: '1.2.4', transitive: false
+    compile group: 'org.seleniumhq.selenium', name: 'htmlunit-driver', version: '2.21'
+    compile group: 'com.sun.jersey', name: 'jersey-client', version: '1.8'
+    compile group: 'net.lingala.zip4j', name: 'zip4j', version: '1.3.2'
+    compile group: 'io.appium', name: 'java-client', version: '2.1.0'
+    compile group: 'org.apache.poi', name: 'poi', version: '3.14'
+    compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.14'
+    compile group: 'org.apache.poi', name: 'ooxml-schemas', version: '1.3'
+    compile group: 'org.osgi', name: 'org.osgi.core', version: '4.3.0'*/
+    compile group: 'com.pega.iad', name: 'IADFW', version: '2.1.1'
+    //compile group: 'com.opencsv', name: 'opencsv', version: '3.7'
+    //compile group: 'com.pega.selenium.cucumber', name: 'framework', version: '2.0'
+    //compile group: 'com.pega.selenium.cucumber', name: 'prpcpageobjects', version: '1.0.3'
+	compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.4'
+	compile group: 'org.facebook4j', name: 'facebook4j-core', version: '2.4.10'
+}
+
+def cucumberWorkspacePath = project.hasProperty('cucumberWorkspace') ? project.file(project.property('cucumberWorkspace')) : project.file("$projectDir")
+def resultsDirPath = project.hasProperty('resultsDir') ? project.property('resultsDir') : "$buildDir/results"
+def htmlReportsDirPath = "${resultsDirPath}/cucumber/html_results"
+def xmlReportsDirPath = "${resultsDirPath}/cucumber/xml_results"
+def jsonReportsDirPath = "${resultsDirPath}/cucumber/json_results"
+def xmlReport = "${xmlReportsDirPath}/cucumber-junitreport.xml"
+def jsonReport = "${jsonReportsDirPath}/cucumber-report.json"
+def suitelist = []
+def dryRun = project.hasProperty('dryRun') ? project.property('dryRun') : false
+def tagsToRun = project.hasProperty('tagsToRun') ? project.property('tagsToRun') : false
+def pipelinerun = project.hasProperty('pipelinerun') ? project.property('pipelinerun') : true
+def cucumberReportTemplatePath = project.hasProperty('cucumberReportTemplateDir') ? project.file(project.property('cucumberReportTemplateDir')) :project.file("$projectDir")
+def cucumberReportFileName = project.hasProperty('cucumberReportName') ? project.property('cucumberReportName') : 'cucumber_html_report.html'
+
+def ENV = System.getenv()
+
+task updateGlobalProperties() {
+    doLast {
+        def props = new Properties()
+        def dir = file("./CRMTests/Data")
+        ["${dir}/GlobalProperties.properties"].each {
+            props.load(new FileReader(file(it)))
+        }
+        def writer = new FileWriter(file("${dir}/GlobalProperties.properties"))
+        try {
+            props.setProperty("instance.url", "${PRPCURL}")
+            props.setProperty("browser.name", "${browser}")
+            props.setProperty("enable.video.recording", "false")
+            props.setProperty("is.pipeline.run", pipelinerun)
+            props.store(writer, null)
+            writer.flush()
+        } finally {
+            writer.close()
+        }
+    }
+}
+
+task createJar(type: Jar, dependsOn: updateGlobalProperties) {
+    archiveName 'cucumber-webdriver.jar'
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Main-Class': 'cucumber.api.cli.Main'
+    }
+    //baseName = 'cucumber-webdriver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task runCucumber(dependsOn: createJar) {
+    doLast {
+        println "---------Code and Rules Change test-----------"
+        def list = []
+        def dir = new File("$projectDir/CRMTests/CS")
+        dir.traverse(type: groovy.io.FileType.DIRECTORIES) { file ->
+
+            def str = file.absolutePath.replace(dir.path, "").replace(System.getProperty("file.separator"), ".").substring(1)
+            str = str.substring(str.indexOf('.') + 1)
+            if(str.contains('webDriverStepDef')) {
+                list.add("classpath:" + str)
+            }
+        }
+
+        dir = new File("$projectDir/CRMTests/SA")
+        dir.traverse(type: groovy.io.FileType.DIRECTORIES) { file ->
+
+            def str = file.absolutePath.replace(dir.path, "").replace(System.getProperty("file.separator"), ".").substring(1)
+            if(str.contains('webDriverStepDef')) {
+                list.add("classpath:" + str)
+            }
+        }
+		
+		 dir = new File("$projectDir/CRMTests/Marketing")
+        dir.traverse(type: groovy.io.FileType.DIRECTORIES) { file ->
+
+            def str = file.absolutePath.replace(dir.path, "").replace(System.getProperty("file.separator"), ".").substring(1)
+            if(str.contains('webDriverStepDef')) {
+                list.add("classpath:" + str)
+            }
+        }
+
+		if (dryRun) {
+			includedTests = "CRMTests"
+		}
+		
+        if (project.hasProperty('includedTests')) {
+            includedTests.split(",").each {
+                if (it?.trim())
+                    suitelist.add(it)
+            }
+        }
+
+        def reportsDir = new File(resultsDirPath)
+        reportsDir.deleteDir()
+        def file = new File("$buildDir/libs/cucumber-webdriver.jar")	
+		
+        for (String suitename : suitelist) {
+            def reportName = suitename.substring(suitename.lastIndexOf('/') + 1).replace(".feature", "").replace(":","-")
+            def commandToRun = ["java", "-jar", "-Dguice.injector-source=com.pega.config.guice.GuiceInjector", "-DbaseClass=com.pega.MyTestEnvironment", "-Ddevice=desktop", "-DrunMode=Cucumber-OneStepDef", "-Djava.awt.headless=false", file.absolutePath, suitename, "--plugin", "pretty", "--plugin", "html:${htmlReportsDirPath}/${reportName}_html", "--plugin", "json:${jsonReportsDirPath}/${reportName}.json", "--plugin", "junit:${xmlReportsDirPath}/${reportName}.xml","--glue","classpath:com.pega"]
+            if (!System.properties['os.name'].toLowerCase().contains('windows')) {
+				//In not windows run in headless mode
+				commandToRun = ["xvfb-run", "-s", "-screen 0 1920x1080x24", "-a"] + commandToRun;
+			  }
+			
+			list.each {
+                if (!commandToRun.contains(it)) {
+                    commandToRun.add("--glue")
+                    commandToRun.add(it)
+                }
+            }
+            
+            if (tagsToRun) {
+        	 	commandToRun.add("--tags")
+                commandToRun.add(tagsToRun)
+        	}
+            
+            println commandToRun
+			
+            def curDir = new File("$projectDir/CRMTests")
+			if (dryRun) {
+				commandToRun.add("--dry-run")
+				commandToRun.add("--tags")
+				commandToRun.add(ENV['tags'])
+				def stdout = new ByteArrayOutputStream()
+				exec {
+					workingDir curDir.absolutePath
+					println "--> executing ${includedTests}"
+					println "------------Dry run-------------"
+					commandLine commandToRun.toArray()
+					standardOutput = stdout;
+					if (pipelinerun) {
+						ignoreExitValue = true 
+					} else { 
+						ignoreExitValue = false
+					}
+				}
+				def dryRunLog = new File("$buildDir" + System.getProperty("file.separator") +  "dryRunLog.txt")
+				dryRunLog.write(stdout.toString())
+			} else {
+				exec {
+					workingDir curDir.absolutePath
+					println "--> executing ${includedTests}"
+					commandLine commandToRun.toArray()
+					if (pipelinerun) {
+						ignoreExitValue = true 
+					} else { 
+						ignoreExitValue = false
+					}
+				}
+			}
+        }
+    }
+}
+
+artifacts { archives distZip }
+
+// distribution plugin adds a tar, which we don't want
+distTar.enabled = false
+
+// So that install does not fail for lack of the tar file, tell it not to look for any.
+install {
+    doFirst {
+        Configuration archivesConfig = project.getConfigurations().getByName('archives')
+        archivesConfig.artifacts.removeAll { it.extension.equals('tar') }
+    }
+}
+
+def shouldPublish = project.hasProperty('distPublish') ? Boolean.valueOf(project.property('distPublish')) : true
+
+publishing {
+    publications {
+        prpcEngine(MavenPublication) { artifact distZip {} }
+    }
+}
+
+tasks.publish.enabled = shouldPublish
+
+if (shouldPublish) {
+    distZip.dependsOn "loadBinaries"
+}
+
+configurations {
+    binary
+}
+
+ext {
+    binaries = []
+
+    binaryGroupId = "com.pega.apps.crm.resources"
+
+    includeBinaries = { config ->
+        binaries.each { k, v ->
+            def expanded
+            int i = k.indexOf(':')
+            if (i > 0) {
+                def artifactId = k.substring(0, i)
+                def versionId = k.substring(i + 1)
+                expanded = "$binaryGroupId:$artifactId:$versionId"
+            }
+            project.dependencies.add(config, expanded.toString())
+        }
+    }
+}
+
+apply from: "binaryVersions.gradle"
+
+
+dependencies {
+    // include binaries
+    includeBinaries('binary')
+
+}
+
+
+task loadBinaries()  {
+
+	outputs.upToDateWhen { false }
+	doLast {
+	    configurations.binary.getResolvedConfiguration().getResolvedArtifacts().findAll { dep ->
+
+	        def modVer = dep.getModuleVersion().getId()
+	        //println modVer
+	        def depGAV = modVer.getName() + ":" + modVer.getVersion()
+	        //println depGAV
+	        def depFile = dep.getFile()
+	        def destParent = binaries[depGAV]
+	        //println depFile
+	        //println destParent
+	        copy {
+	            from zipTree(depFile)
+	            into destParent
+	        }
+	    }
+	}
+}
+processResources.dependsOn loadBinaries
+
+task aggregateLocalReports(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'com.pega.config.util.ReportWriter'
+  workingDir = ENV['WORKSPACE']
+}
+
+
+task createArchivedReportsDir {
+   doLast {
+	  def archivedReportsPath = ENV['WORKSPACE'] + File.separator + "ArchivedReports" + File.separator + "#" + ENV['BUILD_ID'] + "-" +" " + ENV['team.name']
+	  println "Archive reports directory:" + archivedReportsPath
+	  def archivedReportsDir = new File(archivedReportsPath)
+	  if (archivedReportsDir.exists()) {
+		 println "Deleting Archive reports directory as it already exist :" + archivedReportsPath
+		 archivedReportsDir.deleteDir()
+	  }
+	  println "Creating Archive reports directory :" + archivedReportsPath
+	  archivedReportsDir.mkdirs()
+   }
+}
+
+task archiveReports(dependsOn: createArchivedReportsDir) {
+   doLast {
+	  def archivedReportsPath = ENV['WORKSPACE'] + File.separator + "ArchivedReports" + File.separator + "#" + ENV['BUILD_ID'] + "-" +" " + ENV['team.name']
+	  def archivedReportsDir = new File(archivedReportsPath)
+	  copy {
+		 from ENV['WORKSPACE'] + File.separator + 'LatestReports'
+		 include '**/*'
+		 into archivedReportsDir
+	  }
+   }
+}
+
+task clearReportsDir {
+   doLast {
+	  def latestReportsDir = new File(ENV['WORKSPACE'] + File.separator + "LatestReports")
+	  def aggReportsDir = new File(ENV['WORKSPACE'] + File.separator + "AggregatedReports")
+	  println "Latest reports dir is:" + latestReportsDir
+	  println "Aggregated reports dir is:" + aggReportsDir
+	  if (latestReportsDir.exists()) {
+		 println "Deleting Latest Reports directory"
+		 latestReportsDir.deleteDir()
+	  }
+	  if (aggReportsDir.exists()) {
+		 println "Deleting Aggregated Reports directory"
+		 aggReportsDir.deleteDir()
+	  }
+   }
+}
+
+task copyWSToUserContent {
+   doLast {
+	  def userContentWSDir = ENV['JENKINS_HOME'] + File.separator + "userContent"  + File.separator + ENV['JOB_NAME'] + "-" + ENV['BUILD_ID']
+	  copy {
+		 from "$buildDir" + File.separator + "distributions"
+		 include '*.zip'
+		 into userContentWSDir
+		 rename '(.*).zip', 'workspace.zip'
+	  }
+   }
+}
+
+task deleteWSFromUserContent {
+	doLast {
+	  def userContentWSDir = new File(ENV['JENKINS_HOME'] + File.separator + "userContent"  + File.separator + ENV['JOB_NAME'] + "-" + ENV['BUILD_ID'])
+	  if (userContentWSDir.exists()) {
+		 println "Deleting workspace from user content directory"
+		 userContentWSDir.deleteDir()
+	  }                             
+	}
+}
+
+task checkURLAvailability {
+	doLast {
+		javaexec {
+			classpath = sourceSets.main.runtimeClasspath
+			main = 'com.pega.config.Configuration'
+			systemProperties System.getProperties()
+			workingDir = new File("$projectDir/CRMTests").absolutePath
+		}
+	}
+}
+
+task addUIKit {
+	doLast {
+		javaexec {
+			classpath = sourceSets.main.runtimeClasspath
+			main = 'com.pega.config.util.ImportUIKit'
+			systemProperties System.getProperties()
+			workingDir = new File("$projectDir/CRMTests").absolutePath
+		}
+	}
+}
+
+task mergeFlowBranch {
+	doLast {
+		javaexec {
+			classpath = sourceSets.main.runtimeClasspath
+			main = 'com.pega.config.util.BranchMerge'
+			systemProperties System.getProperties()
+			args System.getProperty("exec.args").split()  
+			workingDir = new File("$projectDir/CRMTests").absolutePath
+		}
+	}
+}
+
+task performPreSteps() {
+	dependsOn 'checkURLAvailability'
+    dependsOn 'addUIKit'
+    dependsOn 'mergeFlowBranch'
+	tasks.findByName('addUIKit').mustRunAfter 'checkURLAvailability'
+    tasks.findByName('mergeFlowBranch').mustRunAfter 'checkURLAvailability'
+}
+
+task generateReport(type: Copy) {
+        from "$cucumberReportTemplatePath"
+        into "$buildDir"
+        include "cucumber_html_report.template"
+        rename { file -> "$cucumberReportFileName" }
+        def html_folder = new File(htmlReportsDirPath)
+        expand(html_folder: html_folder)
+}
+
+task PerformSocialPreSteps {
+	doLast {
+		javaexec {
+			classpath = sourceSets.main.runtimeClasspath
+			main = 'com.pega.config.PreReqSteps'
+			systemProperties System.getProperties()
+			args System.getProperty("exec.args").split()  
+			workingDir = new File("$projectDir/CRMTests").absolutePath
+		}
+	}
+}
