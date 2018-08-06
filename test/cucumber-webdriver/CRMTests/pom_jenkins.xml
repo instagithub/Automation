@@ -15,6 +15,7 @@
 		<testSourceDir>config</testSourceDir>
 		<testResourceDir>CS</testResourceDir>
 		<testResourceDir2>SA</testResourceDir2>
+		<testResourceDir1>Marketing</testResourceDir1>
 	</properties>
 	
 	<repositories> 
@@ -219,6 +220,12 @@
 					<include>**/*.feature</include>
 				</includes>
 			</testResource>
+			<testResource>
+				<directory>${testResourceDir1}</directory>
+				<includes>
+					<include>**/*.feature</include>
+				</includes>
+			</testResource>
 		</testResources>
 		<plugins>
 			<plugin>
@@ -272,11 +279,13 @@
 								<source>${basedir}/${testSourceDir2}</source>
 								<source>${basedir}/stepdefs</source>
 								<source>${basedir}/${testResourceDir}</source>
+								<source>${basedir}/${testResourceDir1}</source>
 								<source>${basedir}/${testResourceDir2}</source>
 								<source>${basedir}/../CRMFramework/src</source>
 								<source>${basedir}/../CRMFramework/core.impl</source>
 								<source>${basedir}/../CS</source>
 								<source>${basedir}/../SA</source>
+								<source>${basedir}/../Marketing</source>
 							</sources>
 						</configuration>
 					</execution>
