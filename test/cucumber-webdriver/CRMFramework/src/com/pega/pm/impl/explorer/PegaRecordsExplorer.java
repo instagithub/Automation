@@ -1,13 +1,14 @@
-package com.pega.pm.explorer;
+package com.pega.pm.impl.explorer;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
+import com.pega.pm.explorer.RecordsExplorer;
+import com.pega.pm.impl.pages.PegaLandingPage;
+import com.pega.pm.impl.pages.PegaServiceRestRecords;
 import com.pega.pm.pages.LandingPage;
-import com.pega.pm.pages.PegaLandingPage;
-import com.pega.pm.pages.PegaServiceRestRecords;
 
 
 public class PegaRecordsExplorer implements RecordsExplorer{

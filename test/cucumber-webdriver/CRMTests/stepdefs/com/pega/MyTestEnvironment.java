@@ -15,24 +15,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Reporter;
 
-
-
-import org.testng.Reporter;
-
 import com.google.inject.Inject;
-import com.pega.Browser;
 import com.pega.config.ObjectsBean;
 import com.pega.config.test.TestBase1S1D;
-
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.runtime.java.guice.ScenarioScoped;
-
-import com.google.inject.Inject;
-
 import com.pega.cs.utils.CommonMethods;
-import com.pega.iad.utils.FiddlerUtils;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
 import com.pega.util.RecorderUtil;

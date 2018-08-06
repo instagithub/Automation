@@ -1,8 +1,9 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.impl.rules.PegaOffer;
+import com.pega.pm.pages.Offers;
 import com.pega.pm.rules.Offer;
-import com.pega.pm.rules.PegaOffer;
 
 public class PegaOffers extends PegaLandingPage implements Offers {
 

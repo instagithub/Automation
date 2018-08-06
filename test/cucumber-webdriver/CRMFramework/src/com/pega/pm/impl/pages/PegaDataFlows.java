@@ -1,8 +1,9 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.pages.DataFlows;
 
 public class PegaDataFlows extends PegaLandingPage implements DataFlows {
 

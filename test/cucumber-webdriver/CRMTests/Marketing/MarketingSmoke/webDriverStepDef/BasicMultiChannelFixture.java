@@ -5,12 +5,12 @@ import java.util.List;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
+import com.pega.MyBrowser;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
-import com.pega.pm.MyBrowser;
 import com.pega.pm.PMPortal;
-import com.pega.pm.PegaExpressPortal;
 import com.pega.pm.dialog.ConfigureDialog;
+import com.pega.pm.impl.PegaExpressPortal;
 import com.pega.pm.pages.CampaignsFrame;
 import com.pega.pm.rules.Campaign;
 import com.pega.pm.rules.Campaign.ConfigureAudienceDialog;

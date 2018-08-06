@@ -1,23 +1,19 @@
 package com.pega.pm.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
-import com.pega.framework.PegaWebDriver;
 import com.pega.pm.DesignerStudio;
-//import com.pega.pm.explorer.PegaRecordsExplorer;
+import com.pega.pm.PMPortal;
 import com.pega.pm.explorer.RecordsExplorer;
+import com.pega.pm.impl.explorer.PegaRecordsExplorer;
 
 public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 	private RecordsExplorer recordsExplorer = null;
-	public PegaWebDriver pegaDriver = null;
 
 	public PegaDesignerStudio(TestEnvironment testEnv) {
 		super(testEnv);
 	}
-	
-	
 
 	public PMPortal launchPegaMarketingPortal() {
 		pegaDriver.switchTo().defaultContent();
@@ -37,13 +33,13 @@ public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 
 	}
 
-	
 	public void switchTab(Tabs tab) {
 		pegaDriver.waitForDocStateReady(false);
 		pegaDriver.switchTo().frame("Developer");
-		pegaDriver.findElement(By.xpath("//div[@role='tab']//*[contains(text(),'"+tab.getId()+"')]")).click();
+		pegaDriver.findElement(By.xpath("//div[@role='tab']//*[contains(text(),'" + tab.getId() + "')]")).click();
 		pegaDriver.waitForDocStateReady();
 	}
+
 	public void switchToDeveloperFrame() {
 		pegaDriver.switchTo().frame("Developer");
 	}
@@ -52,7 +48,7 @@ public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 		switchTab(Tabs.Records);
 		String frameId = pegaDriver.getActiveFrameId(true);
 		if (recordsExplorer == null) {
-			recordsExplorer = new PegaRecordsExplorer(frameId,testEnv);
+			recordsExplorer = new PegaRecordsExplorer(frameId, testEnv);
 		}
 		return recordsExplorer;
 	}

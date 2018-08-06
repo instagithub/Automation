@@ -1,9 +1,10 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.impl.rules.PegaEmailTreatment;
+import com.pega.pm.impl.rules.PegaSMSTreatment;
+import com.pega.pm.pages.Treatments;
 import com.pega.pm.rules.EmailTreatment;
-import com.pega.pm.rules.PegaEmailTreatment;
-import com.pega.pm.rules.PegaSMSTreatment;
 import com.pega.pm.rules.SMSTreatment;
 
 public class PegaTreatments extends PegaLandingPage implements Treatments {

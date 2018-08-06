@@ -14,11 +14,14 @@
  * authorization from Pegasystems Inc.
 */
 
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import org.testng.Assert;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.pages.Geofence;
+import com.pega.pm.pages.RealTimeArtifacts;
+import com.pega.pm.pages.RealTimeContainer;
 
 public class PegaRealTimeArtifacts extends PegaLandingPage implements RealTimeArtifacts {
 

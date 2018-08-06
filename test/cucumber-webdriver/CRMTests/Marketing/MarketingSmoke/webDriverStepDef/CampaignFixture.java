@@ -14,14 +14,13 @@
  * authorization from Pegasystems Inc.
 */
 
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
+import com.pega.MyBrowser;
 import com.pega.TestEnvironment;
-import com.pega.pm.MyBrowser;
-import com.pega.pm.dialog.CategoriesDialog;
 import com.pega.pm.dialog.ConfigureDialog;
 import com.pega.pm.rules.Campaign;
 import com.pega.pm.rules.Campaign.ConfigureAudienceDialog;

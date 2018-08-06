@@ -1,4 +1,4 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,12 +9,17 @@ import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 import com.pega.pm.dialog.ImageCatalogDialog;
-import com.pega.pm.dialog.PegaImageCatalogDialog;
-import com.pega.pm.dialog.PegaModalDialog;
 import com.pega.pm.elmt.Connector;
 import com.pega.pm.elmt.OfferShape;
-import com.pega.pm.elmt.PegaConnector;
-import com.pega.pm.elmt.PegaOfferShape;
+import com.pega.pm.impl.dialog.PegaImageCatalogDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.impl.elmt.PegaConnector;
+import com.pega.pm.impl.elmt.PegaOfferShape;
+import com.pega.pm.rules.Offer;
+import com.pega.pm.rules.Offer.SendEmailShapeProperties;
+import com.pega.pm.rules.Offer.SendSMSShapeProperties;
+import com.pega.pm.rules.Offer.Shape;
+import com.pega.pm.rules.Offer.ShapeProperties;
 import com.pega.pm.utils.GlobalRepository;
 
 public class PegaOffer extends PegaRuleInstance implements Offer {

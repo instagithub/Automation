@@ -1,6 +1,8 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.pages.RecentReports;
+import com.pega.pm.pages.UnsubscribedCustomers;
 
 public class PegaRecentReports extends PegaLandingPage implements RecentReports {
 

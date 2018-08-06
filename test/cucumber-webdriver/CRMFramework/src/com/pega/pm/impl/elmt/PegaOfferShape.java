@@ -1,4 +1,4 @@
-package com.pega.pm.elmt;
+package com.pega.pm.impl.elmt;
 
 
 import org.openqa.selenium.By;
@@ -10,10 +10,12 @@ import com.pega.framework.Mouse;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.PegaWebElementImpl;
 import com.pega.framework.elmt.DropDown;
+import com.pega.pm.elmt.Connector;
+import com.pega.pm.elmt.OfferShape;
+import com.pega.pm.impl.rules.PegaOffer;
 import com.pega.pm.rules.Offer;
 import com.pega.pm.rules.Offer.Shape;
 import com.pega.pm.rules.Offer.ShapeProperties;
-import com.pega.pm.rules.PegaOffer;
 import com.pega.pm.utils.GlobalRepository;
 
 public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{

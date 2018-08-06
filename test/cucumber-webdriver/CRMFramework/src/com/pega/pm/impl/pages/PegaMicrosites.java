@@ -1,7 +1,9 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
 import com.pega.TestEnvironmentImpl;
+import com.pega.pm.pages.Microsites;
+import com.pega.pm.pages.Subscription;
 
 public class PegaMicrosites extends PegaLandingPage implements Microsites {
 

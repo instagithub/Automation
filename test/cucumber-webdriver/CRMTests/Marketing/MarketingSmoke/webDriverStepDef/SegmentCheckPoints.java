@@ -1,15 +1,17 @@
-package com.pega.pm.tests;
+package webDriverStepDef;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
 import com.google.inject.Inject;
+import com.pega.MyBrowser;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.pm.DesignerStudio;
-import com.pega.pm.MyBrowser;
 import com.pega.pm.pages.Segments;
 import com.pega.pm.pages.Segments.ImageCatalog;
 import com.pega.pm.rules.Segment;
 import com.pega.pm.utils.ObjectsBean;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;

@@ -1,9 +1,10 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
+import com.pega.pm.rules.Treatment;
 
 public class PegaTreatment extends PegaRuleInstance implements Treatment {
 

@@ -12,9 +12,9 @@ apply plugin: 'java'
 // 5. Variables within double quotes are resolved. Single quotes work well when there are
 // no variables to resolve.
 // test
-sourceSets.main.java.srcDirs = ["CRMFramework/core.impl","CRMFramework/src","CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/AppExpress", "CRMTests/features", "CRMTests/stepdefs"]
-sourceSets.test.java.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/features", "CRMTests/stepdefs"]
-sourceSets.test.resources.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/Marketing", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.main.java.srcDirs = ["CRMFramework/core.impl","CRMFramework/src","CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/AppExpress", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.test.java.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/features", "CRMTests/stepdefs"]
+sourceSets.test.resources.srcDirs = ["CRMTests/config", "CRMTests/CS", "CRMTests/SA", "CRMTests/features", "CRMTests/stepdefs"]
 sourceSets.main.resources.includes = ["**/*.features"]
 
 sourceCompatibility = 1.7
@@ -176,15 +176,6 @@ task runCucumber(dependsOn: createJar) {
         }
 
         dir = new File("$projectDir/CRMTests/SA")
-        dir.traverse(type: groovy.io.FileType.DIRECTORIES) { file ->
-
-            def str = file.absolutePath.replace(dir.path, "").replace(System.getProperty("file.separator"), ".").substring(1)
-            if(str.contains('webDriverStepDef')) {
-                list.add("classpath:" + str)
-            }
-        }
-		
-		 dir = new File("$projectDir/CRMTests/Marketing")
         dir.traverse(type: groovy.io.FileType.DIRECTORIES) { file ->
 
             def str = file.absolutePath.replace(dir.path, "").replace(System.getProperty("file.separator"), ".").substring(1)

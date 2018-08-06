@@ -1,4 +1,4 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,12 +9,16 @@ import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 import com.pega.pm.dialog.ConfigureAudienceDialog;
 import com.pega.pm.dialog.ConfigureOfferDialog;
-import com.pega.pm.dialog.PegaConfigureAudienceDialog;
-import com.pega.pm.dialog.PegaConfigureDialog;
-import com.pega.pm.dialog.PegaConfigureOfferDialog;
-import com.pega.pm.dialog.PegaModalDialog;
-import com.pega.pm.pages.PegaStrategy;
+import com.pega.pm.impl.dialog.PegaConfigureAudienceDialog;
+import com.pega.pm.impl.dialog.PegaConfigureDialog;
+import com.pega.pm.impl.dialog.PegaConfigureOfferDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.impl.pages.PegaStrategy;
 import com.pega.pm.pages.Strategy;
+import com.pega.pm.rules.MarketingStrategy;
+import com.pega.pm.rules.MarketingStrategy.AddTargetingDialog;
+import com.pega.pm.rules.MarketingStrategy.ConfigureObjectiveDialog;
+import com.pega.pm.rules.MarketingStrategy.ConfigurePriorityDialog;
 import com.pega.pm.utils.ObjectsBean;
 
 public class PegaMarketingStrategy extends PegaRuleInstance implements MarketingStrategy {
@@ -36,8 +40,8 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	public void setDescription(String description) {
 		findElement(DESCRIPTION_INPUT).sendKeys(description);
 	}
-	
-	public void setIssue(String issueName){
+
+	public void setIssue(String issueName) {
 		pegaDriver.waitForDocStateReady();
 		findSelectBox(BUSINESS_ISSUE_DROPDOWN).selectByVisibleText(issueName);
 	}
@@ -172,33 +176,32 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 	}
 
-
 	public String getthenameofstrategy() {
 		String reqstring = pegaDriver.findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
 		return reqstring;
 	}
-	
-	public void selectcategoryLP(){
+
+	public void selectcategoryLP() {
 		pegaDriver.findElement(ALLCATEGORIESLINK).click();
-		//pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
+		// pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
 		pegaDriver.waitForDocStateReady();
-	    pegaDriver.findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]")).click();
+		pegaDriver.findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"))
+				.click();
 	}
-	
+
 	public void searchstrategies(String strategy1, String strategy2) {
 		System.out.println("The strategy names are as below:");
-		System.out.println(strategy1+strategy2);
+		System.out.println(strategy1 + strategy2);
 		pegaDriver.handleWaits().waitForElementPresence(SEARCHSTRATEGY);
 		selectcategoryLP();
-		//pegaDriver.findElement(SEARCHSTRATEGY).click();
+		// pegaDriver.findElement(SEARCHSTRATEGY).click();
 		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy1);
 		pegaDriver.findElement(VIEW_BTN).click();
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.findElement(SEARCHSTRATEGY).clear();
 		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy2);
 		pegaDriver.findElement(VIEW_BTN).click();
-        
-		
+
 	}
 
 }

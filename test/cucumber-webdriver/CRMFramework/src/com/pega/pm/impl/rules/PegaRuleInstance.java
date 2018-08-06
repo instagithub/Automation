@@ -1,4 +1,4 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,7 +7,8 @@ import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.FrameImpl;
 import com.pega.pm.dialog.CategoriesDialog;
-import com.pega.pm.dialog.PegaCategoriesDialog;
+import com.pega.pm.impl.dialog.PegaCategoriesDialog;
+import com.pega.pm.rules.RuleInstance;
 
 public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 

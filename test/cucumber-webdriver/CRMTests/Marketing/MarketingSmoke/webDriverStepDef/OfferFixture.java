@@ -1,4 +1,4 @@
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 import org.testng.Assert;
 import com.pega.pm.elmt.OfferShape;
 import com.pega.pm.rules.Offer;

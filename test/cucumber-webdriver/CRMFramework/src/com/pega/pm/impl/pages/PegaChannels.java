@@ -1,4 +1,4 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import java.util.Set;
 
@@ -11,7 +11,11 @@ import com.pega.framework.PegaWebElement;
 import com.pega.framework.WindowImpl;
 import com.pega.framework.elmt.Frame;
 import com.pega.framework.elmt.FrameImpl;
-import com.pega.pm.dialog.PegaModalDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.pages.Channels;
+import com.pega.pm.pages.Channels.AddOutboundSMSConnection;
+import com.pega.pm.pages.Channels.PaidMediaSetting;
+import com.pega.pm.pages.Channels.TestConnectivityResults;
 
 public class PegaChannels extends FrameImpl implements Channels {
 	PegaWebDriver pegaDriver;

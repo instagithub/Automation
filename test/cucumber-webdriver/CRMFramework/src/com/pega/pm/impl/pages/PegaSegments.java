@@ -1,4 +1,4 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,7 +7,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.FrameImpl;
-import com.pega.pm.rules.PegaSegment;
+import com.pega.pm.impl.rules.PegaSegment;
+import com.pega.pm.pages.Segments;
 import com.pega.pm.rules.Segment;
 
 public class PegaSegments extends PegaLandingPage implements Segments {

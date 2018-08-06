@@ -1,10 +1,12 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.elmt.Frame;
-import com.pega.pm.dialog.PegaModalDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.rules.WhenRule;
+import com.pega.pm.rules.WhenRule.ConditionDialog;
 
 public class PegaWhenRule extends PegaRuleInstance implements WhenRule {
 

@@ -1,8 +1,9 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.pm.rules.ProspectImport;
 
 public class PegaProspectImport extends PegaRuleInstance implements ProspectImport {
 

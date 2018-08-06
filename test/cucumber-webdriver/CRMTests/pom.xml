@@ -8,7 +8,7 @@
 	<description>cucumber tests project for CRM</description>
 	<properties>
 
-		<tags>@TC-550010</tags>
+		<tags>@Offer</tags>
 
 		<testSourceDir>config</testSourceDir>
 		<testResourceDir>CS</testResourceDir>

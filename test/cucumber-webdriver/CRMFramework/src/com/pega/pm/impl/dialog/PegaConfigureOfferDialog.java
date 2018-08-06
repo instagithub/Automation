@@ -1,10 +1,11 @@
-package com.pega.pm.dialog;
+package com.pega.pm.impl.dialog;
 
 import org.openqa.selenium.By;
 
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
+import com.pega.pm.dialog.ConfigureOfferDialog;
 
 public class PegaConfigureOfferDialog extends PegaConfigureDialog implements ConfigureOfferDialog {
 	PegaWebElement elmt;

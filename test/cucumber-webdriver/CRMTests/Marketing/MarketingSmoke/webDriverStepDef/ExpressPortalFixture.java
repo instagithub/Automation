@@ -14,12 +14,12 @@
  * authorization from Pegasystems Inc.
 */
 
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import com.google.inject.Inject;
+import com.pega.MyBrowser;
 import com.pega.pm.DesignerStudio;
-import com.pega.pm.MyBrowser;
-import com.pega.pm.PegaExpressPortal;
+import com.pega.pm.impl.PegaExpressPortal;
 import com.pega.pm.pages.ContextDictionary;
 import com.pega.pm.utils.ObjectsBean;
 

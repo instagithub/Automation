@@ -1,35 +1,36 @@
-package com.pega.pm;
+package com.pega.pm.impl;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.page.PortalImpl;
+import com.pega.pm.PMPortal;
 import com.pega.pm.dialog.ModalDialog;
+import com.pega.pm.impl.pages.PegaCampaignsFrame;
+import com.pega.pm.impl.pages.PegaDataFlows;
+import com.pega.pm.impl.pages.PegaDataManagement;
+import com.pega.pm.impl.pages.PegaEligibilities;
+import com.pega.pm.impl.pages.PegaImageLibrary;
+import com.pega.pm.impl.pages.PegaLandingPage;
+import com.pega.pm.impl.pages.PegaMicrosites;
+import com.pega.pm.impl.pages.PegaOffers;
+import com.pega.pm.impl.pages.PegaPaidMediaAudiences;
+import com.pega.pm.impl.pages.PegaProspectLists;
+import com.pega.pm.impl.pages.PegaRealTimeArtifacts;
+import com.pega.pm.impl.pages.PegaRecentReports;
+import com.pega.pm.impl.pages.PegaSegments;
+import com.pega.pm.impl.pages.PegaStrategies;
+import com.pega.pm.impl.pages.PegaSummaries;
+import com.pega.pm.impl.pages.PegaTreatments;
+import com.pega.pm.impl.rules.PegaDesigner;
 import com.pega.pm.pages.LandingPage;
-import com.pega.pm.pages.PegaCampaignsFrame;
-import com.pega.pm.pages.PegaDataFlows;
-import com.pega.pm.pages.PegaDataManagement;
-import com.pega.pm.pages.PegaEligibilities;
-import com.pega.pm.pages.PegaImageLibrary;
-import com.pega.pm.pages.PegaLandingPage;
-import com.pega.pm.pages.PegaMicrosites;
-import com.pega.pm.pages.PegaOffers;
-import com.pega.pm.pages.PegaPaidMediaAudiences;
-import com.pega.pm.pages.PegaProspectLists;
-import com.pega.pm.pages.PegaRealTimeArtifacts;
-import com.pega.pm.pages.PegaRecentReports;
-import com.pega.pm.pages.PegaSegments;
-import com.pega.pm.pages.PegaStrategies;
-import com.pega.pm.pages.PegaSummaries;
-import com.pega.pm.pages.PegaTreatments;
 import com.pega.pm.pages.ProspectLists;
 import com.pega.pm.pages.RealTimeArtifacts;
 import com.pega.pm.pages.RecentReports;
 import com.pega.pm.pages.Segments;
 import com.pega.pm.pages.Strategies;
 import com.pega.pm.rules.Designer;
-import com.pega.pm.rules.PegaDesigner;
 import com.pega.pm.utils.PMXPathUtil;
 
 public class PegaPMPortal extends PortalImpl implements PMPortal {
@@ -159,7 +160,7 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 
 	public void selectConfigurationMenu(String menuName) {
 		pegaDriver.findElement(CONFIGURATION_MENU_XPATH).click(false);
-		pegaDriver.findElement(By.xpath("//span[@class='menu-item-title' and text()='"+menuName+"']")).mouseOver();
+		pegaDriver.findElement(By.xpath("//span[@class='menu-item-title' and text()='" + menuName + "']")).mouseOver();
 	}
 
 	public ProspectLists selectProspectLists() {
@@ -172,14 +173,15 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	public RecentReports selectReportBrowser() {
 		pegaDriver.findElement(REPORT_BROWSER_SUBMENU).click();
 		String frameId1 = pegaDriver.getActiveFrameId(true);
-		RecentReports recentReports =  new PegaRecentReports(frameId1, testEnv);
+		RecentReports recentReports = new PegaRecentReports(frameId1, testEnv);
 		return recentReports;
 	}
 
 	public void selectReports() {
 		pegaDriver.findElement(REPORTS_ICON).click(false);
-		
+
 	}
+
 	public void closeWelcomeDialog() {
 		pegaDriver.switchTo().defaultContent();
 		findElement(ModalDialog.CLOSE_BUTTON).click();

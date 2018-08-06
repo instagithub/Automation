@@ -1,4 +1,4 @@
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import org.testng.Assert;
 

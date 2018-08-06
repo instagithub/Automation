@@ -1,9 +1,9 @@
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.pm.MyBrowser;
+import com.pega.MyBrowser;
 import com.pega.pm.PMPortal;
 import com.pega.pm.dialog.CategoriesDialog;
 import com.pega.pm.dialog.ConfigureAudienceDialog;

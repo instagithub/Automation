@@ -1,10 +1,11 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
-import com.pega.pm.rules.PegaRuleInstance;
+import com.pega.pm.impl.rules.PegaRuleInstance;
+import com.pega.pm.pages.ServiceRestInstance;
 
 public class PegaServiceRestInstance extends PegaRuleInstance implements ServiceRestInstance{
 	public PegaServiceRestInstance(String frameID, TestEnvironment testEnv) {

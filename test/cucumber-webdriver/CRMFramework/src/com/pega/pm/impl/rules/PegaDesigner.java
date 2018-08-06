@@ -14,7 +14,7 @@
  * authorization from Pegasystems Inc.
 */
 
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -24,9 +24,11 @@ import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import com.pega.pm.dialog.PegaConfigureDialog;
-import com.pega.pm.dialog.PegaModalDialog;
-import com.pega.pm.pages.PegaLandingPage;
+import com.pega.pm.impl.dialog.PegaConfigureDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.impl.pages.PegaLandingPage;
+import com.pega.pm.rules.Designer;
+import com.pega.pm.rules.RuleInstance;
 import com.pega.pm.utils.ObjectsBean;
 import com.pega.pm.utils.PMXPathUtil;
 

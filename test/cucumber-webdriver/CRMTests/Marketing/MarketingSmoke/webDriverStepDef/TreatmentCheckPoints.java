@@ -1,6 +1,7 @@
-package com.pega.pm.tests;
+package webDriverStepDef;
 
 import org.testng.Assert;
+
 import com.pega.pm.pages.Treatments;
 import com.pega.pm.rules.EmailTreatment;
 import com.pega.pm.rules.RuleInstance;

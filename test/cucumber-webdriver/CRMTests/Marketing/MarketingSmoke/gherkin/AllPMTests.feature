@@ -1,8 +1,7 @@
 Feature: Creation of Criteria Segment
 
-  @Shippable 
+  @Shippable
   Scenario: Create Basic Criteria Segment
-  
     Given A User logs in with Analyst credentials
     When User expands Audiences
     And Opens Segments landing page
@@ -23,9 +22,8 @@ Feature: Creation of Criteria Segment
     Then Stop link should be available to stop the run
     And End of the run, Population count should become "3"
 
- 	@Shippable
+  @Shippable
   Scenario: Create an Email Treatment
-    
     Given A User logs in with Analyst credentials
     When User expands Content from the Left Nav
     And Opens Treatment landing page
@@ -34,7 +32,7 @@ Feature: Creation of Criteria Segment
     When User creates Email treatment
     And User enters "TestEmailTreatment" as Email Treatment Name
     And selects "DemoIssue" as Issue and "DemoGroup" as Group for Email Treatment
-    And Creates and opens the Email Treatment 
+    And Creates and opens the Email Treatment
     Then Email Treatment Rule should be opened
     And Treatment, Test Message, Prompts, Pages and classes, Security and History tabs should be available
     And Subject and Key Code fields should be available
@@ -44,13 +42,10 @@ Feature: Creation of Criteria Segment
     And Opens Email Editor
     And Enters "EmailTreatmentCriteria" in the Editor
     And Saves the Treatment
-    Then Checkout button should appear   
-  
-
+    Then Checkout button should appear
 
   @Shippable
   Scenario: Create Multi channel campaign
-    
     Given A User logs in with Analyst credentials
     When User opens Campaigns Landing Page
     Then "Campaigns" landing Page should be opened
@@ -58,7 +53,7 @@ Feature: Creation of Criteria Segment
     Then Create a Campaign Page for MultiChannel Campaign should be displayed
     When User edits Multi-Channel Campaign with following data
       | Multi-Channel Campaign Name | Budget | Issue     | Group     |
-      | DemoMultiChannelCampaign      |     -2 | DemoIssue | DemoGroup |
+      | DemoMultiChannelCampaign    |     -2 | DemoIssue | DemoGroup |
     And User saves the Campaign
     Then Campaign should be created and Saved
     When User edits the Campaign
@@ -96,7 +91,6 @@ Feature: Creation of Criteria Segment
 
   @Shippable @Offer
   Scenario: Create an Email Offer Flow
-    
     Given A User logs in with Analyst credentials
     When User expands Content from the Left Nav
     And Opens Offers landing page
@@ -119,10 +113,9 @@ Feature: Creation of Criteria Segment
     And connects the send email shape to the end shape
     And Saves the Offer
     Then the offer should be saved and checkout button should be visible
-    
+
   @Shippable
   Scenario: Creation of Strategy from Strategy Designer page
-  
     Given A User logs in with Analyst credentials
     When User expands Intelligence and navigates to Strategies
     When User opens Strategies from PMPortal

@@ -1,18 +1,21 @@
-package com.pega.pm;
+package com.pega.pm.impl;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
+import com.pega.pm.DesignerStudio;
+import com.pega.pm.ExpressPortal;
+import com.pega.pm.impl.pages.PegaChannels;
+import com.pega.pm.impl.pages.PegaContextDictionaryFrame;
 import com.pega.pm.pages.Channels;
 import com.pega.pm.pages.ContextDictionary;
-import com.pega.pm.pages.PegaChannels;
-import com.pega.pm.pages.PegaContextDictionaryFrame;
 
 public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	private PegaWebDriver pegaDriver = null;
 	private TestEnvironment testEnv;
 	private DesignerStudio designerStudio;
+
 	public PegaExpressPortal(TestEnvironment testEnv) {
 		super(testEnv);
 		this.testEnv = testEnv;
@@ -47,6 +50,7 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 		DesignerStudio designerStudio = new PegaDesignerStudio(testEnv);
 		return designerStudio;
 	}
+
 	public void switchToDevStudio() {
 		findElement(SWITCH_STUDIOS_ICON).click();
 		findElement(DEV_STUDIO_LABEL).click();
@@ -65,17 +69,14 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	public Channels openChannels() {
 		pegaDriver.switchTo().defaultContent();
 		findElement(By.xpath(String.format(SETTINGS_SLIDER_MENU_ITEM_XPATH, "Channels"))).click();
-		String activeFrameID = pegaDriver.getActiveFrameId(true); 
+		String activeFrameID = pegaDriver.getActiveFrameId(true);
 		Channels channels = new PegaChannels(null, activeFrameID);
 		channels._setEnvironment(testEnv, activeFrameID);
 		return channels;
 	}
-	
-	
+
 	public DesignerStudio switchToDesignerStudioPortal() {
 		return null;
 	}
-
-	
 
 }

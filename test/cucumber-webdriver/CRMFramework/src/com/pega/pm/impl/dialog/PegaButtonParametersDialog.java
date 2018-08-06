@@ -1,9 +1,10 @@
-package com.pega.pm.dialog;
+package com.pega.pm.impl.dialog;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
+import com.pega.pm.dialog.ButtonParametersDialog;
 
 public class PegaButtonParametersDialog extends PegaImageCatalogDialog implements ButtonParametersDialog{
 

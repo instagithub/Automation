@@ -1,8 +1,8 @@
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import com.google.inject.Inject;
+import com.pega.MyBrowser;
 import com.pega.pm.DesignerStudio;
-import com.pega.pm.MyBrowser;
 import com.pega.pm.PMPortal;
 import com.pega.pm.explorer.RecordsExplorer;
 import com.pega.pm.pages.ServiceRestRecords;

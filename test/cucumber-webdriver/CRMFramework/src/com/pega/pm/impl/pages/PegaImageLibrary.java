@@ -1,10 +1,11 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.pm.dialog.ImageCatalogDialog;
-import com.pega.pm.dialog.PegaImageCatalogDialog;
+import com.pega.pm.impl.dialog.PegaImageCatalogDialog;
+import com.pega.pm.pages.ImageLibrary;
 
 public class PegaImageLibrary extends PegaLandingPage implements ImageLibrary{
 	TestEnvironment testEnv;

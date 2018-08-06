@@ -14,9 +14,10 @@
  * authorization from Pegasystems Inc.
 */
 
-package com.pega.pm.dialog;
+package com.pega.pm.impl.dialog;
 
 import com.pega.framework.elmt.Frame;
+import com.pega.pm.dialog.WelcomeDialog;
 
 public class PegaWelcomeDialog extends PegaModalDialog implements WelcomeDialog {
 	public PegaWelcomeDialog(Frame elmt) {

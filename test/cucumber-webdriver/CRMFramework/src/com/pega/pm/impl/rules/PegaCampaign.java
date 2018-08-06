@@ -1,4 +1,4 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,7 +7,17 @@ import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import com.pega.pm.dialog.PegaModalDialog;
+import com.pega.pm.dialog.ConfigureAudienceDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.rules.Campaign;
+import com.pega.pm.rules.Campaign.CampaignConfigureDialog;
+import com.pega.pm.rules.Campaign.ConfigureCardDialog;
+import com.pega.pm.rules.Campaign.ConfigureDetailsDialog;
+import com.pega.pm.rules.Campaign.ConfigureEngagementCriteriaDialog;
+import com.pega.pm.rules.Campaign.ConfigureEngagementDialog;
+import com.pega.pm.rules.Campaign.ConfigureMarketingStrategyDialog;
+import com.pega.pm.rules.Campaign.ConfigureTimeframeDialog;
+import com.pega.pm.rules.RuleInstance;
 
 import cucumber.runtime.java.guice.ScenarioScoped;
 

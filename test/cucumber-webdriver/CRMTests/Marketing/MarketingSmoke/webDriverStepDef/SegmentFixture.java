@@ -1,11 +1,13 @@
-package com.pega.pm.fixtures;
+package webDriverStepDef;
 
 import org.testng.Assert;
+
 import com.pega.pm.rules.RuleInstance;
 import com.pega.pm.rules.Segment;
 import com.pega.pm.rules.Segment.AddCriteriaDialog;
 import com.pega.pm.utils.ObjectsBean;
 import com.pega.pm.utils.TestDataReader;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;

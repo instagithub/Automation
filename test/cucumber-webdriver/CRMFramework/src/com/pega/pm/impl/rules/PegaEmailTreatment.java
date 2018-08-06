@@ -1,11 +1,12 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
 import com.pega.pm.dialog.ButtonParametersDialog;
-import com.pega.pm.dialog.PegaButtonParametersDialog;
+import com.pega.pm.impl.dialog.PegaButtonParametersDialog;
+import com.pega.pm.rules.EmailTreatment;
 
 public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment {
 

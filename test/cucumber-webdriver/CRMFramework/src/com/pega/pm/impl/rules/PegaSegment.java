@@ -1,4 +1,4 @@
-package com.pega.pm.rules;
+package com.pega.pm.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,8 +7,13 @@ import org.testng.Assert;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import com.pega.pm.dialog.PegaModalDialog;
+import com.pega.pm.impl.dialog.PegaModalDialog;
 import com.pega.pm.pages.Segments.ImageCatalog;
+import com.pega.pm.rules.RuleInstance;
+import com.pega.pm.rules.Segment;
+import com.pega.pm.rules.Segment.AddCriteriaDialog;
+import com.pega.pm.rules.Segment.SelectItemsDialog;
+import com.pega.pm.rules.Segment.UploadFileDialog;
 
 public class PegaSegment extends PegaRuleInstance implements Segment {
 

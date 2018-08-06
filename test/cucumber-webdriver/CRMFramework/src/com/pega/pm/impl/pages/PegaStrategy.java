@@ -1,4 +1,4 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,8 +7,10 @@ import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import com.pega.pm.dialog.PegaModalDialog;
-import com.pega.pm.rules.PegaRuleInstance;
+import com.pega.pm.impl.dialog.PegaModalDialog;
+import com.pega.pm.impl.rules.PegaRuleInstance;
+import com.pega.pm.pages.Strategy;
+import com.pega.pm.pages.Strategy.AddCustomFieldsDialog;
 
 public class PegaStrategy extends PegaRuleInstance implements Strategy {
 

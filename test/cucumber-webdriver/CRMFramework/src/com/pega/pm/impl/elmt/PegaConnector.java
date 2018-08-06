@@ -1,4 +1,4 @@
-package com.pega.pm.elmt;
+package com.pega.pm.impl.elmt;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import com.pega.framework.Mouse;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.PegaWebElementImpl;
+import com.pega.pm.elmt.Connector;
+import com.pega.pm.elmt.OfferShape;
 import com.pega.pm.rules.Offer;
 
 

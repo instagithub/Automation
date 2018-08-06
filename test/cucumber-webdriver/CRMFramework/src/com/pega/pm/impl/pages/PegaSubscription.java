@@ -1,7 +1,8 @@
-package com.pega.pm.pages;
+package com.pega.pm.impl.pages;
 
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
+import com.pega.pm.pages.Subscription;
 
 public class PegaSubscription implements Subscription {
 	TestEnvironment testEnv;

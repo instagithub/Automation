@@ -26,6 +26,9 @@ import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.page.Portal;
+import com.pega.pm.impl.PegaDesignerStudio;
+import com.pega.pm.impl.PegaExpressPortal;
+import com.pega.pm.impl.PegaPMPortal;
 import com.pega.ri.Wizard;
 //import com.thoughtworks.selenium.webdriven.commands.IsAlertPresent;
 
@@ -85,6 +88,13 @@ public class BrowserImpl extends com.pega.BrowserImpl {
 		}
 		if (className.contains("SFAPortal")) {
 			portal = type.cast(new SFAPortalImpl(testEnv));
+		}
+		if (className.contains("PMPortal")) {
+			portal = type.cast(new PegaPMPortal(testEnv));
+		} else if (className.contains("PegaExpressPortal")) {
+			portal = type.cast(new PegaExpressPortal(testEnv));
+		} else if (className.contains("DesignerStudio")) {
+			portal = type.cast(new PegaDesignerStudio(testEnv));
 		}
 		return portal;
 	}
