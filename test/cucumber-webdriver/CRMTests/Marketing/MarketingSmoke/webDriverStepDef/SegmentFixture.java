@@ -78,7 +78,7 @@ public class SegmentFixture {
 		segment.run();
 	}
 
-	@When("^User enters \"([^\"]*)\" as segment name and selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group$")
+	/*@When("^User enters \"([^\"]*)\" as segment name and selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group$")
 	public void user_enters_as_segment_name_and_selects_as_Issue_and_as_Group(String segName, String issue,
 			String group) {
 		segment = ObjectsBean.getSegment();
@@ -86,8 +86,20 @@ public class SegmentFixture {
 		segment.setRuleName(segName);
 		segment.setIssue(issue);
 		segment.setGroup(group);
-	}
+	}*/
 
+	@When("^User enters \"([^\"]*)\" as segment name and selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group$")
+	public void user_enters_as_segment_name_and_selects_as_Issue_and_as_Group(String segName, String issue,
+			String group) {
+		segment = ObjectsBean.getSegment();
+		segName = ObjectsBean.putTimeStampedValue(segName);
+		segment.setRuleName(segName);
+		issue = TestDataReader.getTestDataValue(issue);
+		segment.setIssue(issue);
+		group = TestDataReader.getTestDataValue(group);
+		segment.setGroup(group);
+	}
+	
 	@When("^Creates and opens the segment$")
 	public void clicks_on_Create_and_Open_button() {
 		segment.createAndOpen();

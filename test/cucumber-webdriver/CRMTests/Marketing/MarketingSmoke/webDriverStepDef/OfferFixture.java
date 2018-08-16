@@ -6,6 +6,7 @@ import com.pega.pm.rules.Offer.SendEmailShapeProperties;
 import com.pega.pm.rules.Offer.Shape;
 import com.pega.pm.rules.RuleInstance;
 import com.pega.pm.utils.ObjectsBean;
+import com.pega.pm.utils.TestDataReader;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -24,9 +25,17 @@ public class OfferFixture {
 		offer.setRuleName(ObjectsBean.putTimeStampedValue(treatmentName));
 	}
 
-	@When("^selects \"([^\"]*)\" as Offer Issue and \"([^\"]*)\" as Offer Group$")
+	/*@When("^selects \"([^\"]*)\" as Offer Issue and \"([^\"]*)\" as Offer Group$")
 	public void selects_as_Offer_Issue_and_as__Offer_Group(String issue, String group) {
 		offer.setIssue(issue);
+		offer.setGroup(group);
+	}*/
+	
+	@When("^selects \"([^\"]*)\" as Offer Issue and \"([^\"]*)\" as Offer Group$")
+	public void selects_as_Offer_Issue_and_as__Offer_Group(String issue, String group) {
+		issue = TestDataReader.getTestDataValue(issue);
+		offer.setIssue(issue);
+		group = TestDataReader.getTestDataValue(group);
 		offer.setGroup(group);
 	}
 
@@ -78,8 +87,14 @@ public class OfferFixture {
 		sendEmailShapeProps.setTreatmentName(treatmentName);
 	}
 
+	/*@When("^sets the email account as \"([^\"]*)\"$")
+	public void sets_the_email_account_as(String emailAccount) throws Throwable {
+		sendEmailShapeProps.setEmailAccount(emailAccount);
+	}*/
+	
 	@When("^sets the email account as \"([^\"]*)\"$")
 	public void sets_the_email_account_as(String emailAccount) throws Throwable {
+		emailAccount = TestDataReader.getTestDataValue(emailAccount);
 		sendEmailShapeProps.setEmailAccount(emailAccount);
 	}
 

@@ -12,6 +12,7 @@ import com.pega.pm.pages.Strategy;
 import com.pega.pm.rules.MarketingStrategy;
 import com.pega.pm.rules.MarketingStrategy.ConfigureObjectiveDialog;
 import com.pega.pm.utils.ObjectsBean;
+import com.pega.pm.utils.TestDataReader;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -59,14 +60,27 @@ public class RelevanceStrategyFixture {
 		objectiveDialog.apply();
 	}
 
-	@Then("^User selects Business Issue as \"([^\"]*)\"$")
+	/*@Then("^User selects Business Issue as \"([^\"]*)\"$")
 	public void user_selects_Business_Issue_as(String issueName) {
 		marketingStrategy = ObjectsBean.getStrategy();
 		marketingStrategy.setIssue(issueName);
+	}*/
+	
+	@Then("^User selects Business Issue as \"([^\"]*)\"$")
+	public void user_selects_Business_Issue_as(String issueName) {
+		marketingStrategy = ObjectsBean.getStrategy();
+		issueName = TestDataReader.getTestDataValue(issueName);
+		marketingStrategy.setIssue(issueName);
 	}
 
+	/*@Then("^User selects Group as \"([^\"]*)\"$")
+	public void user_selects_Group_as(String groupName) {
+		marketingStrategy.setGroup(groupName);
+	}*/
+	
 	@Then("^User selects Group as \"([^\"]*)\"$")
 	public void user_selects_Group_as(String groupName) {
+		groupName = TestDataReader.getTestDataValue(groupName);
 		marketingStrategy.setGroup(groupName);
 	}
 
