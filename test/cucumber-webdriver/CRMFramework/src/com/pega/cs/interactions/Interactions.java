@@ -40,7 +40,7 @@ public interface Interactions extends Wizard{
 	String ADD_TASK_COLLAPSE_XPATH = "//button[@class='Add_task_Collapsed pzhc pzbutton' and @title='Add Task']";	
 	String WRAP_UP_COLLAPSE_XPATH = "//i[@title='Wrap Up']";
 	//String OUTBOUND_REASON_ID = "OutboundCallReason";
-	String OUTBOUND_REASON_XPATH = "//select[@data-test-id='20150615123017011727453']";
+	String OUTBOUND_REASON_XPATH = "//select[@data-test-id='20180725055154001963']";
 	String OUTBOUND_STATUS_XPATH = "//label[contains(text(),'#status#')]";
 	String CUSTOMER_ACKNOWLEDGE_CHECKBOX_XPATH= "//input[@id='pySelected']";
 	String STOLENCARD_STREETADDRESS_XPATH="//*[@id='AddressLine1']";
@@ -191,7 +191,7 @@ public interface Interactions extends Wizard{
 	String CELL_PHONE_XPATH= "//input[@data-test-id='2015052602582605522350']";
 	String FAX_XPATH= "//input[@data-test-id='2015052602582605533172']";
 	String EMAIL_ID_XPATH= "//input[@data-test-id='2015052602582605554739']";
-	String SELECT_ADDITIONAL_ACCOUNTS_XPATH= "//input[@title='Select All Additional Accounts']/following::label[1]";
+	String SELECT_ADDITIONAL_ACCOUNTS_XPATH= "//input[@title='Select All Additional Accounts']//parent::div[contains(@class,'cellIn')]";
 	String SELECT_REASON_XPATH ="//select[@title='Select a Reason']";
 	String TRANSACTION_CHEKBOX_XPATH = "//input[@title='Select statement']/following-sibling::label[1]";
 	

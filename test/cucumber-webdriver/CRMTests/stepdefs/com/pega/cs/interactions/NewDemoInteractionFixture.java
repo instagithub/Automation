@@ -247,7 +247,7 @@ public class NewDemoInteractionFixture {
 		// Asserting Account Owner
 		expectedValue = pegaDriver
 				.findElement(By
-						.xpath("//span[@class='field-caption dataLabelForRead' and text()='Account owner']/../div/p"))
+						.xpath("//span[@class='field-caption dataLabelForRead' and text()='Account owner']/../div/span"))
 				.getText();
 		assert expectedValue.equalsIgnoreCase("Acme Software");
 

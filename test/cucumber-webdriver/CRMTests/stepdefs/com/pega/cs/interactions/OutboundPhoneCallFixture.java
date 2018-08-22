@@ -69,7 +69,7 @@ public class OutboundPhoneCallFixture {
 				"//div[contains(text(), 'Thank you for contacting U+Bank.  My name is    CS CSR. How can I help you today?')]")));*/
 		Assert.assertTrue("Search text is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.SEARCH_XPATH)));
 		Assert.assertTrue("General assistance text is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.GENERAL_ASSISTANCE_XPATH)));
-		Assert.assertTrue("Add new customer text is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.ADD_NEW_CUSTOMER_XPATH)));
+		
 		
 	}
 

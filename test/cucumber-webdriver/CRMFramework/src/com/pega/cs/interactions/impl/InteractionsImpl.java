@@ -919,7 +919,7 @@ public abstract class InteractionsImpl extends WizardImpl implements Interaction
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).build().perform();
 		pegaDriver.waitForDocStateReady(2);
-		String TRANSACTION_ID_XPATH = "//input[@title='Select Dispute Transaction with ID #tranName#']/following-sibling::label";
+		String TRANSACTION_ID_XPATH = "//input[@title='Select Dispute Transaction with ID #tranName#']";
 		String finalXPath = new String(TRANSACTION_ID_XPATH).replace("#tranName#", tranName);
 
 		PegaWebElement transLink = newWizard.findElement(By.xpath(finalXPath));
@@ -1300,7 +1300,7 @@ public abstract class InteractionsImpl extends WizardImpl implements Interaction
 	public void contactVerificationQuesforServiceCases() {
 		frameId = pegaDriver.getActiveFrameId(false);
 		newWizard = pegaDriver.findWizard(frameId);
-		int pageexists = pegaDriver.findElements(By.xpath("//label[contains(text(),'Verify contact')]")).size();
+		int pageexists = pegaDriver.findElements(By.xpath("//*[contains(text(),'Verify contact')]")).size();
 
 		if (pageexists > 0) {
 			int noOfQstns = pegaDriver.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).size();
@@ -1313,70 +1313,60 @@ public abstract class InteractionsImpl extends WizardImpl implements Interaction
 					pegaDriver.waitForDocStateReady(1);
 
 					pegaDriver.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();
-
+					pegaDriver.waitForDocStateReady(4);
 
 
 					try{
 						PegaWebElement verification = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
+						pegaDriver.waitForDocStateReady();
 						if(verification.isEnabled())
 						{
 							pegaDriver.switchTo().defaultContent();
-							pegaDriver.switchTo().frame("PegaGadget2Ifr");
+							pegaDriver.waitForDocStateReady();
+							pegaDriver.switchToActiveFrame();
+							pegaDriver.waitForDocStateReady();
 							PegaWebElement submitButtons = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
+							pegaDriver.waitForDocStateReady();
 							submitButtons.click(false);
-							pegaDriver.waitForDocStateReady(3);
+							pegaDriver.waitForDocStateReady();
 							break;
 						}
 					}
 					catch(Exception e) {
+						pegaDriver.waitForDocStateReady(1);
+						pegaDriver.switchToActiveFrame();
 						PegaWebElement verification = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
+						pegaDriver.waitForDocStateReady();
 						if(verification.isEnabled())
 						{
 							pegaDriver.switchTo().defaultContent();
-							pegaDriver.switchTo().frame("PegaGadget2Ifr");
+							pegaDriver.waitForDocStateReady();
+							pegaDriver.switchToActiveFrame();
+							pegaDriver.waitForDocStateReady();
 							PegaWebElement submitButtons = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
+							pegaDriver.waitForDocStateReady();
 							submitButtons.click(false);
-							pegaDriver.waitForDocStateReady(3);
+							pegaDriver.waitForDocStateReady();
 							break;
 						}
 					}
 
-					//String minscore=pegaDriver.findElement(By.xpath("//span[@data-test-id='20180516055556061450494']")).getText();
-					//int minscorereq= Integer.parseInt(minscore);
-					// String currentscore=pegaDriver.findElement(By.xpath("//span[@data-test-id='2018051606010007135234']")).getText();
-					//int currentscorereq= Integer.parseInt(currentscore);
-
-					// if(minscorereq>currentscorereq)
-					// {
-					// PegaWebElement submit = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-					//submit.click(false);
-					//pegaDriver.waitForDocStateReady(3);
-					// }
-					//else
-					//{
-					//pegaDriver.waitForDocStateReady(1);
-					//pegaDriver
-					//.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();      
+					  
 
 				}
 			}
 
-			/*
-			 * if(!chkBox.isSelected()){ chkBox.check(); }
-			 */
+			
 
 		}
 
 		else
 		{
-			//String numberofquestext = pegaDriver.findElement(By.xpath("//div[@data-test-id='201802070240470255365646']")).getText();
 			Assert.assertFalse("No Verification validated successfully", pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Verify contact')]")));
 		}
 
-		//PegaWebElement submit = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-		//submit.click(false);
-		//pegaDriver.waitForDocStateReady(3);
 	}
+
 
 
 	@Override
