@@ -38,6 +38,7 @@ Feature: CS Smoke Test cases
     Then Enter mandatory fields "New Contact FN" and "New Contact LN" and "testcontactmailid" and submit
     When Click on Add Task to launch Service Process
     When Launch "Update Contact Profile" service process
+    When select the verification questions for service cases and click on verified
     Then update DOB "01/07/1990" and Gender "M" and Marital Status "Single"
     Then update the primary address
     Then update communication preference method "Mail" time "8am-10am" and language to "English"
@@ -246,6 +247,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Address Change" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Address Change" flow is launched
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
@@ -278,6 +280,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Dispute Transaction" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Dispute Transaction" flow is launched
     Then select transaction "9028" for dispute
     When Select dispute reason "Merchandise not received" and submit
