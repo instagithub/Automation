@@ -262,6 +262,7 @@ public class NewDemoInteractionFixture {
 	@Then("^Verify the fields displayed in the interaction area for the new tab$")
 	public void verify_the_fields_displayed_in_the_interaction_area_for_the_new_tab() throws Throwable {
 		pegaDriver.switchTo().defaultContent();
+		pegaDriver.switchToActiveFrame();
 		// Asserting Business Unit Type
 		//String expectedValue = pegaDriver
 				//.findElement(By.xpath("//span[@class='field-caption dataLabelForRead' and text()='Organization type']/../div/span"))

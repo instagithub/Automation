@@ -2761,7 +2761,7 @@ public abstract class InteractionsImpl extends WizardImpl implements Interaction
 		pegaDriver.waitForDocStateReady(2);
 		PegaWebElement dateOfBirth = pegaDriver.findElement(By.xpath("//input[@data-test-id='201512290434570892563861']"));
 		dateOfBirth.sendKeys(DOB);
-		PegaWebElement MiddleNmae = pegaDriver.findElement(By.xpath("//input[@data-test-id='201512290417350719208807' and @title='Middle Name']"));
+		PegaWebElement MiddleNmae = pegaDriver.findElement(By.xpath("//input[@data-test-id='201808200423510108533' and @title='Middle Name']"));
 		MiddleNmae.sendKeys("MN");
 		
 		DropDown gender = pegaDriver.findSelectBox(By.xpath("//select[@data-test-id='201512290710340197170376']"));
