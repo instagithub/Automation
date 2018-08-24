@@ -562,7 +562,7 @@ public class PhoneCallFixture {
 		Assert.assertTrue("Update contact profile is not present",pegaDriver.verifyElement(By.xpath(interaction.UPDATE_CONTACT_PROFILE_XPATH)));
 		Assert.assertTrue("Modify account links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_ACCOUNT_LINKS_XPATH)));
 		Assert.assertTrue("Modify organization links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_ORGANIZATION_LINKS_XPATH)));
-		Assert.assertTrue("Complaint or compliment is not present",	pegaDriver.verifyElement(By.xpath(interaction.COMPLAINT_OR_COMPLIMENT_XPATH)));
+		//Assert.assertTrue("Complaint or compliment is not present",	pegaDriver.verifyElement(By.xpath(interaction.COMPLAINT_OR_COMPLIMENT_XPATH)));
 
 		Assert.assertTrue("Send correspondence is not present",	pegaDriver.verifyElement(By.xpath(interaction.SEND_CORRESPONDENCE_XPATH)));
 		Assert.assertTrue("General service request is not present",pegaDriver.verifyElement(By.xpath(interaction.GENERAL_SERVICE_REQUEST_XPATH)));
