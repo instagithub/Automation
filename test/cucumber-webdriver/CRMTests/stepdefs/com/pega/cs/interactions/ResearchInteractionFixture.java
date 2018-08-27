@@ -117,7 +117,7 @@ public class ResearchInteractionFixture {
 
 			//Assert.assertTrue("Co-browsing session task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Co-browsing session']")));
 			//Assert.assertTrue("Deactivate card task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Deactivate Card']")));
-			Assert.assertTrue("Complaint or Compliment task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Complaint or Compliment']")));
+			//Assert.assertTrue("Complaint or Compliment task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Complaint or Compliment']")));
 			Assert.assertTrue("Send Correspondence task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Send Correspondence']")));
 			Assert.assertTrue("General service request task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='General Service Request']")));
 			Assert.assertTrue("Open new account task is not present", pegaDriver.verifyElement(By.xpath("//a[@class='Add_task'][text()='Open New Account']")));

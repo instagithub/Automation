@@ -38,6 +38,7 @@ Feature: CS Smoke Test cases
     Then Enter mandatory fields "New Contact FN" and "New Contact LN" and "testcontactmailid" and submit
     When Click on Add Task to launch Service Process
     When Launch "Update Contact Profile" service process
+    When select the verification questions for service cases and click on verified
     Then update DOB "01/07/1990" and Gender "M" and Marital Status "Single"
     Then update the primary address
     Then update communication preference method "Mail" time "8am-10am" and language to "English"
@@ -77,6 +78,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Address Change" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Address Change" flow is launched
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
@@ -245,6 +247,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Address Change" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Address Change" flow is launched
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
@@ -277,6 +280,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Dispute Transaction" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Dispute Transaction" flow is launched
     Then select transaction "9028" for dispute
     When Select dispute reason "Merchandise not received" and submit
@@ -329,13 +333,14 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Close Account" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Close Account" flow is launched
     And verify Close Account dialog, header and question for connor
     When close the account with reason "Competitor" and comments "Close the account"
     Then verify the confirm screen for "Close Account"
     And Get the case ID from History and Attachments link
     And verify the dialog, status and changes
-    And Verify the Status of " Enter reason for closing account  " is "Completed"
+    And Verify the Status of " Enter Reason for Closing Account  " is "Completed"
     When Confirm the flow
     Then check for completed or cancelled task "Close Account"
     And Verifiy Interaction tab and verify the corrosponding fields
@@ -345,8 +350,8 @@ Feature: CS Smoke Test cases
     #Then Verify the fields displayed for "Close account"
     #When Click on cases button to naviage to Recent cases widget
     When Select the above created Case
-    Then Verify "Close Account" subcase is displayed
-    When Select "Close Account" sub case
+    Then Verify "CloseAccount" subcase is displayed
+    When Select "CloseAccount" sub case
     Then Verify the header and other deatis in close account page
     Then Submit the changes made
     And Verify the Status of "Close Account" is "Completed"
@@ -370,6 +375,7 @@ Feature: CS Smoke Test cases
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Dispute Transaction" service process
+    When select the verification questions for service cases and click on verified
     Then verify "Dispute Transaction" flow is launched
     Then verify that "Dispute Transaction" flow is launched with dialog
     When Select "1029" statement  and submit
@@ -378,7 +384,7 @@ Feature: CS Smoke Test cases
     Then Verify the confirm screen and inprogress task
     And Get the case ID from History and Attachments link
     And Verify the "Resolved-Completed" status displayed
-    And Verify the Status of " Collect dispute details  " is "Completed"
+    And Verify the Status of " Collect Dispute Details  " is "Completed"
     And Verify the Status of "Dispute Transaction" is "Resolved-Completed"
     When Confirm the Dispute transaction flow
     Then check for completed or cancelled task "Dispute Transaction"
