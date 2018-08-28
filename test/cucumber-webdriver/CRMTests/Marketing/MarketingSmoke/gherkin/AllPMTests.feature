@@ -1,5 +1,5 @@
 @shippable 
-Feature: Creation of Criteria Segment
+Feature: PegaMarketing Selenium Shippable Tests
   
   Scenario: Create Basic Criteria Segment
     Given A User logs in with Analyst credentials
@@ -59,7 +59,7 @@ Feature: Creation of Criteria Segment
     And adds a new send email shape to the offer at point "-450","0" in the offer
     And opens the properties of send email shape with name "Send Email"
     And renames the send email shape as "SendEmail"
-    And sets the treatment as "TestEmailTreatment124136"
+    And sets the treatment as "TestAutoEmailTreatment021343"
     And sets the email account as "Default"
     And submits the properties
     And connects the start shape to the send email shape
@@ -79,10 +79,10 @@ Feature: Creation of Criteria Segment
     And User selects Business Issue as "DemoIssue"
     And User selects Group as "DemoGroup"
     And User selects Audience Driven targeting approach
-    And User configure Audience and add segment with name as "TestSegment115636"
+    And User configure Audience and add segment with name as "TestAutoSegment"
     #Then User verifies that segment is added
     When User applies configure modal dialog
-    And User assigns an offer with name as "TestOffer124559"
+    And User assigns an offer with name as "TestAutoEmailOffer"
     #Then Verify that offer is added
     When User applies configure modal dialog
     And User saves the strategy
@@ -102,20 +102,20 @@ Feature: Creation of Criteria Segment
     Then Save button should be Enabled for the Campaign
     When User configures Marketing Strategy
     Then Configure Marketing Strategy PopUp should be displayed
-    When User searches for the Strategy "DemoStrategy130435" in the Search for Marketing Startegy
-    Then Strategy Search Results for "DemoStrategy130435" should be displayed
-    When User selects and adds strategy "DemoStrategy130435" from displayed search results
+    When User searches for the Strategy "TestAutoStrategy81" in the Search for Marketing Startegy
+    Then Strategy Search Results for "TestAutoStrategy81" should be displayed
+    When User selects and adds strategy "TestAutoStrategy81" from displayed search results
     Then Strategy Details for the strategy should be displayed
     When User applies Strategy for Campaign
-    Then Marketing Strategy Section should have the Strategy "DemoStrategy130435" Added
+    Then Marketing Strategy Section should have the Strategy "TestAutoStrategy81" Added
     When User configures Audience
     Then Configure Audience PopUp should be displayed
-    When User searches and adds the Segment "TestSegment115636" in the Search for Audience
-    Then Audience Search Results for segment "TestSegment115636" should be displayed
-    When User selects and adds Segment "TestSegment115636" from Audience Search Results
+    When User searches and adds the Segment "TestAutoSegment" in the Search for Audience
+    Then Audience Search Results for segment "TestAutoSegment" should be displayed
+    When User selects and adds Segment "TestAutoSegment" from Audience Search Results
     Then Audience Details should be displayed
     When User applies the Segment for campaign
-    Then Audience Section should have the Segment "TestSegment115636" Added
+    Then Audience Section should have the Segment "TestAutoSegment" Added
     When User configures Engagement
     Then Configure Engagement PopUp should be displayed
     When User checks Campaign Schedule
