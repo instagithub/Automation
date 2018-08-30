@@ -133,7 +133,7 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 	public void confirmAction() {
 		findElement(CONFIRM_BUTTON).click();
 		pegaDriver.waitForDocStateReady(30);
-		pegaDriver.handleWaits().sleep(30);
+		pegaDriver.handleWaits().sleep(60);
 	}
 	
 	public class PegaCampaignConfigureDialog extends PegaModalDialog implements CampaignConfigureDialog {
