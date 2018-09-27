@@ -1,5 +1,0 @@
-rootProject.name = 'crm-all'
-
-include ':test:cucumber-webdriver'
-include ':test:pega-unit'
-include ':gradle'
