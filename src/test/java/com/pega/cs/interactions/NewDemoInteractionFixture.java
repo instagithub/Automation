@@ -6,11 +6,13 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import com.google.inject.Inject;
 import com.pega.MyTestEnvironment;
-import com.pega.cs.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.tiles.TopNavFixture;
+import customerservice.interactions.Interactions;
+import customerservice.interactions.NewDemoInteraction;
+import customerservice.utils.CommonMethods;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

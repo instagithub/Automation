@@ -13,12 +13,15 @@ import com.google.inject.Inject;
 import com.pega.MyTestEnvironment;
 import com.pega.ObjectsBean;
 import com.pega.TestEnvironment;
-import com.pega.cs.CSPortal;
-import com.pega.cs.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.tiles.TopNavFixture;
+import customerservice.CSPortal;
+import customerservice.interactions.Interactions;
+import customerservice.interactions.PhoneCall;
+import customerservice.interactions.ResearchInteraction;
+import customerservice.utils.CommonMethods;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;

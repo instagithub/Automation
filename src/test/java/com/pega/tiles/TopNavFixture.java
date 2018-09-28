@@ -3,16 +3,16 @@ package com.pega.tiles;
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.MyBrowser;
-import com.pega.cs.CSPortal;
-import com.pega.cs.interactions.DialogsAndCoachingTips;
-import com.pega.cs.interactions.Interactions;
-import com.pega.cs.interactions.NewDemoInteraction;
-import com.pega.cs.interactions.NewInboundInteraction;
-import com.pega.cs.interactions.OutboundPhoneCall;
-import com.pega.cs.interactions.PhoneCall;
-import com.pega.cs.interactions.ResearchInteraction;
-import com.pega.cs.tiles.TopNav;
 import com.pega.explorer.DesignerStudio;
+import customerservice.CSPortal;
+import customerservice.interactions.DialogsAndCoachingTips;
+import customerservice.interactions.Interactions;
+import customerservice.interactions.NewDemoInteraction;
+import customerservice.interactions.NewInboundInteraction;
+import customerservice.interactions.OutboundPhoneCall;
+import customerservice.interactions.PhoneCall;
+import customerservice.interactions.ResearchInteraction;
+import customerservice.tiles.TopNav;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
@@ -32,7 +32,7 @@ public class TopNavFixture {
 	private OutboundPhoneCall outboundPhoneCall;
 	private TopNav topnav;
 	public String[] caseStatus = new String[10];
-	private com.pega.cs.designerstudio.ApplicationWizard applicationWizard;
+	private customerservice.designerstudio.ApplicationWizard applicationWizard;
 	private Interactions interactions;
 	private DesignerStudio designerStudio;
 
@@ -344,7 +344,7 @@ public class TopNavFixture {
 		return outboundPhoneCall;
 	}
 
-	public com.pega.cs.designerstudio.ApplicationWizard getApplicationWizard() {
+	public customerservice.designerstudio.ApplicationWizard getApplicationWizard() {
 
 		return applicationWizard;
 	}

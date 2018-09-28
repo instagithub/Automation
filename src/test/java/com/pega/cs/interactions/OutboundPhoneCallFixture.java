@@ -9,12 +9,15 @@ import org.openqa.selenium.By;
 import com.google.inject.Inject;
 import com.pega.MyTestEnvironment;
 import com.pega.TestEnvironment;
-import com.pega.cs.CSPortal;
-import com.pega.cs.tiles.impl.TopNavImpl;
-import com.pega.cs.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.ri.Wizard;
 import com.pega.tiles.TopNavFixture;
+import customerservice.CSPortal;
+import customerservice.interactions.Interactions;
+import customerservice.interactions.OutboundPhoneCall;
+import customerservice.interactions.PhoneCall;
+import customerservice.tiles.impl.TopNavImpl;
+import customerservice.utils.CommonMethods;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
