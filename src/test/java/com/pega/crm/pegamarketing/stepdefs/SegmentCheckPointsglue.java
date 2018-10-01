@@ -1,9 +1,9 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import pegamarketing.DesignerStudio;
@@ -24,7 +24,7 @@ public class SegmentCheckPointsglue {
 	private DesignerStudio designerStudio;
 
 	@Inject
-	public SegmentCheckPointsglue(TestEnvironment testEnv, MyBrowser browser) {
+	public SegmentCheckPointsglue(TestEnvironment testEnv, CRMBrowser browser) {
 		pegaDriver = testEnv.getPegaDriver();
 		designerStudio = browser.getDesignerStudio();
 	}

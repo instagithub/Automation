@@ -1,9 +1,9 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import pegamarketing.PMPortal;
 import pegamarketing.PMPortal.LandingPageType;
 import pegamarketing.pages.CampaignsFrame;
@@ -36,7 +36,7 @@ public class PMPortalglue {
 	ProspectLists prospectLists;
 
 	@Inject
-	public PMPortalglue(MyBrowser browser) {
+	public PMPortalglue(CRMBrowser browser) {
 		pmPortal = browser.getPMPortal();
 
 	}

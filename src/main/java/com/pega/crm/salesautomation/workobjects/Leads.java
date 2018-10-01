@@ -3,7 +3,7 @@ package salesautomation.workobjects;
 import java.util.ArrayList;
 import java.util.List;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.UtilImpl;
+import salesautomation.workobjects.impl.PegaUtil;
 
 public interface Leads extends Wizard
 {
@@ -11,7 +11,7 @@ public interface Leads extends Wizard
 	String LEAD_INDUSTRY_XPATH="//select[contains(@name,'Industry')]";
 	String LEAD_COMPANY_ID="LeadCompanyName";
 	String LEAD_STAGE_ID="LeadStage";
-	String LEAD_CREATE_XPATH=UtilImpl.getStrongButtonXPath("Create");
+	String LEAD_CREATE_XPATH=PegaUtil.getStrongButtonXPath("Create");
 	String LEAD_NAME_VALUE_XPATH="//*[text()='Last name']/../../div/span";
 	String LEAD_NAME_INDIVIDUAL_VALUE_XPATH="//*[text()='Last name']/../div/span";
 	String LEAD_COMPANY_VALUE_XPATH="//*[text()='Company']/../../div/span";

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.UtilImpl;
+import salesautomation.workobjects.impl.PegaUtil;
 
 public interface Tools extends Wizard
 {
@@ -13,9 +13,9 @@ public interface Tools extends Wizard
 	String MRT_RELATIONSHIP_TYPE_ID="RelationShipTypeName";
 	String MRT_RELATIONSHIP_DESC_ID="RelationShipTypeDesc";
 	String MRT_SELLINGMODE_ID="SellingType";
-	String MC_Createcompetitor_XPATH=UtilImpl.getStrongButtonXPath("Create competitor") +"|"+UtilImpl.getStrongButtonXPath("Create relationship type") + "|"+UtilImpl.getStrongButtonXPath("Create time period");
-	String MC_Createrelatioshiptype_xpath=UtilImpl.getStrongButtonXPath("Create new relationship type");
-	String MC_Createtimperiod_xpath=UtilImpl.getStrongButtonXPath("Create new time period");
+	String MC_Createcompetitor_XPATH=PegaUtil.getStrongButtonXPath("Create competitor") +"|"+PegaUtil.getStrongButtonXPath("Create relationship type") + "|"+PegaUtil.getStrongButtonXPath("Create time period");
+	String MC_Createrelatioshiptype_xpath=PegaUtil.getStrongButtonXPath("Create new relationship type");
+	String MC_Createtimperiod_xpath=PegaUtil.getStrongButtonXPath("Create new time period");
     
 	//*[@id="RULE_KEY"]/div/div/div/div/span/button
 	//String MRT_ROW_IDENTIFER_XPATH="//tr[contains(@oaargs, 'PegaCRM-Data-RelationShipTypes')]";

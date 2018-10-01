@@ -1,9 +1,9 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import pegamarketing.PMPortal;
 import pegamarketing.dialog.CategoriesDialog;
 import pegamarketing.dialog.ConfigureAudienceDialog;
@@ -33,7 +33,7 @@ public class RelevanceStrategyglue {
     String Strategy1,Strategy2;
 
 	@Inject
-	public RelevanceStrategyglue(MyBrowser browser) {
+	public RelevanceStrategyglue(CRMBrowser browser) {
 		pmPortal = browser.getPMPortal();
 	}
 

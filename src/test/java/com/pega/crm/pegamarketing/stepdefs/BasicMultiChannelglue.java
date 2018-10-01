@@ -1,11 +1,11 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import java.util.List;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import pegamarketing.PMPortal;
@@ -29,7 +29,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 public class BasicMultiChannelglue {
 
 	TestEnvironment testEnv;
-	MyBrowser browser;
+	CRMBrowser browser;
 	PegaExpressPortal pegaExpressPortal;
 	PMPortal pmPortal;
 	CampaignsFrame campaigns;
@@ -40,7 +40,7 @@ public class BasicMultiChannelglue {
 	ConfigureEngagementDialog configureEngagementDialog;
 
 	@Inject
-	public BasicMultiChannelglue(MyBrowser browser) {
+	public BasicMultiChannelglue(CRMBrowser browser) {
 		pmPortal = browser.getPMPortal();
 	}
 

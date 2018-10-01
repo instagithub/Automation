@@ -1,4 +1,4 @@
-package salesautomation.stepdefs;
+package com.pega.crm.salesautomation.stepdefs;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +36,7 @@ import salesautomation.workobjects.Relationship;
 import salesautomation.workobjects.Tasks;
 import salesautomation.workobjects.Territories;
 import salesautomation.workobjects.TerritoriesList;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import customerservice.SFAPortal;
 import customerservice.tiles.LeftNav;
 
@@ -53,7 +53,7 @@ public class SASmokeglue
 	String OPP_SHORTNAME = "Auto_oppty";
 	private SFAPortal sfaPortal =null;
 	private TestEnvironment testEnv;
-	private MyBrowser browser;
+	private CRMBrowser browser;
 	private PegaWebDriver pegaDriver;
 	Opportunity opp;
 	Organization organization, org;
@@ -116,7 +116,7 @@ public class SASmokeglue
 	String actual_name, actual_territory, actual_con, actual_amount, actual_closedate, actual_owner,actual_shortName, actual_source, actual_stage, actual_win, actual_Forecast, actual_description;
 	
 	@Inject
-	public SASmokeglue(TestEnvironment testEnv, MyBrowser browser){
+	public SASmokeglue(TestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

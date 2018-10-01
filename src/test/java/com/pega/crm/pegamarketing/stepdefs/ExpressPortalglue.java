@@ -14,10 +14,10 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import pegamarketing.DesignerStudio;
 import pegamarketing.impl.PegaExpressPortal;
 import pegamarketing.pages.ContextDictionary;
@@ -32,7 +32,7 @@ public class ExpressPortalglue {
 	private ContextDictionary contextDictionaryFrame;
 	private DesignerStudio designerStudio;
 	@Inject
-	public ExpressPortalglue(MyBrowser browser) {
+	public ExpressPortalglue(CRMBrowser browser) {
 		pegaExpressPortal = browser.getExpressPortal();
 	}
 	

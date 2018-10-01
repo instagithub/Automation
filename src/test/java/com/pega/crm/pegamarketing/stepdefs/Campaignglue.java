@@ -14,12 +14,12 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import com.pega.TestEnvironment;
 import pegamarketing.dialog.ConfigureDialog;
 import pegamarketing.rules.Campaign;
@@ -34,7 +34,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 @ScenarioScoped
 public class Campaignglue {
 	TestEnvironment testEnv;
-	MyBrowser browser;
+	CRMBrowser browser;
 	Campaign campaign;
 	String Campaign1,Campaign2;
 	private ConfigureAudienceDialog configureAudienceDialog;
@@ -42,7 +42,7 @@ public class Campaignglue {
 	@Inject
 	Campaignglue(TestEnvironment testEnv) {
 		this.testEnv = testEnv;
-		browser = (MyBrowser) testEnv.getBrowser();
+		browser = (CRMBrowser) testEnv.getBrowser();
 	}
 
 	@Then("^Campaign should be created and Saved$")

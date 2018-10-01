@@ -1,4 +1,4 @@
-package customerservice.stepdefs;
+package com.pega.crm.customerservice.stepdefs;
 
 import java.util.ArrayList;
 
@@ -6,13 +6,13 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import com.google.inject.Inject;
-import com.pega.MyTestEnvironment;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
-import com.pega.tiles.TopNavFixture;
+
 import customerservice.CSPortal;
 import customerservice.designerstudio.ApplicationWizard;
 import customerservice.interactions.Interactions;
@@ -46,7 +46,7 @@ public class CSSmokeglue {
 	
 
 	@Inject
-	public CSSmokeglue(TopNavFixture topNavFixture, MyTestEnvironment testEnv) {
+	public CSSmokeglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
 		
 		phoneInteraction = topNavFixture.getPhoneCall();
 		commonMethods = testEnv.getCommonMethods();

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;				  
 import org.openqa.selenium.Keys;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.UtilImpl;
+import salesautomation.workobjects.impl.PegaUtil;
 
 public interface Contact extends Wizard
 {
@@ -37,8 +37,8 @@ public interface Contact extends Wizard
 	String CONT_CLOSECOMMENTS_ID="CloseComments";
 	String CONT_PRIMARY_CONTACT_XPATH="//*[text()='Primary contact']/..//div/span";
 	String CONT_C2A_LIST_XPATH="//tr[contains(@oaargs, 'LINK-ENTITY-C2A')]";
-	String CONT_ADD_LEAD_XPATH=UtilImpl.getButtonXpath("Add Lead") +"|" + UtilImpl.getButtonXpathWithIcon("Add Lead");
-	String CONT_ADD_OPPTY_XPATH=UtilImpl.getButtonXpath("Add opportunity") + "|" + UtilImpl.getButtonXpathWithIcon("Add Opportunity");
+	String CONT_ADD_LEAD_XPATH=PegaUtil.getButtonXpath("Add Lead") +"|" + PegaUtil.getButtonXpathWithIcon("Add Lead");
+	String CONT_ADD_OPPTY_XPATH=PegaUtil.getButtonXpath("Add opportunity") + "|" + PegaUtil.getButtonXpathWithIcon("Add Opportunity");
 	String LEADS_ROWS_XPATH="//tr[contains(@oaargs, 'UPLUS-SAPLUS-WORK-LEAD')]";
 	String LEAD_ROWS_NAME_XPATH="//td[@data-attribute-name= 'Name']//a";
 	String OPP_ROWS_XPATH="//tr[contains(@id, 'OpportunitiesByContact')] | //tr[contains(@oaargs, 'UPLUS-SAPLUS-WORK-OPPORTUNITY')]";
@@ -52,15 +52,15 @@ public interface Contact extends Wizard
 	//String CONT_FOLLOWTESTING_XPATH = "//div[@pyclassname='Index-WorkPartyUri']//a";
 	String FOLLOWTESTING_XPATH = "//div[contains(@param_name,'Favorites')]";
 	//String CONT_FOLLOWTESTING_XPATH = "//div[contains(@param_name,'Favorites')]//a";
-	String CONT_UNFOLLOW_XPATH=UtilImpl.getButtonXpath("Unfollow");
-	String CONT_FOLLOW_XPATH=UtilImpl.getButtonXpath("Follow");
+	String CONT_UNFOLLOW_XPATH=PegaUtil.getButtonXpath("Unfollow");
+	String CONT_FOLLOW_XPATH=PegaUtil.getButtonXpath("Follow");
 	String CONT_FIRST_NAME_VALUE_XPATH="//*[text()='First name']/../div/span";
 	String CONT_LAST_NAME_VALUE_XPATH="//*[text()='Last name']/../../div/span";
 	String LEAD_ROWS_XPATH="//tr[contains(@id, 'LeadsRelatedToContact')]";
 	String CONT_ACTIVITY_ROW_IDENTIFIER_XPATH = "//tr[contains(@id, 'crmGetRelatedActivitiesListByContact')]";
 	String CONT_TASK_ROW_IDENTIFIER_XPATH= "//tr[contains(@oaargs, 'UPLUS-SAPLUS-WORK-TASK')]";	
-	String RELATIONSHIP_ADD_BUTTON=UtilImpl.getButtonXpath("Add") + "|" + UtilImpl.getButtonXpathWithIcon("Add");
-	String CONT_HOUSEHOLD_XPATH="//button[contains(@title,'Add contact to household')]" +"|" + UtilImpl.getButtonXpathWithIcon("Add contact to household");;
+	String RELATIONSHIP_ADD_BUTTON=PegaUtil.getButtonXpath("Add") + "|" + PegaUtil.getButtonXpathWithIcon("Add");
+	String CONT_HOUSEHOLD_XPATH="//button[contains(@title,'Add contact to household')]" +"|" + PegaUtil.getButtonXpathWithIcon("Add contact to household");;
 	String ADD_HOUSEHOLD_MEMBER_BTN = "//*[@data-test-id='2015031214541608808172']";
 	String ADD_CONTACT_TO_HOUSEHOLD = "//*[@data-test-id='2015061908563207831294']";
 			

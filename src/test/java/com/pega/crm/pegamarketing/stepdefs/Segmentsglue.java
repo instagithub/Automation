@@ -1,4 +1,4 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;

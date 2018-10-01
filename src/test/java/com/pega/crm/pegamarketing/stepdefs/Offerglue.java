@@ -1,4 +1,4 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 import org.testng.Assert;
 
 import pegamarketing.elmt.OfferShape;

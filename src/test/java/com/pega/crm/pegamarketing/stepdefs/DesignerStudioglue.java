@@ -1,7 +1,7 @@
-package pegamarketing.stepdefs;
+package com.pega.crm.pegamarketing.stepdefs;
 
 import com.google.inject.Inject;
-import com.pega.MyBrowser;
+import com.pega.CRMBrowser;
 import pegamarketing.DesignerStudio;
 import pegamarketing.PMPortal;
 import pegamarketing.explorer.RecordsExplorer;
@@ -14,14 +14,14 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 @ScenarioScoped
 public class DesignerStudioglue {
 
-	private MyBrowser browser;
+	private CRMBrowser browser;
 	private DesignerStudio designerStudio;
 	private RecordsExplorer recordsExplorer;
 	private ServiceRestRecords serviceRestRecords;
 	private PMPortal pmPortal;
 
 	@Inject
-	DesignerStudioglue(MyBrowser browser) {
+	DesignerStudioglue(CRMBrowser browser) {
 		this.browser = browser;
 		designerStudio=browser.getDesignerStudio();
 	}
