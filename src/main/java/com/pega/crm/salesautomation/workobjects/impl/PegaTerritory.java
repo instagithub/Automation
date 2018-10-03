@@ -235,7 +235,7 @@ public class PegaTerritory extends WizardImpl implements Territories
 	public void clickOK() {
 		pegaDriver.getActiveFrameId(true);
 		//pegaDriver.waitForDocStateReady(1);
-		//UtilImpl.clickOK(pegaDriver);
+		//PegaUtil.clickOK(pegaDriver);
 		By TerritorySubmitButton = By.xpath("//*[@data-test-id='20141009024905058525394']");
 		pegaDriver.findElement(TerritorySubmitButton).click();
 		

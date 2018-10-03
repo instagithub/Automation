@@ -1,3 +1,4 @@
+
 package salesautomation.workobjects.impl;
 
 import java.text.DecimalFormat;
@@ -48,7 +49,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	String ACC_SECTION_HEADER_XPATH="//span[@class = 'assignment_title']";
 	String ACC_OWNER_ID="crmSearchOwner";
 	String ACC_CHANGEREASON_ID="ChangeReason";
-	String ACC_OWNER_VALUE_XPATH="//span[text()='Owner(s)']/..//div";
+	String ACC_OWNER_VALUE_XPATH="//span[text()='Owner']/..//div";	
 	//String ACC_CLOSE_HEADER_XPATH="//*[@class='dataValueRead']//label";
 	String ACC_COMMENTS_ID="CloseComments";
 	//String ACC_OK_BUTTON_XPATH="//button[contains(@data-click,'doFormSubmit')]//*[text()='OK']";
@@ -541,20 +542,20 @@ PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
 	@Override
 	public void getLeadSubTab() {
 		PegaUtil.getSubTab(pegaDriver, "Leads");
-		//UtilImpl.clickRefresh(pegaDriver,"Leads");
+		//PegaUtil.clickRefresh(pegaDriver,"Leads");
 	}
 
 
 	@Override
 	public List<String> getLeadRowValues(String leadName) {
-		//UtilImpl.clickRefresh(pegaDriver);
+		//PegaUtil.clickRefresh(pegaDriver);
 		return (PegaUtil.getRowValues(pegaDriver, LEAD_ROWS_XPATH, leadName));
 	}
 
 
 	@Override
 	public void getSalesTeamSubTab() {	
-		//UtilImpl.getSubTab(pegaDriver, "Sales team");
+		//PegaUtil.getSubTab(pegaDriver, "Sales team");
 		pegaDriver.getActiveFrameId(true);
 		//pegaDriver.findElement(By.xpath(ACC_FOLLOWERS_XPATH)).click();
 		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
@@ -601,7 +602,7 @@ PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
 	@Override
 	public void getContactSubTab() {
 		PegaUtil.getSubTab(pegaDriver, "Contacts");
-		//UtilImpl.clickRefresh(pegaDriver,"Contact");
+		//PegaUtil.clickRefresh(pegaDriver,"Contact");
 	}
 
 

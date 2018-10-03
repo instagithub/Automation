@@ -60,7 +60,7 @@ public class PegaAppointment extends WizardImpl implements Appointment{
 			wb.click();
 			pegaDriver.waitForDocStateReady(1);
 		
-		//UtilImpl.setDate(pegaDriver, new Date().getDate());
+		//PegaUtil.setDate(pegaDriver, new Date().getDate());
 	}
 
 	@Override

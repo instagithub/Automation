@@ -86,7 +86,7 @@ public class PegaActivity extends WizardImpl implements Activity{
 		pegaDriver.findElement(By.xpath("//button[@title='Create this item']")).click();
 		if(pegaDriver.verifyElement(By.xpath("//button[@title='Complete this assignment']")))
 			pegaDriver.findElement(By.xpath("//button[@title='Complete this assignment']")).click();	
-		//pegaDriver.findElement(By.xpath(UtilImpl.getStrongButtonXPath("Create"))).click();
+		//pegaDriver.findElement(By.xpath(PegaUtil.getStrongButtonXPath("Create"))).click();
 		pegaDriver.getActiveFrameId(true);
 	}
 
@@ -228,7 +228,7 @@ public class PegaActivity extends WizardImpl implements Activity{
 		pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'InternalStaff')]//input")).sendKeys(Keys.DOWN);
 		pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'InternalStaff')]//input")).sendKeys(Keys.ENTER);
 		
-		//UtilImpl.autoComplete(pegaDriver,StaffSearchTerm, StaffName);
+		//PegaUtil.autoComplete(pegaDriver,StaffSearchTerm, StaffName);
 		
 	}
 

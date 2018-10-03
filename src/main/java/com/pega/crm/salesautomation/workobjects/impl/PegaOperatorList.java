@@ -9,7 +9,7 @@ import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Operator;
 import salesautomation.workobjects.OperatorList;
-//import com.pega.sfa.workobjects.impl.OperatorImpl;
+//import com.pega.sfa.workobjects.impl.PegaOperator;
 import com.pega.util.XPathUtil;
 
 

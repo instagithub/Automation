@@ -41,7 +41,7 @@ public class ResearchInteractionglue {
 	public String[] caseStatus = new String[10];
 
 	@Inject
-	public ResearchInteractionglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public ResearchInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		researchInteraction = topNavFixture.getResearchInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

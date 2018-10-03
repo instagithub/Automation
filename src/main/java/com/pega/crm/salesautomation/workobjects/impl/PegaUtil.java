@@ -65,11 +65,11 @@ public  class PegaUtil
 
 	/*public static String ACTIVITY_REFRESH_XPATH = "//i[@title='Refresh' and contains(@name,'Activities')]";
 	public static String TASK_REFRESH_XPATH="//button[contains(@name, 'crmTasks')][text()='Refresh'] |//i[contains(@name, 'crmTasks')][@title='Refresh']";
-	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ UtilImpl.getButtonXpathWithIcon("Refresh");
+	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ PegaUtil.getButtonXpathWithIcon("Refresh");
 */
 	/*public static String ACTIVITY_REFRESH_XPATH = "//button[contains(@name, 'crmActivitiesList')][text()='Refresh'] | //i[contains(@name, 'crmActivitiesList')][@title='Refresh']";
 	public static String TASK_REFRESH_XPATH="//button[contains(@name, 'crmTasks')][text()='Refresh'] |//i[contains(@name, 'crmTasks')][@title='Refresh']";
-	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ UtilImpl.getButtonXpathWithIcon("Refresh");
+	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ PegaUtil.getButtonXpathWithIcon("Refresh");
 */
 	public static String ACTIVITY_REFRESH_XPATH = "//button[contains(@name, 'ctivities')][text()='Refresh'] | //i[contains(@name, 'ctivities')][@title='Refresh']|//i[contains(@name, 'ctivities')][contains(@class,'refresh')]";
 

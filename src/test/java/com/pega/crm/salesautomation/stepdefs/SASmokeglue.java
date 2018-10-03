@@ -57,10 +57,11 @@ public class SASmokeglue
 	private PegaWebDriver pegaDriver;
 	Opportunity opp;
 	Organization organization, org;
-	
 	OpportunityList oppList;
 	OrganizationsList orgList,organizationList,orgResult;
 	LeadsList leadlist;
+	public ClosePlans closeplans;
+	String CLOSEPLANS_COMMENTS="Entering closeplans";
 	Tasks task;
 	Activity activity;
 	public static String Subject=null; 
@@ -86,9 +87,8 @@ public class SASmokeglue
 	String OPP_MERGE_DESCRIPTION="Merged as part of automation";
 	String OPP_NAME_FOR_FOLLOW="Wireless Tri-Zone Sensors for John Smith";
 	
-	//String OPP_SUBTABS[]={"Details", "Contacts", "Leads", "Close plans","Activities", "Attachments", "Sales team"};
 	String NewStage;
-	String OPP_SUBTABS[]={"Pulse","Details", "Contacts", "Activities", "Leads", "Close plans", "Recent attachments", "Partner contacts","Sales Navigator"};
+	String OPP_SUBTABS[]={"Pulse","Details", "Contacts", "Activities", "Leads", "Close plans", "Attachments", "Partner contacts"};
 	
 	
 	List<String> OPP_LISTTABS = new ArrayList<String>(Arrays.asList(OPP_SUBTABS));
@@ -123,9 +123,8 @@ public class SASmokeglue
 		sfaPortal = browser.getPortal(SFAPortal.class);
 		this.leadlist=browser.leadList;
 		this.organizationList=browser.orgList;
+		this.closeplans=browser.closeplans;
 		
-		//this.organization= browser.org
-		//this.closeplans=browser.closeplans;
 		this.oppList=browser.oppList;
 		this.contList=browser.conList;
 		this.householdlist=browser.hhList;
@@ -141,7 +140,6 @@ public class SASmokeglue
 	}
 	
 
-	//For Scenario: Creating a Opportunity for Business
 	@When("^users clicks on Create OpprotunityButton and selects \"(.+)\"$")
 	public void users_clicks_on_Create_OpprtunityButton(String opptype) throws InterruptedException 
 	{
@@ -156,7 +154,7 @@ public class SASmokeglue
 	   
 	}
 	
-	//For Scenario: Creating a Opportunity for Business
+	
 	@When("^Enters all the mandatory data for \"(.+)\"$")
 	public void enters_all_the_mandatory_data(String opptype) throws InterruptedException 
 	{
@@ -185,7 +183,7 @@ public class SASmokeglue
 	}
 	
 	
-	//For Scenario: Creating a Opportunity for Business
+	
 	@Then("^\"(.+)\" Opportunity should be created$")
 	public void Bussiness_opprtunity_should_be_created(String opptype)
 	{
@@ -269,6 +267,28 @@ public class SASmokeglue
 			   opp=oppList.navigateOpportunity(OpptyName);
 		   }		   
 	}
+	
+	
+	@When("^user opens the \"([^\"]*)\" Lead with \"([^\"]*)\"$")
+	public void user_opens_the_Lead_with(String LeadType, String LeadName) throws Throwable {
+		
+		
+		
+		
+		if(LeadType.equals("Business"))
+		{
+
+			lead=leadlist.navigateLead(LeadName);
+
+		}
+
+		else if(LeadType.equals("Individual"))
+		{
+			
+			lead=leadlist.navigateLead(LeadName);
+		}
+	    
+	}
 
 	
 	@When("^clicks on Close button for \"(.*?)\" Opportunity$")
@@ -348,8 +368,7 @@ public class SASmokeglue
   *  Lead Functions
   *  
   */
- 
- 	//String Subject = "abc";
+
 	String LEAD_INDUSTRY="Communications";
 	String LEAD_COMPANYNAME="VKgroup";
 	String teritory="Global";					  
@@ -372,14 +391,8 @@ public class SASmokeglue
 	String LEAD_TableHeader[]={"Score","Name", "Company name", "Stage", "Create date", "Owner", "Territory", "Source","Days inactive"," "," "," "};
 	List<String> LEAD_LISTHEADER = new ArrayList<String>(Arrays.asList(LEAD_TableHeader));
 	
-	String LEAD_SubTabs [] =  {"Pulse","Details","Recent attachments","Activities"};
+	String LEAD_SubTabs [] =  {"Pulse","Details","Activities","Attachments"};
 	List<String> LEAD_WO_SUBTABS = new ArrayList<String>(Arrays.asList(LEAD_SubTabs));
-	
- 
- 
- 
- 
- 
  
  
  @When("^users clicks on Create LeadButton and selects \"(.*?)\"$")
@@ -481,13 +494,14 @@ public class SASmokeglue
 	
 	@When("^user enters clicks on oppty in closeplan$")
 	public void user_enters_clicks_on_oppty_in_closeplan(){
-	   //closeplans.clickOppty();
-	   //closeplans.enterClosePlans(CLOSEPLANS_COMMENTS);
+		closeplans.clickOppty();
+		
 	}
 
 	
 	@Then("^user able to enter the closeplan for that oppty and enters it$")
 	public void user_able_to_enter_the_closeplan_for_that_oppty_and_enters_it() {
+		closeplans.enterClosePlans(CLOSEPLANS_COMMENTS);
 	  
 	}
 
@@ -641,7 +655,7 @@ public class SASmokeglue
 	String HH_TableHeader[]={"Name", "Active members", "City", "State", "Zip code"};
 	List<String> HH_LISTHEADER = new ArrayList<String>(Arrays.asList(HH_TableHeader));
 	
-	String HH_SubTabs [] =  {"Pulse","Members","Opportunities","Technical","Recent attachments"};
+	String HH_SubTabs [] =  {"Pulse","Members","Opportunities","Technical","Attachments"};
 	List<String> HH_WO_SUBTABS = new ArrayList<String>(Arrays.asList(HH_SubTabs));
 	
     public static int  HH_NOOFMEMBER=1;
@@ -701,6 +715,25 @@ public class SASmokeglue
 		 ArrayList<String> subTabs= households.getSubTabs();
 		 Assert.assertEquals(subTabs, HH_WO_SUBTABS);
 	
+	}
+	
+	
+	
+	@When("^user enters all HH mandatory data for households and saves the changes$")
+	public void user_enters_all_HH_mandatory_data_for_households_and_saves_the_changes() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		households.setHouseholdName(HH_NAME);
+		households.setDescription(HH_DESCIPTION);
+		households.setPhoneNumber(HH_MOB);
+		households.setCity(HH_CITY);
+		households.setState(HH_STATE);
+		households.setStreet(HH_STREET);
+		households.setPincode(HH_ZIPCODE);
+		households.setCountry(HH_COUNTRY);
+		households.clickAddMemberinCreate();
+		households.searchContact(HH_FILTER_CONTACT);
+		households.setHouseholdContact(HH_ROLE);
+        households.clickCreate();
 	}
 	
 	/*
@@ -775,12 +808,10 @@ public class SASmokeglue
 		operator.setTitle(title);
 		operator.setFirstName(firstName);
 		operator.setLastName(lastName);
-		//operator.setFullName(fullName);
 		operator.setPostition(position);
 		operator.setPhone(phone);
 		operator.setEmail(email);
 		operator.setTimeZone(oprtimezone);
-		operator.setReportTo(reportTo);
 		operator.clickNext();
 		
 	    
@@ -909,7 +940,7 @@ public class SASmokeglue
 	public String OrgState = new String("Telangana");
 	public String OrgPostalCode = new String("500019");
 	public String OrgCountry = new String("India");
-	String Org_SubTabs [] =  {"Pulse","Details","Accounts","Opportunities","Contacts","Leads","Trends","Activities","Affinities","Recent attachments"};
+	String Org_SubTabs [] =  {"Pulse","Details","Accounts","Opportunities","Contacts","Leads","Trends","Activities","Attachments"};
 	List<String> ORG_WO_SUBTABS = new ArrayList<String>(Arrays.asList(Org_SubTabs));
 	
 	
@@ -987,22 +1018,13 @@ public class SASmokeglue
 		//Assert.assertEquals(OrganizationTerritory,organization.getTerritory().trim());
 		
 		organization.getDescription();
-		//organization.getDomains();
-		//organization.getAddress("");
 		Assert.assertTrue(organization.verifyOrgNews());
-		
-		//Assert.assertTrue(organization.verifyTwitterIcon());
-		//Assert.assertTrue(organization.verifyFacebookIcon());
-		//Assert.assertTrue(organization.verifyGoogleMapIcon());
-		
 		//Verify the Organization WO tabs
 		organization.verifySubTabs();
 	}
 
 	@When("^SalesOps navigates to Orgaization tab again$")
 	public void salesmanager_navigates_to_Orgaization_tab_again()  {
-	    
-		//organizationList = sfaPortal.getLeftNav().getOrganizationList();
 		organizationList= browser.orgList;
 		organizationList.verifyOrgListpage();
 		
@@ -1012,7 +1034,7 @@ public class SASmokeglue
 	public void saleops_search_for_the_Organization() throws Throwable {
 
 	organizationList= browser.orgList;
-	//OrganizationList orgResult;
+
 	orgResult = organizationList.searchOrganization(OrganizationWOName);
 	organization = orgResult.openOrganization(OrganizationWOName);
 	     
@@ -1021,8 +1043,6 @@ public class SASmokeglue
 	@When("^SaleOps Opens the Organization WO(\\d+)$")
 	public void saleops_Opens_the_Organization_WO(int arg1) throws Throwable {
 	    
-		//organization = orgResult.openOrganization(OrganizationWOName);
-		//orgResult.openOrganization(OrganizationWOName);
 		CurrentOrganization = organization.getName();
 		
 	}
@@ -1098,7 +1118,7 @@ public class SASmokeglue
 	 String ACC_PLACEHOLDER="Filter accounts";
 	String ACC_TableHeader[]={"Name", "Organization", "Industry", "Opportunities", "Total amount","Target", "Owner", "Territory"};
 	List<String> ACC_LISTHEADER = new ArrayList<String>(Arrays.asList(ACC_TableHeader));
-	String ACC_SubTabs [] =  {"Pulse","Details","Opportunities","Contacts","Leads","Activities","Affinities","Recent attachments"};
+	String ACC_SubTabs [] =  {"Pulse","Details","Opportunities","Contacts","Leads","Activities","Attachments"};
 	List<String> ACC_WO_SUBTABS = new ArrayList<String>(Arrays.asList(ACC_SubTabs));
 		
 	
@@ -1224,7 +1244,7 @@ public class SASmokeglue
 	String TerritoryName=null;
 	String ModifiedTerritoryOwner=null;
 	String ModifiedTerritoryParent=null;
-	//TerritoriesList trrList;
+	
 	Territories trr;
 	String MODELBOXNAME="Business Territory Details";
 	String TERRITORYNAME="AutoTerritory-1";
@@ -1233,9 +1253,6 @@ public class SASmokeglue
 	String PARENTTERRITORY="Global";
 	String TRR_TableHeader[]={"Name", "Status", "Owner", "Delegate","ID", "Parent", "Partner"};
 	List<String> TRR_LISTHEADER = new ArrayList<String>(Arrays.asList(TRR_TableHeader));
-	//private TestEnvironment testEnv;
-	//private MyBrowser browser;
-	//private PegaWebDriver pegaDriver;
 	String TerryName;
 	
 

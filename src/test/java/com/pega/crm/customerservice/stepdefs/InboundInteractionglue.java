@@ -47,7 +47,7 @@ public class InboundInteractionglue {
 	String filePath = path+"\\Data\\sample.exe";
 
 	@Inject
-	public InboundInteractionglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public InboundInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		inboundInteraction =topNavFixture.getInboundInteraction();
 		phoneInteraction = topNavFixture.getPhoneCall();
 		commonMethods = testEnv.getCommonMethods();

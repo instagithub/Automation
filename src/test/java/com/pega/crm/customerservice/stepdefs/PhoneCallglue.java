@@ -46,7 +46,7 @@ public class PhoneCallglue {
 	public static String CaseID = null;
 	public String FOLLOW_CASE_ID = "//div[@id='CT']/span";
 	@Inject
-	public PhoneCallglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public PhoneCallglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		phoneInteraction = topNavFixture.getPhoneCall();
 		//demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();

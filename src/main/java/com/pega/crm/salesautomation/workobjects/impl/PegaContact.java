@@ -218,8 +218,8 @@ public class PegaContact extends WizardImpl implements Contact
 	/*public void clickEdit()
 	{
 		pegaDriver.getActiveFrameId(true);
-		//UtilImpl.dropdown(pegaDriver, UtilImpl.ACTION_BUTTON_XPATH, 1);
-		UtilImpl.clickEdit(pegaDriver);
+		//PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, 1);
+		PegaUtil.clickEdit(pegaDriver);
 		
 	
 	}*/
@@ -233,7 +233,7 @@ public class PegaContact extends WizardImpl implements Contact
 /*	public void clickSubmitButton()
 	{
 		pegaDriver.getActiveFrameId(true);
-		UtilImpl.clickSubmit(pegaDriver);
+		PegaUtil.clickSubmit(pegaDriver);
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.id(CONT_SUBMIT_BUTTON_ID)).scrollIntoView();
 		pegaDriver.findElement(By.id(CONT_SUBMIT_BUTTON_ID)).click();
@@ -434,7 +434,7 @@ public class PegaContact extends WizardImpl implements Contact
 
 	@Override
 	public void navigateToTab(String tabName) {
-		//UtilImpl.getSubTab(pegaDriver, "Households");
+		//PegaUtil.getSubTab(pegaDriver, "Households");
 		//div[@role='tablist']//div[contains(@class, 'count')]//h3";
 		//pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//h2[contains(text(),'"+tabName+"')]")).click();
@@ -507,7 +507,7 @@ public class PegaContact extends WizardImpl implements Contact
 	}
 	@Override
 	public List<String> getActivityValues(String ActivityName) {
-		//pegaDriver.findElement(By.xpath(UtilImpl.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
+		//pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
 		pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, CONT_ACTIVITY_ROW_IDENTIFIER_XPATH, ActivityName));
@@ -518,7 +518,7 @@ public class PegaContact extends WizardImpl implements Contact
 	}
 	@Override
 	public List<String> getTaskValues(String RowName) {
-		//pegaDriver.findElement(By.xpath(UtilImpl.TASK_REFRESH_XPATH)).scrollIntoView();
+		//pegaDriver.findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).scrollIntoView();
 		pegaDriver.findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, CONT_TASK_ROW_IDENTIFIER_XPATH, RowName));
@@ -538,7 +538,7 @@ public class PegaContact extends WizardImpl implements Contact
 	}
 	/*@Override
 	public String getContactRelationshipName() {
-		UtilImpl.isRowValuePresent(pegaDriver,)
+		PegaUtil.isRowValuePresent(pegaDriver,)
 		return null;
 	}*/
 	@Override

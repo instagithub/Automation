@@ -29,7 +29,7 @@ public class NewDemoInteractionglue {
 	public Wizard newWizard = null;
 
 	@Inject
-	public NewDemoInteractionglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public NewDemoInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

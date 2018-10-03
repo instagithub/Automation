@@ -20,23 +20,12 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		
 		String CREATE_ORG_BTN_XPATH = new String("//button[text()='Create organization']");
 		String ORG_SEARCH_FIELD = "FilterTermForOrganization";
-		String exportButton = "//i[contains(@alt,'Export')]";
-		String refreshButton = "//i[contains(@alt,'Refresh')]";
+		String exportButton = "//span[text()='Export']";
+		String refreshButton = "//span[text()='Refresh']";
 		String filterButton = "//button[text()='Filter']";
-		
+		String ORGLIST_MENU = "//*[@data-test-id='20180807070707023921318']";
 		String ORGANIZATION_NAME_XPATH="//table[@data-test-id='201801031011410135512-layout']//tr[@aria-rowindex='1']//a[1]";
 		String NO_ORGANIZATIONS_XPATH = "//div[text='No organizations']";
-		
-		//ORGANIZATIONCOLUMNS	
-		String ORGANIZATIONNAMECOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Name')]";
-		String ORGANIZATIONINDUSTRYCOLUMN= "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Industry')]";
-		String ORGANIZATIONEMPLOYEESCOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Employees')]";
-		String ORGANIZATIONREVENUECOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Revenue')]";
-		String ORGANIZATIONACCOUNTSCOLUMN= "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Accounts')]";
-		String ORGANIZATIONTARGETCOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Target')]";
-		String ORGANIZATIONCUSTOMERCOLUMN= "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Customer')]";
-		String ORGANIZATIONOWNERCOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Owner')]";
-		String ORGANIZATIONTERRITORYCOLUMN = "//table[@data-test-id='201801031011410135512-layout']//th[@role='columnheader']//div[contains(text(),'Territory')]";
 		
 		
 	public PegaOrganizationsList(WebElement elmt) {
@@ -61,19 +50,7 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		
 		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(CREATE_ORG_BTN_XPATH)));
 		Assert.assertTrue(pegaDriver.verifyElement(By.id(ORG_SEARCH_FIELD)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(exportButton)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(refreshButton)));
 		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(filterButton)));
-		
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONNAMECOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONINDUSTRYCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONEMPLOYEESCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONREVENUECOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONACCOUNTSCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONTARGETCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONCUSTOMERCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONOWNERCOLUMN)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(ORGANIZATIONTERRITORYCOLUMN)));
 		
 	}
 	

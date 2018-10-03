@@ -340,7 +340,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public List<String> getActivityValues(String ActivityName) {
 		
-		//pegaDriver.findElement(By.xpath(UtilImpl.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
+		//pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
 		pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).click();
 
 		return(PegaUtil.getRowValues(pegaDriver, LEAD_ACTIVITY_ROW_IDENTIFIER_XPATH, ActivityName));

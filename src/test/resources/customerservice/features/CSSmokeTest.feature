@@ -52,14 +52,10 @@ Feature: CS Smoke Test cases
     When CS operator logs in to the portal "mikejones" and "install12345!"
     Then Verify Operator name "Mike Jones"
     When CSR launched the New Phone Interaction
-    When Click on Other Actions button
-    Then Verify Menu options in Other Actions buttons
     When Search for the Customer with Contact Name "connor"
     Then Check the results for contact and other fields
     When select result from the result and proceed
     When select the verification questions and click on verified
-    Then check for the accounts displayed
-    Then check for "12345000" account displayed
     When select "12345000" account number and submit
     Then verifiy left nav, header, composites, dialogs and other sections
     When Click on Add Task to launch Service Process
@@ -67,7 +63,6 @@ Feature: CS Smoke Test cases
     When Launch "Address Change" service process
     When select the verification questions for service cases and click on verified
     Then verify "Address Change" flow is launched
-    Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
     Then Verify the dialog and next best action suggestions and coaching tip for Address Change
     When check additional account for address change and submit

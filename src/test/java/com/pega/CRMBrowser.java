@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 //import com.pega.sfa.workobjects.TerritoriesList;
-//import com.pega.sfa.workobjects.UtilImpl;
+//import com.pega.sfa.workobjects.PegaUtil;
 import org.openqa.selenium.WebElement;
 
 import com.google.inject.Inject;

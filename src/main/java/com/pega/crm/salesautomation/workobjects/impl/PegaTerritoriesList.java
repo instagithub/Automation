@@ -23,8 +23,9 @@ public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
 	
 	@Override
 	public Territories createTerritory() {
-		//TERR_PARENT_HANDLE=pegaDriver.getWindowHandle();
-		findElement((CREATE_TERR_BTN_XPATH)).click();
+		
+		pegaDriver.getActiveFrameId(true);
+		pegaDriver.findElement((CREATE_TERR_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));

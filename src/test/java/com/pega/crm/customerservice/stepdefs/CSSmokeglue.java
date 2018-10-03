@@ -46,7 +46,7 @@ public class CSSmokeglue {
 	
 
 	@Inject
-	public CSSmokeglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public CSSmokeglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		
 		phoneInteraction = topNavFixture.getPhoneCall();
 		commonMethods = testEnv.getCommonMethods();

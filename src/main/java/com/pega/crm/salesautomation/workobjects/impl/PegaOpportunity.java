@@ -40,7 +40,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunity {
 	String OPP_CONTACT_ID="crmSearchRelatedAccount";
 	String OPP_FORECASTCATEGORY_ID="ForecastCategory";
 	String OPP_SOURCE_ID="OpportunitySource";
-	String OPP_MUSTWIN_ID="//input[@data-test-id='20141218032601036332861']/..//label";
+	By OPP_MUSTWIN_ID = By.xpath("//*[@data-test-id='20141218032601036332861']");	
 	String OPP_DESCRIPTION_ID="pyDescription";
 	String OPP_CREATE_XPATH=PegaUtil.getStrongButtonXPath("Create");
 	String OPP_SHORTNAME_ID="OpportunityShortName";
@@ -453,9 +453,9 @@ public class PegaOpportunity extends WizardImpl implements Opportunity {
 	{
 		PegaUtil.getSubTab(pegaDriver, "Contacts");
 		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
-		//wizard.findElement(By.xpath(UtilImpl.OPP_CONTACT_REFRESH_XPATH)).scrollIntoView();
-		//wizard.findElement(By.xpath(UtilImpl.OPP_CONTACT_REFRESH_XPATH)).click();
-		//UtilImpl.clickRefresh(pegaDriver);
+		//wizard.findElement(By.xpath(PegaUtil.OPP_CONTACT_REFRESH_XPATH)).scrollIntoView();
+		//wizard.findElement(By.xpath(PegaUtil.OPP_CONTACT_REFRESH_XPATH)).click();
+		//PegaUtil.clickRefresh(pegaDriver);
 		pegaDriver.getActiveFrameId(true);
 		
 	}
@@ -612,7 +612,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunity {
 
 	@Override
 	public void setOpptyMustWin() {
-		pegaDriver.findElement(By.xpath(OPP_MUSTWIN_ID)).click();
+		pegaDriver.findElement(OPP_MUSTWIN_ID).click();
 		
 	}
 
@@ -708,7 +708,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunity {
 
 	@Override
 	public List<String> getTaskValues(String RowName) {
-		//pegaDriver.findElement(By.xpath(UtilImpl.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
+		//pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
 		pegaDriver.findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, OPP_TASK_ROW_IDENTIFIER_XPATH, RowName));

@@ -45,7 +45,7 @@ public class OutboundPhoneCallglue {
 	
 
 	@Inject
-	public OutboundPhoneCallglue(TopNavFixture topNavFixture, CRMTestEnvironment testEnv) {
+	public OutboundPhoneCallglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		outboundPhoneCall = topNavFixture.getOutboundPhoneCall();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

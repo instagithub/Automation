@@ -83,7 +83,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		pegaDriver.switchTo().frame(frameId);
 		
 		pegaDriver.findElement(By.xpath("//li[@title='Assign to a new owner']")).click();
-		//UtilImpl.dropdown(pegaDriver, UtilImpl.ACTION_BUTTON_XPATH, "Change owner");	
+		//PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner");	
 		
 		 frameId = pegaDriver.getActiveFrameId(false);
 		 frameElmt = pegaDriver.findElement(By.id(frameId));
@@ -321,7 +321,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
 		if (target)
-			pegaDriver.findElement(By.xpath("//input[@data-test-id='2014120404484200106347']/..//label")).click();
+			pegaDriver.findElement(By.xpath("//*[@data-test-id='2014120404484200106347']")).click();
 	}
 
 
@@ -421,7 +421,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		pegaDriver.findElement(By.xpath("//button[@title='Create this item']")).click();
 		if(pegaDriver.verifyElement(By.xpath("//button[@title='Complete this assignment']")))
 			pegaDriver.findElement(By.xpath("//button[@title='Complete this assignment']")).click();	
-		//pegaDriver.findElement(By.xpath(UtilImpl.getStrongButtonXPath("Create"))).click();
+		//pegaDriver.findElement(By.xpath(PegaUtil.getStrongButtonXPath("Create"))).click();
 		*/
 		pegaDriver.getActiveFrameId(true);
 	}
@@ -852,7 +852,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		System.out.println(AccountName + "****   "+ AccountOwner+" ****"+AccountIndustry +"******"+AccOpportunities +"******" +AccountTotAmount +"*******"+AccountStatus);
 	  //  Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
 		//wizard.findElement(By.xpath("//span[@data-test-id='20150106035042083712546']")).scrollIntoView();
-	    // UtilImpl.clickRefresh(pegaDriver,"Accounts");
+	    // PegaUtil.clickRefresh(pegaDriver,"Accounts");
 		
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.getActiveFrameId(true);
@@ -1036,12 +1036,12 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	}																																																   
 	@Override
 	public List<String> getOpptyValues(String opptyName) {
-		//pegaDriver.findElement(By.xpath(UtilImpl.REFRESH_XPATH)).scrollIntoView();
-		//pegaDriver.findElement(By.xpath(UtilImpl.REFRESH_XPATH)).click();
+		//pegaDriver.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).scrollIntoView();
+		//pegaDriver.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
 	Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
 		wizard.findElement(By.xpath(ORG_OPPTY_ROW_IDENTIFIER_XPATH)).scrollIntoView();
-		//wizard.findElement(By.xpath(UtilImpl.REFRESH_XPATH)).click();
+		//wizard.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, ORG_OPPTY_ROW_IDENTIFIER_XPATH, opptyName));
 		
@@ -1050,7 +1050,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	@Override
 	public void getContactSubTab() {
 		PegaUtil.getSubTab(pegaDriver, "Contacts");
-		//UtilImpl.clickRefresh(pegaDriver,"contact");
+		//PegaUtil.clickRefresh(pegaDriver,"contact");
 	}
 	
 	@Override
