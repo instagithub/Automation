@@ -6,8 +6,8 @@ import com.pega.page.Portal;
 
 public interface CSPortal extends Portal{
 
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: CSPortalImpl.java 117333 2015-06-18 09:12:21Z MuraliKondapally $";
+	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public String VERSION = "$Id: CSPortal.java 117333 2018-10-01 09:12:21Z JayaPrakash $";
 	
 	TopNav getTopNav();
 	

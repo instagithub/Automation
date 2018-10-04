@@ -22,7 +22,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 
-public class ChildInteractionglue {
+public class ChildInteraction {
 
 	private PhoneCall phoneInteraction;
 	private NewDemoInteraction demoInteraction;
@@ -37,7 +37,7 @@ public class ChildInteractionglue {
 	
 
 	@Inject
-	public ChildInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public ChildInteraction(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

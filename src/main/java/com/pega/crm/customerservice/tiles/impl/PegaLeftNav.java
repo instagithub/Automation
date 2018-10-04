@@ -49,8 +49,9 @@ import salesautomation.workobjects.impl.PegaUtil;
 
 public class PegaLeftNav implements LeftNav {
 
-	public String COPYRIGHT = "Copyright(C)2014 Pegasystems Inc.";
-	public String VERSION = "$Id: LeftNavImpl.java 117333 2014-12-18 09:12:21Z $";
+	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public String VERSION = "$Id: PegaLeftNav.java 117333 2018-10-01 09:12:21Z $";
+	
 	private PegaWebDriver pegaDriver = null;
 	private TestEnvironment testEnv = null;
 	String ORG_LIST_XPATH = "//span[text()='Organizations']";

@@ -28,7 +28,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 
-public class InboundInteractionglue {
+public class InboundInteraction {
 
 	private PhoneCall phoneInteraction;
 	private NewInboundInteraction inboundInteraction;
@@ -47,7 +47,7 @@ public class InboundInteractionglue {
 	String filePath = path+"\\Data\\sample.exe";
 
 	@Inject
-	public InboundInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public InboundInteraction(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
 		inboundInteraction =topNavFixture.getInboundInteraction();
 		phoneInteraction = topNavFixture.getPhoneCall();
 		commonMethods = testEnv.getCommonMethods();

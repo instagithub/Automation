@@ -40,8 +40,9 @@ import cucumber.api.java.en.When;
 
 public class PegaTopNav implements TopNav {
 
-	public String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	public String VERSION = "$Id: TopNavImpl.java 125039 2015-02-20 11:25:50Z PallaviGanesh $";
+	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public String VERSION = "$Id: PegaTopNav.java 117333 2018-10-01 09:12:21Z JayaPrakash $";
+	
 	public static String AppName=null;
 
 	private PegaWebDriver pegaDriver = null;

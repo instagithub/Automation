@@ -34,8 +34,8 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 	@SuppressWarnings("unused")
 	public String frameId = null;
 	public Wizard newWizard = null;
-	private static final String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	public static final String VERSION = "$Id: BrowserImpl.java 117333 2014-12-18 09:12:21Z SachinVellanki $";
+	private static final String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public static final String VERSION = "$Id: PegaBrowser.java 117333 2018-10-01 09:12:21Z SachinVellanki $";
 	private static final String CS_IMPL_OPERATOR_MENU_XPATH = "//i[contains(@title,'CS') or contains(@title,'CA') or contains(@title,'Mike Jones') or contains(@title,'socialqa') or contains(@title,'SocialQAAdmin') or contains(@title,'Chat')]";
 	private static final String CS_IP_OPERATOR_MENU_XPATH = "//*[contains(@data-click,'CPMInteractionPortalUserMenu')]/div/i";
 	private static final String CS_IMPL_LOG_OFF_XPATH = "//*[contains(@data-click,'cpmLogOff')]//span[text()='Logout']";
@@ -246,6 +246,23 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		PegaWebElement cancelShare = pegaDriver.findElement(By.xpath("//button[@id='Cancel']"));
 		cancelShare.click();
 	}
+	
+	public void socialportallogout() {
+		pegaDriver.waitForDocStateReady();
+		pegaDriver.switchTo().defaultContent();
+		int windowsCount = pegaDriver.getWindowHandles().size();
+		System.out.println(windowsCount);
+		while (windowsCount > 1) {
+			testEnv.getBrowser().switchToWindow(windowsCount);
+			testEnv.getBrowser().close();
+			windowsCount--;
+			System.out.println(windowsCount);
+		}
+		testEnv.getBrowser().switchToWindow(windowsCount);
+		pegaDriver.findElement(By.xpath(CS_SOCIAL_OPERATORID_XPATH)).click(false);
+		pegaDriver.findElement(By.xpath(CS_SOCIAL_IMPL_LOGOFF_XPATH)).click(false);
+	}
+	
 
 	public void submitFeedback() {
 		PegaWebElement comments = pegaDriver.findElement(By.id("SuggestedContentNote"));

@@ -58,8 +58,8 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 @ScenarioScoped
 public class CRMBrowser extends customerservice.PegaBrowser {
 
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: MyBrowser.java 189580 2016-04-27 10:38:53Z SachinVellanki $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: MyBrowser.java 189580 2018-04-27 10:38:53Z SachinVellanki $";
 
 	TestEnvironment testEnv;
 	private CSPortal csPortal;
@@ -261,6 +261,10 @@ public class CRMBrowser extends customerservice.PegaBrowser {
 		Assert.assertTrue(pegaDriver.verifyElement(By.xpath("//div[text()='Get additional cases']")));
 	}
 
+	@When("^Operator logs of the social portal$")
+	public void operator_logs_of_the_social_portal() {
+		socialportallogout();
+	}
 
 
 	@Then("^Navigate to \"([^\"]*)\"$")

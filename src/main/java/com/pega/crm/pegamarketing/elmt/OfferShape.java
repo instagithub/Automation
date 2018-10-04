@@ -8,8 +8,8 @@ import pegamarketing.rules.Offer.ShapeProperties;
 
 public interface OfferShape extends PegaWebElement{
 	
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: FlowShape.java 208361 2016-09-01 11:48:23Z PrashantSammeta $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: FlowShape.java 208361 2018-09-01 11:48:23Z PrashantSammeta $";
 	
 	String RULE_INPUT_ON_PROPERTIES_ID="pyImplementation";
 	String OPEN_RULE_BUTTON_ON_PROPERTIES_XPATH="//label[.//*[text()='Rule']]//following-sibling::*//*[@class='iconOpenRule']";

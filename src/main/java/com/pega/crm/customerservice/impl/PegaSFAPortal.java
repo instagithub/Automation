@@ -10,8 +10,8 @@ import customerservice.tiles.impl.PegaTopNav;
 
 public class PegaSFAPortal extends PortalImpl implements SFAPortal {
 
-	public String COPYRIGHT = "Copyright(C)2014 Pegasystems Inc.";
-	public String VERSION = "$Id: CSPortalImpl.java 117333 2015-06-18 09:12:21Z MuraliKondapally $";
+	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public String VERSION = "$Id: PegaSFAPortal.java 117333 2018-10-04 09:12:21Z ShivaNalla $";
 
 	private TopNav topNav = null;
 	private LeftNav leftNav = null;

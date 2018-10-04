@@ -16,8 +16,8 @@ import com.pega.util.DataUtil;
  */
 public class CRMObjectsBean {
 	
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: ObjectsBean.java 199996 2016-06-23 12:45:16Z AnilBattinapati $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: ObjectsBean.java 199996 2018-06-23 12:45:16Z AnilBattinapati $";
 	
 	
 	private static Map<String, Object> objectsMap = new LinkedHashMap<String, Object>();

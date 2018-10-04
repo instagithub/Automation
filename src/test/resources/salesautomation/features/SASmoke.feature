@@ -8,9 +8,9 @@ Feature: Smoke tests for SA
     Given a user is logged into application with "tmason" and "install"
 	  Given navigates to "Opportunities" List page
     When users clicks on Create OpprotunityButton and selects "<Opptype>"
-    And Enters all the mandatory data for "<Opptype>"
+    When Enters all the mandatory data for "<Opptype>"
     Then "<Opptype>" Opportunity should be created
-    And opportunity should have all the tabs
+    Then opportunity should have all the tabs
 
     Examples: 
    | Opptype    |
@@ -21,7 +21,7 @@ Feature: Smoke tests for SA
   	Given a user is logged into application with "tmason" and "install"
 	  Given navigates to "Opportunities" List page
     When user opens the "<Opptype>" opportunity with "<OpptyName>"
-    And clicks on Update Stage button
+    When clicks on Update Stage button
     Then user should navigate to change stage page
     When user updates the stage and submit the changes
     Then stage of the "<Opptype>" opportunity should be changed
@@ -35,12 +35,12 @@ Feature: Smoke tests for SA
 	  Given a user is logged into application with "tmason" and "install"
   	Given navigates to "Opportunities" List page
   	When users clicks on Create OpprotunityButton and selects "<Opptype>"
-    And Enters all the mandatory data for "<Opptype>"
+    When Enters all the mandatory data for "<Opptype>"
     Then "<Opptype>" Opportunity should be created
   	Given navigates to "Opportunities" List page
     When user opens the "<Opptype>" opportunity with "<OpptyName>"
-    And clicks on Close button for "<Opptype>" Opportunity
-    And user enters the reason for closing of opportunity and saves the changes
+    When clicks on Close button for "<Opptype>" Opportunity
+    When user enters the reason for closing of opportunity and saves the changes
     Then "<Opptype>" opportunity should be closed
 
     Examples: 
@@ -52,7 +52,7 @@ Feature: Smoke tests for SA
   	Given a user is logged into application with "tmason" and "install"
    	Given navigates to "Leads" List page
     When users clicks on Create LeadButton and selects "<Leadtype>"
-    And Enters all the mandatory Lead data for "<Leadtype>"
+    When Enters all the mandatory Lead data for "<Leadtype>"
     Then "<Leadtype>" Lead should be created with "<LeadName>"
     Then verify the lead WO subtabs
 
@@ -65,7 +65,7 @@ Feature: Smoke tests for SA
   	Given a user is logged into application with "tmason" and "install"
    	Given navigates to "Leads" List page
     When user opens the "<Leadtype>" Lead with "<LeadName>"
-    And clicks on change owner button
+    When clicks on change owner button
     When user changes the Owner, enters the reason and submit the changes
     Then ownership of the "<Leadtype>" lead should be changed
 
@@ -87,7 +87,7 @@ Scenario: entering closeplan for an opportunity
   Given a user is logged into application with "skendall" and "install"
   Given navigates to "Contacts" List page
     When User clicks on Create ContactButton and enters all the madatory data
-    And clicks on Save button
+    When clicks on Save button
     Then Contact should be created
     Then verify contact subtabs
     Then C2A relationship should be created
@@ -150,7 +150,7 @@ Scenario: Creating a Households
   	Given a user is logged into application with "skendall" and "install"
    	Given navigates to "Accounts" List page
     When user opens the existing Account with "<AccName>"
-    And clicks on edit button
+    When clicks on edit button
     Then user should able to edit all the fields in Account page
     When user edits the input fields and save the changes
     Then Account should be reflected with the changes made in the account page
@@ -176,5 +176,5 @@ Scenario: Creating a Partner with Salesrep
 Given a user is logged into application with "sfasamplesalesops" and "install"
 Given navigates to "Partners" List page
 When User clicks on Create Partner and enters all the madatory data
-And clicks on OK button
+When clicks on OK button
 Then Partner should be created

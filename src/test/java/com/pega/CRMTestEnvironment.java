@@ -37,8 +37,8 @@ import mx4j.log.Logger;
 @ScenarioScoped
 public class CRMTestEnvironment extends TestBase1S1D {
 
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: MyTestEnvironment.java 187193 2016-04-13 01:45:11Z SachinVellanki $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: MyTestEnvironment.java 187193 2018-04-13 01:45:11Z SachinVellanki $";
 
 	Browser browser;
 	TestEnvironmentImpl testsdd;

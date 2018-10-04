@@ -5,8 +5,8 @@ import com.pega.framework.PegaWebElement;
 
 public interface Connector extends PegaWebElement{
 	
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: Connector.java 185921 2016-04-06 11:26:55Z ShakkariSakethkumar $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: Connector.java 185921 2018-04-06 11:26:55Z ShakkariSakethkumar $";
 	
 	/**
 	 * To get the name of the connector

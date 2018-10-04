@@ -17,8 +17,8 @@ import pegamarketing.rules.Offer;
 public class PegaConnector extends PegaWebElementImpl implements Connector{
 	
 	@SuppressWarnings("unused")
-	private static final String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	public static final String VERSION = "$Id: ConnectorImpl.java 193570 2016-05-19 06:40:26Z PavanBeri $";
+	private static final String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public static final String VERSION = "$Id: ConnectorImpl.java 193570 2018-05-19 06:40:26Z PavanBeri $";
 	
 	private String connName;
 	private PegaConnectorProperties connProp;

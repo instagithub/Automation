@@ -7,8 +7,8 @@ import pegamarketing.rules.RuleInstance;
 
 public interface Strategy extends RuleInstance {
 
-	String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	String VERSION = "$Id: Strategy.java 174698 2016-02-08 08:24:26Z SachinVellanki $";
+	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	String VERSION = "$Id: Strategy.java 174698 2018-02-08 08:24:26Z SachinVellanki $";
 
 	By CUSTOM_FIELDS_ADD_FIELD = By.xpath("//div[@node_name='RuleFormHistory_CustomFields']//a[text()='Add field']");
 

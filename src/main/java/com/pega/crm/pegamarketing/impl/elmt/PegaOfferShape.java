@@ -20,8 +20,8 @@ import pegamarketing.utils.GlobalRepository;
 
 public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{
 	
-	private static final String COPYRIGHT = "Copyright (c) 2014  Pegasystems Inc.";
-	public static final String VERSION = "$Id: FlowShapeImpl.java 208492 2016-09-06 14:58:05Z VenkatasrikarVadlamudi $";
+	private static final String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
+	public static final String VERSION = "$Id: FlowShapeImpl.java 208492 2018-09-06 14:58:05Z VenkatasrikarVadlamudi $";
 	
 	protected String shapeName;
 	protected Offer offer;
