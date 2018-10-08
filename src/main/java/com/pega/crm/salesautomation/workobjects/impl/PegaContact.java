@@ -11,15 +11,15 @@ import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Contact;
+import salesautomation.workobjects.Contacts;
 import salesautomation.workobjects.Households;
 import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.Opportunity;
+import salesautomation.workobjects.Opportunities;
 import salesautomation.workobjects.Relationship;
 import salesautomation.workobjects.Tasks;
 
 
-public class PegaContact extends WizardImpl implements Contact
+public class PegaContact extends WizardImpl implements Contacts
 {
 	
 	String CON_SUBTABS_XPATH = "//div[@role='tab']//h2"; 
@@ -161,7 +161,7 @@ public class PegaContact extends WizardImpl implements Contact
 		pegaDriver.findElement(By.id(CONT_CLOSECOMMENTS_ID)).sendKeys(str);
 	}
 	@Override
-	public Contact createContact() {
+	public Contacts createContact() {
 		return null;
 	}
 
@@ -405,12 +405,12 @@ public class PegaContact extends WizardImpl implements Contact
 	}
 	
 	@Override
-	public Opportunity clickOpptyFromSubtab(String opptype) {
+	public Opportunities clickOpptyFromSubtab(String opptype) {
 		PegaUtil.dropdown(pegaDriver, CONT_ADD_OPPTY_XPATH, opptype);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity opp = new PegaOpportunity(framElmt, frameId);
+		Opportunities opp = new PegaOpportunity(framElmt, frameId);
 		opp._setEnvironment(testEnv, frameId);
 		return opp;	
 	}

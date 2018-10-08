@@ -13,12 +13,12 @@ import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Accounts;
 import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Organization;
+import salesautomation.workobjects.Organizations;
 import salesautomation.workobjects.Relationship;
 import salesautomation.workobjects.Tasks;
 import com.pega.util.XPathUtil;
 
-public class PegaOrganization extends WizardImpl implements Organization {
+public class PegaOrganization extends WizardImpl implements Organizations {
 	
 	public String CreateOrganizationButton = new String("//button[@title='Create organization']");
 	String ORG_SEARCH_FIELD = "//input[@placeholder='Filter Organizations']";
@@ -43,19 +43,19 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	String selectAll=Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE);
 	
 	@Override
-	public Organization getOrganizationDetails( ) {
+	public Organizations getOrganizationDetails( ) {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization orgDetails = new PegaOrganization(framElmt, frameId);
+		Organizations orgDetails = new PegaOrganization(framElmt, frameId);
 		orgDetails._setEnvironment(testEnv, frameId);
 		return orgDetails;	
 	}
 	
-	public Organization editOrganization()
+	public Organizations editOrganization()
 	
 	{
 		pegaDriver.getActiveFrameId(true);
@@ -68,13 +68,13 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		frameId = pegaDriver.getActiveFrameId(false);
 		frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization editOrg = new PegaOrganization(frameElmt, frameId);
+		Organizations editOrg = new PegaOrganization(frameElmt, frameId);
 		editOrg._setEnvironment(testEnv, frameId);
 		return editOrg;
 	}
 
 	@Override
-	public Organization changeOwner() {
+	public Organizations changeOwner() {
 		
 		pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
 		
@@ -90,7 +90,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		pegaDriver.switchTo().frame(frameId);
 		
 		
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		//Org.findElement(By.xpath("//button[@type='button' and @role='button']")).click();
 		//Org.findElement(By.xpath("//div[@class='menuBarSub']//td[@title='Assign to a New Owner']")).click();
@@ -98,7 +98,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	}
 	
 	@Override
-	public Organization changeHierarchy()
+	public Organizations changeHierarchy()
 	{
 		/*pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions ']")).click();
 		
@@ -115,14 +115,14 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		frameId = pegaDriver.getActiveFrameId(false);
 		frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 	    return Org;
 	}
 	
 	
 	@Override
-	public Organization setNewOwner(String owner) {
+	public Organizations setNewOwner(String owner) {
 		
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
@@ -130,7 +130,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId= pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 	
 		
@@ -158,12 +158,12 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	
 	
 	@Override
-	public Organization setHierarchy(String newParentOrg)
+	public Organizations setHierarchy(String newParentOrg)
 	{
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 	
 		if(pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).isDisplayed())	
@@ -218,14 +218,14 @@ public class PegaOrganization extends WizardImpl implements Organization {
 	}
 
 	@Override
-	public Organization OrgList() {
+	public Organizations OrgList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public Organization navigateOrganization() {
+	public Organizations navigateOrganization() {
 		return null;
 	}
 
@@ -448,7 +448,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		//"//span[@class='workarea_header_titles']"
 		return (new String(Org.findElement(By.xpath("//span[@class='field-caption dataLabelForRead']/span[text()='Name']/following::div/span")).getAttribute("text")).trim()); 
@@ -461,7 +461,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Territory']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -477,7 +477,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Website']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -489,7 +489,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Industry']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -502,7 +502,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Phone number']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -515,7 +515,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Short name']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -528,7 +528,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Ticker symbol']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -541,7 +541,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Employees']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -554,7 +554,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 				 
 		return (((new String(Org.findElement(By.xpath("//span[text()='Revenue']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()).replaceAll(",","")));
@@ -566,7 +566,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Target']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -580,7 +580,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		Org.verifyElement(By.xpath("//a[text()='Show Organization Hierarchy']"));
 		
@@ -603,7 +603,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		PegaWebElement table =  pegaDriver.findElement(By.xpath("//table[@pl_prop_class='PegaCRM-Embed-Domain']"));
 		String Domains[] = {" "," "};
@@ -713,7 +713,7 @@ public class PegaOrganization extends WizardImpl implements Organization {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization Org = new PegaOrganization(frameElmt, frameId);
+		Organizations Org = new PegaOrganization(frameElmt, frameId);
 		Org._setEnvironment(testEnv, frameId);
 		Org.verifyElement(By.xpath("//a[text()='Show Organization Hierarchy']"));
 		return (new String(Org.findElement(By.xpath("//span[text()='Owner']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 

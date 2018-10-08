@@ -18,4 +18,3 @@ Background:
     When SalesRepOperatorCreation - Enters Sales Goals information and submits
     Then SalesRepOperatorCreation - Verify that operator record is created
     When SalesRepOperatorCreation - Navigate to Operator list page to search the newly created Operator
-    When SalesRepOperatorCreation - Sales Ops Logout of SFA application

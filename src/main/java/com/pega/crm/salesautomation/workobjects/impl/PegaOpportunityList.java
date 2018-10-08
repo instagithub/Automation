@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;						  
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Opportunity;
+import salesautomation.workobjects.Opportunities;
 import salesautomation.workobjects.OpportunityList;
 
 public class PegaOpportunityList extends WizardImpl implements OpportunityList {
@@ -36,32 +36,32 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 	}
 
 	@Override
-	public Opportunity createBusniessOpportunity() {
+	public Opportunities createBusniessOpportunity() {
 	
 		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Business");
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity opp = new PegaOpportunity(framElmt, frameId);
+		Opportunities opp = new PegaOpportunity(framElmt, frameId);
 		opp._setEnvironment(testEnv, frameId);
 		return opp;
 	}
 
 	@Override
-	public Opportunity createIndividualOpportunity() {
+	public Opportunities createIndividualOpportunity() {
 		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Individual");
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity opp = new PegaOpportunity(framElmt, frameId);
+		Opportunities opp = new PegaOpportunity(framElmt, frameId);
 		opp._setEnvironment(testEnv, frameId);
 		return opp;	
 	}
 
 	@Override
-	public Opportunity navigateOpportunity(String opportunityName) 
+	public Opportunities navigateOpportunity(String opportunityName) 
 	{
 		
 		pegaDriver.findElement(By.xpath(OPP_FILTER_PLACEHOLDER_XPATH)).sendKeys(opportunityName);
@@ -72,7 +72,7 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity opp = new PegaOpportunity(framElmt, frameId);
+		Opportunities opp = new PegaOpportunity(framElmt, frameId);
 		opp._setEnvironment(testEnv, frameId);
 		return opp;	
 	}
@@ -159,14 +159,14 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 	}
 	
 	@Override
-	public Opportunity openFirstOpportunity() {
+	public Opportunities openFirstOpportunity() {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(OPP_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity opp = new PegaOpportunity(framElmt, frameId);
+		Opportunities opp = new PegaOpportunity(framElmt, frameId);
 		opp._setEnvironment(testEnv, frameId);
 		return opp;
 	}

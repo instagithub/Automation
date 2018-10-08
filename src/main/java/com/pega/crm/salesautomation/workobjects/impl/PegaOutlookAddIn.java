@@ -30,7 +30,7 @@ import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Accounts;
 import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Opportunity;
+import salesautomation.workobjects.Opportunities;
 import salesautomation.workobjects.OutlookAddIn;
 import salesautomation.workobjects.Relationship;
 import salesautomation.workobjects.Tasks;

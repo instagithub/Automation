@@ -7,10 +7,10 @@ import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Accounts;
 import salesautomation.workobjects.Appointment;
-import salesautomation.workobjects.Contact;
+import salesautomation.workobjects.Contacts;
 import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.Opportunity;
-import salesautomation.workobjects.Organization;
+import salesautomation.workobjects.Opportunities;
+import salesautomation.workobjects.Organizations;
 import salesautomation.workobjects.Partners;
 import salesautomation.workobjects.QuickCreate;
 
@@ -37,20 +37,20 @@ public class PegaQuickCreate extends WizardImpl implements QuickCreate{
 	}
 
 	@Override
-	public Organization clickOrganization() {
+	public Organizations clickOrganization() {
 		//pegaDriver.getActiveFrameId(true);
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(ORGANIZATION_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization org= new PegaOrganization(framElmt, frameId);
+		Organizations org= new PegaOrganization(framElmt, frameId);
 		org._setEnvironment(testEnv, frameId);
 		return org;
 	}
 
 	@Override
-	public Opportunity clickOpportunity(String opptype) {
+	public Opportunities clickOpportunity(String opptype) {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(OPPORTUNITY_XPATH)).mouseOver();
 		//pegaDriver.waitForDocStateReady(true);
@@ -61,7 +61,7 @@ public class PegaQuickCreate extends WizardImpl implements QuickCreate{
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity oppty= new PegaOpportunity(framElmt, frameId);
+		Opportunities oppty= new PegaOpportunity(framElmt, frameId);
 		oppty._setEnvironment(testEnv, frameId);
 		return oppty;
 	}
@@ -86,13 +86,13 @@ public class PegaQuickCreate extends WizardImpl implements QuickCreate{
 	}
 
 	@Override
-	public Contact clickContact() {
+	public Contacts clickContact() {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(CONTACT_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact cont= new PegaContact(framElmt, frameId);
+		Contacts cont= new PegaContact(framElmt, frameId);
 		cont._setEnvironment(testEnv, frameId);
 		return cont;
 	}

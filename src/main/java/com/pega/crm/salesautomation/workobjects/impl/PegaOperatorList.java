@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Operator;
+import salesautomation.workobjects.Operators;
 import salesautomation.workobjects.OperatorList;
 //import com.pega.sfa.workobjects.impl.PegaOperator;
 import com.pega.util.XPathUtil;
@@ -60,14 +60,14 @@ public PegaOperatorList(PegaWebElement framElmt, String frameId) {
 }
 
 @Override
-public Operator creasteOperator() {
+public Operators creasteOperator() {
 	
 	findElement(By.xpath(CREATE_OPR_BTN_XPATH)).click();
 	pegaDriver.waitForDocStateReady(2);
 	String frameId = pegaDriver.getActiveFrameId(false);
 	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 	pegaDriver.switchTo().frame(frameId);
-	Operator org = new PegaOperator(framElmt, frameId);
+	Operators org = new PegaOperator(framElmt, frameId);
 	org._setEnvironment(testEnv, frameId);
 	return org;	
 }
@@ -87,13 +87,13 @@ public OperatorList searchOperator(String oprName) {
 }
 
 @Override
-public Operator navigateOperator() {
+public Operators navigateOperator() {
 	
 	pegaDriver.waitForDocStateReady(2);
 	String frameId = pegaDriver.getActiveFrameId(false);
 	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 	pegaDriver.switchTo().frame(frameId);
-	Operator Opr = new PegaOperator(framElmt, frameId);
+	Operators Opr = new PegaOperator(framElmt, frameId);
 	Opr._setEnvironment(testEnv, frameId);
 	return Opr;
 }
@@ -110,14 +110,14 @@ public boolean isOperatorListEmpty() {
 }
 
 @Override
-public Operator openFirstOperator() {
+public Operators openFirstOperator() {
 	pegaDriver.getActiveFrameId(true);
 	findElement(By.xpath(OPERATOR_NAME_XPATH)).click();
 	pegaDriver.waitForDocStateReady(1);
 	String frameId = pegaDriver.getActiveFrameId(false);
 	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 	pegaDriver.switchTo().frame(frameId);
-	Operator operator = new PegaOperator(framElmt, frameId);
+	Operators operator = new PegaOperator(framElmt, frameId);
 	operator._setEnvironment(testEnv, frameId);
 	return operator;
 }
