@@ -7,11 +7,11 @@ public interface OrganizationsList extends Wizard{
 	
 	void search();
 	
-	Organization createOrganization();
+	Organizations createOrganization();
 	public void verifyOrgListpage();
 	OrganizationsList searchOrganization(String orgName);
-	Organization openOrganization(String orgName);
-	Organization navigateOrganiztion();	
-	Organization openFirstOrganization();
+	Organizations openOrganization(String orgName);
+	Organizations navigateOrganiztion();	
+	Organizations openFirstOrganization();
 	boolean isOrganizationListEmpty();	
 }

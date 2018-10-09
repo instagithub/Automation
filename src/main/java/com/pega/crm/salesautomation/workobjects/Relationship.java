@@ -20,10 +20,10 @@ public interface Relationship extends Wizard {
 	String CheckContactName();
 	String getRelationshipDesc();
 	String getNotes();
-	Contact setNewContactName(String ContactName);
-	Organization openOrganization(String OrgName);
+	Contacts setNewContactName(String ContactName);
+	Organizations openOrganization(String OrgName);
 	Accounts openAccount(StringBuffer name);
 	Accounts openAccount(String name);
-	Contact openContact(String ContactName);									   
+	Contacts openContact(String ContactName);									   
 	
 }

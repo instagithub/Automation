@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Accounts;
-import salesautomation.workobjects.Contact;
-import salesautomation.workobjects.Organization;
+import salesautomation.workobjects.Contacts;
+import salesautomation.workobjects.Organizations;
 import salesautomation.workobjects.Relationship;
 
 public class PegaRelationship extends WizardImpl implements Relationship {
@@ -279,11 +279,11 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 	}
 	
 	@Override
-	public Contact setNewContactName(String ContactName) {
+	public Contacts setNewContactName(String ContactName) {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact contact= new PegaContact(framElmt, frameId);
+		Contacts contact= new PegaContact(framElmt, frameId);
 		contact._setEnvironment(testEnv, frameId);
 		StringBuffer contname= new StringBuffer(ContactName);
 		contact.setLastName(contname);
@@ -292,7 +292,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 	}
 
 	@Override
-	public Organization openOrganization(String OrgName) {
+	public Organizations openOrganization(String OrgName) {
 		pegaDriver.getActiveFrameId(true);
 		//pegaDriver.findElement(By.xpath("//a[title='Open "+OrgName+"']")).click();
 		//("//a[contains(text(),'"+OrgName+"')]")))	
@@ -300,7 +300,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization org= new PegaOrganization(framElmt, frameId);
+		Organizations org= new PegaOrganization(framElmt, frameId);
 		org._setEnvironment(testEnv, frameId);
 		return org;
 	}
@@ -331,13 +331,13 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 	}
 
 	@Override
-	public Contact openContact(String ContactName) {
+	public Contacts openContact(String ContactName) {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//a[text()='"+ContactName+"']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact cont= new PegaContact(framElmt, frameId);
+		Contacts cont= new PegaContact(framElmt, frameId);
 		cont._setEnvironment(testEnv, frameId);
 		return cont;
 		

@@ -8,16 +8,16 @@ import java.util.List;
 import com.pega.ri.Wizard;
 
 
-public interface Organization  extends Wizard {
+public interface Organizations  extends Wizard {
 	
 	String ORG_OPPTY_ROW_IDENTIFIER_XPATH="//tr[contains(@id, 'OpportunitiesInOrganizationList')]";																							
-	Organization navigateOrganization();
+	Organizations navigateOrganization();
 	Boolean verifyOrgNewHarness();
-	Organization editOrganization();
-	Organization OrgList();
-	Organization getOrganizationDetails();
-	Organization changeOwner();
-	Organization setNewOwner(String Owner);
+	Organizations editOrganization();
+	Organizations OrgList();
+	Organizations getOrganizationDetails();
+	Organizations changeOwner();
+	Organizations setNewOwner(String Owner);
 	void setName(String name);
 	void setWebsite(String name);
 	void setTerritory(String territory);
@@ -58,8 +58,8 @@ public interface Organization  extends Wizard {
 	boolean verifyTwitterIcon();
 	boolean verifyFacebookIcon();
 	boolean  verifyGoogleMapIcon();
-	Organization changeHierarchy();
-	Organization setHierarchy(String newParentOrg);
+	Organizations changeHierarchy();
+	Organizations setHierarchy(String newParentOrg);
 	Tasks addTask();
 	Accounts AddAccount();
 	boolean validateOrgTask(String orgTaskSubject,String orgTaskStatus,String DueDate,String OrgTaskAssignedTo,String orgTaskPriority);

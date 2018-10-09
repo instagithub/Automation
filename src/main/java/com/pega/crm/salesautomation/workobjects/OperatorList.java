@@ -6,11 +6,11 @@ import com.pega.util.XPathUtil;
 
 public interface OperatorList extends Wizard {
 
-Operator creasteOperator();
+Operators creasteOperator();
 OperatorList searchOperator(String orgName);
-Operator navigateOperator();
+Operators navigateOperator();
 boolean isOperatorListEmpty();
-Operator openFirstOperator();
+Operators openFirstOperator();
 boolean verifyOperatorListPage();
 boolean validateListPage();
 boolean validateOprListPage();

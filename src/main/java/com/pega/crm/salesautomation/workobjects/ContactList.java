@@ -13,9 +13,9 @@ public interface ContactList extends Wizard
 	String CONT_FILTERBUTTON_XPATH=PegaUtil.getButtonXpath("Filter");
 	String CONT_NAME_XPATH="//table[@id='gridLayoutTable']//tr[@aria-rowindex='1']//a[1]";
 	String NO_CONTACTS_XPATH = "//tr[@id='Grid_NoResults']";
-	Contact createContact();
-	Contact navigateContact(StringBuffer contactName);
-	Contact navigateContact(String contactName);
-	Contact openFirstContact();
+	Contacts createContact();
+	Contacts navigateContact(StringBuffer contactName);
+	Contacts navigateContact(String contactName);
+	Contacts openFirstContact();
 	boolean isContactListEmpty();
 }

@@ -14,7 +14,7 @@ import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Accounts;
 import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Opportunity;
+import salesautomation.workobjects.Opportunities;
 import salesautomation.workobjects.Relationship;
 import salesautomation.workobjects.Tasks;
 
@@ -388,7 +388,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 
 
 	@Override
-	public Opportunity addOpportunity() {
+	public Opportunities addOpportunity() {
 		
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.getActiveFrameId(true);
@@ -407,7 +407,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Opportunity newOppty= new PegaOpportunity(framElmt, frameId);
+		Opportunities newOppty= new PegaOpportunity(framElmt, frameId);
 		newOppty._setEnvironment(testEnv, frameId);
 		return newOppty;
 	}

@@ -8,9 +8,9 @@ public interface OpportunityList extends Wizard{
 	
 	
 	
-	Opportunity createBusniessOpportunity();
-	Opportunity createIndividualOpportunity();
-	Opportunity navigateOpportunity(String opportunityName);
+	Opportunities createBusniessOpportunity();
+	Opportunities createIndividualOpportunity();
+	Opportunities navigateOpportunity(String opportunityName);
 	boolean isCreateOpportunityButtonDisplayed();
 	boolean isFilterTextBoxDisplayed();
 	boolean isFilterButtonDisplayed();
@@ -21,7 +21,7 @@ public interface OpportunityList extends Wizard{
 	boolean isRefreshButtonDisplayed();
 	String getFilterPlaceHolder();
 	ArrayList<String> getTableHeaders();
-	Opportunity openFirstOpportunity();
+	Opportunities openFirstOpportunity();
 	boolean isOpportunityListEmpty();
 	void searchOpportunity(String opptyName);
 	void SwitchToBusinessTab();

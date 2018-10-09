@@ -1,11 +1,13 @@
-@sa-smoke
-Feature: Smoke tests for SA
-  Tests covering all the core SA work objects and few actions on them.
+@OPPORTUNITYFEATURES @Smoke @SmokeSalesAutomation
+Feature: Basic Opportunity flows
+Tests covering the core Opportunity flow actions like Create, Change Ownership and Closing an opportunity.
 
-  
-@TC-108452
-  Scenario Outline: Creating a Business Opportunities
+Background:
     Given a user is logged into application with "tmason" and "install"
+  
+@TC-108452 @TC-CreateOpportunity
+  Scenario Outline: Creating a Business Opportunities
+
 	  Given navigates to "Opportunities" List page
     When users clicks on Create OpprotunityButton and selects "<Opptype>"
     When Enters all the mandatory data for "<Opptype>"
@@ -14,11 +16,11 @@ Feature: Smoke tests for SA
 
     Examples: 
    | Opptype    |
-   | Business   |     
+   | Business   |
 	
-@TC-108455
+@TC-108455 @TC-OpportunityChangeStage
   Scenario Outline: Updating the Stage of the "<Opptype>" opportunity
-  	Given a user is logged into application with "tmason" and "install"
+
 	  Given navigates to "Opportunities" List page
     When user opens the "<Opptype>" opportunity with "<OpptyName>"
     When clicks on Update Stage button
@@ -32,7 +34,7 @@ Feature: Smoke tests for SA
 
 @TC-108456
   Scenario Outline: Closing the Opportunity
-	  Given a user is logged into application with "tmason" and "install"
+
   	Given navigates to "Opportunities" List page
   	When users clicks on Create OpprotunityButton and selects "<Opptype>"
     When Enters all the mandatory data for "<Opptype>"
