@@ -9,10 +9,10 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Operator;
+import salesautomation.workobjects.Operators;
 import com.pega.util.XPathUtil;
 
-public class PegaOperator extends WizardImpl implements Operator {
+public class PegaOperator extends WizardImpl implements Operators {
 
 	By OPR_TEMPLATE_CHECKBOX = By.xpath("//*[@data-test-id='2015061908552707501789-Label']");
 	By OPR_DEFAULT_ACCESS_CHECKBOX = By.xpath("//*[@data-test-id='2015061908551804351701603-Label']");
@@ -63,7 +63,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_PWD_BUTTON).click();
 
@@ -97,7 +97,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(By.id(OPR_TITLE)).click();
 		Opr.findElement(By.id(OPR_TITLE)).sendKeys(str);
@@ -109,7 +109,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_FIRST_NAME).click();
 		Opr.findElement(OPR_FIRST_NAME).sendKeys(str);
@@ -121,7 +121,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_LAST_NAME).click();
 		Opr.findElement(OPR_LAST_NAME).sendKeys(str);
@@ -133,7 +133,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		// Opr.findElement(OPR_FULL_NAME).click();
 		// Opr.findElement(OPR_FULL_NAME).sendKeys(str);
@@ -145,7 +145,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_POSTITION).click();
 		Opr.findElement(OPR_POSTITION).sendKeys(str);
@@ -157,7 +157,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_TELEPHONE).click();
 		Opr.findElement(OPR_TELEPHONE).sendKeys(str);
@@ -169,7 +169,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_EMAILADDRESS).click();
 		Opr.findElement(OPR_EMAILADDRESS).sendKeys(str);
@@ -181,7 +181,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findSelectBox(By.id(OPR_TIMEZONE)).selectByValue(str);
 
@@ -192,7 +192,7 @@ public class PegaOperator extends WizardImpl implements Operator {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(frameElmt, frameId);
+		Operators Opr = new PegaOperator(frameElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		Opr.findElement(OPR_REPORTSTO).click();
 		Opr.findElement(OPR_REPORTSTO).sendKeys(str);
@@ -220,12 +220,12 @@ public class PegaOperator extends WizardImpl implements Operator {
 	}
 
 	@Override
-	public Operator navigateOperator() {
+	public Operators navigateOperator() {
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Operator Opr = new PegaOperator(framElmt, frameId);
+		Operators Opr = new PegaOperator(framElmt, frameId);
 		Opr._setEnvironment(testEnv, frameId);
 		return Opr;
 	}

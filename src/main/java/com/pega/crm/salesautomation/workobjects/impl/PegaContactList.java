@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Contact;
+import salesautomation.workobjects.Contacts;
 import salesautomation.workobjects.ContactList;
 
 public class PegaContactList extends WizardImpl implements ContactList {
@@ -18,20 +18,20 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		super(elmt);
 		// TODO Auto-generated constructor stub
 	}
-	public Contact createContact()
+	public Contacts createContact()
 	{
 		findElement(By.xpath(CREATE_CONT_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact Cont = new PegaContact(framElmt, frameId);
+		Contacts Cont = new PegaContact(framElmt, frameId);
 		Cont._setEnvironment(testEnv, frameId);
 		return Cont;	
 	}
 
 	
-	public Contact navigateContact(StringBuffer contactName) {
+	public Contacts navigateContact(StringBuffer contactName) {
 		
 		findElement(By.id(CONT_SEARCH_FIELD_ID)).sendKeys(contactName);
 		findElement(By.xpath(CONT_FILTERBUTTON_XPATH)).click();
@@ -41,12 +41,12 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact Cont = new PegaContact(framElmt, frameId);
+		Contacts Cont = new PegaContact(framElmt, frameId);
 		Cont._setEnvironment(testEnv, frameId);
 		return Cont;	
 	}
 	
-	public Contact navigateContact(String contactName) {
+	public Contacts navigateContact(String contactName) {
 		
 		findElement(By.id(CONT_SEARCH_FIELD_ID)).sendKeys(contactName);
 		findElement(By.xpath(CONT_FILTERBUTTON_XPATH)).click();
@@ -56,18 +56,18 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact Cont = new PegaContact(framElmt, frameId);
+		Contacts Cont = new PegaContact(framElmt, frameId);
 		Cont._setEnvironment(testEnv, frameId);
 		return Cont;	
 	}
 	
-	public Contact openFirstContact() {
+	public Contacts openFirstContact() {
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Contact Cont = new PegaContact(framElmt, frameId);
+		Contacts Cont = new PegaContact(framElmt, frameId);
 		Cont._setEnvironment(testEnv, frameId);
 		return Cont;
 	}

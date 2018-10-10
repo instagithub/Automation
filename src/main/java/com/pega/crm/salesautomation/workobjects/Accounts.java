@@ -36,7 +36,7 @@ public interface Accounts extends Wizard{
 	void clickUnFollow();
 	void clickOrgLink();
 	boolean validateAccActivities(String Subject, String CommunicationType, String actDate, String CompletedBy);																																			  
-	Opportunity addOpportunity();
+	Opportunities addOpportunity();
 	void navigateToTab(String tabName);
 	
 	

@@ -15,12 +15,12 @@ import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Opportunity;
-import salesautomation.workobjects.Organization;
+import salesautomation.workobjects.Opportunities;
+import salesautomation.workobjects.Organizations;
 import salesautomation.workobjects.Tasks;
 import com.pega.util.XPathUtil;
 
-public class PegaOpportunity extends WizardImpl implements Opportunity {
+public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	String OPP_SERACHBUTTON_XPATH=PegaUtil.getButtonXpath("Search");
 	String OPP_ACTIVITY_ROW_IDENTIFIER_XPATH = "//tr[contains(@id, 'ctivities')]";
@@ -787,13 +787,13 @@ public class PegaOpportunity extends WizardImpl implements Opportunity {
 
 	
 	@Override
-	public Organization navigateToOrgFromBreadCrumb() {
+	public Organizations navigateToOrgFromBreadCrumb() {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(ORGANIZATION_BREADCRUMB_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
 		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
 		pegaDriver.switchTo().frame(frameId);
-		Organization org = new PegaOrganization(framElmt, frameId);
+		Organizations org = new PegaOrganization(framElmt, frameId);
 		org._setEnvironment(testEnv, frameId);
 		return org;
 		

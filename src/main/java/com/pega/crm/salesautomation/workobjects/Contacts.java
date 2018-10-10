@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 import com.pega.ri.Wizard;
 import salesautomation.workobjects.impl.PegaUtil;
 
-public interface Contact extends Wizard
+public interface Contacts extends Wizard
 {
 
 	
@@ -64,7 +64,7 @@ public interface Contact extends Wizard
 	String ADD_HOUSEHOLD_MEMBER_BTN = "//*[@data-test-id='2015031214541608808172']";
 	String ADD_CONTACT_TO_HOUSEHOLD = "//*[@data-test-id='2015061908563207831294']";
 			
-	Contact createContact();
+	Contacts createContact();
 	void setFirstName(StringBuffer str);
 	void setLastName(StringBuffer str);
 	void setOrganization(String str);
@@ -115,7 +115,7 @@ public interface Contact extends Wizard
 	boolean getLeadNameFromSubtab(String name);
 	Leads clickIndividualLead();
 	void getOpptySubTab();
-	Opportunity clickOpptyFromSubtab(String opptype);
+	Opportunities clickOpptyFromSubtab(String opptype);
 	boolean getOpptyNameFromSubtab(StringBuffer opptyname);
 	boolean getOpptyNameFromSubtab(String opptyname);
 	List<String> getLeadRowValues(String leadName);

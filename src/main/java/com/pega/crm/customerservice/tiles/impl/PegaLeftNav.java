@@ -17,7 +17,7 @@ import salesautomation.workobjects.LeadsList;
 import salesautomation.workobjects.Login;
 import salesautomation.workobjects.OperatorList;
 import salesautomation.workobjects.OpportunityList;
-import salesautomation.workobjects.Organization;
+import salesautomation.workobjects.Organizations;
 import salesautomation.workobjects.OrganizationsList;
 import salesautomation.workobjects.PartnersList;
 import salesautomation.workobjects.Pulse;

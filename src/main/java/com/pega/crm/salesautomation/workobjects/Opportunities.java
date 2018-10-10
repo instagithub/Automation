@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.pega.ri.Wizard;
 
-public interface Opportunity extends Wizard{
+public interface Opportunities extends Wizard{
 
 	
 	
@@ -94,7 +94,7 @@ public interface Opportunity extends Wizard{
 	boolean isNextBestActionAvailable();
 	
 	String getOppID();
-	Organization navigateToOrgFromBreadCrumb();
+	Organizations navigateToOrgFromBreadCrumb();
 	void clearNameinMergeOppty();
 	void clearAccountinMergeOppty();
 	void clearOwnerinMergeOppty();

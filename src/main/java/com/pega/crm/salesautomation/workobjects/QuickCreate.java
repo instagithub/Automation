@@ -4,11 +4,11 @@ import com.pega.ri.Wizard;
 
 public interface QuickCreate extends Wizard{
 	
-	Organization clickOrganization();
-	Opportunity clickOpportunity(String opptype);
+	Organizations clickOrganization();
+	Opportunities clickOpportunity(String opptype);
 	Appointment clickAppointment();
 	Accounts clickAccount();
-	Contact clickContact();
+	Contacts clickContact();
 	Partners clickPartner();
 	Leads clickLead(String LeadType);
 	
