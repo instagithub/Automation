@@ -34,7 +34,6 @@ public class BusinessTerritory
 	TerritoriesList trrList;
 	private CRMBrowser browser;
 	private PegaWebDriver pegaDriver;
-	Opportunities opp;
 	Organization organization, org;
 	public static String Subject=null; 
 	String OPP_TableHeader[]={"Name", "Account", "Stage", "Owner", "Amount"," ", "Close date", "Must win", "Territory","Source",""};

@@ -26,7 +26,7 @@ import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
-public class SASmokeglue
+public class Opportunity
 {
 
 	String OPP_SOURCE = "Customer Referral";
@@ -90,7 +90,7 @@ public class SASmokeglue
 	String actual_name, actual_territory, actual_con, actual_amount, actual_closedate, actual_owner,actual_shortName, actual_source, actual_stage, actual_win, actual_Forecast, actual_description;
 	
 	@Inject
-	public SASmokeglue(TestEnvironment testEnv, CRMBrowser browser){
+	public Opportunity(TestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();
@@ -299,5 +299,5 @@ public class SASmokeglue
 			oppList.searchOpportunity(OPP_INDIVIDUAL_NAME);
 		}
 	    
-	   
+ }   
 	}
