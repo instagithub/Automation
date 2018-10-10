@@ -1,9 +1,9 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.EmailTreatment;
-import pegamarketing.rules.SMSTreatment;
+import com.pega.crm.pegamarketing.rules.EmailTreatment;
+import com.pega.crm.pegamarketing.rules.SMSTreatment;
 import com.pega.util.XPathUtil;
 
 public interface Treatments extends LandingPage {

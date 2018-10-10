@@ -1,10 +1,10 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.EngagementMaps;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.EngagementMaps;
 
 public class PegaEngagementMaps extends WizardImpl implements EngagementMaps{
 

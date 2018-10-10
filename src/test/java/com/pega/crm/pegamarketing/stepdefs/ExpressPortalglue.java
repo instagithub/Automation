@@ -18,10 +18,10 @@ package com.pega.crm.pegamarketing.stepdefs;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
-import pegamarketing.DesignerStudio;
-import pegamarketing.impl.PegaExpressPortal;
-import pegamarketing.pages.ContextDictionary;
-import pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
+import com.pega.crm.pegamarketing.pages.ContextDictionary;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;

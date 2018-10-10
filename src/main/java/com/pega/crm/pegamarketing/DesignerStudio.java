@@ -1,9 +1,9 @@
-package pegamarketing;
+package com.pega.crm.pegamarketing;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.explorer.RecordsExplorer;
-import pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface DesignerStudio extends PMPortal {
 	

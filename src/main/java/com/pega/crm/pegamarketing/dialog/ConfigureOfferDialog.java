@@ -1,5 +1,5 @@
 
-package pegamarketing.dialog;
+package com.pega.crm.pegamarketing.dialog;
 
 public interface ConfigureOfferDialog extends ConfigureDialog{
 	

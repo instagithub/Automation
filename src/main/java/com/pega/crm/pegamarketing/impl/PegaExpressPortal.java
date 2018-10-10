@@ -1,15 +1,15 @@
-package pegamarketing.impl;
+package com.pega.crm.pegamarketing.impl;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.ExpressPortal;
+import com.pega.crm.pegamarketing.impl.pages.PegaChannels;
+import com.pega.crm.pegamarketing.impl.pages.PegaContextDictionaryFrame;
+import com.pega.crm.pegamarketing.pages.Channels;
+import com.pega.crm.pegamarketing.pages.ContextDictionary;
 import com.pega.framework.PegaWebDriver;
-import pegamarketing.DesignerStudio;
-import pegamarketing.ExpressPortal;
-import pegamarketing.impl.pages.PegaChannels;
-import pegamarketing.impl.pages.PegaContextDictionaryFrame;
-import pegamarketing.pages.Channels;
-import pegamarketing.pages.ContextDictionary;
 
 public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	private PegaWebDriver pegaDriver = null;

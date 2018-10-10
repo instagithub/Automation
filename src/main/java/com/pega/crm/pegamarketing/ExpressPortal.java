@@ -1,10 +1,10 @@
-package pegamarketing;
+package com.pega.crm.pegamarketing;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.pages.ContextDictionary;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.util.XPathUtil;
-import pegamarketing.pages.ContextDictionary;
-import pegamarketing.utils.PMXPathUtil;
 
 public interface ExpressPortal extends PMPortal {
 	By DATATYPES_EXPLORER_BY = By.xpath(XPathUtil.getDataTestIDXpath("express-explorer-data"));

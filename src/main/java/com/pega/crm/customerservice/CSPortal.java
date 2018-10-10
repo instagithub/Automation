@@ -1,7 +1,7 @@
-package customerservice;
+package com.pega.crm.customerservice;
 
-import customerservice.tiles.LeftNav;
-import customerservice.tiles.TopNav;
+import com.pega.crm.customerservice.tiles.LeftNav;
+import com.pega.crm.customerservice.tiles.TopNav;
 import com.pega.page.Portal;
 
 public interface CSPortal extends Portal{

@@ -1,9 +1,9 @@
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface Segment extends RuleInstance {
 

@@ -1,6 +1,6 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
-import pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 
 public interface ServiceRestInstance extends RuleInstance{
 	/**

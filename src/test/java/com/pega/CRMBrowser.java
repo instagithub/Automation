@@ -18,32 +18,33 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 import com.google.inject.Inject;
-import customerservice.CSPortal;
-import customerservice.SFAPortal;
+import com.pega.crm.customerservice.CSPortal;
+import com.pega.crm.customerservice.PegaBrowser;
+import com.pega.crm.customerservice.SFAPortal;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
+import com.pega.crm.salesautomation.workobjects.AccountList;
+import com.pega.crm.salesautomation.workobjects.AppointmentList;
+import com.pega.crm.salesautomation.workobjects.ClosePlans;
+import com.pega.crm.salesautomation.workobjects.ContactList;
+import com.pega.crm.salesautomation.workobjects.EngagementMaps;
+import com.pega.crm.salesautomation.workobjects.Forecast;
+import com.pega.crm.salesautomation.workobjects.HouseholdList;
+import com.pega.crm.salesautomation.workobjects.LeadsList;
+import com.pega.crm.salesautomation.workobjects.Login;
+import com.pega.crm.salesautomation.workobjects.OperatorList;
+import com.pega.crm.salesautomation.workobjects.OpportunityList;
+import com.pega.crm.salesautomation.workobjects.OrganizationsList;
+import com.pega.crm.salesautomation.workobjects.PartnersList;
+import com.pega.crm.salesautomation.workobjects.Pulse;
+import com.pega.crm.salesautomation.workobjects.TerritoriesList;
+import com.pega.crm.salesautomation.workobjects.ToolsList;
+import com.pega.crm.salesautomation.workobjects.impl.PegaLogin;
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
-import pegamarketing.DesignerStudio;
-import pegamarketing.PMPortal;
-import pegamarketing.impl.PegaExpressPortal;
-import salesautomation.workobjects.AccountList;
-import salesautomation.workobjects.AppointmentList;
-import salesautomation.workobjects.ClosePlans;
-import salesautomation.workobjects.ContactList;
-import salesautomation.workobjects.EngagementMaps;
-import salesautomation.workobjects.Forecast;
-import salesautomation.workobjects.HouseholdList;
-import salesautomation.workobjects.LeadsList;
-import salesautomation.workobjects.Login;
-import salesautomation.workobjects.OperatorList;
-import salesautomation.workobjects.OpportunityList;
-import salesautomation.workobjects.OrganizationsList;
-import salesautomation.workobjects.PartnersList;
-import salesautomation.workobjects.Pulse;
-import salesautomation.workobjects.TerritoriesList;
-import salesautomation.workobjects.ToolsList;
-import salesautomation.workobjects.impl.PegaLogin;
-import salesautomation.workobjects.impl.PegaUtil;
 import com.pega.util.HTTPUtil;
 
 import cucumber.api.DataTable;
@@ -56,7 +57,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 //import webDriverStepDef.CSPortal;
 
 @ScenarioScoped
-public class CRMBrowser extends customerservice.PegaBrowser {
+public class CRMBrowser extends PegaBrowser {
 
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	String VERSION = "$Id: MyBrowser.java 189580 2018-04-27 10:38:53Z SachinVellanki $";

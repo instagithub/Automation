@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.AccountList;
+import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.AccountList;
-import salesautomation.workobjects.Accounts;
-import salesautomation.workobjects.impl.PegaAccounts;
 
 public class PegaAccountList extends WizardImpl implements AccountList 
 {

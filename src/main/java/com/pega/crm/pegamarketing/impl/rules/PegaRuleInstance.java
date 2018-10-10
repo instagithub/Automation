@@ -1,14 +1,14 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.CategoriesDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaCategoriesDialog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.FrameImpl;
-import pegamarketing.dialog.CategoriesDialog;
-import pegamarketing.impl.dialog.PegaCategoriesDialog;
-import pegamarketing.rules.RuleInstance;
 
 public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 

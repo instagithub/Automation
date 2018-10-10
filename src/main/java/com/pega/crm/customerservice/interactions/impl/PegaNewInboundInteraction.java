@@ -1,20 +1,15 @@
-package customerservice.interactions.impl;
+package com.pega.crm.customerservice.interactions.impl;
 
+import java.awt.AWTException;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import customerservice.interactions.NewInboundInteraction;
+import com.pega.crm.customerservice.interactions.NewInboundInteraction;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;

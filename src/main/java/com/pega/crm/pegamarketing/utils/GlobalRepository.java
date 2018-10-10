@@ -1,4 +1,4 @@
-package pegamarketing.utils;
+package com.pega.crm.pegamarketing.utils;
 
 import com.pega.util.LocalizationUtil;
 import com.pega.util.XPathUtil;

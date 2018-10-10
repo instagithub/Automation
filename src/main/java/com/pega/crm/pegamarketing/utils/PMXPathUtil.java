@@ -1,4 +1,4 @@
-package pegamarketing.utils;
+package com.pega.crm.pegamarketing.utils;
 
 public class PMXPathUtil{
 

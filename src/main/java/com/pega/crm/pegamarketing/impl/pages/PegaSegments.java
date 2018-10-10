@@ -1,15 +1,16 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.rules.PegaSegment;
+import com.pega.crm.pegamarketing.pages.Segments;
+import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
+import com.pega.crm.pegamarketing.rules.Segment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.FrameImpl;
-import pegamarketing.impl.rules.PegaSegment;
-import pegamarketing.pages.Segments;
-import pegamarketing.rules.Segment;
 
 public class PegaSegments extends PegaLandingPage implements Segments {
 

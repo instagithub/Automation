@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
 import com.pega.TestEnvironmentImpl;
-import pegamarketing.pages.Microsites;
-import pegamarketing.pages.Subscription;
+import com.pega.crm.pegamarketing.pages.Microsites;
+import com.pega.crm.pegamarketing.pages.Subscription;
 
 public class PegaMicrosites extends PegaLandingPage implements Microsites {
 

@@ -1,8 +1,8 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.rules.Offer;
 
 public interface Offers extends LandingPage {
 

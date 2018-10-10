@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers;
+import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers.SubscriptionReportDrillDown;
 import com.pega.framework.PegaWebDriver;
-import pegamarketing.pages.UnsubscribedCustomers;
-import pegamarketing.pages.UnsubscribedCustomers.SubscriptionReportDrillDown;
 
 public class PegaUnsubscribedCustomers implements UnsubscribedCustomers {
 	TestEnvironment testEnv;

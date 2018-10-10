@@ -14,14 +14,14 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.pages.LandingPage;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.elmt.FrameImpl;
-import pegamarketing.pages.LandingPage;
-import pegamarketing.rules.RuleInstance;
 
 public class PegaLandingPage extends FrameImpl implements LandingPage {
 

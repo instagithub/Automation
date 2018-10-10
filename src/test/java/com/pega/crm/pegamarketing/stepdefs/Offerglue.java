@@ -1,13 +1,13 @@
 package com.pega.crm.pegamarketing.stepdefs;
 import org.testng.Assert;
 
-import pegamarketing.elmt.OfferShape;
-import pegamarketing.rules.Offer;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.rules.Offer.SendEmailShapeProperties;
-import pegamarketing.rules.Offer.Shape;
-import pegamarketing.utils.ObjectsBean;
-import pegamarketing.utils.TestDataReader;
+import com.pega.crm.pegamarketing.elmt.OfferShape;
+import com.pega.crm.pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.rules.Offer.SendEmailShapeProperties;
+import com.pega.crm.pegamarketing.rules.Offer.Shape;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.utils.TestDataReader;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

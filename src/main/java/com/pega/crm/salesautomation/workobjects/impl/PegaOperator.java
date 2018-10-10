@@ -1,15 +1,12 @@
-package salesautomation.workobjects.impl;
-
-import java.util.List;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
+import com.pega.crm.salesautomation.workobjects.Operators;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Operators;
 import com.pega.util.XPathUtil;
 
 public class PegaOperator extends WizardImpl implements Operators {

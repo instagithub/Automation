@@ -3,16 +3,17 @@ package com.pega.crm.customerservice.stepdefs;
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
+import com.pega.crm.customerservice.CSPortal;
+import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
+import com.pega.crm.customerservice.interactions.DialogsAndCoachingTips;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.NewDemoInteraction;
+import com.pega.crm.customerservice.interactions.NewInboundInteraction;
+import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.tiles.TopNav;
 import com.pega.explorer.DesignerStudio;
-import customerservice.CSPortal;
-import customerservice.interactions.DialogsAndCoachingTips;
-import customerservice.interactions.Interactions;
-import customerservice.interactions.NewDemoInteraction;
-import customerservice.interactions.NewInboundInteraction;
-import customerservice.interactions.OutboundPhoneCall;
-import customerservice.interactions.PhoneCall;
-import customerservice.interactions.ResearchInteraction;
-import customerservice.tiles.TopNav;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
@@ -32,7 +33,7 @@ public class TopNavglue {
 	private OutboundPhoneCall outboundPhoneCall;
 	private TopNav topnav;
 	public String[] caseStatus = new String[10];
-	private customerservice.designerstudio.ApplicationWizard applicationWizard;
+	private ApplicationWizard applicationWizard;
 	private Interactions interactions;
 	private DesignerStudio designerStudio;
 
@@ -344,7 +345,7 @@ public class TopNavglue {
 		return outboundPhoneCall;
 	}
 
-	public customerservice.designerstudio.ApplicationWizard getApplicationWizard() {
+	public ApplicationWizard getApplicationWizard() {
 
 		return applicationWizard;
 	}

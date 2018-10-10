@@ -1,9 +1,9 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.PegaUtil;
 
 public interface AppointmentList extends Wizard {
 	By CREATE_APP_BTN_XPATH =By.xpath("//*[@data-test-id='2015061907543208826357']");

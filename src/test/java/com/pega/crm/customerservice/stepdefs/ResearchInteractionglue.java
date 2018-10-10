@@ -11,15 +11,14 @@ import org.openqa.selenium.Keys;
 import com.google.inject.Inject;
 import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.CSPortal;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
-
-import customerservice.CSPortal;
-import customerservice.interactions.Interactions;
-import customerservice.interactions.PhoneCall;
-import customerservice.interactions.ResearchInteraction;
-import customerservice.utils.CommonMethods;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

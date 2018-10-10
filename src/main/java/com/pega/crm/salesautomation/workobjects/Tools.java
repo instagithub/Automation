@@ -1,10 +1,9 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.PegaUtil;
 
 public interface Tools extends Wizard
 {

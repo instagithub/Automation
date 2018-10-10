@@ -1,4 +1,4 @@
-package pegamarketing.utils;
+package com.pega.crm.pegamarketing.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,24 +1,16 @@
 package com.pega.crm.salesautomation.stepdefs;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.TestEnvironment;
-import com.pega.framework.PegaWebDriver;
-import com.pega.ri.Wizard;
-import salesautomation.workobjects.Partners;
-import salesautomation.workobjects.PartnersList;
 import com.pega.CRMBrowser;
-import customerservice.SFAPortal;
-import customerservice.tiles.LeftNav;
+import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.SFAPortal;
+import com.pega.crm.salesautomation.workobjects.Partners;
+import com.pega.crm.salesautomation.workobjects.PartnersList;
+import com.pega.framework.PegaWebDriver;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.en.Then;
@@ -33,7 +25,7 @@ public class Partner
 	private TestEnvironment testEnv;
 	private CRMBrowser browser;
 	private PegaWebDriver pegaDriver;
-	public static String Subject=null; 	
+	public static String Subject=null;
 	
 	@Inject
 	public Partner(TestEnvironment testEnv, CRMBrowser browser){

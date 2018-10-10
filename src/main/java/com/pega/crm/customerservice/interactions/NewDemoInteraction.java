@@ -1,4 +1,4 @@
-package customerservice.interactions;
+package com.pega.crm.customerservice.interactions;
 
 public interface NewDemoInteraction extends Interactions {
 	

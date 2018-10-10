@@ -1,10 +1,10 @@
-package pegamarketing.impl.dialog;
+package com.pega.crm.pegamarketing.impl.dialog;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ButtonParametersDialog;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ButtonParametersDialog;
 
 public class PegaButtonParametersDialog extends PegaImageCatalogDialog implements ButtonParametersDialog{
 

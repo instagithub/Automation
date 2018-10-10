@@ -14,23 +14,35 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.dialog.PegaConfigureDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
+import com.pega.crm.pegamarketing.rules.Designer;
+import com.pega.crm.pegamarketing.rules.Designer.AddTargetingDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureActionRelevanceDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureContainersDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureEligibilitiesDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureMethodDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureMetricsDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureOffersDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigureOutboundScheduleDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigurePaidMediaDialog;
+import com.pega.crm.pegamarketing.rules.Designer.ConfigurePrioritizationDialog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.impl.dialog.PegaConfigureDialog;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.impl.pages.PegaLandingPage;
-import pegamarketing.rules.Designer;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.utils.ObjectsBean;
-import pegamarketing.utils.PMXPathUtil;
 
 
 public class PegaDesigner extends PegaLandingPage implements Designer  {

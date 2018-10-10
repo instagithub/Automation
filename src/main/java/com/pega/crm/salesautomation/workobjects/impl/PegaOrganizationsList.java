@@ -1,17 +1,14 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Organizations;
-import salesautomation.workobjects.OrganizationsList;
-import salesautomation.workobjects.impl.PegaOrganization;
-//import com.pega.sfa.workobjects.impl.OrganizationImpl;
-import com.pega.util.XPathUtil;
 
 public class PegaOrganizationsList extends WizardImpl implements OrganizationsList{
 	

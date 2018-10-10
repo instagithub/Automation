@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.DataFlows;
+import com.pega.crm.pegamarketing.pages.DataFlows;
 
 public class PegaDataFlows extends PegaLandingPage implements DataFlows {
 

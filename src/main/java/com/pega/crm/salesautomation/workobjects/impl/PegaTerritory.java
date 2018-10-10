@@ -1,11 +1,11 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Territories;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Territories;
 
 public class PegaTerritory extends WizardImpl implements Territories
 {

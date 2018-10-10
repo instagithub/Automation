@@ -1,7 +1,7 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.Summaries;
+import com.pega.crm.pegamarketing.pages.Summaries;
 
 public class PegaSummaries extends PegaLandingPage implements Summaries{
 

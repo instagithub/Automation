@@ -1,25 +1,25 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.dialog.ConfigureOfferDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaConfigureDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaConfigureOfferDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.impl.pages.PegaStrategy;
+import com.pega.crm.pegamarketing.pages.Strategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.AddTargetingDialog;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ConfigureAudienceDialog;
-import pegamarketing.dialog.ConfigureOfferDialog;
-import pegamarketing.impl.dialog.PegaConfigureAudienceDialog;
-import pegamarketing.impl.dialog.PegaConfigureDialog;
-import pegamarketing.impl.dialog.PegaConfigureOfferDialog;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.impl.pages.PegaStrategy;
-import pegamarketing.pages.Strategy;
-import pegamarketing.rules.MarketingStrategy;
-import pegamarketing.rules.MarketingStrategy.AddTargetingDialog;
-import pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
-import pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
-import pegamarketing.utils.ObjectsBean;
 
 public class PegaMarketingStrategy extends PegaRuleInstance implements MarketingStrategy {
 

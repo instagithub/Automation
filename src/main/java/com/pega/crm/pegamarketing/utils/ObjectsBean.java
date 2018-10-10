@@ -1,4 +1,4 @@
-package pegamarketing.utils;
+package com.pega.crm.pegamarketing.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,52 +6,52 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import pegamarketing.DesignerStudio;
-import pegamarketing.ExpressPortal;
-import pegamarketing.PMPortal;
-import pegamarketing.dialog.ImageCatalogDialog;
-import pegamarketing.pages.CampaignsFrame;
-import pegamarketing.pages.Channels;
-import pegamarketing.pages.ContextDictionary;
-import pegamarketing.pages.DataFlows;
-import pegamarketing.pages.Eligibilities;
-import pegamarketing.pages.ImageLibrary;
-import pegamarketing.pages.Microsites;
-import pegamarketing.pages.Offers;
-import pegamarketing.pages.PaidMediaAudiences;
-import pegamarketing.pages.ProspectLists;
-import pegamarketing.pages.RealTimeArtifacts;
-import pegamarketing.pages.RecentReports;
-import pegamarketing.pages.Segments;
-import pegamarketing.pages.ServiceRestRecords;
-import pegamarketing.pages.Strategies;
-import pegamarketing.pages.Subscription;
-import pegamarketing.pages.Summaries;
-import pegamarketing.pages.Treatments;
-import pegamarketing.pages.UnsubscribedCustomers;
-import pegamarketing.pages.Channels.PaidMediaSetting;
-import pegamarketing.pages.Segments.ImageCatalog;
-import pegamarketing.pages.UnsubscribedCustomers.SubscriptionReportDrillDown;
-import pegamarketing.rules.Campaign;
-import pegamarketing.rules.Designer;
-import pegamarketing.rules.EmailTreatment;
-import pegamarketing.rules.MarketingStrategy;
-import pegamarketing.rules.Offer;
-import pegamarketing.rules.PropositionFilter;
-import pegamarketing.rules.ProspectImport;
-import pegamarketing.rules.SMSTreatment;
-import pegamarketing.rules.Segment;
-import pegamarketing.rules.WhenRule;
-import pegamarketing.rules.Campaign.CampaignConfigureDialog;
-import pegamarketing.rules.Campaign.ConfigureAudienceDialog;
-import pegamarketing.rules.Campaign.ConfigureDetailsDialog;
-import pegamarketing.rules.Campaign.ConfigureEngagementCriteriaDialog;
-import pegamarketing.rules.Campaign.ConfigureEngagementDialog;
-import pegamarketing.rules.Campaign.ConfigureMarketingStrategyDialog;
-import pegamarketing.rules.Campaign.ConfigureTimeframeDialog;
-import pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
-import pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
-import pegamarketing.rules.WhenRule.ConditionDialog;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.ExpressPortal;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.dialog.ImageCatalogDialog;
+import com.pega.crm.pegamarketing.pages.CampaignsFrame;
+import com.pega.crm.pegamarketing.pages.Channels;
+import com.pega.crm.pegamarketing.pages.Channels.PaidMediaSetting;
+import com.pega.crm.pegamarketing.pages.ContextDictionary;
+import com.pega.crm.pegamarketing.pages.DataFlows;
+import com.pega.crm.pegamarketing.pages.Eligibilities;
+import com.pega.crm.pegamarketing.pages.ImageLibrary;
+import com.pega.crm.pegamarketing.pages.Microsites;
+import com.pega.crm.pegamarketing.pages.Offers;
+import com.pega.crm.pegamarketing.pages.PaidMediaAudiences;
+import com.pega.crm.pegamarketing.pages.ProspectLists;
+import com.pega.crm.pegamarketing.pages.RealTimeArtifacts;
+import com.pega.crm.pegamarketing.pages.RecentReports;
+import com.pega.crm.pegamarketing.pages.Segments;
+import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
+import com.pega.crm.pegamarketing.pages.ServiceRestRecords;
+import com.pega.crm.pegamarketing.pages.Strategies;
+import com.pega.crm.pegamarketing.pages.Subscription;
+import com.pega.crm.pegamarketing.pages.Summaries;
+import com.pega.crm.pegamarketing.pages.Treatments;
+import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers;
+import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers.SubscriptionReportDrillDown;
+import com.pega.crm.pegamarketing.rules.Campaign;
+import com.pega.crm.pegamarketing.rules.Campaign.CampaignConfigureDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureDetailsDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementCriteriaDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureMarketingStrategyDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureTimeframeDialog;
+import com.pega.crm.pegamarketing.rules.Designer;
+import com.pega.crm.pegamarketing.rules.EmailTreatment;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
+import com.pega.crm.pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.rules.PropositionFilter;
+import com.pega.crm.pegamarketing.rules.ProspectImport;
+import com.pega.crm.pegamarketing.rules.SMSTreatment;
+import com.pega.crm.pegamarketing.rules.Segment;
+import com.pega.crm.pegamarketing.rules.WhenRule;
+import com.pega.crm.pegamarketing.rules.WhenRule.ConditionDialog;
 
 public class ObjectsBean {
 
@@ -69,7 +69,7 @@ public class ObjectsBean {
 	private static CampaignsFrame campaigns;
 	private static ContextDictionary contextDictionaryFrame;
 	private static ExpressPortal expressPortal;
-	private static pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog configBussIssue;
+	private static com.pega.crm.pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog configBussIssue;
 	private static Campaign campaign;
 	private static ConfigureMarketingStrategyDialog configureMarketingStrategyDialog;
 	private static RealTimeArtifacts realTimeArtifacts;
@@ -211,11 +211,11 @@ public class ObjectsBean {
 	}
 
 	public static void setConfigBussinessIssueDialog(
-			pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog configBussIssue) {
+			com.pega.crm.pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog configBussIssue) {
 		ObjectsBean.configBussIssue = configBussIssue;
 	}
 
-	public static pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog getConfigBussinessIssuesDialog() {
+	public static com.pega.crm.pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog getConfigBussinessIssuesDialog() {
 		return ObjectsBean.configBussIssue;
 	}
 

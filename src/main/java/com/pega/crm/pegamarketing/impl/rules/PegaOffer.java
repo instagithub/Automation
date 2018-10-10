@@ -1,4 +1,4 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -6,21 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ImageCatalogDialog;
+import com.pega.crm.pegamarketing.elmt.Connector;
+import com.pega.crm.pegamarketing.elmt.OfferShape;
+import com.pega.crm.pegamarketing.impl.dialog.PegaImageCatalogDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.impl.elmt.PegaConnector;
+import com.pega.crm.pegamarketing.impl.elmt.PegaOfferShape;
+import com.pega.crm.pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.rules.Offer.SendEmailShapeProperties;
+import com.pega.crm.pegamarketing.rules.Offer.SendSMSShapeProperties;
+import com.pega.crm.pegamarketing.rules.Offer.Shape;
+import com.pega.crm.pegamarketing.rules.Offer.ShapeProperties;
+import com.pega.crm.pegamarketing.utils.GlobalRepository;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ImageCatalogDialog;
-import pegamarketing.elmt.Connector;
-import pegamarketing.elmt.OfferShape;
-import pegamarketing.impl.dialog.PegaImageCatalogDialog;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.impl.elmt.PegaConnector;
-import pegamarketing.impl.elmt.PegaOfferShape;
-import pegamarketing.rules.Offer;
-import pegamarketing.rules.Offer.SendEmailShapeProperties;
-import pegamarketing.rules.Offer.SendSMSShapeProperties;
-import pegamarketing.rules.Offer.Shape;
-import pegamarketing.rules.Offer.ShapeProperties;
-import pegamarketing.utils.GlobalRepository;
 
 public class PegaOffer extends PegaRuleInstance implements Offer {
 

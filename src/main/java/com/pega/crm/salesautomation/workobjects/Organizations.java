@@ -1,4 +1,4 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
 
 import com.pega.util.XPathUtil;

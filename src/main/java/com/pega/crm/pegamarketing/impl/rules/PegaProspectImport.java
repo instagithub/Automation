@@ -1,9 +1,9 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
-import pegamarketing.rules.ProspectImport;
+import com.pega.crm.pegamarketing.rules.ProspectImport;
 
 public class PegaProspectImport extends PegaRuleInstance implements ProspectImport {
 

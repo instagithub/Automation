@@ -1,11 +1,11 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaPropositionFilter;
-import pegamarketing.impl.rules.PegaWhenRule;
-import pegamarketing.pages.Eligibilities;
-import pegamarketing.rules.PropositionFilter;
-import pegamarketing.rules.WhenRule;
+import com.pega.crm.pegamarketing.impl.rules.PegaPropositionFilter;
+import com.pega.crm.pegamarketing.impl.rules.PegaWhenRule;
+import com.pega.crm.pegamarketing.pages.Eligibilities;
+import com.pega.crm.pegamarketing.rules.PropositionFilter;
+import com.pega.crm.pegamarketing.rules.WhenRule;
 
 public class PegaEligibilities extends PegaLandingPage implements Eligibilities {
 

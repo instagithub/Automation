@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,16 +7,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Activity;
+import com.pega.crm.salesautomation.workobjects.Contacts;
+import com.pega.crm.salesautomation.workobjects.Households;
+import com.pega.crm.salesautomation.workobjects.Leads;
+import com.pega.crm.salesautomation.workobjects.Opportunities;
+import com.pega.crm.salesautomation.workobjects.Relationship;
+import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Contacts;
-import salesautomation.workobjects.Households;
-import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.Opportunities;
-import salesautomation.workobjects.Relationship;
-import salesautomation.workobjects.Tasks;
 
 
 public class PegaContact extends WizardImpl implements Contacts

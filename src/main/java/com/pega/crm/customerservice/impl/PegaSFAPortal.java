@@ -1,12 +1,12 @@
-package customerservice.impl;
+package com.pega.crm.customerservice.impl;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.SFAPortal;
+import com.pega.crm.customerservice.tiles.LeftNav;
+import com.pega.crm.customerservice.tiles.TopNav;
+import com.pega.crm.customerservice.tiles.impl.PegaLeftNav;
+import com.pega.crm.customerservice.tiles.impl.PegaTopNav;
 import com.pega.page.PortalImpl;
-import customerservice.SFAPortal;
-import customerservice.tiles.LeftNav;
-import customerservice.tiles.TopNav;
-import customerservice.tiles.impl.PegaLeftNav;
-import customerservice.tiles.impl.PegaTopNav;
 
 public class PegaSFAPortal extends PortalImpl implements SFAPortal {
 

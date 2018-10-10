@@ -14,13 +14,13 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.dialog;
+package com.pega.crm.pegamarketing.impl.dialog;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ModalDialog;
 
 public class PegaModalDialog implements ModalDialog {
 	protected PegaWebDriver pegaDriver;

@@ -1,4 +1,4 @@
-package pegamarketing.elmt;
+package com.pega.crm.pegamarketing.elmt;
 
 import com.pega.framework.PegaWebElement;
 

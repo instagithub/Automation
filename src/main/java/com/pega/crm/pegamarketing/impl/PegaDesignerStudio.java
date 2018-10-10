@@ -1,12 +1,13 @@
-package pegamarketing.impl;
+package com.pega.crm.pegamarketing.impl;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
-import pegamarketing.DesignerStudio;
-import pegamarketing.PMPortal;
-import pegamarketing.explorer.RecordsExplorer;
-import pegamarketing.impl.explorer.PegaRecordsExplorer;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.DesignerStudio.Tabs;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
+import com.pega.crm.pegamarketing.impl.explorer.PegaRecordsExplorer;
 
 public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 	private RecordsExplorer recordsExplorer = null;

@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Leads;
+import com.pega.crm.salesautomation.workobjects.LeadsList;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.LeadsList;
 
 public class PegaLeadsList extends WizardImpl implements LeadsList {
 

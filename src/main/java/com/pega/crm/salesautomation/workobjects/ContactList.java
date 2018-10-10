@@ -1,8 +1,7 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.PegaUtil;
-import com.pega.util.XPathUtil;
 
 public interface ContactList extends Wizard
 {

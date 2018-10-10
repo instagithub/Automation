@@ -14,12 +14,12 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaCampaign;
-import pegamarketing.pages.CampaignsFrame;
-import pegamarketing.rules.Campaign;
+import com.pega.crm.pegamarketing.impl.rules.PegaCampaign;
+import com.pega.crm.pegamarketing.pages.CampaignsFrame;
+import com.pega.crm.pegamarketing.rules.Campaign;
 
 public class PegaCampaignsFrame extends PegaLandingPage implements CampaignsFrame {
 

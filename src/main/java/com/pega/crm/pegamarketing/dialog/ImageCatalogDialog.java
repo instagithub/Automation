@@ -1,4 +1,4 @@
-package pegamarketing.dialog;
+package com.pega.crm.pegamarketing.dialog;
 
 import java.io.IOException;
 

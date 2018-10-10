@@ -1,16 +1,16 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.impl.rules.PegaRuleInstance;
+import com.pega.crm.pegamarketing.pages.Strategy;
+import com.pega.crm.pegamarketing.pages.Strategy.AddCustomFieldsDialog;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.impl.rules.PegaRuleInstance;
-import pegamarketing.pages.Strategy;
-import pegamarketing.pages.Strategy.AddCustomFieldsDialog;
 
 public class PegaStrategy extends PegaRuleInstance implements Strategy {
 

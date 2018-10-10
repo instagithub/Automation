@@ -1,9 +1,9 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
 
 
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.PegaUtil;
 
 public interface ToolsList extends Wizard {
   String Dataimportwizard_Button_xpath=PegaUtil.getButtonXpath("Data import wizard");

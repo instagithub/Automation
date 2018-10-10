@@ -1,12 +1,12 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Appointment;
+import com.pega.crm.salesautomation.workobjects.AppointmentList;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Appointment;
-import salesautomation.workobjects.AppointmentList;
 
 public class PegaAppointmentList extends WizardImpl implements AppointmentList {
 

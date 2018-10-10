@@ -1,12 +1,12 @@
-package pegamarketing.impl.dialog;
+package com.pega.crm.pegamarketing.impl.dialog;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.CategoriesDialog;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.CategoriesDialog;
 
 public class PegaCategoriesDialog extends PegaConfigureDialog implements CategoriesDialog{
 	TestEnvironment testEnv;

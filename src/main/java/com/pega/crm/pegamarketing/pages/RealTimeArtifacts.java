@@ -14,7 +14,7 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 

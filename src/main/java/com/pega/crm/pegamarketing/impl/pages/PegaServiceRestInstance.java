@@ -1,11 +1,11 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.rules.PegaRuleInstance;
+import com.pega.crm.pegamarketing.pages.ServiceRestInstance;
 import com.pega.framework.PegaWebElement;
-import pegamarketing.impl.rules.PegaRuleInstance;
-import pegamarketing.pages.ServiceRestInstance;
 
 public class PegaServiceRestInstance extends PegaRuleInstance implements ServiceRestInstance{
 	public PegaServiceRestInstance(String frameID, TestEnvironment testEnv) {

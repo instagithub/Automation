@@ -1,4 +1,4 @@
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 

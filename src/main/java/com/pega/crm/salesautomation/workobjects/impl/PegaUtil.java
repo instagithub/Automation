@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 
 import java.text.ParseException;
@@ -9,14 +9,14 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;								
+import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Activity;
+import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Tasks;
 import com.pega.util.XPathUtil;
 
 public  class PegaUtil

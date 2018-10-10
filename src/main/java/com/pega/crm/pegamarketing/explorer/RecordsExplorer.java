@@ -1,7 +1,7 @@
-package pegamarketing.explorer;
+package com.pega.crm.pegamarketing.explorer;
 
 
-import pegamarketing.pages.LandingPage;
+import com.pega.crm.pegamarketing.pages.LandingPage;
 
 public interface RecordsExplorer {
 /**

@@ -1,13 +1,13 @@
-package customerservice.tiles;
+package com.pega.crm.customerservice.tiles;
 
 
-import customerservice.designerstudio.ApplicationWizard;
-import customerservice.interactions.Interactions;
-import customerservice.interactions.NewDemoInteraction;
-import customerservice.interactions.NewInboundInteraction;
-import customerservice.interactions.OutboundPhoneCall;
-import customerservice.interactions.PhoneCall;
-import customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.NewDemoInteraction;
+import com.pega.crm.customerservice.interactions.NewInboundInteraction;
+import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
 
 import cucumber.api.DataTable;
 

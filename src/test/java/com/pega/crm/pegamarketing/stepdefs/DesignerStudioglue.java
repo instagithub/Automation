@@ -2,11 +2,11 @@ package com.pega.crm.pegamarketing.stepdefs;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
-import pegamarketing.DesignerStudio;
-import pegamarketing.PMPortal;
-import pegamarketing.explorer.RecordsExplorer;
-import pegamarketing.pages.ServiceRestRecords;
-import pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
+import com.pega.crm.pegamarketing.pages.ServiceRestRecords;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;

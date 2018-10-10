@@ -1,14 +1,14 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Accounts;
+import com.pega.crm.salesautomation.workobjects.Contacts;
+import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.crm.salesautomation.workobjects.Relationship;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Accounts;
-import salesautomation.workobjects.Contacts;
-import salesautomation.workobjects.Organizations;
-import salesautomation.workobjects.Relationship;
 
 public class PegaRelationship extends WizardImpl implements Relationship {
 	

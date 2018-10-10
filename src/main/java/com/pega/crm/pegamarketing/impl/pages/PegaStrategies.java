@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaMarketingStrategy;
-import pegamarketing.pages.Strategies;
-import pegamarketing.rules.MarketingStrategy;
+import com.pega.crm.pegamarketing.impl.rules.PegaMarketingStrategy;
+import com.pega.crm.pegamarketing.pages.Strategies;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy;
 
 import cucumber.runtime.java.guice.ScenarioScoped;
 

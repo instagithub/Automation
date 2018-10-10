@@ -1,8 +1,8 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaRuleInstance;
-import pegamarketing.pages.RealTimeContainer;
+import com.pega.crm.pegamarketing.impl.rules.PegaRuleInstance;
+import com.pega.crm.pegamarketing.pages.RealTimeContainer;
 
 public class PegaRealTimeContainer extends PegaRuleInstance implements RealTimeContainer {
 

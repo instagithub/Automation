@@ -1,19 +1,19 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.rules.Segment;
+import com.pega.crm.pegamarketing.rules.Segment.AddCriteriaDialog;
+import com.pega.crm.pegamarketing.rules.Segment.SelectItemsDialog;
+import com.pega.crm.pegamarketing.rules.Segment.UploadFileDialog;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.pages.Segments.ImageCatalog;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.rules.Segment;
-import pegamarketing.rules.Segment.AddCriteriaDialog;
-import pegamarketing.rules.Segment.SelectItemsDialog;
-import pegamarketing.rules.Segment.UploadFileDialog;
 
 public class PegaSegment extends PegaRuleInstance implements Segment {
 

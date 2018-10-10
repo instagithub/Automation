@@ -1,13 +1,13 @@
-package customerservice.interactions.impl;
+package com.pega.crm.customerservice.interactions.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
-import customerservice.interactions.OutboundPhoneCall;
-import customerservice.utils.CommonMethods;
 
 public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundPhoneCall {
 

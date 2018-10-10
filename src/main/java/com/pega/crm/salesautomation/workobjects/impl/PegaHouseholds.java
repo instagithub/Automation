@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 
 
@@ -10,9 +10,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.pega.crm.salesautomation.workobjects.Households;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Households;
 import com.pega.util.XPathUtil;
 
 

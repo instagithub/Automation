@@ -21,11 +21,11 @@ import org.testng.Assert;
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
 import com.pega.TestEnvironment;
-import pegamarketing.dialog.ConfigureDialog;
-import pegamarketing.rules.Campaign;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.rules.Campaign.ConfigureAudienceDialog;
-import pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.dialog.ConfigureDialog;
+import com.pega.crm.pegamarketing.rules.Campaign;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

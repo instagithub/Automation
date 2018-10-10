@@ -1,10 +1,10 @@
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.dialog.CategoriesDialog;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.CategoriesDialog;
-import pegamarketing.utils.PMXPathUtil;
 import com.pega.util.XPathUtil;
 
 public interface RuleInstance extends Frame {

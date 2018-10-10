@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaOffer;
-import pegamarketing.pages.Offers;
-import pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.impl.rules.PegaOffer;
+import com.pega.crm.pegamarketing.pages.Offers;
+import com.pega.crm.pegamarketing.rules.Offer;
 
 public class PegaOffers extends PegaLandingPage implements Offers {
 

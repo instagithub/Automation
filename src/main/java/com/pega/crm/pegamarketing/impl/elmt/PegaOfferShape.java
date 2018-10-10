@@ -1,4 +1,4 @@
-package pegamarketing.impl.elmt;
+package com.pega.crm.pegamarketing.impl.elmt;
 
 
 import org.openqa.selenium.By;
@@ -6,17 +6,17 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 
+import com.pega.crm.pegamarketing.elmt.Connector;
+import com.pega.crm.pegamarketing.elmt.OfferShape;
+import com.pega.crm.pegamarketing.impl.rules.PegaOffer;
+import com.pega.crm.pegamarketing.rules.Offer;
+import com.pega.crm.pegamarketing.rules.Offer.Shape;
+import com.pega.crm.pegamarketing.rules.Offer.ShapeProperties;
+import com.pega.crm.pegamarketing.utils.GlobalRepository;
 import com.pega.framework.Mouse;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.PegaWebElementImpl;
 import com.pega.framework.elmt.DropDown;
-import pegamarketing.elmt.Connector;
-import pegamarketing.elmt.OfferShape;
-import pegamarketing.impl.rules.PegaOffer;
-import pegamarketing.rules.Offer;
-import pegamarketing.rules.Offer.Shape;
-import pegamarketing.rules.Offer.ShapeProperties;
-import pegamarketing.utils.GlobalRepository;
 
 public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{
 	

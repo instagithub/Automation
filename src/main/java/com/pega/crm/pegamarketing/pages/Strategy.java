@@ -1,9 +1,9 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 
 public interface Strategy extends RuleInstance {
 

@@ -1,4 +1,4 @@
-package customerservice.interactions;
+package com.pega.crm.customerservice.interactions;
 
 public interface ResearchInteraction extends Interactions{
 	String UPDATE_CONTACT_PROFILE_XPATH = "//a[text()='Update Contact Profile' and @class='Add_task']";

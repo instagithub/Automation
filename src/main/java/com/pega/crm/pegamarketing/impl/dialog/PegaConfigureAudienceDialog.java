@@ -14,15 +14,15 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.dialog;
+package com.pega.crm.pegamarketing.impl.dialog;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ConfigureAudienceDialog;
 
 public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements ConfigureAudienceDialog {
 	TestEnvironment testEnv;

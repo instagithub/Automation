@@ -1,4 +1,4 @@
-package customerservice.tiles.impl;
+package com.pega.crm.customerservice.tiles.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,33 +10,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
+import com.pega.crm.customerservice.designerstudio.impl.PegaApplicationWizard;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.NewDemoInteraction;
+import com.pega.crm.customerservice.interactions.NewInboundInteraction;
+import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.interactions.impl.PegaNewDemoInteraction;
+import com.pega.crm.customerservice.interactions.impl.PegaNewInboundInteraction;
+import com.pega.crm.customerservice.interactions.impl.PegaOutboundPhoneCall;
+import com.pega.crm.customerservice.interactions.impl.PegaPhoneCall;
+import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
+import com.pega.crm.customerservice.tiles.TopNav;
 import com.pega.explorer.DesignerStudio;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
-import com.pega.wizard.DecisioningServices;
-import customerservice.designerstudio.ApplicationWizard;
-import customerservice.designerstudio.impl.PegaApplicationWizard;
-import customerservice.interactions.Interactions;
-import customerservice.interactions.NewDemoInteraction;
-import customerservice.interactions.NewInboundInteraction;
-import customerservice.interactions.OutboundPhoneCall;
-import customerservice.interactions.PhoneCall;
-import customerservice.interactions.ResearchInteraction;
-import customerservice.interactions.impl.PegaNewDemoInteraction;
-import customerservice.interactions.impl.PegaNewInboundInteraction;
-import customerservice.interactions.impl.PegaOutboundPhoneCall;
-import customerservice.interactions.impl.PegaPhoneCall;
-import customerservice.interactions.impl.PegaResearchInteraction;
-import customerservice.tiles.TopNav;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.en.When;
 
 public class PegaTopNav implements TopNav {
 

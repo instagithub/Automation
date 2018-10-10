@@ -1,16 +1,17 @@
-package pegamarketing.impl.elmt;
+package com.pega.crm.pegamarketing.impl.elmt;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.pega.crm.pegamarketing.elmt.Connector;
+import com.pega.crm.pegamarketing.elmt.Connector.ConnectorProperties;
+import com.pega.crm.pegamarketing.elmt.OfferShape;
+import com.pega.crm.pegamarketing.rules.Offer;
 import com.pega.framework.Mouse;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.PegaWebElementImpl;
-import pegamarketing.elmt.Connector;
-import pegamarketing.elmt.OfferShape;
-import pegamarketing.rules.Offer;
 
 
 

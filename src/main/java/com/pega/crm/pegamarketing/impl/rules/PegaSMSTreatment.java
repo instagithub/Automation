@@ -1,7 +1,7 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import com.pega.TestEnvironment;
-import pegamarketing.rules.SMSTreatment;
+import com.pega.crm.pegamarketing.rules.SMSTreatment;
 
 public class PegaSMSTreatment extends PegaTreatment implements SMSTreatment {
 

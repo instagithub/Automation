@@ -1,8 +1,8 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.ProspectImport;
+import com.pega.crm.pegamarketing.rules.ProspectImport;
 import com.pega.util.XPathUtil;
 
 public interface ProspectLists extends LandingPage {

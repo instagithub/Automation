@@ -1,4 +1,4 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
 import java.util.List;
 import com.pega.ri.Wizard;

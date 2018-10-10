@@ -1,4 +1,4 @@
-package customerservice.interactions.impl;
+package com.pega.crm.customerservice.interactions.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,13 +12,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.AutoComplete;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
-import customerservice.interactions.PhoneCall;
-import customerservice.utils.CommonMethods;
 
 public class PegaPhoneCall extends PegaInteractions implements PhoneCall {
 

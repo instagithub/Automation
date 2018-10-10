@@ -1,10 +1,10 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.rules.Segment;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.rules.Segment;
-import pegamarketing.utils.PMXPathUtil;
 
 public interface Segments extends LandingPage {
 

@@ -1,8 +1,8 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.MarketingStrategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy;
 
 public interface Strategies extends LandingPage {
 

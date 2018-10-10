@@ -1,9 +1,9 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaProspectImport;
-import pegamarketing.pages.ProspectLists;
-import pegamarketing.rules.ProspectImport;
+import com.pega.crm.pegamarketing.impl.rules.PegaProspectImport;
+import com.pega.crm.pegamarketing.pages.ProspectLists;
+import com.pega.crm.pegamarketing.rules.ProspectImport;
 
 public class PegaProspectLists extends PegaLandingPage implements ProspectLists {
 

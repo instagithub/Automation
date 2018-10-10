@@ -1,12 +1,12 @@
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.dialog.ImageCatalogDialog;
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.elmt.Connector;
-import pegamarketing.elmt.OfferShape;
-import pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.dialog.ImageCatalogDialog;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.elmt.Connector;
+import com.pega.crm.pegamarketing.elmt.OfferShape;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface Offer extends RuleInstance {
 

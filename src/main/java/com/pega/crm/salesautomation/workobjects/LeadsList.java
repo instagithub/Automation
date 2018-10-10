@@ -1,11 +1,11 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
-import salesautomation.workobjects.impl.PegaUtil;
 
 public interface LeadsList extends Wizard
 {

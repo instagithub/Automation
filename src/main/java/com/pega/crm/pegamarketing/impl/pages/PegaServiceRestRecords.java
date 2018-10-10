@@ -1,10 +1,10 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.ServiceRestInstance;
-import pegamarketing.pages.ServiceRestRecords;
+import com.pega.crm.pegamarketing.pages.ServiceRestInstance;
+import com.pega.crm.pegamarketing.pages.ServiceRestRecords;
 
 
 public class PegaServiceRestRecords extends PegaLandingPage implements ServiceRestRecords{

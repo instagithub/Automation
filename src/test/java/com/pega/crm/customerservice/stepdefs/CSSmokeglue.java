@@ -1,23 +1,19 @@
 package com.pega.crm.customerservice.stepdefs;
 
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import com.google.inject.Inject;
 import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.CSPortal;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.PhoneCall;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
-
-import customerservice.CSPortal;
-import customerservice.designerstudio.ApplicationWizard;
-import customerservice.interactions.Interactions;
-import customerservice.interactions.PhoneCall;
-import customerservice.utils.CommonMethods;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

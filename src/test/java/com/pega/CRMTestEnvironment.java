@@ -17,7 +17,7 @@ import org.testng.Reporter;
 
 import com.google.inject.Inject;
 import com.pega.config.test.TestBase1S1D;
-import customerservice.utils.CommonMethods;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
 import com.pega.util.RecorderUtil;

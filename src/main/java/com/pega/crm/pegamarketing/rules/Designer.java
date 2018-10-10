@@ -14,13 +14,13 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.dialog.ConfigureDialog;
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.pages.LandingPage;
+import com.pega.crm.pegamarketing.dialog.ConfigureDialog;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.pages.LandingPage;
 
 
 public interface Designer extends LandingPage {

@@ -4,15 +4,15 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
-import pegamarketing.PMPortal;
-import pegamarketing.dialog.CategoriesDialog;
-import pegamarketing.dialog.ConfigureAudienceDialog;
-import pegamarketing.dialog.ConfigureOfferDialog;
-import pegamarketing.pages.Strategy;
-import pegamarketing.rules.MarketingStrategy;
-import pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
-import pegamarketing.utils.ObjectsBean;
-import pegamarketing.utils.TestDataReader;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.dialog.CategoriesDialog;
+import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.dialog.ConfigureOfferDialog;
+import com.pega.crm.pegamarketing.pages.Strategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy;
+import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.utils.TestDataReader;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

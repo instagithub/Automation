@@ -1,23 +1,22 @@
-package customerservice.tiles;
+package com.pega.crm.customerservice.tiles;
 
-import salesautomation.workobjects.AccountList;
-import salesautomation.workobjects.AppointmentList;
-import salesautomation.workobjects.ClosePlans;
-import salesautomation.workobjects.ContactList;
-import salesautomation.workobjects.EngagementMaps;
-import salesautomation.workobjects.Forecast;
-import salesautomation.workobjects.HouseholdList;
-import salesautomation.workobjects.LeadsList;
-import salesautomation.workobjects.Login;
-import salesautomation.workobjects.OperatorList;
-import salesautomation.workobjects.OpportunityList;
-import salesautomation.workobjects.OrganizationsList;
-import salesautomation.workobjects.PartnersList;
-import salesautomation.workobjects.Pulse;
-import salesautomation.workobjects.PulseList;
-import salesautomation.workobjects.QuickCreate;
-import salesautomation.workobjects.TerritoriesList;
-import salesautomation.workobjects.ToolsList;										   
+import com.pega.crm.salesautomation.workobjects.AccountList;
+import com.pega.crm.salesautomation.workobjects.AppointmentList;
+import com.pega.crm.salesautomation.workobjects.ClosePlans;
+import com.pega.crm.salesautomation.workobjects.ContactList;
+import com.pega.crm.salesautomation.workobjects.EngagementMaps;
+import com.pega.crm.salesautomation.workobjects.Forecast;
+import com.pega.crm.salesautomation.workobjects.HouseholdList;
+import com.pega.crm.salesautomation.workobjects.LeadsList;
+import com.pega.crm.salesautomation.workobjects.Login;
+import com.pega.crm.salesautomation.workobjects.OperatorList;
+import com.pega.crm.salesautomation.workobjects.OpportunityList;
+import com.pega.crm.salesautomation.workobjects.OrganizationsList;
+import com.pega.crm.salesautomation.workobjects.PartnersList;
+import com.pega.crm.salesautomation.workobjects.Pulse;
+import com.pega.crm.salesautomation.workobjects.QuickCreate;
+import com.pega.crm.salesautomation.workobjects.TerritoriesList;
+import com.pega.crm.salesautomation.workobjects.ToolsList;										   
 
 public interface LeftNav {
 	

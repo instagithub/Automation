@@ -14,11 +14,11 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.dialog;
+package com.pega.crm.pegamarketing.dialog;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.utils.GlobalRepository;
+import com.pega.crm.pegamarketing.utils.GlobalRepository;
 
 public interface ModalDialog {
 	

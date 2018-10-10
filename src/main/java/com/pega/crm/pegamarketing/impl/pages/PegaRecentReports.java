@@ -1,8 +1,8 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.RecentReports;
-import pegamarketing.pages.UnsubscribedCustomers;
+import com.pega.crm.pegamarketing.pages.RecentReports;
+import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers;
 
 public class PegaRecentReports extends PegaLandingPage implements RecentReports {
 

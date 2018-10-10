@@ -1,11 +1,11 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.Window;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.utils.PMXPathUtil;
 
 public interface Channels extends Frame {
 	By ADD_CONNECTION_BTN = By.xpath(PMXPathUtil.getDataTestIdXPath("2014110508473501265753"));

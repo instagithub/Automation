@@ -1,9 +1,9 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.PropositionFilter;
-import pegamarketing.rules.WhenRule;
+import com.pega.crm.pegamarketing.rules.PropositionFilter;
+import com.pega.crm.pegamarketing.rules.WhenRule;
 
 public interface Eligibilities extends LandingPage {
 

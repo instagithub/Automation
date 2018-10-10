@@ -1,18 +1,16 @@
-package customerservice.impl;
+package com.pega.crm.customerservice.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.CSPortal;
+import com.pega.crm.customerservice.tiles.LeftNav;
+import com.pega.crm.customerservice.tiles.TopNav;
+import com.pega.crm.customerservice.tiles.impl.PegaTopNav;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.page.PortalImpl;
 import com.pega.ri.Wizard;
-import customerservice.CSPortal;
-import customerservice.tiles.LeftNav;
-import customerservice.tiles.TopNav;
-import customerservice.tiles.impl.PegaTopNav;
-import customerservice.utils.CommonMethods;
 
 public class PegaCSPortal extends PortalImpl implements CSPortal{
 	

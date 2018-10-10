@@ -1,4 +1,4 @@
-package customerservice.designerstudio;
+package com.pega.crm.customerservice.designerstudio;
 
 public interface ApplicationWizard extends com.pega.wizard.ApplicationWizard{
 

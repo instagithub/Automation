@@ -1,12 +1,12 @@
-package pegamarketing;
+package com.pega.crm.pegamarketing;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.pages.LandingPage;
+import com.pega.crm.pegamarketing.pages.ProspectLists;
+import com.pega.crm.pegamarketing.pages.RecentReports;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.page.Portal;
-import pegamarketing.pages.LandingPage;
-import pegamarketing.pages.ProspectLists;
-import pegamarketing.pages.RecentReports;
-import pegamarketing.utils.PMXPathUtil;
 
 public interface PMPortal extends Portal {
 

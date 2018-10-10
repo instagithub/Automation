@@ -1,26 +1,19 @@
 package com.pega.crm.salesautomation.stepdefs;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
-import com.pega.TestEnvironment;
-import com.pega.framework.PegaWebDriver;
-import com.pega.ri.Wizard;
-import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.LeadsList;
 import com.pega.CRMBrowser;
-import customerservice.SFAPortal;
-import customerservice.tiles.LeftNav;
+import com.pega.TestEnvironment;
+import com.pega.crm.customerservice.SFAPortal;
+import com.pega.crm.salesautomation.workobjects.Leads;
+import com.pega.crm.salesautomation.workobjects.LeadsList;
+import com.pega.framework.PegaWebDriver;
 
-import cucumber.api.Scenario;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;

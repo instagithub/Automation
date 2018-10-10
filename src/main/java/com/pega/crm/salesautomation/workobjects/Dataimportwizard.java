@@ -1,4 +1,4 @@
-package salesautomation.workobjects;
+package com.pega.crm.salesautomation.workobjects;
 import com.pega.ri.Wizard;
 public interface Dataimportwizard extends Wizard{
 	

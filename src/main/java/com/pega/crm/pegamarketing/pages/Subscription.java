@@ -1,8 +1,8 @@
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface Subscription {
 	By UNSUBSCRIBE_LABEL = By.xpath("//div[text()='Unsubscribe']");

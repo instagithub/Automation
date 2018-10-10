@@ -1,14 +1,14 @@
 
-package pegamarketing.rules;
+package com.pega.crm.pegamarketing.rules;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.dialog.ConfigureAudienceDialog;
-import pegamarketing.dialog.ConfigureDialog;
-import pegamarketing.dialog.ConfigureOfferDialog;
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.pages.Strategy;
-import pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.dialog.ConfigureDialog;
+import com.pega.crm.pegamarketing.dialog.ConfigureOfferDialog;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.pages.Strategy;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface MarketingStrategy extends RuleInstance {
 	By STRATEGY_NAME_INPUT = By.xpath("//input[@data-test-id='2016111816494007041082699']");

@@ -1,8 +1,8 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.pages.Subscription;
 import com.pega.framework.PegaWebDriver;
-import pegamarketing.pages.Subscription;
 
 public class PegaSubscription implements Subscription {
 	TestEnvironment testEnv;

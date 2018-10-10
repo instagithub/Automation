@@ -1,7 +1,7 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.PaidMediaAudiences;
+import com.pega.crm.pegamarketing.pages.PaidMediaAudiences;
 
 public class PegaPaidMediaAudiences extends PegaLandingPage implements PaidMediaAudiences {
 	

@@ -1,11 +1,11 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ImageCatalogDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaImageCatalogDialog;
+import com.pega.crm.pegamarketing.pages.ImageLibrary;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
-import pegamarketing.dialog.ImageCatalogDialog;
-import pegamarketing.impl.dialog.PegaImageCatalogDialog;
-import pegamarketing.pages.ImageLibrary;
 
 public class PegaImageLibrary extends PegaLandingPage implements ImageLibrary{
 	TestEnvironment testEnv;

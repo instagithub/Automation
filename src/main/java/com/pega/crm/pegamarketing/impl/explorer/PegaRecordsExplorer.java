@@ -1,14 +1,14 @@
-package pegamarketing.impl.explorer;
+package com.pega.crm.pegamarketing.impl.explorer;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
+import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
+import com.pega.crm.pegamarketing.impl.pages.PegaServiceRestRecords;
+import com.pega.crm.pegamarketing.pages.LandingPage;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
-import pegamarketing.explorer.RecordsExplorer;
-import pegamarketing.impl.pages.PegaLandingPage;
-import pegamarketing.impl.pages.PegaServiceRestRecords;
-import pegamarketing.pages.LandingPage;
 
 
 public class PegaRecordsExplorer implements RecordsExplorer{

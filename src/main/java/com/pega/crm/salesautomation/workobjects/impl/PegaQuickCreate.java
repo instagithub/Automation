@@ -1,18 +1,18 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Accounts;
+import com.pega.crm.salesautomation.workobjects.Appointment;
+import com.pega.crm.salesautomation.workobjects.Contacts;
+import com.pega.crm.salesautomation.workobjects.Leads;
+import com.pega.crm.salesautomation.workobjects.Opportunities;
+import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.crm.salesautomation.workobjects.Partners;
+import com.pega.crm.salesautomation.workobjects.QuickCreate;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Accounts;
-import salesautomation.workobjects.Appointment;
-import salesautomation.workobjects.Contacts;
-import salesautomation.workobjects.Leads;
-import salesautomation.workobjects.Opportunities;
-import salesautomation.workobjects.Organizations;
-import salesautomation.workobjects.Partners;
-import salesautomation.workobjects.QuickCreate;
 
 public class PegaQuickCreate extends WizardImpl implements QuickCreate{
 

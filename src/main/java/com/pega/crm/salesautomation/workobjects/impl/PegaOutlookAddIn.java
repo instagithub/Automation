@@ -1,42 +1,13 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
-import com.pega.Browser;
-import com.pega.TestEnvironment;
-
-import static org.junit.Assert.assertTrue;
-
-import java.awt.Point;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 
-import com.pega.framework.AutoComplete;
+import com.pega.crm.salesautomation.workobjects.OutlookAddIn;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
-import com.pega.framework.elmt.DropDown;
-import com.pega.framework.elmt.Frame;
-import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Accounts;
-import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Opportunities;
-import salesautomation.workobjects.OutlookAddIn;
-import salesautomation.workobjects.Relationship;
-import salesautomation.workobjects.Tasks;
-import com.pega.framework.PegaWebDriver;
-import io.appium.java_client.MobileElement;
-import com.pega.ri.WizardImpl;
 
 public class PegaOutlookAddIn implements OutlookAddIn {
 

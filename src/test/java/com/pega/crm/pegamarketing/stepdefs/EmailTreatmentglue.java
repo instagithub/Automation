@@ -2,10 +2,10 @@ package com.pega.crm.pegamarketing.stepdefs;
 
 import org.testng.Assert;
 
-import pegamarketing.rules.EmailTreatment;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.utils.ObjectsBean;
-import pegamarketing.utils.TestDataReader;
+import com.pega.crm.pegamarketing.rules.EmailTreatment;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.utils.TestDataReader;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

@@ -1,7 +1,7 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.pages.DataManagement;
+import com.pega.crm.pegamarketing.pages.DataManagement;
 
 public class PegaDataManagement extends PegaLandingPage implements DataManagement {
 

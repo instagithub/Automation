@@ -14,11 +14,11 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.pages;
+package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
-import pegamarketing.rules.Campaign;
+import com.pega.crm.pegamarketing.rules.Campaign;
 
 
 public interface CampaignsFrame extends LandingPage {

@@ -14,10 +14,10 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.dialog;
+package com.pega.crm.pegamarketing.impl.dialog;
 
+import com.pega.crm.pegamarketing.dialog.WelcomeDialog;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.WelcomeDialog;
 
 public class PegaWelcomeDialog extends PegaModalDialog implements WelcomeDialog {
 	public PegaWelcomeDialog(Frame elmt) {

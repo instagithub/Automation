@@ -1,23 +1,23 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.rules.Campaign;
+import com.pega.crm.pegamarketing.rules.Campaign.CampaignConfigureDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureCardDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureDetailsDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementCriteriaDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureMarketingStrategyDialog;
+import com.pega.crm.pegamarketing.rules.Campaign.ConfigureTimeframeDialog;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.dialog.ConfigureAudienceDialog;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.rules.Campaign;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.rules.Campaign.CampaignConfigureDialog;
-import pegamarketing.rules.Campaign.ConfigureCardDialog;
-import pegamarketing.rules.Campaign.ConfigureDetailsDialog;
-import pegamarketing.rules.Campaign.ConfigureEngagementCriteriaDialog;
-import pegamarketing.rules.Campaign.ConfigureEngagementDialog;
-import pegamarketing.rules.Campaign.ConfigureMarketingStrategyDialog;
-import pegamarketing.rules.Campaign.ConfigureTimeframeDialog;
 
 import cucumber.runtime.java.guice.ScenarioScoped;
 

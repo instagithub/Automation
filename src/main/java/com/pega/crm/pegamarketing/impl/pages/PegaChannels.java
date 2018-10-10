@@ -1,4 +1,4 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import java.util.Set;
 
@@ -6,16 +6,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.pages.Channels;
+import com.pega.crm.pegamarketing.pages.Channels.AddOutboundSMSConnection;
+import com.pega.crm.pegamarketing.pages.Channels.PaidMediaSetting;
+import com.pega.crm.pegamarketing.pages.Channels.TestConnectivityResults;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.WindowImpl;
 import com.pega.framework.elmt.Frame;
 import com.pega.framework.elmt.FrameImpl;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.pages.Channels;
-import pegamarketing.pages.Channels.AddOutboundSMSConnection;
-import pegamarketing.pages.Channels.PaidMediaSetting;
-import pegamarketing.pages.Channels.TestConnectivityResults;
 
 public class PegaChannels extends FrameImpl implements Channels {
 	PegaWebDriver pegaDriver;

@@ -3,10 +3,10 @@ package com.pega.crm.pegamarketing.stepdefs;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import pegamarketing.pages.Segments;
-import pegamarketing.rules.RuleInstance;
-import pegamarketing.rules.Segment;
-import pegamarketing.utils.ObjectsBean;
+import com.pega.crm.pegamarketing.pages.Segments;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
+import com.pega.crm.pegamarketing.rules.Segment;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

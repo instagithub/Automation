@@ -1,11 +1,11 @@
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
-import pegamarketing.impl.rules.PegaEmailTreatment;
-import pegamarketing.impl.rules.PegaSMSTreatment;
-import pegamarketing.pages.Treatments;
-import pegamarketing.rules.EmailTreatment;
-import pegamarketing.rules.SMSTreatment;
+import com.pega.crm.pegamarketing.impl.rules.PegaEmailTreatment;
+import com.pega.crm.pegamarketing.impl.rules.PegaSMSTreatment;
+import com.pega.crm.pegamarketing.pages.Treatments;
+import com.pega.crm.pegamarketing.rules.EmailTreatment;
+import com.pega.crm.pegamarketing.rules.SMSTreatment;
 
 public class PegaTreatments extends PegaLandingPage implements Treatments {
 

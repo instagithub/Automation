@@ -1,12 +1,12 @@
-package pegamarketing.impl.rules;
+package com.pega.crm.pegamarketing.impl.rules;
 
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
+import com.pega.crm.pegamarketing.rules.WhenRule;
+import com.pega.crm.pegamarketing.rules.WhenRule.ConditionDialog;
 import com.pega.framework.elmt.Frame;
-import pegamarketing.impl.dialog.PegaModalDialog;
-import pegamarketing.rules.WhenRule;
-import pegamarketing.rules.WhenRule.ConditionDialog;
 
 public class PegaWhenRule extends PegaRuleInstance implements WhenRule {
 

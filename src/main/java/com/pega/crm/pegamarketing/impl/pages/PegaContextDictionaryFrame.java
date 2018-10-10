@@ -14,14 +14,14 @@
  * authorization from Pegasystems Inc.
 */
 
-package pegamarketing.impl.pages;
+package com.pega.crm.pegamarketing.impl.pages;
 
 
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.pegamarketing.pages.ContextDictionary;
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.elmt.FrameImpl;
-import pegamarketing.pages.ContextDictionary;
-import pegamarketing.rules.RuleInstance;
 
 public class PegaContextDictionaryFrame  extends FrameImpl implements ContextDictionary{
 	

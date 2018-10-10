@@ -1,10 +1,10 @@
-package pegamarketing.elmt;
+package com.pega.crm.pegamarketing.elmt;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.rules.Offer.Shape;
+import com.pega.crm.pegamarketing.rules.Offer.ShapeProperties;
 import com.pega.framework.PegaWebElement;
-import pegamarketing.rules.Offer.Shape;
-import pegamarketing.rules.Offer.ShapeProperties;
 
 public interface OfferShape extends PegaWebElement{
 	

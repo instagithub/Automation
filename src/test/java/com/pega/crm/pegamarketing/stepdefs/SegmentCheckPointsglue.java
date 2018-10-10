@@ -5,12 +5,12 @@ import org.testng.Assert;
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.DesignerStudio;
+import com.pega.crm.pegamarketing.pages.Segments;
+import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
+import com.pega.crm.pegamarketing.rules.Segment;
+import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.framework.PegaWebDriver;
-import pegamarketing.DesignerStudio;
-import pegamarketing.pages.Segments;
-import pegamarketing.pages.Segments.ImageCatalog;
-import pegamarketing.rules.Segment;
-import pegamarketing.utils.ObjectsBean;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

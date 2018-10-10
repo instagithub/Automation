@@ -1,37 +1,37 @@
-package pegamarketing.impl;
+package com.pega.crm.pegamarketing.impl;
 
 import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.PMPortal;
+import com.pega.crm.pegamarketing.dialog.ModalDialog;
+import com.pega.crm.pegamarketing.impl.pages.PegaCampaignsFrame;
+import com.pega.crm.pegamarketing.impl.pages.PegaDataFlows;
+import com.pega.crm.pegamarketing.impl.pages.PegaDataManagement;
+import com.pega.crm.pegamarketing.impl.pages.PegaEligibilities;
+import com.pega.crm.pegamarketing.impl.pages.PegaImageLibrary;
+import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
+import com.pega.crm.pegamarketing.impl.pages.PegaMicrosites;
+import com.pega.crm.pegamarketing.impl.pages.PegaOffers;
+import com.pega.crm.pegamarketing.impl.pages.PegaPaidMediaAudiences;
+import com.pega.crm.pegamarketing.impl.pages.PegaProspectLists;
+import com.pega.crm.pegamarketing.impl.pages.PegaRealTimeArtifacts;
+import com.pega.crm.pegamarketing.impl.pages.PegaRecentReports;
+import com.pega.crm.pegamarketing.impl.pages.PegaSegments;
+import com.pega.crm.pegamarketing.impl.pages.PegaStrategies;
+import com.pega.crm.pegamarketing.impl.pages.PegaSummaries;
+import com.pega.crm.pegamarketing.impl.pages.PegaTreatments;
+import com.pega.crm.pegamarketing.impl.rules.PegaDesigner;
+import com.pega.crm.pegamarketing.pages.LandingPage;
+import com.pega.crm.pegamarketing.pages.ProspectLists;
+import com.pega.crm.pegamarketing.pages.RealTimeArtifacts;
+import com.pega.crm.pegamarketing.pages.RecentReports;
+import com.pega.crm.pegamarketing.pages.Segments;
+import com.pega.crm.pegamarketing.pages.Strategies;
+import com.pega.crm.pegamarketing.rules.Designer;
+import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.page.PortalImpl;
-import pegamarketing.PMPortal;
-import pegamarketing.dialog.ModalDialog;
-import pegamarketing.impl.pages.PegaCampaignsFrame;
-import pegamarketing.impl.pages.PegaDataFlows;
-import pegamarketing.impl.pages.PegaDataManagement;
-import pegamarketing.impl.pages.PegaEligibilities;
-import pegamarketing.impl.pages.PegaImageLibrary;
-import pegamarketing.impl.pages.PegaLandingPage;
-import pegamarketing.impl.pages.PegaMicrosites;
-import pegamarketing.impl.pages.PegaOffers;
-import pegamarketing.impl.pages.PegaPaidMediaAudiences;
-import pegamarketing.impl.pages.PegaProspectLists;
-import pegamarketing.impl.pages.PegaRealTimeArtifacts;
-import pegamarketing.impl.pages.PegaRecentReports;
-import pegamarketing.impl.pages.PegaSegments;
-import pegamarketing.impl.pages.PegaStrategies;
-import pegamarketing.impl.pages.PegaSummaries;
-import pegamarketing.impl.pages.PegaTreatments;
-import pegamarketing.impl.rules.PegaDesigner;
-import pegamarketing.pages.LandingPage;
-import pegamarketing.pages.ProspectLists;
-import pegamarketing.pages.RealTimeArtifacts;
-import pegamarketing.pages.RecentReports;
-import pegamarketing.pages.Segments;
-import pegamarketing.pages.Strategies;
-import pegamarketing.rules.Designer;
-import pegamarketing.utils.PMXPathUtil;
 
 public class PegaPMPortal extends PortalImpl implements PMPortal {
 

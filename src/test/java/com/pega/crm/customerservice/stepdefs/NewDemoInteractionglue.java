@@ -2,17 +2,14 @@ package com.pega.crm.customerservice.stepdefs;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 
 import com.google.inject.Inject;
 import com.pega.CRMTestEnvironment;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.NewDemoInteraction;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
-
-import customerservice.interactions.Interactions;
-import customerservice.interactions.NewDemoInteraction;
-import customerservice.utils.CommonMethods;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

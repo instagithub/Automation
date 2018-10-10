@@ -1,10 +1,10 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Pulse;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Pulse;
 
 public class PegaPulse extends WizardImpl implements Pulse{
 	

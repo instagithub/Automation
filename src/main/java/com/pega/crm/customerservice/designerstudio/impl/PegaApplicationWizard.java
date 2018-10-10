@@ -1,4 +1,4 @@
-package customerservice.designerstudio.impl;
+package com.pega.crm.customerservice.designerstudio.impl;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import customerservice.designerstudio.ApplicationWizard;
+import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;

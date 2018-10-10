@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Login;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Login;
 
 public class PegaLogin extends WizardImpl implements Login {
 	public String Operator;

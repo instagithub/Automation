@@ -1,4 +1,4 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -11,13 +11,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Activity;
+import com.pega.crm.salesautomation.workobjects.Opportunities;
+import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Activity;
-import salesautomation.workobjects.Opportunities;
-import salesautomation.workobjects.Organizations;
-import salesautomation.workobjects.Tasks;
 import com.pega.util.XPathUtil;
 
 public class PegaOpportunity extends WizardImpl implements Opportunities {

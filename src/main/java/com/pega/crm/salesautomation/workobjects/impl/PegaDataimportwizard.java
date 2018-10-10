@@ -1,23 +1,14 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-
-import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.salesautomation.workobjects.Dataimportwizard;
 import com.pega.ri.WizardImpl;
-
 import com.pega.util.XPathUtil;
 
 

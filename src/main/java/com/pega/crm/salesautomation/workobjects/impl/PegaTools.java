@@ -1,12 +1,12 @@
-package salesautomation.workobjects.impl;
+package com.pega.crm.salesautomation.workobjects.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import com.pega.crm.salesautomation.workobjects.Tools;
 import com.pega.ri.WizardImpl;
-import salesautomation.workobjects.Tools;
 
 
 public class PegaTools extends WizardImpl implements Tools

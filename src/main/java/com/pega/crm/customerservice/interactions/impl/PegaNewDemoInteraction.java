@@ -1,10 +1,9 @@
-package customerservice.interactions.impl;
+package com.pega.crm.customerservice.interactions.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import customerservice.interactions.NewDemoInteraction;
-import com.pega.framework.PegaWebElement;
+import com.pega.crm.customerservice.interactions.NewDemoInteraction;
 
 public class PegaNewDemoInteraction extends PegaInteractions implements NewDemoInteraction{
 	

@@ -1,7 +1,6 @@
-package customerservice.interactions.impl;
+package com.pega.crm.customerservice.interactions.impl;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,11 +8,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.crm.customerservice.interactions.DialogsAndCoachingTips;
+import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
-import customerservice.interactions.DialogsAndCoachingTips;
-import customerservice.utils.CommonMethods;
 
 public abstract class PegaDialogsAndCoachingTips extends WizardImpl implements DialogsAndCoachingTips {
 	public static String CaseID = null;

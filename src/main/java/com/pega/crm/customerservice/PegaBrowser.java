@@ -1,29 +1,27 @@
-package customerservice;
+package com.pega.crm.customerservice;
 
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver.TargetLocator;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pega.TestEnvironment;
-import com.pega.explorer.DesignerStudioImpl;
+import com.pega.crm.customerservice.impl.PegaCSPortal;
+import com.pega.crm.customerservice.impl.PegaSFAPortal;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
+import com.pega.crm.customerservice.tiles.TopNav;
+import com.pega.crm.pegamarketing.impl.PegaDesignerStudio;
+import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
+import com.pega.crm.pegamarketing.impl.PegaPMPortal;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.page.Portal;
-import pegamarketing.impl.PegaDesignerStudio;
-import pegamarketing.impl.PegaExpressPortal;
-import pegamarketing.impl.PegaPMPortal;
 import com.pega.ri.Wizard;
-import customerservice.impl.PegaCSPortal;
-import customerservice.impl.PegaSFAPortal;
-import customerservice.interactions.ResearchInteraction;
-import customerservice.interactions.impl.PegaResearchInteraction;
-import customerservice.tiles.TopNav;
 
 /**
  * @author Chanu
