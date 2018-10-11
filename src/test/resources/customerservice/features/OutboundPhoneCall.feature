@@ -2,7 +2,7 @@
 Feature: Outbound Phone call test cases
 
   # author : Shobha
-   @TC-outbounddisconnect
+   @TC-outbound-disconnect
   Scenario: Outbound phone call with Address Change and Disconnected Number
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"
@@ -17,7 +17,7 @@ Feature: Outbound Phone call test cases
     Then Operator logs of the portal
 
  # author : Shobha
- @TC-disputetransaction
+ @TC-dispute-transaction
   Scenario: Outbound phone call answered with DisputeTransaction
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"

@@ -1,11 +1,11 @@
-@BusinessTerritoryFeature @Smoke @SmokeSalesAutomation
+@businessterritoryfeature @smoke @smoke-sales-automation
 Feature: Sales Automation Business Territory feature
 Test covering the creation of Business Territory in Sales Automation 
 
 Background: 
 Given a user is logged into application with "sfasamplesalesops" and "install" 
 
-@TC-112912 @TC-CreateBusinessTerritory
+@TC-create-business-territory
 Scenario Outline: create a Business Territory Hierarchy by Global Sales Ops
 	When User Navigates to Territories tab
 	When User clicks on Create Territory button

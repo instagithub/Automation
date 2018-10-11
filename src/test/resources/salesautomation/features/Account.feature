@@ -1,11 +1,11 @@
-@AccountFeature @Smoke @SmokeSalesAutomation
+@accountfeature @smoke @smoke-sales-automation
 Feature: Sales Automation Account feature
 Test covering the creation of Account and editing flow actions
 
 Background: 
 	Given a user is logged into application with "skendall" and "install" 
  
- @TC-108441 @TC-AccountCreation
+ @TC-account-creation
   Scenario: Creating a Account
     Given navigates to "Accounts" List page
     When user clicks on CreateAccount button
@@ -13,7 +13,7 @@ Background:
 	  When user enters all the mandatory data and saves the changes
     Then Account should be created
     
-@TC-108442 @TC-EditingAccount
+@TC-editing-account
   Scenario Outline: Editing an account
    	Given navigates to "Accounts" List page
     When user opens the existing Account with "<AccName>"

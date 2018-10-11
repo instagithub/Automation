@@ -1,11 +1,11 @@
-@OperatorFeature @Smoke @SmokeSalesAutomation
+@operatorfeature @smoke @smoke-sales-automation
 Feature: Sales Automation Operator feature
 Test covering the creation of Operator in Sales Automation 
 
 Background: 
 	Given a user is logged into application with "sfasamplesalesops" and "install"
 
-@TC-113320 @TC-OperatorCreation
+@TC-operator-creation
   Scenario: create Sales Rep Operator by Sales Ops
     Given navigates to "Operators" List page
     Then SalesRepOperatorCreation - Verify that user navigates to Operators tab 

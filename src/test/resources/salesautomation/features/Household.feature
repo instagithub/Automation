@@ -1,11 +1,11 @@
-@HouseholdFeature @Smoke @SmokeSalesAutomation
+@householdfeature @smoke @smoke-sales-automation
 Feature: Sales Automation Household feature
 Test covering the creation of Household creation 
 
 Background: 
 	Given a user is logged into application with "skendall" and "install"
 
-@TC-156738 @TC-HouseholdCreation 
+@TC-house-hold-creation 
 Scenario: Creating a Households
 	Given navigates to "Households" List page
 	When user clicks on CreateHousehold button

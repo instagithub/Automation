@@ -1,11 +1,11 @@
-@ContactFeature @Smoke @SmokeSalesAutomation
+@contactfeature @smoke @smoke-sales-automation
 Feature: Contact Feature in Sales Automation
 Test covering the creation of contact creation 
 
 Background: 
 Given a user is logged into application with "skendall" and "install"
 
-@TC-108434 @TC-ContactCreation
+@TC-contact-creation
   Scenario: Creating a contact
     Given navigates to "Contacts" List page
     When User clicks on Create ContactButton and enters all the madatory data

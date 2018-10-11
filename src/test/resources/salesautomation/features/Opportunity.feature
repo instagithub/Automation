@@ -1,11 +1,11 @@
-@OPPORTUNITYFEATURES @Smoke @SmokeSalesAutomation
+@opportunityfeatures @smoke @smoke-sales-automation
 Feature: Basic Opportunity flows
 Tests covering the core Opportunity flow actions like Create, Change Stage and Closing an opportunity.
 
 Background:
     Given a user is logged into application with "tmason" and "install"
   
-@TC-108452 @TC-CreateOpportunity
+@TC-create-business-opportunity
   Scenario Outline: Creating a Business Opportunities
 
 	  Given navigates to "Opportunities" List page
@@ -18,7 +18,7 @@ Background:
    | Opptype    |
    | Business   |
 	
-@TC-108455 @TC-OpportunityChangeStage
+@TC-opportunity-change-stage
   Scenario Outline: Updating the Stage of the "<Opptype>" opportunity
 
 	  Given navigates to "Opportunities" List page
@@ -32,7 +32,7 @@ Background:
  | Opptype    |  | OpptyName |
  | Individual |  | PIR Motion Detector Sensors for Laurel Reitler|
 
-@TC-108456 @TC-CloseOpportunity
+@TC-close-opportunity
   Scenario Outline: Closing the Opportunity
 
   	Given navigates to "Opportunities" List page

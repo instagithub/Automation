@@ -1,4 +1,4 @@
-@LEADFEATURE @Smoke @SmokeSalesAutomation
+@leadfeature @smoke @smoke-sales-automation
 Feature: Lead work object Feature
 Tests covering the Lead flow actions like Create , Change ownership on a lead
 
@@ -6,7 +6,7 @@ Background:
     Given a user is logged into application with "tmason" and "install" 
  
  
-  @TC-156750
+  @TC-create-business-lead
   Scenario Outline: Creating  Business Lead
   	Given navigates to "Leads" List page
     When users clicks on Create LeadButton and selects "<Leadtype>"
@@ -18,7 +18,7 @@ Background:
       | Leadtype   |  | LeadName                   |
       | Business   |  | Automation lead Business   |
       
-@TC-181927
+@TC-change-ownership
   Scenario Outline: Changing ownership of the "<Leadtype>" opportunity
   	Given navigates to "Leads" List page
     When user opens the "<Leadtype>" Lead with "<LeadName>"

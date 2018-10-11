@@ -1,11 +1,11 @@
-@OrganizationFeature @Smoke @SmokeSalesAutomation
+@organizationfeature @smoke @smoke-sales-automation
 Feature: Sales Automation Organization feature
 Test covering the creation of Organization Work object in Sales Automation 
 
 Background: 
 	Given a user is logged into application with "skendall" and "install"
  
- @TC-103169 @TC-OrganizationCreation
+@TC-organization-creation
   Scenario: create Organization
     Given navigates to "Organizations" List page
     When SalesOps navigates to Organization tab to Create Org
