@@ -1,11 +1,10 @@
-@closeplanfeature @smoke @smoke-sales-automation
-Feature: Close Plan in Sales Automation
-Tests covering the creation of close plan for an opportunity.
+@forecast @smoke @smoke-sales-automation
 
-Background:
-    Given a user is logged into application with "skendall" and "install" 
-@TC-close-plan-creation
-Scenario: entering closeplan for an opportunity
-	Given navigates to "Close plans" List page
-	When user enters clicks on oppty in closeplan
-	Then user able to enter the closeplan for that oppty and enters it
+Feature: Forecast Close Plans
+  Close Plans provide updates summarizing accomplishments for the current week and upcoming plans
+
+Scenario: Search by organization
+  Given a sales rep is at the Close Plans page
+  When the rep searches for "APW Technologies Corp" organization
+  Then opportunities related only to "APW Technologies" are shown
+	

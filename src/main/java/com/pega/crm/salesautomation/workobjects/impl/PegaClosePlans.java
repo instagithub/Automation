@@ -1,10 +1,15 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
+import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
+import org.openqa.selenium.support.ui.Select;
+
 
 public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
@@ -12,8 +17,11 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 	String APPLYBUTTON_XPATH=PegaUtil.getButtonXpath("Apply");
 	String EXPORTBUTTON_XPATH=PegaUtil.getButtonXpath("Export");
 	String CLOSEPLAN_OPPTY="//table[contains(@pl_prop_class,'Opportunity')]//tr[contains(@id,'1')]";
+	String CLOSEPLAN_OPPORTUNITY_ORG = "//table[contains(@pl_prop_class,'Opportunity')]//tr//td//div[contains(@section_index, '2')]";
 	String CLOSEPLAN_COMMETNS="//body[contains(@title,'This is a rich text')]";
 	String ADDNEW_XPATH=PegaUtil.getStrongButtonXPath("Add new");
+	String ORGNAME_TITLE = "OrganizationName";
+	
 	public PegaClosePlans(WebElement elmt, String elmtId) {
 		super(elmt, elmtId);
 	}
@@ -50,6 +58,30 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 		pegaDriver.switchTo().frame(wb);
 		pegaDriver.findElement(By.xpath(CLOSEPLAN_COMMETNS)).sendKeys(comments);
 		
+	}
+	
+	@Override
+	public void filterBy(String option) {
+		Select filter = new Select(pegaDriver.findElement(By.id(FILTERBY_ID)));
+		filter.selectByVisibleText(option);
+	}
+
+	@Override
+	public void searchForOrganization(String orgName) {
+		PegaUtil.autoComplete(pegaDriver, ORGNAME_TITLE, orgName);
+	}
+
+	@Override
+	public void apply() {
+		PegaWebElement applyButton = pegaDriver.findElement(By.xpath(APPLYBUTTON_XPATH));
+		applyButton.click();
+	}
+
+	@Override
+	public List<WebElement> getOrgsFromOpportunities() {
+		pegaDriver.getActiveFrameId(true);
+		List<WebElement> opportunities = pegaDriver.findElements(By.xpath(CLOSEPLAN_OPPORTUNITY_ORG));
+		return (opportunities);
 	}
 	
 	
