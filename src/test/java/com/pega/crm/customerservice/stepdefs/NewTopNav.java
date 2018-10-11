@@ -21,7 +21,7 @@ import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
-public class TopNavglue {
+public class NewTopNav {
 
 	private CSPortal csPortal;
 	private Browser browser;
@@ -38,7 +38,7 @@ public class TopNavglue {
 	private DesignerStudio designerStudio;
 
 	@Inject
-	public TopNavglue(CRMBrowser browser) {
+	public NewTopNav(CRMBrowser browser) {
 		this.browser = browser;
 		topnav = browser.getPortal(CSPortal.class).getTopNav();
 	}

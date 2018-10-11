@@ -25,7 +25,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 
-public class OutboundPhoneCallglue {
+public class OutboundCall {
 
 	private PhoneCall phoneInteraction;
 	private OutboundPhoneCall outboundPhoneCall;
@@ -44,7 +44,7 @@ public class OutboundPhoneCallglue {
 	
 
 	@Inject
-	public OutboundPhoneCallglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public OutboundCall(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		outboundPhoneCall = topNavFixture.getOutboundPhoneCall();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

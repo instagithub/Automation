@@ -1,8 +1,8 @@
-@DEMOINTERACTION @Smoke @SmokeCustomerService
+@demointeraction @smoke @smoke-customer-service
 Feature: Demo Interaction Test cases
 
   # author : Murali
-  @TC-116957
+  @TC-accountswitching
   Scenario: Validation when Account is switched from Individual to Commercial
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"
@@ -30,7 +30,7 @@ Feature: Demo Interaction Test cases
     
     
   # author : Prakash
-  @TC-010
+  @TC-creatlead
   Scenario: Verify all the options present under account and Create Lead for user
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "mikejones" and "install12345!"

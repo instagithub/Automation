@@ -26,7 +26,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 
-public class ResearchInteractionglue {
+public class StartResearchInteraction {
 
 	private ResearchInteraction researchInteraction;
 	private Interactions interaction;
@@ -40,7 +40,7 @@ public class ResearchInteractionglue {
 	public String[] caseStatus = new String[10];
 
 	@Inject
-	public ResearchInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public StartResearchInteraction(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		researchInteraction = topNavFixture.getResearchInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

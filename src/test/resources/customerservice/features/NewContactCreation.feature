@@ -1,8 +1,8 @@
-@NEWCONTACT @Smoke @SmokeCustomerService
+@newcontact @smoke @smoke-customer-service
 Feature: New Contact Creation Test cases
 
   # author : Prakash
-  @TC-002
+  @TC-createcontact
   Scenario: Create new contact and run update contact profile
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "mikejones" and "install12345!"

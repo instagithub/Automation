@@ -1,8 +1,8 @@
-@NEWPHONECALL @Smoke @SmokeCustomerService
+@newphonecall @smoke @smoke-customer-service
 Feature: Phone Interaction Test cases
 
   # author : Murali
-  @TC-134576 
+  @TC-scheduleactivity
   Scenario: Phone Interaction with email search and Schedule Activity
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"

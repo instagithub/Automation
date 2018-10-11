@@ -1,8 +1,8 @@
-@SEARCH @Smoke @SmokeCustomerService
+@search @smoke @smoke-customer-service
 Feature: Search Portal Test cases
 
   # author : Prakash
-  @TC-224745
+  @TC-opennewaccount
   Scenario: Search with Individual for Biggs
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"

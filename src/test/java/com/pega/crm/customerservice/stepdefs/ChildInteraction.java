@@ -36,7 +36,7 @@ public class ChildInteraction {
 	
 
 	@Inject
-	public ChildInteraction(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public ChildInteraction(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

@@ -1,9 +1,9 @@
-@BOFEATURES @Smoke @SmokeCustomerService
+@backofficeportal @smoke @smoke-customer-service
 Feature: BO user Test cases
 
   # author : GV
-  @TC-400023
-  Scenario: Verify  Resolved-Completed status for a wrap up followed case in Follow case tab and Recent work Tab
+  @TC-favourites
+  Scenario: Verify Favourites functionality
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "bouser" and "install12345!"
     Then Verify Operator name "Back office user"

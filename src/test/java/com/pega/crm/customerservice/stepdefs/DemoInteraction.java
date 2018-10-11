@@ -16,7 +16,7 @@ import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
-public class NewDemoInteractionglue {
+public class DemoInteraction {
 
 	private NewDemoInteraction demoInteraction;
 	private CommonMethods commonMethods;
@@ -26,7 +26,7 @@ public class NewDemoInteractionglue {
 	public Wizard newWizard = null;
 
 	@Inject
-	public NewDemoInteractionglue(TopNavglue topNavFixture, CRMTestEnvironment testEnv) {
+	public DemoInteraction(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();

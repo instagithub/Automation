@@ -1,8 +1,8 @@
-@OUTBOUNDPHONE @Smoke @SmokeCustomerService
+@outboundphone @smoke @smoke-customer-service
 Feature: Outbound Phone call test cases
 
   # author : Shobha
-   @CRM-REGRESSION @SparkOne @Smoke @TC-40003
+   @TC-outbounddisconnect
   Scenario: Outbound phone call with Address Change and Disconnected Number
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"
@@ -17,7 +17,7 @@ Feature: Outbound Phone call test cases
     Then Operator logs of the portal
 
  # author : Shobha
- @TC-40007
+ @TC-disputetransaction
   Scenario: Outbound phone call answered with DisputeTransaction
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"
@@ -45,7 +45,7 @@ Feature: Outbound Phone call test cases
     When Operator logs of the portal
     
   # author : Shobha
-  @TC-40009
+  @TC-outboundapi
   Scenario: Outbound phone call API Simulation Answered
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"

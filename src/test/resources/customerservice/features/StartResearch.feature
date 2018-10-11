@@ -1,8 +1,8 @@
-@STARTRESEARCH
+@startresearch @smoke @smoke-customer-service
 Feature: Start Research test cases
 
   # author : GV
-  @CRM-REGRESSION @SparkThree @Smoke @TC-400017
+  @TC-addresschange
   Scenario: Search with All fields under Accounts for Connor
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "bouser" and "install12345!"

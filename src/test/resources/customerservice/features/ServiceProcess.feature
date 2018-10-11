@@ -1,7 +1,7 @@
-@SERVICEPROCESS
+@serviceprocess @smoke @smoke-customer-service
 Feature: Service Process Test cases
   # author : Prakash
-  @CRM-REGRESSION @Smoke @TC-770705
+  @TC-disputetransaction
   Scenario: Dispute transaction with amount low amount
     Given a user is on login page of CS Portal
     When CS operator logs in to the portal "cacsr" and "install12345!"
