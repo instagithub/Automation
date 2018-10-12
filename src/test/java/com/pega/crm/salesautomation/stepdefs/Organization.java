@@ -134,7 +134,6 @@ public class Organization
 		organization.setDescription(OrgDescription);
 		organization.setName(OrganizationWOName);
 		organization.setAddress();
-		organization.setDomains(domains);
 		organization.submit();
 	}
 
