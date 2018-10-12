@@ -56,7 +56,7 @@ public class Operator
 	String  fullName= "QA Automation";
 	String  position = "QA - Automation Lead";
 	String  phone = "9513578426";
-	String  email = "Automationuser"+new Random().nextInt(100)+"@pega.com";
+	String  email = "Automationuser"+new Random().nextInt(10000)+"@pega.com";
 	String  oprtimezone= "America/New_York";
 	String  reportTo= "SFASalesManager";
 	String operatorType="Sales Managers";
