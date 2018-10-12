@@ -1,4 +1,4 @@
-@businessterritoryfeature @smoke @smoke-sales-automation
+@businessterritory @smoke @smoke-sales-automation
 Feature: Sales Automation Business Territory feature
 Test covering the creation of Business Territory in Sales Automation 
 
