@@ -16,6 +16,10 @@
    	<baseClass>com.pega.CRMTestEnvironment</baseClass>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <reportsDir>LatestReports</reportsDir>
+	<testReportsDir>${reportsDir}/${tags}</testReportsDir>
+	<buildName>${BUILD_DISPLAY_NAME}- ${team.name}</buildName>
+	<archived.reportsDir>${basedir}/ArchivedReports/${buildName}</archived.reportsDir>
    </properties>
 
 <profiles>
@@ -36,18 +40,20 @@
 						<version>2.18</version>
 						<configuration>
 							<systemPropertyVariables>
-								<runMode>Cucumber-OneStepDef</runMode>
+								<runMode>${runMode}</runMode>
+								<testReportsDir>${testReportsDir}</testReportsDir>
 							</systemPropertyVariables>
 							<argLine>-Dcucumber.options=" --tags
 								"${tags}"
 								--plugin pretty
 								--plugin
-								html:target/cucumber-htmlreport
+								junit:"${testReportsDir}"/cucumber-junitreport.xml
 								--plugin
-								json:target/cucumber-report.json"
+								json:"${testReportsDir}"/cucumber-report.json"
 								-Dguice.injector-source=com.pega.config.guice.GuiceInjector
 								-Dfile.encoding=UTF-8
 								-DbaseClass="${baseClass}"</argLine>
+								<reportsDirectory>${testReportsDir}/surefire-reports</reportsDirectory>
 						</configuration>
 					</plugin>
 				<plugin>
