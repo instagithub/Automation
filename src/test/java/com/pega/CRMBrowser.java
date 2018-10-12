@@ -127,7 +127,7 @@ public class CRMBrowser extends PegaBrowser {
 		return pegaExpressPortal;
 	}
 
-	@After
+/*	@After
 	public void afterHook(Scenario scenario) {
 		String testcaseID = null;
 		for (String tag : scenario.getSourceTagNames()) {
@@ -161,7 +161,7 @@ public class CRMBrowser extends PegaBrowser {
 		} catch (IOException e) {
 			e.getStackTrace();
 		}
-	}
+	}*/
 
 	@Given("^A User logs in with Analyst credentials$")
 	public void a_User_logs_in_with_Analyst_credentials() {
