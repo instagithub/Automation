@@ -1,4 +1,4 @@
-@contactfeature @smoke @smoke-sales-automation
+@contact @smoke @smoke-sales-automation
 Feature: Contact Feature in Sales Automation
 Test covering the creation of contact creation 
 
