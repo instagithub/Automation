@@ -1,4 +1,4 @@
-@partnerfeature @smoke @smoke-sales-automation
+@partner @smoke @smoke-sales-automation
 Feature: Sales Automation Partner feature
 Test covering the creation of Partner in Sales Automation 
 
