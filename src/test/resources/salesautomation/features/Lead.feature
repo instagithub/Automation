@@ -1,4 +1,4 @@
-@leadfeature @smoke @smoke-sales-automation
+@lead @smoke @smoke-sales-automation
 Feature: Lead work object Feature
 Tests covering the Lead flow actions like Create , Change ownership on a lead
 
