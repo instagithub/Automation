@@ -1,4 +1,4 @@
-@organizationfeature @smoke @smoke-sales-automation
+@organization @smoke @smoke-sales-automation
 Feature: Sales Automation Organization feature
 Test covering the creation of Organization Work object in Sales Automation 
 
