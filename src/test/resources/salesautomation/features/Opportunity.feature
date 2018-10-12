@@ -21,10 +21,11 @@ Background:
 @TC-opportunity-change-stage
   Scenario Outline: Updating the Stage of the "<Opptype>" opportunity
 
-	  Given navigates to "Opportunities" List page
-      When users clicks on Create OpprotunityButton and selects "<Opptype>"
+	Given navigates to "Opportunities" List page
+    When users clicks on Create OpprotunityButton and selects "<Opptype>"
     When Enters all the mandatory data for "<Opptype>"
     Then "<Opptype>" Opportunity should be created
+    Given navigates to "Opportunities" List page
     When user opens the "<Opptype>" opportunity with "<OpptyName>"
     When clicks on Update Stage button
     Then user should navigate to change stage page
