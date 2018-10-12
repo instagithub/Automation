@@ -16,8 +16,9 @@ import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
+import com.pega.ri.WizardImpl;
 
-public class PegaApplicationWizard extends com.pega.wizard.ApplicationWizardImpl implements ApplicationWizard{
+public class PegaApplicationWizard extends WizardImpl implements ApplicationWizard{
 
 	private static final String CS_IMPL_OPERATOR_MENU_XPATH = "//i[@title='CS Admin']";
 	private static final String CS_IMPL_OPERATOR_XPATH = "//span[text()='Operator']";
@@ -33,7 +34,6 @@ public class PegaApplicationWizard extends com.pega.wizard.ApplicationWizardImpl
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
 	public void createNewApplication(String builton,String type,String organization){
 		WebDriverWait wait = new WebDriverWait(pegaDriver, 120);
 		String frameId = pegaDriver.getActiveFrameId(false);

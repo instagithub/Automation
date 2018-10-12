@@ -27,7 +27,6 @@ import com.pega.crm.customerservice.interactions.impl.PegaOutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
-import com.pega.explorer.DesignerStudio;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
@@ -434,7 +433,7 @@ public class PegaTopNav implements TopNav {
 		return chatInteraction;
 	}*/
 
-	@Override
+	/*@Override
 	public ApplicationWizard createApplication(String name) {
 		DesignerStudio designerStudio = testEnv.getBrowser().getPortal(DesignerStudio.class);
 		designerStudio.getTopNav().createApplication(name);
@@ -444,7 +443,7 @@ public class PegaTopNav implements TopNav {
 		appWizard._setEnvironment(testEnv, wizard.getId());
 		return appWizard;
 
-	}
+	}*/
 	@Override
 	public ApplicationWizard launchNewAppWizard() {
 	pegaDriver.switchTo().defaultContent();

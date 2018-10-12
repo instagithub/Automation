@@ -70,7 +70,7 @@ public interface TopNav{
 	NewDemoInteraction Accept_NewDemoPop_BROWN();
 	NewDemoInteraction NewDemoPop_BROWN();
 	//ChatInteraction chatAgentLogin(String serverName, String displayName);
-	ApplicationWizard createApplication(String name);
+	//ApplicationWizard createApplication(String name);
 	OutboundPhoneCall createOutboundPhoneCall();
 	ResearchInteraction searchDropDownresult(String result);
 	ResearchInteraction closeInteraction();

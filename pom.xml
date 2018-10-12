@@ -12,7 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tags>@TC-favourites</tags>	
+    <tags>@TC-accountswitching</tags>	
    	<baseClass>com.pega.CRMTestEnvironment</baseClass>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -399,13 +399,13 @@
 			<version>3.2</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
               <groupId>com.pega.selenium.cucumber</groupId>
               <artifactId>prpcpageobjects</artifactId>
               <version>1.0</version>
               <scope>system</scope>
 			<systemPath>${project.basedir}/lib/prpcpageobjects-1.0.jar</systemPath>
-              </dependency>
+              </dependency> -->
               
               <!-- https://mvnrepository.com/artifact/javax.media/jai_core -->
  <dependency>

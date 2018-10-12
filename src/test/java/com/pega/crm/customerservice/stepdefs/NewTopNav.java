@@ -13,7 +13,6 @@ import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
-import com.pega.explorer.DesignerStudio;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
@@ -35,7 +34,7 @@ public class NewTopNav {
 	public String[] caseStatus = new String[10];
 	private ApplicationWizard applicationWizard;
 	private Interactions interactions;
-	private DesignerStudio designerStudio;
+	//private DesignerStudio designerStudio;
 
 	@Inject
 	public NewTopNav(CRMBrowser browser) {
@@ -202,12 +201,12 @@ public class NewTopNav {
 	 * }
 	 */
 
-	@When("^User_Hz Clicks on New Application$")
+/*	@When("^User_Hz Clicks on New Application$")
 	public void user_hz_Clicks_on_New_Application() throws Throwable {
 		csPortal = browser.getPortal(CSPortal.class);
 		applicationWizard = csPortal.getTopNav().createApplication("Test12345");
 
-	}
+	}*/
 	@When("^User clicks on New Application$")
 	public void user_clicks_on_New_Application() throws Throwable {
 		csPortal = browser.getPortal(CSPortal.class);
@@ -353,13 +352,13 @@ public class NewTopNav {
 
 
 	
-	@When("^Admin launches social landing page$")
+/*	@When("^Admin launches social landing page$")
 	public void admin_launches_social_landing_page()  {
 
 		DesignerStudio designerStudio = browser.getPortal(DesignerStudio.class);
         System.out.println("got DS object");
         designerStudio.getTopNav().openLandingPage("Channel Services", "Pega Social"); 
-	}
+	}*/
 	
 	
 	@When("^Admin starts dataflows$")

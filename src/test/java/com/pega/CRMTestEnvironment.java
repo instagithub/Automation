@@ -67,7 +67,7 @@ public class CRMTestEnvironment extends TestBase1S1D {
 	}
 
 	protected void setUp(Scenario scenario, String browserName) {
-		initializeStatus();
+		//initializeStatus();
 		startRecording(scenario);
 		configureBrowser();
 		commonMethods = new CommonMethods(getPegaDriver());
@@ -98,8 +98,8 @@ public class CRMTestEnvironment extends TestBase1S1D {
 			killDrivers();
 			captureVideo(scenario, saveVideoForPassedScenario);
 		} finally {
-			updateWithCurrentStatus("['" + total + "', " + passed + ", "
-					+ failed + ", " + (total - passed - failed) + "]");
+			/*updateWithCurrentStatus("['" + total + "', " + passed + ", "
+					+ failed + ", " + (total - passed - failed) + "]");*/
 		}
 	}
 

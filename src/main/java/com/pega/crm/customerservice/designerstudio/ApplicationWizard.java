@@ -1,9 +1,13 @@
 package com.pega.crm.customerservice.designerstudio;
 
-public interface ApplicationWizard extends com.pega.wizard.ApplicationWizard{
+import com.pega.ri.Wizard;
+
+public interface ApplicationWizard extends Wizard {
 
 	void modifyAccessGroup();
+
 	void createNewCase(String caseName, String stageName);
+
 	void createNewApplication(String builton, String type, String organization);
 
 }
