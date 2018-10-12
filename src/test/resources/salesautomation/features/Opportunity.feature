@@ -1,4 +1,4 @@
-@opportunityfeatures @smoke @smoke-sales-automation
+@opportunity @smoke @smoke-sales-automation
 Feature: Basic Opportunity flows
 Tests covering the core Opportunity flow actions like Create, Change Stage and Closing an opportunity.
 
