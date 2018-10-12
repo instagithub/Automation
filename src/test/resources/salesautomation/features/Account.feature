@@ -1,4 +1,4 @@
-@accountfeature @smoke @smoke-sales-automation
+@account @smoke @smoke-sales-automation
 Feature: Sales Automation Account feature
 Test covering the creation of Account and editing flow actions
 
