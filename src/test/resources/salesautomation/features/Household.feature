@@ -1,4 +1,4 @@
-@householdfeature @smoke @smoke-sales-automation
+@household @smoke @smoke-sales-automation
 Feature: Sales Automation Household feature
 Test covering the creation of Household creation 
 
