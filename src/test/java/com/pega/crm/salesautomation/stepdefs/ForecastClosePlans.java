@@ -62,7 +62,7 @@ public class ForecastClosePlans {
 
         Iterator<WebElement> itr = orgs.iterator();
         while(itr.hasNext()) {
-            Assert.assertTrue(itr.next().getText().contains(expectedOrg));
+           Assert.assertTrue(itr.next().getText().contains(expectedOrg), String.format("Expected organization '%s' not found.", expectedOrg));
         }
     }
 }
