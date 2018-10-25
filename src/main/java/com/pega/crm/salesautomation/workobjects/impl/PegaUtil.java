@@ -259,7 +259,8 @@ public  class PegaUtil
 		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
 		
 		
-		try{
+		if(wizard.verifyElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")))
+        {
 			wizard.findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).scrollIntoView();
 			wizard.findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).sendKeys(CITY);
 			wizard.findElement(By.xpath("//*[contains(@id,'"+STREET_ID+"')]")).sendKeys(STREET);
@@ -268,7 +269,8 @@ public  class PegaUtil
 			wizard.findElement(By.xpath("//*[contains(@id,'"+ZIPCODE_ID+"')]")).sendKeys(ZIPCODE);
 			wizard.findSelectBox(By.xpath("//*[contains(@id,'"+COUNTRY_ID+"')]")).selectByVisibleText(COUNTRY);
 		}
-		catch(Exception e)
+		else 
+		if(wizard.verifyElement(By.xpath(NEWADDRESS_XPATH)))
 		{
 			wizard.findElement(By.xpath(NEWADDRESS_XPATH)).scrollIntoView();
 			System.out.println("Clicking on Add Address");
@@ -282,31 +284,7 @@ public  class PegaUtil
 			wizard.findElement(By.xpath("//*[contains(@id,'"+ZIPCODE_ID+"')]")).sendKeys(ZIPCODE);
 			wizard.findSelectBox(By.xpath("//*[contains(@id,'"+COUNTRY_ID+"')]")).selectByVisibleText(COUNTRY);
 		}
-		
-		/*try{
-			wizard.findElement(By.id(CITY_ID)).scrollIntoView();
-			wizard.findElement(By.id(CITY_ID)).sendKeys(CITY);
-			wizard.findElement(By.id(STREET_ID)).sendKeys(STREET);
-			wizard.findElement(By.id(ADDRESSLINE2_ID)).sendKeys(ADDRESSLINE2);
-			wizard.findElement(By.id(STATE_ID)).sendKeys(STATE);
-			wizard.findElement(By.id(ZIPCODE_ID)).sendKeys(ZIPCODE);
-			wizard.findSelectBox(By.id(COUNTRY_ID)).selectByVisibleText(COUNTRY);
-		}
-		catch(Exception e)
-		{
-			wizard.findElement(By.xpath(NEWADDRESS_XPATH)).scrollIntoView();
-			System.out.println("Clicking on Add Address");
-			wizard.findElement(By.xpath(NEWADDRESS_XPATH)).click();
-			pegaDriver.waitForDocStateReady(1);
-			wizard.findElement(By.id(STREET_ID)).sendKeys(STREET);
-			wizard.findElement(By.id(ADDRESSLINE2_ID)).sendKeys(ADDRESSLINE2);
-			wizard.findElement(By.id(CITY_ID)).sendKeys(CITY);
-			wizard.findElement(By.id(STATE_ID)).sendKeys(STATE);
-			wizard.findElement(By.id(ZIPCODE_ID)).sendKeys(ZIPCODE);
-			wizard.findSelectBox(By.id(COUNTRY_ID)).selectByVisibleText(COUNTRY);
-		}*/
-		
-	}
+}
 	
 	public static void setAddress(PegaWebDriver pegaDriver, String AddressType) 
 	{
