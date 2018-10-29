@@ -577,7 +577,7 @@ public class StartResearchInteraction {
 		//Assert.assertTrue("Phone header is not present",pegaDriver.verifyElement(By.xpath("//label[text()='Phone number']")));
 		Assert.assertTrue("Email header is not present",pegaDriver.verifyElement(By.xpath("//label[text()='Email']")));
 		Assert.assertTrue("City header is not present",pegaDriver.verifyElement(By.xpath("//label[text()='City']")));
-		Assert.assertTrue("State header is not present",pegaDriver.verifyElement(By.xpath("//label[text()='State']")));
+		
 
 	}
 
