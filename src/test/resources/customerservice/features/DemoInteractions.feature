@@ -33,7 +33,7 @@ Feature: Demo Interaction Test cases
   @TC-creatlead
   Scenario: Verify all the options present under account and Create Lead for user
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "mikejones" and "install12345!"
+    When User logs in to CS portal as mikejones
     Then Verify Operator name "Mike Jones"
     When CSR launches Demo Interaction for "Demo Pop - CONNOR"
     Then verify the toaster pop values for connor

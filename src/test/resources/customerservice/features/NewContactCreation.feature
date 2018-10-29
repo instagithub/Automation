@@ -6,7 +6,6 @@ Feature: New Contact Creation Test cases
   Scenario: Create new contact and run update contact profile
     Given a user is on login page of CS Portal
     When User logs in to CS portal as mikejones
-    When CS operator logs in to the portal "mikejones" and "install12345!"
     Then Verify Operator name "Mike Jones"
     When CSR launched the New Phone Interaction
     When Search for the Customer with Contact Name "testcontact_name"
