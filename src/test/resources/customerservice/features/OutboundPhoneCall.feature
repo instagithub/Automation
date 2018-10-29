@@ -5,7 +5,7 @@ Feature: Outbound Phone call test cases
    @TC-outbound-disconnect
   Scenario: Outbound phone call with Address Change and Disconnected Number
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
     Then User places an outbound phone call
@@ -20,7 +20,7 @@ Feature: Outbound Phone call test cases
  @TC-dispute-transaction
   Scenario: Outbound phone call answered with DisputeTransaction
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
     Then User places an outbound phone call
@@ -48,7 +48,7 @@ Feature: Outbound Phone call test cases
   @TC-outboundapi
   Scenario: Outbound phone call API Simulation Answered
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
     Then CSR launches Outbound Demo Interaction for "Outbound Call API Simulation"

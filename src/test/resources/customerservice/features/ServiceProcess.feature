@@ -4,7 +4,7 @@ Feature: Service Process Test cases
   @TC-disputetransaction
   Scenario: Dispute transaction with amount low amount
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     When CSR launches Demo Interaction for "Demo Pop - CONNOR"
     When CSR accepts the demo call
     When Click on Add Task to launch Service Process

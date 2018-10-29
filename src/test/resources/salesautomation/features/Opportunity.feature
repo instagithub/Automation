@@ -3,7 +3,7 @@ Feature: Basic Opportunity flows
 Tests covering the core Opportunity flow actions like Create, Change Stage and Closing an opportunity.
 
 Background:
-    Given a user is logged into application with "tmason" and "install"
+    Given User logs in to SA Application as tmason
   
 @TC-create-business-opportunity
   Scenario Outline: Creating a Business Opportunities

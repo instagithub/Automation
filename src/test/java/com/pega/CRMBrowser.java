@@ -175,12 +175,26 @@ public class CRMBrowser extends PegaBrowser {
 		super.open();
 	}
 
-	@Given("^CS operator logs in to the portal \"(.*?)\" and \"(.*?)\"$")
-	public void loginToCSPortal(String username, String password) {
-		super.login(username, password);
+	@When("^User logs in to CS portal as bouser$")
+	public void user_logs_in_to_CS_portal_as_bouser() throws Throwable {
+		super.login(configuration.getCredential("BO_USER_ID"), configuration.getCredential("BO_USER_PASSWORD"));
 		csPortal = getPortal(CSPortal.class);
 		pegaDriver = testEnv.getPegaDriver();
 	}
+	@When("^User logs in to CS portal as CSR$")
+	public void user_logs_in_to_CS_portal_as_CSR() throws Throwable {
+		super.login(configuration.getCredential("CACSR_USER_ID"), configuration.getCredential("CACSR_USER_PASSWORD"));
+		csPortal = getPortal(CSPortal.class);
+		pegaDriver = testEnv.getPegaDriver();
+	}
+
+	@When("^User logs in to CS portal as mikejones$")
+	public void user_logs_in_to_CS_portal_as_mikejones() throws Throwable {
+		super.login(configuration.getCredential("MIKE_USER_ID"), configuration.getCredential("MIKE_USER_PASSWORD"));
+		csPortal = getPortal(CSPortal.class);
+		pegaDriver = testEnv.getPegaDriver();
+	}
+
 
 	@Given("^A User logs in with \"(.*?)\" and \"(.*?)\"$")
 	public void login(String username, String password) {
@@ -552,11 +566,22 @@ public class CRMBrowser extends PegaBrowser {
 
 	// SA Methods
 
-	@Given("^a user is logged into application with \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void a_user_is_logged_into_application_with_and(String arg1, String arg2) throws Throwable {
+	@Given("^User logs in to SA Application as skendall$")
+	public void user_logs_in_to_SA_Application_as_skendall() throws Throwable {
 		open();
-		login(arg1, arg2);
-
+		login(configuration.getCredential("SKENDALL_USER_ID"), configuration.getCredential("SKENDALL_USER_PASSWORD"));
+	}
+	
+	@Given("^User logs in to SA Application as sfasamplesalesops$")
+	public void user_logs_in_to_SA_Application_as_sfasamplesalesops() throws Throwable {
+		open();
+		login(configuration.getCredential("SFASAMPLESALESOPS_USER_ID"), configuration.getCredential("SFASAMPLESALESOPS_USER_PASSWORD"));
+	}
+	
+	@Given("^User logs in to SA Application as tmason$")
+	public void user_logs_in_to_SA_Application_as_tmason() throws Throwable {
+		open();
+		login(configuration.getCredential("TMASON_USER_ID"), configuration.getCredential("TMASON_USER_PASSWORD"));
 	}
 
 	@Given("^navigates to \"([^\"]*)\" List page$")

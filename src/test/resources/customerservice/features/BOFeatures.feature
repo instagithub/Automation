@@ -5,7 +5,7 @@ Feature: BO user Test cases
   @TC-favourites
   Scenario: Verify Favourites functionality
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "bouser" and "install12345!"
+    When User logs in to CS portal as bouser
     Then Verify Operator name "Back office user"
     When Favorites already Exist in My Favorites
     Then User will be navigated to the portal

@@ -3,7 +3,7 @@ Feature: Sales Automation Partner feature
 Test covering the creation of Partner in Sales Automation 
 
 Background: 
-	Given a user is logged into application with "sfasamplesalesops" and "install" 
+	Given User logs in to SA Application as sfasamplesalesops
 
 @TC-partner-creation
 Scenario: Creating a Partner with Salesrep

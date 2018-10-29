@@ -5,8 +5,8 @@ Feature: Demo Interaction Test cases
   @TC-accountswitching
   Scenario: Validation when Account is switched from Individual to Commercial
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
-   	When CSR launches Demo Interaction for "Demo Pop - CONNOR"
+    When User logs in to CS portal as CSR
+    When CSR launches Demo Interaction for "Demo Pop - CONNOR"
     Then verify the toaster pop values for connor
     When CSR accepts the demo call
     When Click on Add Task to launch Service Process

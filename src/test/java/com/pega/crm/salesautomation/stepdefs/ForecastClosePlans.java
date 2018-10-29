@@ -2,6 +2,7 @@ package com.pega.crm.salesautomation.stepdefs;
 
 // Browser & Portal
 import com.pega.CRMBrowser;
+import com.pega.Configuration;
 import com.pega.crm.customerservice.SFAPortal;
 
 // Cucumber step keywords
@@ -31,6 +32,7 @@ public class ForecastClosePlans {
     // Portals and Page Objects
     public SFAPortal salesPortal;
     public ClosePlans closeplans;
+    private Configuration configuration;
 
 
     @Inject
@@ -43,7 +45,7 @@ public class ForecastClosePlans {
     public void a_sales_rep_is_at_the_Close_Plans_page() throws Throwable {
         // Sales representative logs in
         browser.open();
-        browser.login("tmason", "install");
+        browser.login(configuration.getCredential("TMASON_USER_ID"), configuration.getCredential("TMASON_USER_PASSWORD"));
 
         // Navigate to Close Plans page
         closeplans = salesPortal.getLeftNav().getClosePlans();

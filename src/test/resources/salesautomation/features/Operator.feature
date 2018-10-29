@@ -3,7 +3,7 @@ Feature: Sales Automation Operator feature
 Test covering the creation of Operator in Sales Automation 
 
 Background: 
-	Given a user is logged into application with "sfasamplesalesops" and "install"
+	Given User logs in to SA Application as sfasamplesalesops
 
 @TC-operator-creation
   Scenario: create Sales Rep Operator by Sales Ops

@@ -5,7 +5,7 @@ Feature: Search Portal Test cases
   @TC-opennewaccount
   Scenario: Search with Individual for Biggs
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
     When Select "contact" and serach for "Biggs"

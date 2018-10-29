@@ -5,7 +5,7 @@ Feature: Phone Interaction Test cases
   @TC-scheduleactivity
   Scenario: Phone Interaction with email search and Schedule Activity
     Given a user is on login page of CS Portal
-    When CS operator logs in to the portal "cacsr" and "install12345!"
+    When User logs in to CS portal as CSR
     When CSR launched the New Phone Interaction
     When Search with email "jennifer.lake@hotmail123.net"
     Then verify the contact displayed

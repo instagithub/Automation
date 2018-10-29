@@ -3,7 +3,7 @@ Feature: Sales Automation Household feature
 Test covering the creation of Household creation 
 
 Background: 
-	Given a user is logged into application with "skendall" and "install"
+	Given User logs in to SA Application as skendall
 
 @TC-house-hold-creation 
 Scenario: Creating a Households

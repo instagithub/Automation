@@ -3,7 +3,7 @@ Feature: Sales Automation Organization feature
 Test covering the creation of Organization Work object in Sales Automation 
 
 Background: 
-	Given a user is logged into application with "skendall" and "install"
+	Given User logs in to SA Application as skendall
  
 @TC-organization-creation
   Scenario: create Organization
