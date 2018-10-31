@@ -3,7 +3,7 @@ Feature: Basic Opportunity flows
 Tests covering the core Opportunity flow actions like Create, Change Stage and Closing an opportunity.
 
 Background:
-    Given User logs in to SA Application as tmason
+    Given User logs in to SA Application as salesrep
   
 @TC-create-business-opportunity
   Scenario Outline: Creating a Business Opportunities

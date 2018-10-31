@@ -45,7 +45,7 @@ public class ForecastClosePlans {
     public void a_sales_rep_is_at_the_Close_Plans_page() throws Throwable {
         // Sales representative logs in
         browser.open();
-        browser.login(configuration.getCredential("TMASON_USER_ID"), configuration.getCredential("TMASON_USER_PASSWORD"));
+        browser.login(configuration.getCredential("SALESREP_USER_ID"), configuration.getCredential("SALESREP_USER_PASSWORD"));
 
         // Navigate to Close Plans page
         closeplans = salesPortal.getLeftNav().getClosePlans();

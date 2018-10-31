@@ -2,8 +2,8 @@
 Feature: Sales Automation Business Territory feature
 Test covering the creation of Business Territory in Sales Automation 
 
-Background: 
-Given User logs in to SA Application as sfasamplesalesops
+Background:
+Given User logs in to SA Application as salesops
 
 @TC-create-business-territory
 Scenario Outline: create a Business Territory Hierarchy by Global Sales Ops
