@@ -3,7 +3,7 @@ Feature: Contact Feature in Sales Automation
 Test covering the creation of contact creation 
 
 Background: 
-Given User logs in to SA Application as skendall
+Given User logs in to SA Application as salesmanager
 
 @TC-contact-creation
   Scenario: Creating a contact

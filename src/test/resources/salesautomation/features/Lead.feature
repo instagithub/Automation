@@ -3,8 +3,7 @@ Feature: Lead work object Feature
 Tests covering the Lead flow actions like Create , Change ownership on a lead
 
 Background:
-    Given User logs in to SA Application as tmason
- 
+    Given User logs in to SA Application as salesrep
  
   @TC-create-business-lead
   Scenario Outline: Creating  Business Lead

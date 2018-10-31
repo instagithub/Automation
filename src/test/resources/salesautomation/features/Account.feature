@@ -2,8 +2,8 @@
 Feature: Sales Automation Account feature
 Test covering the creation of Account and editing flow actions
 
-Background: 
-	Given User logs in to SA Application as skendall
+Background:
+	Given User logs in to SA Application as salesmanager
  
  @TC-account-creation
   Scenario: Creating a Account
