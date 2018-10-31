@@ -569,13 +569,13 @@ public class CRMBrowser extends PegaBrowser {
 	@Given("^User logs in to SA Application as salesmanager$")
 	public void user_logs_in_to_SA_Application_as_salesmanager() throws Throwable {
 		open();
-		login(configuration.getCredential("SALESMANAGER_USER_ID"), configuration.getCredential("SALESMANAGER_USER_PASSWORD"));
+		login(configuration.getCredential("SALESMANAGER_ID"), configuration.getCredential("SALESMANAGER_UPASSWORD"));
 	}
 	
 	@Given("^User logs in to SA Application as salesops$")
 	public void user_logs_in_to_SA_Application_as_salesops() throws Throwable {
 		open();
-		login(configuration.getCredential("SALESOPS_USER_ID"), configuration.getCredential("SALESOPS_USER_PASSWORD"));
+		login(configuration.getCredential("SALESOPS_ID"), configuration.getCredential("SALESOPS_PASSWORD"));
 	
 	}
 
@@ -583,7 +583,7 @@ public class CRMBrowser extends PegaBrowser {
 	@Given("^User logs in to SA Application as salesrep$")
 	public void user_logs_in_to_SA_Application_as_salesrep() throws Throwable {
 		open();
-		login(configuration.getCredential("SALESREP_USER_ID"), configuration.getCredential("SALESREP_USER_PASSWORD"));
+		login(configuration.getCredential("SALESREP_ID"), configuration.getCredential("SALESREP_PASSWORD"));
 	
 	}
 
