@@ -6,6 +6,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.Partners;
@@ -28,7 +29,7 @@ public class Partner
 	public static String Subject=null;
 	
 	@Inject
-	public Partner(TestEnvironment testEnv, CRMBrowser browser){
+	public Partner(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

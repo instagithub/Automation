@@ -20,6 +20,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.dialog.ConfigureDialog;
 import com.pega.crm.pegamarketing.rules.Campaign;
@@ -40,7 +41,7 @@ public class Campaignglue {
 	private ConfigureAudienceDialog configureAudienceDialog;
 
 	@Inject
-	Campaignglue(TestEnvironment testEnv) {
+	Campaignglue(CRMTestEnvironment testEnv) {
 		this.testEnv = testEnv;
 		browser = (CRMBrowser) testEnv.getBrowser();
 	}

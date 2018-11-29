@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.HouseholdList;
@@ -57,7 +58,7 @@ public class Household
     public static int  HH_NOOFMEMBER=1;
 	
 	@Inject
-	public Household(TestEnvironment testEnv, CRMBrowser browser){
+	public Household(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

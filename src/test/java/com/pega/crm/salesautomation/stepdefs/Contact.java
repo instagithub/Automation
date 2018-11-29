@@ -6,6 +6,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.AccountList;
@@ -33,7 +34,7 @@ public class Contact
 	private PegaWebDriver pegaDriver;
 	
 	@Inject
-	public Contact(TestEnvironment testEnv, CRMBrowser browser){
+	public Contact(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

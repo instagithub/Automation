@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.OperatorList;
@@ -28,7 +29,7 @@ public class Operator
 	private PegaWebDriver pegaDriver;
 	OperatorList oprList;
 	@Inject
-	public Operator(TestEnvironment testEnv, CRMBrowser browser){
+	public Operator(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		

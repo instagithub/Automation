@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.Territories;
@@ -36,7 +37,7 @@ public class BusinessTerritory
 	String actual_name, actual_territory, actual_con, actual_amount, actual_closedate, actual_owner,actual_shortName, actual_source, actual_stage, actual_win, actual_Forecast, actual_description;
 	
 	@Inject
-	public BusinessTerritory(TestEnvironment testEnv, CRMBrowser browser){
+	public BusinessTerritory(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

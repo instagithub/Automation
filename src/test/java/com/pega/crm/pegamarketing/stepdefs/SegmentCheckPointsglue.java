@@ -4,6 +4,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.DesignerStudio;
 import com.pega.crm.pegamarketing.pages.Segments;
@@ -24,7 +25,7 @@ public class SegmentCheckPointsglue {
 	private DesignerStudio designerStudio;
 
 	@Inject
-	public SegmentCheckPointsglue(TestEnvironment testEnv, CRMBrowser browser) {
+	public SegmentCheckPointsglue(CRMTestEnvironment testEnv, CRMBrowser browser) {
 		pegaDriver = testEnv.getPegaDriver();
 		designerStudio = browser.getDesignerStudio();
 	}

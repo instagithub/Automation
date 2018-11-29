@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.Leads;
@@ -56,7 +57,7 @@ public class Lead
 	LeadsList leadlist;
 	
 	@Inject
-	public Lead(TestEnvironment testEnv, CRMBrowser browser)
+	public Lead(CRMTestEnvironment testEnv, CRMBrowser browser)
 	{
 		this.testEnv = testEnv;
 		this.browser = browser;

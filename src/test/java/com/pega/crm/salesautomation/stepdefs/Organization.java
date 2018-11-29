@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.Organizations;
@@ -33,7 +34,7 @@ public class Organization
 	public static String Subject=null; 
 	
 	@Inject
-	public Organization(TestEnvironment testEnv, CRMBrowser browser){
+	public Organization(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();

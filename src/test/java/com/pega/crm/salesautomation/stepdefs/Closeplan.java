@@ -2,6 +2,7 @@ package com.pega.crm.salesautomation.stepdefs;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
+import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
@@ -27,7 +28,7 @@ public class Closeplan
 	public static String Subject=null; 
 	
 	@Inject
-	public Closeplan(TestEnvironment testEnv, CRMBrowser browser){
+	public Closeplan(CRMTestEnvironment testEnv, CRMBrowser browser){
 		this.testEnv = testEnv;
 		this.browser = browser;
 		pegaDriver=testEnv.getPegaDriver();
