@@ -95,7 +95,7 @@ public class CRMBrowser extends PegaBrowser {
 	private Configuration configuration;
 
 	@Inject
-	public CRMBrowser(TestEnvironment testEnv) {
+	public CRMBrowser(CRMTestEnvironment testEnv) {
 		super(testEnv);
 		this.testEnv = testEnv;
 		pegaDriver = testEnv.getPegaDriver();
