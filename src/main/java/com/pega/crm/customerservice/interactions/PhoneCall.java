@@ -44,7 +44,7 @@ public interface PhoneCall extends Interactions{
 	String EMAIL_XPATH = "//span[text()='Email']";
 	String ADDRESS_XPATH = "//span[text()='Address']";
 	
-	String CUSTOMER_SUMMARY_XPATH = "//div[text()='CUSTOMER SUMMARY']";
+	String CUSTOMER_SUMMARY_XPATH = "//div[text()='Customer Summary']";
 	String ACTIVE_ACCOUNTS_XPATH ="//span[text()='Active accounts']";
 	String OPEN_CASES_XPATH ="//span[text()='Open cases']";
 	String COMMUNICATION_PREF_XPATH ="//span[text()='Communication preference']";
