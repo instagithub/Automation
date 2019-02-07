@@ -29,8 +29,8 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	String ACC_TICKER_VALUE_XPATH = "//span[text()='Ticker symbol']/..//div";
 	String ACC_REVENUE_VALUE_XPATH = "//*[@data-test-id='20141204045038028826931']"; 
 	String ACC_DESCRIPTION_VALUE_XPATH = "//span[text()='Description']/..//div";
-	String ACC_ACCOUNT_PAGE_HEADER_XPATH="//*[text()='Account']";
-	String ACC_NAME_ID="Name";
+	String ACC_ACCOUNT_PAGE_HEADER_XPATH="//*[text()='Business Account']";
+	String ACC_NAME_ID="//input[@data-test-id='20141204045038027511854']";
 	String ACC_TERRIORTY_ID="crmTerritorySearch";
 	String ACC_ORG_ID="crmSearchOrg";
 	String ACC_DESCRIPTION_ID="pyDescription";
@@ -79,7 +79,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	@Override
 	public void setAccountName(StringBuffer accountName) {
 		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(ACC_NAME_ID)).sendKeys(accountName);
+		pegaDriver.findElement(By.xpath(ACC_NAME_ID)).sendKeys(accountName);
 	}
 
 	@Override
@@ -150,7 +150,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public Boolean isNameEnabled()
 	{
 		pegaDriver.getActiveFrameId(true);
-		Boolean bool= pegaDriver.findElement(By.id(ACC_NAME_ID)).isEnabled();
+		Boolean bool= pegaDriver.findElement(By.xpath(ACC_NAME_ID)).isEnabled();
 		return bool;
 		
 	}

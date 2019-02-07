@@ -58,7 +58,7 @@ public class Partner
 	PartnersList partnerslist;
 	Partners part;
 	
-	String PARTNER_NAME="Automation Partner";
+	String PARTNER_NAME="Automation Partner"+Math.random();
 	String PARTNER_NAME_CLOSE="First Alert";
 	String PARTNER_PHONE="8995994999";
 	String PARTNER_WEBSITE="www.partner1.com";

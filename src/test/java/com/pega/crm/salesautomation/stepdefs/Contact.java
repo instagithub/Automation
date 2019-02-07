@@ -56,7 +56,7 @@ public class Contact
 		String CONT_SALUTATION="Mr.";
 		String CONT_COMPANY="Pega";
 		String CONT_DEPARTMENT="Financial Services";
-		String CONT_INFLUENCE="2-Medium";
+		String CONT_INFLUENCE="1-High";
 		String CONT_UPDATED_INFLUENCE="1-High";
 		String CONT_UPDATED_MARITALSTATUS="Married";
 		String CONT_FAVORABILITY="2-Passive";

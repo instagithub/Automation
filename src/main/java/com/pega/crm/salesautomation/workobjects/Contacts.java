@@ -21,7 +21,7 @@ public interface Contacts extends Wizard
 	String CONT_COMAPANY_ID="Company";
 	String CONT_SALUTATION_XPATH="//select[contains(@name, 'Salutation')]";
 	String CONT_DEPARTMENT_ID="Department";
-	String CONT_INFLUENCE_XPATH="//select[contains(@id, 'InfluenceRating')]";
+	String CONT_INFLUENCE_XPATH="//select[@data-test-id='20141201055839074829146']";
 	String CONT_MARITAL_XPATH="//select[contains(@id, 'MaritalStatus')]|//select[contains(@name, 'MaritalStatus')]";
 	String CONT_FAVORABILITY_XPATH="//select[contains(@id, 'FavorabilityRating')]";
 	String CONT_WORKPHONE_ID="OfficePhone";

@@ -93,10 +93,10 @@ public class Account
 	StringBuffer ACC_NAME_INDIVIDUAL= new StringBuffer("Adam Collins");											
 	String ACC_TERRIORTY="Global";
 	String ACC_ORG="Acme Software";
-	String ACC_INDUSTRY="Entertainment";
+	String ACC_INDUSTRY="Mining";
 	String ACC_PHONENUMBER="12895647";
 	String ACC_UPDATED_PHONENUMBER="987645321";
-	String ACC_UPDATED_INDUSTRY= "Media";
+	String ACC_UPDATED_INDUSTRY= "Services";
 	String ACC_UPDATED_EMPLOYEES = "750";
 	String ACC_CHANGEOWNER="Anna Parker";
 	String ACC_CHANGEREASON="Owner is changed as part of automation";
@@ -124,7 +124,7 @@ public class Account
 	public void user_should_navigate_to_Account_creation_page()
 	{
 		String accHeader=acc.getAccountPageHeader();
-		Assert.assertEquals(accHeader, "Account");
+		Assert.assertEquals(accHeader, "Business Account");
 	}
 	
 	@When("^user enters all the mandatory data and saves the changes$")
