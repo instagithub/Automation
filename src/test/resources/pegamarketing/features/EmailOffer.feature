@@ -1,4 +1,4 @@
-@smoke-pega-marketing
+@smoke-pega-marketing 
 Feature: Smoke Test cases
 # author : PM
 
@@ -14,11 +14,12 @@ Scenario: Create an Email Offer Flow
     When Clicks on Create and Open button in Offer Page
     Then Offer Rule should be opened
     Then Diagram, Details, Test Offer and History tabs should be available
+    When switches to Flow tab      
     When user deletes the existing start connector
     When adds a new send email shape to the offer at point "-450","0" in the offer
     When opens the properties of send email shape with name "Send Email"
     When renames the send email shape as "SendEmail"
-    When sets the treatment as "TestAutoEmailTreatment021343"
+    When sets the treatment as "SKEmailTrt0204"
     When sets the email account as "Default"
     When submits the properties
     When connects the start shape to the send email shape
