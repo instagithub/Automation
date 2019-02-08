@@ -20,6 +20,7 @@ import org.openqa.selenium.By;
 
 import com.pega.crm.pegamarketing.dialog.ModalDialog;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.utils.PegaBy;
 
 public interface Campaign extends RuleInstance {
 
@@ -167,7 +168,7 @@ public interface Campaign extends RuleInstance {
 
 	public interface CampaignConfigureDialog extends ModalDialog {
 
-		By SEARCH_INPUT = By.xpath("//input[@id='pyValue']");
+		By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
 		By SEARCH_ICON = By.xpath("//*[contains(@class,'pi-search')]");
 		By DIALOG_HEADER = By.xpath("//span[@id='modaldialog_hd_title']");
 		By ADD_BUTTON = By.xpath("//button[text()='Add']");
@@ -256,7 +257,7 @@ public interface Campaign extends RuleInstance {
 		static By REAL_TIME_EVENTS_LABEL = By.xpath("//label[@for='EnableEvents']");
 		static By REAL_TIME_CONTAINERS_CHECKBOX = By.xpath("//input[@id='EnableContainers']");
 		static By REAL_TIME_CONTAINERS_LABEL = By.xpath("//label[@for='EnableContainers']");
-		static By START_ON_TIME_TEXT = By.xpath("//label[@for='OneTimeStartDateTime']");
+		static By START_ON_TIME_TEXT = PegaBy.testId("201508141643030248152902-Label");
 		static By ONE_TIME_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='O']");
 		static By RECURRING_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='R']");
 		static By REFRESH_AUDIENCE_CHECKBOX = By.xpath("//input[contains(@name,'RefreshStartingPopulation')][@type='checkbox']");
@@ -328,5 +329,7 @@ public interface Campaign extends RuleInstance {
 	String getthenameofcampaign();
 
 	void searchcampaigns(String campaignName, String campaignName1);
+
+	void setCampaignRuleName(String campaignName);
 
 }

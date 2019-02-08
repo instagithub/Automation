@@ -23,6 +23,8 @@ import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaOffer extends PegaRuleInstance implements Offer {
+	
+	public static final By START_CONNECTOR = By.xpath("//*[contains(@style,'visible')]/*[@d][2]");
 
 	public PegaOffer(String frameID, TestEnvironment testEnv) {
 		super(frameID, testEnv);
@@ -45,7 +47,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 
 	public void switchTab(String tabName) {
 		pegaDriver.waitForDocStateReady(3);
-		String elmtXpath = "//*[contains(@tabtitle,'" + tabName + "')]//*[contains(text(),'" + tabName + "')]";
+		String elmtXpath = "//*[contains(@aria-label,'" + tabName + "')]//*[contains(text(),'" + tabName + "')]";
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath(elmtXpath));
 		findElement(By.xpath(elmtXpath)).scrollIntoView();
 		pegaDriver.handleWaits().sleep(2);

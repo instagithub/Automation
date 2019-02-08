@@ -20,6 +20,8 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(SAVE_BUTTON);
 		findElement(SAVE_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+
 	}
 
 	public void switchTab(String tab) {

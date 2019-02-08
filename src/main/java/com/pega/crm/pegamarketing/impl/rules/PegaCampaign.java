@@ -345,4 +345,11 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		pegaDriver.findElement(VIEW_BTN).click();
 		
 	}
+
+	@Override
+	public void setCampaignRuleName(String campaignName) {
+		pegaDriver.handleWaits().waitForElementVisibility(RULE_NAME_TEXT_BOX_CAMP);
+		findElement(RULE_NAME_TEXT_BOX_CAMP).sendKeys(campaignName + Keys.TAB);
+			
+	}
 }

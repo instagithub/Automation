@@ -27,14 +27,16 @@ public class OfferFlowCheckPoints {
 	@Then("^Diagram, Details, Test Offer and History tabs should be available$")
 	public void diagram_details_test_offer_and_History_tabs_should_be_available() {
 		Offer offer = ObjectsBean.getOffer();
-		Assert.assertTrue(offer.verifyElement(Offer.DIAGRAM_TAB),
-				"Diagram tab is not available..!!");
+		Assert.assertTrue(offer.verifyElement(Offer.FLOW_TAB),
+				"Flow tab is not available..!!");
 		Assert.assertTrue(offer.verifyElement(Offer.DETAILS_TAB),
 				"Details tab is not available..!!");
 		Assert.assertTrue(offer.verifyElement(Offer.TESTOFFER_TAB),
 				"Test Offer tab is not available..!!");
 		Assert.assertTrue(offer.verifyElement(Offer.HISTORY_TAB),
 				"History tab is not available..!!");
+		Assert.assertTrue(offer.verifyElement(Offer.ELIGIBILITY_TAB),
+				"Eligibility tab is not available..!!");
 	}
 	
 	@Then("^the offer should be saved and checkout button should be visible$")

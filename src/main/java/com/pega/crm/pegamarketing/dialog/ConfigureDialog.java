@@ -18,10 +18,12 @@ package com.pega.crm.pegamarketing.dialog;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.utils.PegaBy;
+
 public interface ConfigureDialog extends ModalDialog {
 
 
-	By SEARCH_INPUT = By.xpath("//input[@id='pyValue']");
+	By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
 	By SEARCH_ICON = By.xpath("//*[contains(@class,'pi-search')]");
 	By DIALOG_HEADER = By.xpath("//span[contains(@id,'modaldialog_hd')]");
 	By ADD_BUTTON = By.xpath("//button[text()='Add']");

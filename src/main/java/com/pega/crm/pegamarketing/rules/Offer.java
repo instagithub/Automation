@@ -7,17 +7,19 @@ import com.pega.crm.pegamarketing.dialog.ModalDialog;
 import com.pega.crm.pegamarketing.elmt.Connector;
 import com.pega.crm.pegamarketing.elmt.OfferShape;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.utils.PegaBy;
 
 public interface Offer extends RuleInstance {
 
-	By DIAGRAM_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Diagram"));
-	By DETAILS_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Details"));
-	By TESTOFFER_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Test Offer"));
-	By HISTORY_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("History"));
+	By FLOW_TAB = PegaBy.ruleTab("Flow");
+	By DETAILS_TAB = PegaBy.ruleTab("Details");
+	By TESTOFFER_TAB = PegaBy.ruleTab("Test Offer");
+	By HISTORY_TAB = PegaBy.ruleTab("History");
+	By ELIGIBILITY_TAB = PegaBy.ruleTab("Eligibility");
 	String DIV_PROCESS_FLOW_XPATH = "//div[@id='pmviewer_graph']";
 
 	String MONAME_XPATH = "//div[@id='modalOverlay' and @style='display: block;']"
-			+ "//input[@id='pyMOName' and not(@title='Select Ticket')]";
+			+ "//input[contains(@name,'MOName') and not(@title='Select Ticket')]";
 	String DECISIONTYPE_XPATH = "//div[@id='modalOverlay' and @style='display: block;']"
 			+ "//select[@id='pyDecisionClass']";
 

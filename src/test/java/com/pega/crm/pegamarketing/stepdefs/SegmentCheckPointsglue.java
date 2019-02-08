@@ -53,8 +53,6 @@ public class SegmentCheckPointsglue {
 		Assert.assertTrue(segment.verifyElement(Segment.CRITERIA_RADIO_BUTTON), "Criteria type is not present..!!");
 		Assert.assertTrue(segment.verifyElement(Segment.LIST_RADIO_BUTTON), "List type is not present..!!");
 
-		Assert.assertTrue(segment.verifyElement(Segment.ANALYSIS_PROJECT_SELECT_BOX),
-				"Analysis Project dropdown is not present..!!");
 	}
 
 	@Then("^Analysis Project dropdown should disappear$")

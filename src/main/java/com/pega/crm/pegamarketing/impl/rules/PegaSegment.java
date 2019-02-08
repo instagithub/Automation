@@ -191,7 +191,7 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 
 	public void waitForRun() {
 		while (verifyElement(STOP_LINK)) {
-			pegaDriver.handleWaits().sleep(8);
+			pegaDriver.handleWaits().sleep(10);
 
 		}
 		pegaDriver.handleWaits().waitForElementNotPresence(STOP_LINK);

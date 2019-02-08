@@ -1,4 +1,4 @@
-@smoke-pega-marketing
+@smoke-pega-marketing @segment
 Feature: Smoke Test cases
 # author : PM
 
@@ -20,4 +20,4 @@ Feature: Smoke Test cases
     When User saves the segment rule
     Then Segment rule should be saved succesfully
     When User runs the Segment
-    Then End of the run, Population count should become "14"
+    Then End of the run, Population count should become "13"
