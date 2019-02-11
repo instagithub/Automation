@@ -27,4 +27,4 @@ Background:
 
     Examples: 
       | Leadtype   |  | LeadName     |
-      | Business   |  | Sarah Connor |
+      | Business   |  | Sara Connor |
