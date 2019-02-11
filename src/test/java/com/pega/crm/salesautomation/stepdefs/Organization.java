@@ -55,7 +55,7 @@ public class Organization
 	
 	public String website = new String("www.pega.com");
 	public String OrgphoneNo = new String("12354789");
-	public String OrgIndustry= new String("Financial Services");
+	public String OrgIndustry= new String("Mining");
 	public String OrgShortName= new String("Org Short Name");
 	public String OrganizationWOName = "Automation Org";
 	public StringBuffer OrganizatonName;
