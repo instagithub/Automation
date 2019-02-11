@@ -14,8 +14,8 @@ Scenario: Creation of Strategy from Strategy Designer page
     When User selects Business Issue as "DemoIssue"
     When User selects Group as "DemoGroup"
     When User selects Audience Driven targeting approach
-    When User configure Audience and add segment with name as "TestAutoSegment"
+    When User configure Audience and add segment with name as "TestSegment115636"
     When User applies configure modal dialog
-    When User assigns an offer with name as "TestEmailOffer"
+    When User assigns an offer with name as "TestOffer124559"
     When User applies configure modal dialog
     When User saves the strategy

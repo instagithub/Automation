@@ -19,7 +19,7 @@ Scenario: Create an Email Offer Flow
     When adds a new send email shape to the offer at point "-450","0" in the offer
     When opens the properties of send email shape with name "Send Email"
     When renames the send email shape as "SendEmail"
-    When sets the treatment as "SKEmailTrt0204"
+    When sets the treatment as "TestEmailTreatment124136"
     When sets the email account as "Default"
     When submits the properties
     When connects the start shape to the send email shape
