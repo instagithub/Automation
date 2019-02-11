@@ -34,7 +34,7 @@ public class Lead
 	String LEAD_LASTNAME_INDIVIDUAL="Automation Lead Individual";
 	String LEAD_LASTNAME_BUSINESS="Automation lead Business";
 	String LEAD_STAGE="Assigned";
-	String LEAD_UPDATEDINDUSTRY="Entertainment";
+	String LEAD_UPDATEDINDUSTRY="Mining";
 	String LEAD_UPDATEDSTAGE="Sales Qualified";
 	String LEAD_UPDATEDCOMPANY="CompanyUpdated";
 	String LEAD_WORKHONE ="895462103";
