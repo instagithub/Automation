@@ -1,4 +1,4 @@
-package com.pega.crm.salesautomation.stepdefs;
+rpackage com.pega.crm.salesautomation.stepdefs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +28,7 @@ public class Lead
 	private CRMBrowser browser;
 	private PegaWebDriver pegaDriver;
 	Leads lead;
-	String LEAD_INDUSTRY="Communications";
+	String LEAD_INDUSTRY="Services";
 	String LEAD_COMPANYNAME="VKgroup";
 	String teritory="Global";					  
 	String LEAD_LASTNAME_INDIVIDUAL="Automation Lead Individual";
