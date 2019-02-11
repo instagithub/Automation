@@ -1,4 +1,4 @@
-rpackage com.pega.crm.salesautomation.stepdefs;
+package com.pega.crm.salesautomation.stepdefs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
