@@ -25,28 +25,28 @@ import com.pega.framework.elmt.Frame;
 public class PegaModalDialog implements ModalDialog {
 	protected PegaWebDriver pegaDriver;
 	protected TestEnvironment testEnv;
-	protected PegaWebElement elmt;
+	protected Frame frame;
 	
-	public PegaModalDialog(Frame elmt) {
-		this.elmt = elmt;
-		this.testEnv = elmt.getTestEnvironment();
+	public PegaModalDialog(Frame frame) {
+		this.frame = frame;
+		this.testEnv = frame.getTestEnvironment();
 		this.pegaDriver = testEnv.getPegaDriver();
 	}
 
 	public void apply() {
-		elmt.findElement(APPLY_BUTTON).click();
+		frame.findElement(APPLY_BUTTON).click();
 	}
 
 	public void close() {
-		elmt.findElement(CLOSE_BUTTON).click();
+		frame.findElement(CLOSE_BUTTON).click();
 
 	}
 	public void submit() {
-		elmt.findElement(SUBMIT_BUTTON).click();
+		frame.findElement(SUBMIT_BUTTON).click();
 		
 	}
 	public void cancel() {
-		elmt.findElement(CANCEL_BUTTON);
+		frame.findElement(CANCEL_BUTTON);
 		
 	}
 

@@ -16,7 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.Reporter;
 
 import com.google.inject.Inject;
-import com.pega.config.test.TestBase1S1D;
+import com.pega.config.test.TestBase;
 import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
@@ -35,7 +35,7 @@ import mx4j.log.Logger;
  *
  */
 @ScenarioScoped
-public class CRMTestEnvironment extends TestBase1S1D {
+public class CRMTestEnvironment extends TestBase {
 
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	String VERSION = "$Id: MyTestEnvironment.java 187193 2018-04-13 01:45:11Z SachinVellanki $";

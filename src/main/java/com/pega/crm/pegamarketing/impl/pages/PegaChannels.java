@@ -3,16 +3,11 @@ package com.pega.crm.pegamarketing.impl.pages;
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.pages.Channels;
-import com.pega.crm.pegamarketing.pages.Channels.AddOutboundSMSConnection;
-import com.pega.crm.pegamarketing.pages.Channels.PaidMediaSetting;
-import com.pega.crm.pegamarketing.pages.Channels.TestConnectivityResults;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.WindowImpl;
 import com.pega.framework.elmt.Frame;
 import com.pega.framework.elmt.FrameImpl;
@@ -20,8 +15,8 @@ import com.pega.framework.elmt.FrameImpl;
 public class PegaChannels extends FrameImpl implements Channels {
 	PegaWebDriver pegaDriver;
 
-	public PegaChannels(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
+	public PegaChannels(String elmtId, TestEnvironment testEnv) {
+		super(elmtId, testEnv);
 	}
 
 	public AddOutboundSMSConnection addConnection() {
@@ -31,22 +26,22 @@ public class PegaChannels extends FrameImpl implements Channels {
 	}
 
 	public class PegaAddOutboundSMSConnection extends PegaModalDialog implements AddOutboundSMSConnection {
-		PegaWebElement elmt;
+		Frame frame;
 
-		public PegaAddOutboundSMSConnection(Frame elmt) {
-			super(elmt);
-			this.elmt = elmt;
+		public PegaAddOutboundSMSConnection(Frame frame) {
+			super(frame);
+			this.frame = frame;
 		}
 
 		public void addConnectionSetup(String accountName, String hostAddress, String port, String userId,
 				String password, String testNumber, String senderNumber) {
-			elmt.findElement(ACCOUNT_NAME_TXTBOX).sendKeys(accountName);
-			elmt.findElement(HOST_ADDRESS_TXTBOX).sendKeys(hostAddress);
-			elmt.findElement(HOST_PORT_TXTBOX).sendKeys(port);
-			elmt.findElement(USER_ID_TXTBOX).sendKeys(userId);
-			elmt.findElement(PASSWORD_TXTBOX).sendKeys(password);
-			elmt.findElement(TEST_NUMBER_TXTBOX).sendKeys(testNumber);
-			elmt.findElement(SENDERS_NUMBER_TXTBOX).sendKeys(senderNumber);
+			frame.findElement(ACCOUNT_NAME_TXTBOX).sendKeys(accountName);
+			frame.findElement(HOST_ADDRESS_TXTBOX).sendKeys(hostAddress);
+			frame.findElement(HOST_PORT_TXTBOX).sendKeys(port);
+			frame.findElement(USER_ID_TXTBOX).sendKeys(userId);
+			frame.findElement(PASSWORD_TXTBOX).sendKeys(password);
+			frame.findElement(TEST_NUMBER_TXTBOX).sendKeys(testNumber);
+			frame.findElement(SENDERS_NUMBER_TXTBOX).sendKeys(senderNumber);
 		}
 	}
 
@@ -259,8 +254,8 @@ public class PegaChannels extends FrameImpl implements Channels {
 		}
 
 		public void enterConnectionDetailsOnAdWordsPaidSettings(String destNameAdWords, String descAdWords,
-				String clientidAdWords, String clientsecretAdWords, String devtokenAdWords, String emailAdWords, String phoneAdwords,
-				String refreshtokenAdWords, String customeridAdWords) {
+				String clientidAdWords, String clientsecretAdWords, String devtokenAdWords, String emailAdWords,
+				String phoneAdwords, String refreshtokenAdWords, String customeridAdWords) {
 			if (findElement(txtDestinationName).isEnabled() && findElement(txtDecsription).isEnabled()) {
 				findElement(txtDestinationName).sendKeys(destNameAdWords);
 				findElement(txtDecsription).sendKeys(descAdWords);
@@ -270,26 +265,26 @@ public class PegaChannels extends FrameImpl implements Channels {
 				findElement(txtboxEmail).sendKeys(emailAdWords);
 				findElement(txtboxPhone).sendKeys(phoneAdwords);
 				findElement(txtGoogleRefreshToken).sendKeys(refreshtokenAdWords);
-				findElement(txtGoogleClientCustomerID).sendKeys(customeridAdWords);				
+				findElement(txtGoogleClientCustomerID).sendKeys(customeridAdWords);
 			}
 		}
-		
+
 		public void clickAppId() {
 			findElement(lnkAddAppID).click();
 		}
-		
+
 		public void addAppId(String appId) {
-			if (findElement(txtAppID).isEnabled()){
+			if (findElement(txtAppID).isEnabled()) {
 				findElement(txtAppID).sendKeys(appId);
 			}
 		}
-		
+
 		public void clickDeviceId() {
 			findElement(lnkAddDeviceID).click();
 		}
-		
+
 		public void addDeviceId(String deviceId) {
-			if (findElement(txtDeviceID).isEnabled()){
+			if (findElement(txtDeviceID).isEnabled()) {
 				findElement(txtDeviceID).sendKeys(deviceId);
 			}
 		}
@@ -333,7 +328,6 @@ public class PegaChannels extends FrameImpl implements Channels {
 				findElement(txtDecsription).sendKeys(webDescription);
 			}
 		}
-
 
 	}
 

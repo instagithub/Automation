@@ -452,10 +452,7 @@ public class PegaTopNav implements TopNav {
 	pegaDriver.handleWaits().waitForElementVisibility(By.xpath("//span[text()='New Application']"));
 	pegaDriver.findElement(By.xpath("//span[text()='New Application']")).click();
 	pegaDriver.waitForDocStateReady(2);
-	String frameId = pegaDriver.getActiveFrameId(false);
-	Wizard wizard = pegaDriver.findWizard(frameId);
-	ApplicationWizard appWizard = new PegaApplicationWizard(wizard, frameId);
-	appWizard._setEnvironment(testEnv, wizard.getId());
+	ApplicationWizard appWizard = new PegaApplicationWizard(pegaDriver.getActiveFrameId(true), testEnv);
 	return appWizard;
 	}
 	
@@ -468,8 +465,7 @@ public class PegaTopNav implements TopNav {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		Wizard wizard = pegaDriver.findWizard(frameId);
 		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchTo().frame("PegaGadget0Ifr");
-		ApplicationWizard appWizard = new PegaApplicationWizard(wizard, frameId);
+		ApplicationWizard appWizard = new PegaApplicationWizard(pegaDriver.getActiveFrameId(true), testEnv);
 		appWizard._setEnvironment(testEnv, wizard.getId());
 		pegaDriver.findElement(By.xpath("//span[contains(text(),'Customer Service 7.')]")).click();
 		pegaDriver.switchTo().defaultContent();

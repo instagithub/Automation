@@ -13,12 +13,8 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.pages.PegaStrategy;
 import com.pega.crm.pegamarketing.pages.Strategy;
 import com.pega.crm.pegamarketing.rules.MarketingStrategy;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.AddTargetingDialog;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
 import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaMarketingStrategy extends PegaRuleInstance implements MarketingStrategy {
@@ -98,13 +94,13 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public class PegaConfigureObjectiveDialog extends PegaConfigureDialog implements ConfigureObjectiveDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaConfigureObjectiveDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void addRankedObjective() {
@@ -136,13 +132,13 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public class PegaConfigurePriorityDialog extends PegaConfigureDialog implements ConfigurePriorityDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaConfigurePriorityDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public MarketingStrategy applyPriority() {
@@ -162,17 +158,17 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public class PegaAddTargetingDialog extends PegaModalDialog implements AddTargetingDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaAddTargetingDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void checkAudienceDriven() {
-			elmt.findElement(AUDIENCE_DRIVEN_RADIO).click();
+			frame.findElement(AUDIENCE_DRIVEN_RADIO).click();
 		}
 	}
 

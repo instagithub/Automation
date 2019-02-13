@@ -14,7 +14,6 @@ import com.pega.framework.PegaWebDriver;
 public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	private PegaWebDriver pegaDriver = null;
 	private TestEnvironment testEnv;
-	private DesignerStudio designerStudio;
 
 	public PegaExpressPortal(TestEnvironment testEnv) {
 		super(testEnv);
@@ -70,8 +69,7 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 		pegaDriver.switchTo().defaultContent();
 		findElement(By.xpath(String.format(SETTINGS_SLIDER_MENU_ITEM_XPATH, "Channels"))).click();
 		String activeFrameID = pegaDriver.getActiveFrameId(true);
-		Channels channels = new PegaChannels(null, activeFrameID);
-		channels._setEnvironment(testEnv, activeFrameID);
+		Channels channels = new PegaChannels(activeFrameID, testEnv);
 		return channels;
 	}
 
