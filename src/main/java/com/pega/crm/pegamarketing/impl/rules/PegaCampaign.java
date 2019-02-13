@@ -4,19 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
-import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
 import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.rules.Campaign;
-import com.pega.crm.pegamarketing.rules.Campaign.CampaignConfigureDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureCardDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureDetailsDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementCriteriaDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureEngagementDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureMarketingStrategyDialog;
-import com.pega.crm.pegamarketing.rules.Campaign.ConfigureTimeframeDialog;
 import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 import cucumber.runtime.java.guice.ScenarioScoped;
@@ -139,65 +130,65 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 	public class PegaCampaignConfigureDialog extends PegaModalDialog implements CampaignConfigureDialog {
 		PegaWebDriver pegaDriver;
 		TestEnvironment testEnv;
-		protected PegaWebElement elmt;
+		protected Frame frame;
 
 		public PegaCampaignConfigureDialog(Frame frameElmt) {
 			super(frameElmt);
-			this.elmt = frameElmt;
-			this.testEnv = elmt.getTestEnvironment();
+			this.frame = frameElmt;
+			this.testEnv = frame.getTestEnvironment();
 			pegaDriver = testEnv.getPegaDriver();
 		}
 
 		public void addRule(String ruleName) {
-			elmt.findElement(ADD_BUTTON).click();
+			frame.findElement(ADD_BUTTON).click();
 		}
 
 		public boolean isSegmentAdded() {
 			pegaDriver.switchToActiveFrame();
-			boolean isRemoveFound = elmt.verifyElement(REMOVE_BUTTON);
-			boolean isDeleteButtonFound = elmt.verifyElement(DELETE_ICON);
+			boolean isRemoveFound = frame.verifyElement(REMOVE_BUTTON);
+			boolean isDeleteButtonFound = frame.verifyElement(DELETE_ICON);
 			return isRemoveFound && isDeleteButtonFound;
 		}
 
 		public void search(String ruleName) {
-			elmt.findElement(SEARCH_INPUT).sendKeys(ruleName);
-			elmt.findElement(SEARCH_ICON).click();
+			frame.findElement(SEARCH_INPUT).sendKeys(ruleName);
+			frame.findElement(SEARCH_ICON).click();
 		}
 	}
 
 	public class PegaConfigureCardDialog extends PegaCampaignConfigureDialog implements ConfigureCardDialog {
-		PegaWebElement elmt;
+		Frame frame;
 
 		public PegaConfigureCardDialog(Frame aElmt) {
 			super(aElmt);
-			elmt = aElmt;
+			frame = aElmt;
 		}
 
 		public void selectFromFirstSearchResult() {
-			elmt.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
+			frame.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
 		}
 	}
 
 	public class PegaConfigureAudienceDialog extends PegaCampaignConfigureDialog implements ConfigureAudienceDialog {
 		TestEnvironment testEnv;
 		PegaWebDriver pegaDriver;
-		PegaWebElement elmt;
+		Frame frame;
 
 		public PegaConfigureAudienceDialog(Frame aElmt) {
 			super(aElmt);
-			elmt = aElmt;
+			frame = aElmt;
 		}
 
 		public void selectFirstSearchResult() {
-			elmt.findElement(FIRST_SEARCH_RESULT).click(false);
+			frame.findElement(FIRST_SEARCH_RESULT).click(false);
 		}
 
 		public void addFirstSegment() {
-			elmt.findElement(FIRST_ADD_BUTTON).click();
+			frame.findElement(FIRST_ADD_BUTTON).click();
 		}
 
 		public void selectFromFirstSearchResult() {
-			elmt.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
+			frame.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
 		}
 
 	}
@@ -218,20 +209,20 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 			implements ConfigureEngagementDialog {
 		PegaWebDriver pegaDriver;
 		TestEnvironment testEnv;
-		PegaWebElement elmt;
+		Frame frame;
 
 		public PegaConfigureEngagementDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
+			this.frame = aElmt;
 		}
 
 		public void checkCampaignSchedule() {
-			elmt.findElement(CAMAPIGN_SCHEDULE_CHECKBOX).check();
+			frame.findElement(CAMAPIGN_SCHEDULE_CHECKBOX).check();
 		}
 		@Override
 		public void clickonrefreshaudience() {
 			
-			elmt.findElement(REFRESH_AUDIENCE_CHECKBOX).check();
+			frame.findElement(REFRESH_AUDIENCE_CHECKBOX).check();
 			
 		}
 
