@@ -11,9 +11,11 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.Reporter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.pega.config.test.TestBase;
@@ -21,12 +23,12 @@ import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
 import com.pega.util.RecorderUtil;
+import com.vimalselvam.cucumber.listener.Reporter;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.runtime.java.guice.ScenarioScoped;
-import mx4j.log.Logger;
 
 /**
  * 
@@ -39,7 +41,8 @@ public class CRMTestEnvironment extends TestBase {
 
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	String VERSION = "$Id: MyTestEnvironment.java 187193 2018-04-13 01:45:11Z SachinVellanki $";
-
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(CRMTestEnvironment.class.getName());
 	Browser browser;
 	TestEnvironmentImpl testsdd;
 	private static int passed = 0;
@@ -111,7 +114,7 @@ public class CRMTestEnvironment extends TestBase {
 				p.load(new FileInputStream(f));
 				total = Integer.parseInt(p.getProperty("tests.total"));
 			} catch (Exception e) {
-				Reporter.log("Unable to read execution.properties file", true);
+				LOGGER.debug("Unable to read execution.properties file", true);
 			}
 			updateWithCurrentStatus("['" + total + "', " + passed + ", "
 					+ failed + ", " + total + "]");
@@ -127,10 +130,10 @@ public class CRMTestEnvironment extends TestBase {
 						+ System.getProperty("file.separator") + videoFileName
 						+ GlobalConstants.VIDEO_FILE_FORMAT;
 				RecorderUtil.startRecording(reportsDir, videoFileName);
-				Reporter.log("Video recording started...", true);
+				LOGGER.debug("Video recording started...", true);
 			} catch (Exception e) {
 				e.printStackTrace();
-				Reporter.log("Recording could not be started", true);
+				LOGGER.debug("Recording could not be started", true);
 			}
 		}
 	}
@@ -157,8 +160,8 @@ public class CRMTestEnvironment extends TestBase {
 					f.delete();
 				}
 			} catch (Exception e) {
-				Reporter.log("Unable to delete video file: " + videoFilePath,
-						Logger.ERROR, true);
+				LOGGER.debug("Unable to delete video file: " + videoFilePath,
+						mx4j.log.Logger.ERROR, true);
 			}
 		}
 	}
@@ -181,12 +184,12 @@ public class CRMTestEnvironment extends TestBase {
 			writer.write(template);
 			writer.close();
 		} catch (IOException e) {
-			Reporter.log("Error updating status", true);
+			LOGGER.debug("Error updating status", true);
 			e.printStackTrace();
 		}
 	}
 
-	private void captureScreenshot(Scenario scenario) {
+	/*private void captureScreenshot(Scenario scenario) {
 		if (System.getenv("JENKINS_URL") != null) {
 			if (scenario.isFailed()) {
 				try {
@@ -197,16 +200,32 @@ public class CRMTestEnvironment extends TestBase {
 				}
 			}
 		}
+	}*/
+	
+	private void captureScreenshot(Scenario scenario) {
+		if (scenario.isFailed()) {
+			try {
+				final byte[] screenshot = ((TakesScreenshot) getPegaDriver().getDriver())
+						.getScreenshotAs(OutputType.BYTES);
+				scenario.embed(screenshot, "image/png");
+				File temp = ((TakesScreenshot) getPegaDriver().getDriver()).getScreenshotAs(OutputType.FILE);
+				File dest = new File("target/"+scenario.getName()+".png");
+				FileUtils.copyFile(temp, dest);
+				Reporter.addScreenCaptureFromPath(dest.getAbsolutePath());
+			} catch (Exception e) {
+				scenario.write("Unable to take screenshot<br/>");
+			}
+		}
 	}
 	
 	private void terminateSession(){
 		try{
 			if (!isDebugMode) {
 				terminate();
-				Reporter.log("Browser terminated...", true);
+				LOGGER.debug("Browser terminated...", true);
 			}
 		}catch(Exception e){
-			Reporter.log("BROWSER_TERMINATE_FAILED::"+e.getMessage(),true);
+			LOGGER.debug("BROWSER_TERMINATE_FAILED::"+e.getMessage(),true);
 		}
 	}
 	
@@ -214,9 +233,9 @@ public class CRMTestEnvironment extends TestBase {
 		try {
 			Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
 			getPegaDriver().handleWaits().sleep(5);
-			Reporter.log("Driver processes killed...", true);
+			LOGGER.debug("Driver processes killed...", true);
 		} catch (IOException e) {
-			Reporter.log("TASK_KILL_FAILED::"+e.getMessage(),true);
+			LOGGER.debug("TASK_KILL_FAILED::"+e.getMessage(),true);
 		}
 	}
 	
@@ -289,10 +308,10 @@ public class CRMTestEnvironment extends TestBase {
 			if (isBrowserInitiailized) {
 				browser.logout();
 				browser.close();
-				Reporter.log("Log out successful...", true);
+				LOGGER.debug("Log out successful...", true);
 			}
 		} catch(Exception e){
-			Reporter.log("LOGOUT_FAILED::"+e.getMessage(),true);
+			LOGGER.debug("LOGOUT_FAILED::"+e.getMessage(),true);
 		}
 	}
 	
