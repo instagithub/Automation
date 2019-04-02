@@ -87,30 +87,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		return portal;
 	}
 
-	@Override
-
-	public void logout() {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(CS_IMPL_OPERATOR_MENU_XPATH)).click(false);
-		// pegaDriver.findElement(By.xpath(CS_IP_OPERATOR_MENU_XPATH)).click(false);
-		pegaDriver.switchTo().defaultContent();
-		// List<WebElement> list =
-		// pegaDriver.findElements(By.xpath(CS_IMPL_LOG_OFF_XPATH));
-		pegaDriver.findElement(By.xpath(CS_IMPL_LOG_OFF_XPATH)).click(false);
-		// list.get(list.size() - 1).click();
-		try {
-			// pegaDriver.waitForDocStateReady(1);
-			
-			pegaDriver.handleWaits().waitForAlert();
-			pegaDriver.switchTo().alert().accept();
-			
-		} catch (WebDriverException e) {
-			e.printStackTrace();
-		}
-		// pegaDriver.handleWaits().waitForElementVisibility(By.id(CS_IMPL_LOGIN_ID));
-
-	}
 
 	
 
@@ -212,8 +188,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		pegaDriver.findElement(By.id("KMSearchText")).click();
 		pegaDriver.findElement(By.id("KMSearchText")).sendKeys(ArticleName);
 		pegaDriver.switchTo().activeElement().sendKeys(Keys.ENTER);
-		// pegaDriver.findElement(By.xpath("//i[@title='Search for
-		// Articles']")).click();
 
 	}
 
@@ -239,7 +213,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 
 	public void shareArticle() {
 		WebDriverWait wait = new WebDriverWait(pegaDriver, 30);
-		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@id='Cancel']")));
 
 		PegaWebElement cancelShare = pegaDriver.findElement(By.xpath("//button[@id='Cancel']"));
 		cancelShare.click();
@@ -371,8 +344,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		PegaWebElement orgName = pegaDriver.findElement(By.xpath("//input[@title='Search organization name']"));
 		orgName.sendKeys(Name);
 
-		//PegaWebElement orgType = pegaDriver.findElement(By.xpath("//input[@title='Search organization type']"));
-		//orgType.sendKeys(Type);
 
 		PegaWebElement orgInd = pegaDriver.findElement(By.xpath("//input[@title='Search industry']"));
 		orgInd.sendKeys(Industry);
@@ -407,11 +378,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		PegaWebElement lastName = pegaDriver.findElement(By.xpath("//input[@title='Search last name']"));
 		lastName.sendKeys(Lname);
 
-		//PegaWebElement OrgName = pegaDriver.findElement(By.xpath("//input[@title='Search organization name']"));
-		//OrgName.sendKeys(Org);
-
-		//PegaWebElement phoneNumber = pegaDriver.findElement(By.xpath("//input[@title='Search Phone number']"));
-		//phoneNumber.sendKeys(PhNo);
 
 		PegaWebElement mailId = pegaDriver.findElement(By.xpath("//input[@title='Search Email']"));
 		mailId.sendKeys(mail);
@@ -456,49 +422,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 	}
 
 	public String CaseIDOfInteraction() {
-		/*
-		 * PegaWebElement toolsButton = pegaDriver.findElement(By.xpath(
-		 * "//button[@title='Tools Menu']")); toolsButton.click(false); //String
-		 * caseId = null; // String parentHandle = driver.getWindowHandle();
-		 * PegaWebElement viewHistory = pegaDriver.findElement(By.xpath(
-		 * "//span[text()='History and Attachments']")); viewHistory.click();
-		 * testEnv.getBrowser().switchToWindow(2);
-		 * 
-		 * /*PegaWebElement id = pegaDriver.findElement(By.xpath(
-		 * "//span[contains(text(),'I-') or contains(text(),'S-')]"));
-		 */
-		/*
-		 * String idOfCase = pegaDriver.findElement(By .xpath(
-		 * "//span[contains(text(),'I-') or contains(text(),'S-')]")).getText();
-		 * //caseId = id.getText(); //PegaWebElement closeButton =
-		 * pegaDriver.findElement(By.xpath(
-		 * "//td[@id='HeaderButtonIconsTDId']//*[@title='Cancel ']"));
-		 * //closeButton.click(false); testEnv.getBrowser().close();
-		 * testEnv.getBrowser().switchToWindow(1); System.out.println(idOfCase);
-		 * CaseID = idOfCase.trim(); System.out.println(CaseID); return CaseID;
-		 */
-
-		// Open history pop and get case id -START
-
-		/*PegaWebElement toolsButton = pegaDriver
-				.findElement(By.xpath("//button[@title='Tools Menu' or @title='Tools menu' or @title='Help']"));
-		toolsButton.click(false);
-		PegaWebElement viewHistory = pegaDriver.findElement(By.xpath("//span[text()='History and Attachments']"));
-		viewHistory.click();
-		testEnv.getBrowser().switchToWindow(2);
-
-		String idOfCase = pegaDriver
-				.findElement(
-						By.xpath("//span[contains(text(),'I-') or contains(text(),'S-') or contains(text(),'C-')]"))
-				.getText();
-		testEnv.getBrowser().close();
-		testEnv.getBrowser().switchToWindow(1);
-		System.out.println(idOfCase);
-		CaseID = idOfCase.trim();
-
-		return CaseID;*/
-
-		// Open history pop and get case id -END
 
 		
 		frameId = pegaDriver.getActiveFrameId(false); newWizard =
@@ -516,13 +439,11 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		frameId = pegaDriver.getActiveFrameId(false); 
 		 newWizard = pegaDriver.findWizard(frameId);
 		 
-		//pegaDriver.switchTo().frame(pegaDriver.findElement(By.id("PegaGadget0Ifr")));
 		  
 		 newWizard.findElement(By.xpath("//h3[@class='layout-group-item-title' and text()='Recent work']")).click();
 		 List<WebElement> list =newWizard.findElements(By.xpath("//*[@href='#' and contains(@title,'Open Work Object') and contains(text(),'I-')]"));
 		 String followCaseID =list.get(0).getText();
 		 System.out.println(followCaseID);
-		//CaseID = followCaseID.substring(1, followCaseID.length() - 1); 
 		  CaseID=followCaseID;
 		  CaseID= CaseID.trim(); 
 		  System.out.println(CaseID); 
@@ -531,27 +452,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 	}
 	
 	public String CaseIDOfInteractionfromHistory() {
-		/*
-		 * PegaWebElement toolsButton = pegaDriver.findElement(By.xpath(
-		 * "//button[@title='Tools Menu']")); toolsButton.click(false); //String
-		 * caseId = null; // String parentHandle = driver.getWindowHandle();
-		 * PegaWebElement viewHistory = pegaDriver.findElement(By.xpath(
-		 * "//span[text()='History and Attachments']")); viewHistory.click();
-		 * testEnv.getBrowser().switchToWindow(2);
-		 * 
-		 * /*PegaWebElement id = pegaDriver.findElement(By.xpath(
-		 * "//span[contains(text(),'I-') or contains(text(),'S-')]"));
-		 */
-		/*
-		 * String idOfCase = pegaDriver.findElement(By .xpath(
-		 * "//span[contains(text(),'I-') or contains(text(),'S-')]")).getText();
-		 * //caseId = id.getText(); //PegaWebElement closeButton =
-		 * pegaDriver.findElement(By.xpath(
-		 * "//td[@id='HeaderButtonIconsTDId']//*[@title='Cancel ']"));
-		 * //closeButton.click(false); testEnv.getBrowser().close();
-		 * testEnv.getBrowser().switchToWindow(1); System.out.println(idOfCase);
-		 * CaseID = idOfCase.trim(); System.out.println(CaseID); return CaseID;
-		 */
 
 		
 		// Open history pop and get case id -START
@@ -560,18 +460,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 				.findElement(By.xpath("//button[@title='Other actions' or @title='Help']"));
 		toolsButton.click(false);
 		
-		/*List<WebElement> listElements = pegaDriver.findElements(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH));
-
-		for (WebElement element : listElements){
-
-		    if(element.isDisplayed() && element.isEnabled()){
-
-		    	//pegaDriver.handleWaits().waitForElementClickable(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH));
-		        WebDriverWait wait = new WebDriverWait(pegaDriver, 2); 
-		        WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH)));
-		        element.click();
-		    }
-		}*/
 
 		
 		PegaWebElement viewHistory = pegaDriver.findElement(By.xpath("//span[text()='History and Attachments']"));
@@ -590,19 +478,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 
 		return CaseID;
 
-		// Open history pop and get case id -END
-
-		/*
-		 * frameId = pegaDriver.getActiveFrameId(false); newWizard =
-		 * pegaDriver.findWizard(frameId);
-		 * 
-		 * String followCaseID =
-		 * pegaDriver.findElement(By.xpath("//div[@id='CT']/span")).getText();
-		 * System.out.println(followCaseID);
-		 * CaseID = followCaseID.substring(1, followCaseID.length() - 1); 
-		 * 
-		 * CaseID= CaseID.trim(); System.out.println(CaseID); return CaseID;
-		 */
 	}
 
 	public void searchCaseswithPreviousCaseID(String searchType) {
@@ -640,8 +515,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 	public ResearchInteraction selectthePreviousCaseID() {
 		pegaDriver.waitForDocStateReady(3);
 		pegaDriver.switchToActiveFrame();
-		//PegaWebElement selectAccount = pegaDriver.findElement(By.xpath("//span[contains(text(),'" + CaseID + "')]"));
-		//selectAccount.click();
 		PegaWebElement selectAccount = pegaDriver.findElement(By.xpath("//span[contains(text(),'"+CaseID+"')]/../../../td[@class=' gridCell ']//*[@aria-haspopup='true' and contains(@data-click,'CPMSearchResultMenu')]"));
 		selectAccount.click(false);
 		PegaWebElement startresearch=pegaDriver.findElement(By.xpath("//span[contains(text(),'Start research')]"));
@@ -660,39 +533,15 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.waitForDocStateReady(90);
 		pegaDriver.switchTo().defaultContent();
-		// pegaDriver.findElement(By.xpath("//input[@id='pySearchText']")).sendKeys(Keys.CLEAR);
 		PegaWebElement searchdropdown = pegaDriver.findElement(By.xpath("//select[@title='Search results for']"));
 		List<WebElement> options = searchdropdown.findElements(By.tagName("option"));
 		options.get(5).click();
-
-		/*// Open history pop and get case id -START
-
-		PegaWebElement toolsButton = pegaDriver
-				.findElement(By.xpath("//button[@title='Tools Menu' or @title='Tools menu' or @title='Help']"));
-		toolsButton.click(false);
-		PegaWebElement viewHistory = pegaDriver.findElement(By.xpath("//span[text()='History and Attachments']"));
-		viewHistory.click();
-		testEnv.getBrowser().switchToWindow(2);
-
-		String idOfCase = pegaDriver
-				.findElement(
-						By.xpath("//span[contains(text(),'I-') or contains(text(),'S-') or contains(text(),'C-')]"))
-				.getText();
-		testEnv.getBrowser().close();
-		testEnv.getBrowser().switchToWindow(1);
-		System.out.println(idOfCase);
-		String cID = idOfCase.trim();
-
-		// Open history pop and get case id -END
-*/
 		pegaDriver.findElement(By.xpath(TopNav.SEARCH_BOX_XPATH)).sendKeys(CaseID);
 		pegaDriver.waitForDocStateReady(90);
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath("//i[@title='Search for an item'][@class='icons pi pi-search-2 pi-regular']")).click();
 		pegaDriver.waitForDocStateReady(3);
 		pegaDriver.switchToActiveFrame();
-		//PegaWebElement searchTypeTab = pegaDriver.findElement(By.xpath("//h3[@class='layout-group-item-title'][text()='" + interactionType + "']"));
-		//searchTypeTab.click();
 
 	}
 
@@ -746,8 +595,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 	public void forPreviousCaseID() {
 		pegaDriver.waitForDocStateReady(3);
 		pegaDriver.switchToActiveFrame();
-		//PegaWebElement selectAccount = pegaDriver.findElement(By.xpath("//span[contains(text(),'" + CaseID + "')]"));
-		//selectAccount.click();
 		PegaWebElement selectAccount = pegaDriver.findElement(By.xpath("//span[contains(text(),'"+CaseID+"')]/../../../td[@class=' gridCell ']//*[@aria-haspopup='true' and contains(@data-click,'CPMSearchResultMenu')]"));
 		selectAccount.click(false);
 		PegaWebElement initiatecall=pegaDriver.findElement(By.xpath("//span[contains(text(),'Initiate a call')]"));
