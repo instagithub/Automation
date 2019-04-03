@@ -2,8 +2,8 @@ package com.pega.crm.salesautomation.workobjects.impl;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
@@ -13,14 +13,9 @@ public class PegaTasks extends WizardImpl implements Tasks{
 	
 	
 
-	public PegaTasks(WebElement elmt) {
-		super(elmt);
-		
-	}
 
-	
-	public PegaTasks(WebElement elmt, String elmtId){
-		super(elmt, elmtId);
+	public PegaTasks(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
 
 

@@ -22,12 +22,9 @@ public class PegaSegments extends PegaLandingPage implements Segments {
 
 	public class ImageCatalogImpl extends FrameImpl implements ImageCatalog {
 
-		public ImageCatalogImpl(WebElement elmt) {
-			super(elmt);
-		}
 
-		public ImageCatalogImpl(WebElement elmt, String elmtId) {
-			super(elmt, elmtId);
+		public ImageCatalogImpl(String frameID, TestEnvironment testEnv) {
+			super(frameID, testEnv);
 		}
 
 		public void search(String picName) {

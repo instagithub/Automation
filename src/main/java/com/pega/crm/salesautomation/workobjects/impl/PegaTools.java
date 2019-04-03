@@ -3,18 +3,17 @@ package com.pega.crm.salesautomation.workobjects.impl;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Tools;
 import com.pega.ri.WizardImpl;
 
 
 public class PegaTools extends WizardImpl implements Tools
 {
-	public PegaTools(WebElement elmt, String elmtId) 
-	{
-		super(elmt, elmtId);
-		
+
+	public PegaTools(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
 
 	@Override

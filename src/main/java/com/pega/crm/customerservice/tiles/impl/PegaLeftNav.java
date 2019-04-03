@@ -40,7 +40,6 @@ import com.pega.crm.salesautomation.workobjects.impl.PegaTerritoriesList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaToolsList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 
 public class PegaLeftNav implements LeftNav {
 
@@ -81,10 +80,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(OPR_DASHBOARD)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Login login = new PegaLogin(framElmt, frameId);
-		login._setEnvironment(testEnv, frameId);
+		Login login = new PegaLogin(frameId,testEnv);
 		return login;
 	}
 	
@@ -93,10 +89,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(OPR_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		OperatorList oprList = new PegaOperatorList(framElmt, frameId);
-		oprList._setEnvironment(testEnv, frameId);
+		OperatorList oprList = new PegaOperatorList(frameId,testEnv);
 		return oprList ;
 	}
 	
@@ -106,11 +99,8 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(ORG_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
 		//OrganizationsList list = new OrganizationsListImpl(framElmt, frameId);
-		OrganizationsList list = new PegaOrganizationsList(framElmt,frameId);
-		list._setEnvironment(testEnv, frameId);
+		OrganizationsList list = new PegaOrganizationsList(frameId,testEnv);
 		return list;
 	}
 
@@ -120,10 +110,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(CONT_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		ContactList contList = new PegaContactList(framElmt, frameId);
-		contList._setEnvironment(testEnv, frameId);
+		ContactList contList = new PegaContactList(frameId, testEnv);
 		return contList;
 	}
 
@@ -132,10 +119,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(ACC_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		AccountList accList = new PegaAccountList(framElmt, frameId);
-		accList._setEnvironment(testEnv, frameId);
+		AccountList accList = new PegaAccountList(frameId, testEnv);
 		return accList;
 	}
 
@@ -158,10 +142,7 @@ public class PegaLeftNav implements LeftNav {
 		}
 		finally{
 			String frameId = pegaDriver.getActiveFrameId(false);
-			PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-			pegaDriver.switchTo().frame(frameId);
-			OpportunityList oppList = new PegaOpportunityList(framElmt, frameId);
-			oppList._setEnvironment(testEnv, frameId);
+			OpportunityList oppList = new PegaOpportunityList(frameId, testEnv);
 			return oppList;
 		}
 		
@@ -172,10 +153,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(PART_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		PartnersList ptrList = new PegaPartnersList(framElmt, frameId);
-		ptrList._setEnvironment(testEnv, frameId);
+		PartnersList ptrList = new PegaPartnersList(frameId, testEnv);
 		return ptrList ;
 	}
 	public HouseholdList getHouseholdList() 
@@ -183,10 +161,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(HHD_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		HouseholdList hhList = new PegaHouseholdList(framElmt, frameId);
-		hhList._setEnvironment(testEnv, frameId);
+		HouseholdList hhList = new PegaHouseholdList(frameId, testEnv);
 		return hhList;
 	}
 
@@ -195,10 +170,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(LEAD_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		LeadsList leadList = new PegaLeadsList(framElmt, frameId);
-		leadList._setEnvironment(testEnv, frameId);
+		LeadsList leadList = new PegaLeadsList(frameId, testEnv);
 		return leadList;
 	}
 	@Override
@@ -215,10 +187,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(LISTVIEW_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		AppointmentList appList = new PegaAppointmentList(framElmt, frameId);
-		appList._setEnvironment(testEnv, frameId);
+		AppointmentList appList = new PegaAppointmentList(frameId, testEnv);
 		return appList;
 	}
 	@Override
@@ -226,10 +195,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(TERR_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		TerritoriesList terrList = new PegaTerritoriesList(framElmt, frameId);
-		terrList._setEnvironment(testEnv, frameId);
+		TerritoriesList terrList = new PegaTerritoriesList(frameId, testEnv);
 		return terrList;
 	}
 	
@@ -238,10 +204,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(TOOLS_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		ToolsList toolsList= new PegaToolsList(framElmt, frameId);
-		toolsList._setEnvironment(testEnv, frameId);
+		ToolsList toolsList= new PegaToolsList(frameId, testEnv);
 		return toolsList;
 
 	}
@@ -253,10 +216,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(QUICK_CREATE_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		QuickCreate quick= new PegaQuickCreate(framElmt, frameId);
-		quick._setEnvironment(testEnv, frameId);
+		QuickCreate quick= new PegaQuickCreate(frameId, testEnv);
 		return quick;
 	}
 
@@ -267,10 +227,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(PULSE_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Pulse pulseList= new PegaPulse(framElmt, frameId);
-		pulseList._setEnvironment(testEnv, frameId);
+		Pulse pulseList= new PegaPulse(frameId, testEnv);
 		return pulseList;
 		
 	}
@@ -282,10 +239,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(EGMAP_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		EngagementMaps egMaps= new PegaEngagementMaps(framElmt, frameId);
-		egMaps._setEnvironment(testEnv, frameId);
+		EngagementMaps egMaps= new PegaEngagementMaps(frameId, testEnv);
 		return egMaps;
 	}
 
@@ -296,10 +250,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.findElement(By.xpath(FORECAST_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Forecast forecast= new PegaForecast(framElmt, frameId);
-		forecast._setEnvironment(testEnv, frameId);
+		Forecast forecast= new PegaForecast(frameId, testEnv);
 		return forecast;
 	}
 
@@ -312,10 +263,7 @@ public class PegaLeftNav implements LeftNav {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(CLOSEPLANS_LIST_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		ClosePlans closeplans= new PegaClosePlans(framElmt, frameId);
-		closeplans._setEnvironment(testEnv, frameId);
+		ClosePlans closeplans= new PegaClosePlans(frameId, testEnv);
 		return closeplans;
 		
 	} 

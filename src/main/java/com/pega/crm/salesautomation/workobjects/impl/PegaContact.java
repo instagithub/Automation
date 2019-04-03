@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Contacts;
 import com.pega.crm.salesautomation.workobjects.Households;
@@ -14,7 +15,6 @@ import com.pega.crm.salesautomation.workobjects.Leads;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.Relationship;
 import com.pega.crm.salesautomation.workobjects.Tasks;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 
@@ -22,15 +22,11 @@ import com.pega.ri.WizardImpl;
 public class PegaContact extends WizardImpl implements Contacts
 {
 	
-	String CON_SUBTABS_XPATH = "//div[@role='tab']//h2"; 
-	public PegaContact(WebElement elmt, String elmtId) 
-	{
-		super(elmt, elmtId);
-		
+	public PegaContact(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
-	public PegaContact(WebElement elmt) {
-		super(elmt);
-	}								  
+	
+	String CON_SUBTABS_XPATH = "//div[@role='tab']//h2"; 
 	
 	public void setFirstName(StringBuffer FirstName)
 	{
@@ -278,15 +274,15 @@ public class PegaContact extends WizardImpl implements Contacts
 	public String getC2ARelationShipName() {
 		pegaDriver.getActiveFrameId(true);
 		//pegaDriver.findElement(By.xpath(CONT_C2A_LIST_XPATH)).scrollIntoView();
-		List<WebElement> wb = driver.findElements(By.xpath(CONT_C2A_LIST_XPATH));
+		List<WebElement> wb = pegaDriver.findElements(By.xpath(CONT_C2A_LIST_XPATH));
 		System.out.println("Sizeee" + wb.size());
 		for(WebElement w : wb)
 		{
-			String RelationType = driver.findElement(By.xpath(CONT_C2A_RELATIONSHIP_XPATH)).getText().trim();
+			String RelationType = pegaDriver.findElement(By.xpath(CONT_C2A_RELATIONSHIP_XPATH)).getText().trim();
 			System.out.println("Relationship type is" + RelationType);
 			if(RelationType.equals("Primary-Individual"))
 			{
-				String AccountName = driver.findElement(By.xpath(CONT_C2A_ACCOUNT_NAME_XPATH)).getText().trim();
+				String AccountName = pegaDriver.findElement(By.xpath(CONT_C2A_ACCOUNT_NAME_XPATH)).getText().trim();
 				System.out.println("*******" +AccountName);
 				return AccountName;
 			}
@@ -358,10 +354,7 @@ public class PegaContact extends WizardImpl implements Contacts
 		PegaUtil.dropdown(pegaDriver, CONT_ADD_LEAD_XPATH, "Business");
 		pegaDriver.getActiveFrameId(true);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	
 		
 		
@@ -383,10 +376,7 @@ public class PegaContact extends WizardImpl implements Contacts
 	public Leads clickIndividualLead() {
 		PegaUtil.dropdown(pegaDriver, CONT_ADD_LEAD_XPATH, "Individual");
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;
 	}
 
@@ -408,10 +398,7 @@ public class PegaContact extends WizardImpl implements Contacts
 	public Opportunities clickOpptyFromSubtab(String opptype) {
 		PegaUtil.dropdown(pegaDriver, CONT_ADD_OPPTY_XPATH, opptype);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Opportunities opp = new PegaOpportunity(framElmt, frameId);
-		opp._setEnvironment(testEnv, frameId);
+		Opportunities opp = new PegaOpportunity(frameId, testEnv);
 		return opp;	
 	}
 
@@ -447,10 +434,7 @@ public class PegaContact extends WizardImpl implements Contacts
 		pegaDriver.getActiveFrameId(true);
 		PegaUtil.dropdown(pegaDriver,CONT_HOUSEHOLD_XPATH , "Exisiting" );
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Households HouseholdDetails = new PegaHouseholds(framElmt, frameId);
-		HouseholdDetails._setEnvironment(testEnv, frameId);
+		Households HouseholdDetails = new PegaHouseholds(frameId, testEnv);
 		return HouseholdDetails;
 	}
 
@@ -493,10 +477,7 @@ public class PegaContact extends WizardImpl implements Contacts
 		pegaDriver.getActiveFrameId(true);
 		PegaUtil.dropdown(pegaDriver, CONT_HOUSEHOLD_XPATH, "New" );
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Households HouseholdDetails = new PegaHouseholds(framElmt, frameId);
-		HouseholdDetails._setEnvironment(testEnv, frameId);
+		Households HouseholdDetails = new PegaHouseholds(frameId, testEnv);
 		return HouseholdDetails;
 		
 	}
@@ -529,10 +510,7 @@ public class PegaContact extends WizardImpl implements Contacts
 		pegaDriver.getActiveFrameId(true);
 		PegaUtil.dropdown(pegaDriver, RELATIONSHIP_ADD_BUTTON, "Contact");
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship rr = new PegaRelationship(framElmt, frameId);
-		rr._setEnvironment(testEnv, frameId);
+		Relationship rr = new PegaRelationship(frameId, testEnv);
 		return rr;
 		
 	}

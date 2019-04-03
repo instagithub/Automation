@@ -14,10 +14,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.utils.CommonMethods;
@@ -30,11 +32,18 @@ import com.pega.ri.WizardImpl;
 
 public abstract class PegaInteractions extends WizardImpl implements Interactions {
 
+	private WebDriver driver;
+
+	public PegaInteractions(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+		commonMethods = new CommonMethods(pegaDriver);
+		driver = pegaDriver.getDriver();
+	}
+
 	public static String CaseID = null;
 	public String frameId = null;
 	public Wizard newWizard = null;
 	public CommonMethods commonMethods = null;
-
 	boolean pop = false;
 
 	public boolean isPop() {
@@ -45,14 +54,6 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 		this.pop = pop;
 	}
 
-	public PegaInteractions(WebElement elmt) {
-		super(elmt);
-	}
-
-	public PegaInteractions(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		commonMethods = new CommonMethods(pegaDriver);
-	}
 
 	@Override
 	public void launchAddressChange() {

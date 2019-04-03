@@ -7,12 +7,12 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.Relationship;
 import com.pega.crm.salesautomation.workobjects.Tasks;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 
@@ -22,6 +22,11 @@ import com.pega.ri.WizardImpl;
 public class PegaAccounts extends WizardImpl implements Accounts{
 	//String ACC_TASK_REFRESH_XPATH = "//button[contains(@name, 'crmTasks')][text()='Refresh']";
 	
+	public PegaAccounts(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
+
 	String ACC_ADD_INDOPPTY = "//*[@data-test-id='2015061908563207831294']";
 	String ACC_TERRITORY_VALUE_XPATH = "//span[text()='Territory']/..//div";
 	String ACC_INDUSTRY_VALUE_XPATH = "//span[text()='Industry']/..//div";
@@ -69,11 +74,6 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public String WO_NAME=null;
 	String ACC_SUBTABS_XPATH = "//div[@role='tab']//h2";
 	
-	
-	public PegaAccounts(WebElement elmt, String elmtId) 
-	{
-		super(elmt, elmtId);
-	}
 	
 	
 	@Override
@@ -403,10 +403,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		
 				
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Opportunities newOppty= new PegaOpportunity(framElmt, frameId);
-		newOppty._setEnvironment(testEnv, frameId);
+		Opportunities newOppty= new PegaOpportunity(frameId, testEnv);
 		return newOppty;
 	}
 
@@ -458,10 +455,7 @@ PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
 		//pegaDriver.findElement(By.xpath("//li[@role='presentation']//span[text()='Add activity']")).click();
 				
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Activity ActivityDetails = new PegaActivity(framElmt, frameId);
-		ActivityDetails._setEnvironment(testEnv, frameId);
+		Activity ActivityDetails = new PegaActivity(frameId, testEnv);
 		return ActivityDetails;	
 	}
 	
@@ -589,10 +583,7 @@ PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
 	public Relationship clickContact() {
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add contact");
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relation = new PegaRelationship(framElmt, frameId);
-		relation._setEnvironment(testEnv, frameId);
+		Relationship relation = new PegaRelationship(frameId, testEnv);
 		return relation;
 	}
 

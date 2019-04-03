@@ -1,10 +1,10 @@
 package com.pega.crm.salesautomation.workobjects;
 
-import com.pega.ri.Wizard;
-
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+
+import com.pega.ri.Wizard;
 
 public interface ClosePlans extends Wizard{
 	boolean isFilterMenuDisplayed();

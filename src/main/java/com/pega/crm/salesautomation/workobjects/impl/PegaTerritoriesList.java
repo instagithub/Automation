@@ -6,20 +6,21 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Territories;
 import com.pega.crm.salesautomation.workobjects.TerritoriesList;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
 
+	public PegaTerritoriesList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+		// TODO Auto-generated constructor stub
+	}
+
 	String TERR_PARENT_HANDLE;
 	
 
-	public PegaTerritoriesList(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 	
 	@Override
 	public Territories createTerritory() {
@@ -28,10 +29,7 @@ public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
 		pegaDriver.findElement((CREATE_TERR_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Territories trr = new PegaTerritory(framElmt, frameId);
-		trr._setEnvironment(testEnv, frameId);
+		Territories trr = new PegaTerritory(frameId, testEnv);
 		return trr;	
 		
 	}
@@ -48,11 +46,8 @@ public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
 		findElement((TRR_NAME_XPATH)).doubleClick();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Territories trr = new PegaTerritory(framElmt, frameId);
-		trr._setEnvironment(testEnv, frameId);
-		return trr;	
+		Territories trr = new PegaTerritory(frameId, testEnv);
+		return trr;
 		
 	}
 	public String getTerritoryID(String territoryName)

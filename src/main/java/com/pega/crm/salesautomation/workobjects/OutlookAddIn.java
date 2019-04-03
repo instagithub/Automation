@@ -1,8 +1,5 @@
 package com.pega.crm.salesautomation.workobjects;
 
-import java.util.List;
-import com.pega.ri.Wizard;
-
 public interface OutlookAddIn{
 
 	void loginToOutlook(String username, String pwd); 

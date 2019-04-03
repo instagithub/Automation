@@ -1,12 +1,16 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Forecast;
 import com.pega.ri.WizardImpl;
 
 public class PegaForecast extends WizardImpl implements Forecast{
+
+	public PegaForecast(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
 
 	String TERRITORY_ID="crmForecastByTerritorySearchTerm";
 	String OVERRIDE_ID="ForecastLevelTerritory";
@@ -15,10 +19,6 @@ public class PegaForecast extends WizardImpl implements Forecast{
 	String ADVANCED_XPATH="//a[contains(@name,'FilterAdvanced')]";
 	String Q1_CLOSED_XPATH="//div[@data-click='ForecastGadget.ForecastSummaryColumn(2).CategoryRow(2)']//div[@pyclassname='PegaCRM-Embed-SFA-ForecastGadget']//a";
 	
-	public PegaForecast(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public boolean isTerritoryDisplayed() {

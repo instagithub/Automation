@@ -1,12 +1,16 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.EngagementMaps;
 import com.pega.ri.WizardImpl;
 
 public class PegaEngagementMaps extends WizardImpl implements EngagementMaps{
+
+	public PegaEngagementMaps(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
 
 	String EGMAPS_VIEWBY_ID="ViewType";
 	String EGMAPS_SELLINGMODE_ID="EngagementMapSellingModes";
@@ -15,11 +19,6 @@ public class PegaEngagementMaps extends WizardImpl implements EngagementMaps{
 	String EGMPAS_CLEARFILTERS_BUTTON_XPATH="//a[text()='Clear filters']";
 	String EGMAPS_PRODUCTS_XPATH="//div[@pyclassname='PegaCRM-Data-Product']";
 	
-	//EngagementMapSellingModes
-	public PegaEngagementMaps(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public boolean isViewByDisplayed() {

@@ -6,19 +6,21 @@ import java.util.Date;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.DialogsAndCoachingTips;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
 
 public abstract class PegaDialogsAndCoachingTips extends WizardImpl implements DialogsAndCoachingTips {
+	public PegaDialogsAndCoachingTips(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	public static String CaseID = null;
 	public String frameId = null;
 	public Wizard newWizard = null;
-	public CommonMethods commonMethods = null;
 	boolean pop = false;
 
 	public boolean isPop() {
@@ -28,15 +30,7 @@ public abstract class PegaDialogsAndCoachingTips extends WizardImpl implements D
 	public void setPop(boolean pop) {
 		this.pop = pop;
 	}
-	public PegaDialogsAndCoachingTips(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		commonMethods = new CommonMethods(pegaDriver);
-	}
-
-	public PegaDialogsAndCoachingTips(WebElement elmt) {
-		super(elmt);
-	}
-
+	
 	@Override
 	public void ConfigDialog() {
 		/*pegaDriver.switchTo().defaultContent();
@@ -105,7 +99,7 @@ public abstract class PegaDialogsAndCoachingTips extends WizardImpl implements D
 		if(Dialog.equalsIgnoreCase("")||Dialog.equalsIgnoreCase(null)){
 			Dialog="May I have the new address and phone number for your Individual account, please?";
 		}
-		pegaDriver.findElement(By.xpath(Txt_Dialog_Xpath)).sendKeys(Dialog);
+		findElement(By.xpath(Txt_Dialog_Xpath)).sendKeys(Dialog);
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.switchTo().frame(IFrame2);
 		DropDown ReferTo1 = pegaDriver.findSelectBox(By.xpath(DDL_ReferTo_Xpath));

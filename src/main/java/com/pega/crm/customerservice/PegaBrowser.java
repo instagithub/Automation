@@ -520,10 +520,7 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		PegaWebElement startresearch=pegaDriver.findElement(By.xpath("//span[contains(text(),'Start research')]"));
 		startresearch.click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 
 	}
@@ -600,10 +597,7 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		PegaWebElement initiatecall=pegaDriver.findElement(By.xpath("//span[contains(text(),'Initiate a call')]"));
 		initiatecall.click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		
 
 	}

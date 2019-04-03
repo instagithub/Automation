@@ -7,13 +7,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.AccountList;
 import com.pega.crm.salesautomation.workobjects.Accounts;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaAccountList extends WizardImpl implements AccountList 
 {
+	public PegaAccountList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
+
 	String CREATE_ACC_BTN_XPATH = PegaUtil.getStrongButtonXPath("Create account");
 	String BUSINESSTAB_XPATH=PegaUtil.getSegmentedButtonXPath("Business");
 	String ACC_SEARCH_FIELD_ID = "FilterTermForAccount'";
@@ -28,19 +33,13 @@ public class PegaAccountList extends WizardImpl implements AccountList
 	String OPP_REFRESH_BUTTON_XPATH="//*[@data-test-id='20141201005938049427324']";
 	String ACC_TABLE_HEADER_XPATH="//table[@id='bodyTbl_right']//th//div[@class='cellIn ']";
 
-	public PegaAccountList(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-	}
 
 	public StringBuffer WOName;
 	public Accounts createAccount() {
 		findElement(By.xpath(CREATE_ACC_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc = new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc = new PegaAccounts(frameId, testEnv);
 		return acc;	
 		
 	}
@@ -62,10 +61,7 @@ public class PegaAccountList extends WizardImpl implements AccountList
 		}
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc = new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc = new PegaAccounts(frameId, testEnv);
 		return acc;	
 	}
 	
@@ -85,10 +81,7 @@ public class PegaAccountList extends WizardImpl implements AccountList
 		}
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc = new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc = new PegaAccounts(frameId, testEnv);
 		return acc;	
 	}
 
@@ -103,10 +96,7 @@ public class PegaAccountList extends WizardImpl implements AccountList
 		findElement(By.xpath(ACC_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc = new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc = new PegaAccounts(frameId, testEnv);
 		return acc;
 	}
 

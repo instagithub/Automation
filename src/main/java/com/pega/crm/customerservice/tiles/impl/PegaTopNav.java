@@ -57,10 +57,7 @@ public class PegaTopNav implements TopNav {
 		pegaDriver.findElement(By.xpath("//td[@id='ItemMiddle' and text()='Phone Call']")).click();
 		// you need to implement logic
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		PhoneCall newPhoneCall = new PegaPhoneCall(frameElmt, frameId);
-		newPhoneCall._setEnvironment(testEnv, frameId);
+		PhoneCall newPhoneCall = new PegaPhoneCall(frameId, testEnv);
 		return newPhoneCall;
 	}
 
@@ -75,10 +72,7 @@ public class PegaTopNav implements TopNav {
 		pegaDriver.findElement(By.xpath("//span[@class='menu-item-title' and text()='Demo Pop - CONNOR']")).click();
 		pegaDriver.findElement(By.xpath("//div[@class='pzbtn-mid' and text()='Accept']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameElmt, frameId);
-		newDemoInteraction._setEnvironment(testEnv, frameId);
+		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameId, testEnv);
 		return newDemoInteraction;
 	}
 
@@ -92,10 +86,7 @@ public class PegaTopNav implements TopNav {
 		pegaDriver.findElement(By.xpath("//span[text()='Inbound correspondence']")).click();
 		pegaDriver.handleWaits().sleep(3);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		NewInboundInteraction newInboundInteraction = new PegaNewInboundInteraction(frameElmt, frameId);
-		newInboundInteraction._setEnvironment(testEnv, frameId);
+		NewInboundInteraction newInboundInteraction = new PegaNewInboundInteraction(frameId, testEnv);
 		return newInboundInteraction;
 	}
 
@@ -166,10 +157,7 @@ public class PegaTopNav implements TopNav {
 	public <T extends Interactions> T returnInteractionType(String value) {
 		if (value.equalsIgnoreCase("Phone Call")) {
 			String frameId = pegaDriver.getActiveFrameId(false);
-			WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-			pegaDriver.switchTo().frame(frameElmt);
-			PhoneCall newPhoneCall = new PegaPhoneCall(frameElmt, frameId);
-			newPhoneCall._setEnvironment(testEnv, frameId);
+			PhoneCall newPhoneCall = new PegaPhoneCall(frameId, testEnv);
 			return (T) newPhoneCall;
 		}
 
@@ -178,28 +166,19 @@ public class PegaTopNav implements TopNav {
 			// text()='Accept']")).click();
 			String frameId = pegaDriver.getActiveFrameId(false);
 			System.out.println(frameId);
-			WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-			pegaDriver.switchTo().frame(frameElmt);
-			NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameElmt, frameId);
-			newDemoInteraction._setEnvironment(testEnv, frameId);
+			NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameId, testEnv);
 			return (T) newDemoInteraction;
 		} else if (value.contains("Inbound correspondence")) {
 
 			String frameId = pegaDriver.getActiveFrameId(false);
 			System.out.println(frameId);
-			WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-			pegaDriver.switchTo().frame(frameElmt);
-			NewInboundInteraction newInboundInteraction = new PegaNewInboundInteraction(frameElmt, frameId);
-			newInboundInteraction._setEnvironment(testEnv, frameId);
+			NewInboundInteraction newInboundInteraction = new PegaNewInboundInteraction(frameId, testEnv);
 			return (T) newInboundInteraction;
 		} else if (value.contains("Outbound Phone Call")) {
 
 			String frameId = pegaDriver.getActiveFrameId(false);
 			System.out.println(frameId);
-			WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-			pegaDriver.switchTo().frame(frameElmt);
-			OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameElmt, frameId);
-			outboundPhoneCall._setEnvironment(testEnv, frameId);
+			OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameId, testEnv);
 			return (T) outboundPhoneCall;
 		}
 
@@ -207,10 +186,7 @@ public class PegaTopNav implements TopNav {
 
 			String frameId = pegaDriver.getActiveFrameId(false);
 			System.out.println(frameId);
-			WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-			pegaDriver.switchTo().frame(frameElmt);
-			OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameElmt, frameId);
-			outboundPhoneCall._setEnvironment(testEnv, frameId);
+			OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameId, testEnv);
 			return (T) outboundPhoneCall;
 
 		}
@@ -277,10 +253,7 @@ public class PegaTopNav implements TopNav {
 		 * "')][text()='"+name+"']")); searchResult.click();*/
 		 
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 	}
 
@@ -308,10 +281,7 @@ public class PegaTopNav implements TopNav {
 			startresearch.click();
 		}
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 	}
 	@Override
@@ -338,10 +308,7 @@ public class PegaTopNav implements TopNav {
 			initiateacall.click();
 		}
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 	}
 	@Override
@@ -351,10 +318,7 @@ public class PegaTopNav implements TopNav {
 		PegaWebElement closeInteraction = pegaDriver.findElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Close']"));
 		closeInteraction.click(false);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameElmt, frameId);
-		researchInteraction._setEnvironment(testEnv, frameId);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 	}
 
@@ -388,20 +352,14 @@ public class PegaTopNav implements TopNav {
 	public NewDemoInteraction Accept_NewDemoPop_BROWN() {
 		pegaDriver.findElement(By.xpath("//div[@class='pzbtn-mid' and text()='Accept']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameElmt, frameId);
-		newDemoInteraction._setEnvironment(testEnv, frameId);
+		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameId, testEnv);
 		return newDemoInteraction;
 	}
 
 	@Override
 	public NewDemoInteraction NewDemoPop_BROWN() {
 		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameElmt, frameId);
-		newDemoInteraction._setEnvironment(testEnv, frameId);
+		NewDemoInteraction newDemoInteraction = new PegaNewDemoInteraction(frameId, testEnv);
 		return newDemoInteraction;
 	}
 
@@ -466,7 +424,6 @@ public class PegaTopNav implements TopNav {
 		Wizard wizard = pegaDriver.findWizard(frameId);
 		pegaDriver.switchTo().defaultContent();
 		ApplicationWizard appWizard = new PegaApplicationWizard(pegaDriver.getActiveFrameId(true), testEnv);
-		appWizard._setEnvironment(testEnv, wizard.getId());
 		pegaDriver.findElement(By.xpath("//span[contains(text(),'Customer Service 7.')]")).click();
 		pegaDriver.switchTo().defaultContent();
 		pegaDriver.switchTo().frame("PegaGadget0Ifr");
@@ -777,11 +734,8 @@ public class PegaTopNav implements TopNav {
 	}
 	@Override
 	public OutboundPhoneCall createOutboundPhoneCall() {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameElmt, frameId);
-		outboundPhoneCall._setEnvironment(testEnv, frameId);
+		String frameId = pegaDriver.getActiveFrameId(true);
+		OutboundPhoneCall outboundPhoneCall = new PegaOutboundPhoneCall(frameId, testEnv);
 		return outboundPhoneCall;
 	}
 

@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Dataimportwizard;
 import com.pega.ri.WizardImpl;
 import com.pega.util.XPathUtil;
@@ -16,10 +16,8 @@ import com.pega.util.XPathUtil;
 
 public class PegaDataimportwizard extends WizardImpl implements Dataimportwizard {
 	
-	public PegaDataimportwizard(WebElement elmt, String elmtId) {
-		
-		super(elmt, elmtId);
-	
+	public PegaDataimportwizard(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
 	String Dataimportwizard_Button_xpath=PegaUtil.getButtonXpath("Data import wizard");
     String wotype;

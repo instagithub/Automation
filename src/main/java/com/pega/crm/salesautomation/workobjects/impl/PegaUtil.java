@@ -524,10 +524,7 @@ public  class PegaUtil
 		pegaDriver.getActiveFrameId(true);
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add task");
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Tasks tasksDetails = new PegaTasks(framElmt, frameId);
-		tasksDetails._setEnvironment((pegaDriver.getTestEnv()),frameId);
+		Tasks tasksDetails = new PegaTasks(frameId, pegaDriver.getTestEnv());
 		return tasksDetails;
 		
 	}
@@ -535,10 +532,7 @@ public  class PegaUtil
 	public static Activity addActivity(PegaWebDriver pegaDriver) {
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Activity ActivityDetails = new PegaActivity(framElmt, frameId);
-		ActivityDetails._setEnvironment((pegaDriver.getTestEnv()), frameId);
+		Activity ActivityDetails = new PegaActivity(frameId, pegaDriver.getTestEnv());
 		return ActivityDetails;
 	}
 	

@@ -2,23 +2,19 @@ package com.pega.crm.salesautomation.workobjects.impl;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Dataimportwizard;
 import com.pega.crm.salesautomation.workobjects.Tools;
 import com.pega.crm.salesautomation.workobjects.ToolsList;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaToolsList extends WizardImpl implements ToolsList {
 	
-	public PegaToolsList(WebElement elmt, String elmtId) {
-		
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
+	  public PegaToolsList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
-	
-	  String Dataimportwizard_Button_xpath=PegaUtil.getButtonXpath("Data import wizard");
+	String Dataimportwizard_Button_xpath=PegaUtil.getButtonXpath("Data import wizard");
 	  String Manageproducts_Button_xpath=PegaUtil.getButtonXpath("Products");
 	  String Managecompetitors_Button_xpath=PegaUtil.getButtonXpath("Competitors");
 	  String Managerelationtypes_Button_xpath=PegaUtil.getButtonXpath("Relationship types");
@@ -33,9 +29,7 @@ public class PegaToolsList extends WizardImpl implements ToolsList {
 		 pegaDriver.findElement(By.xpath(Dataimportwizard_Button_xpath)).click();
 		 
 		 String frameId = pegaDriver.getActiveFrameId(false);
-		 PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		 Dataimportwizard Di = new PegaDataimportwizard(framElmt, frameId);
-		 Di._setEnvironment(testEnv, frameId);
+		 Dataimportwizard Di = new PegaDataimportwizard(frameId, testEnv);
 		 System.out.println("Returning DI object:::::"+ Di);
 		 return Di;
 	}
@@ -51,10 +45,7 @@ public class PegaToolsList extends WizardImpl implements ToolsList {
 		pegaDriver.findElement(By.xpath(Managecompetitors_Button_xpath)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Tools trr = new PegaTools(framElmt, frameId);
-		trr._setEnvironment(testEnv, frameId);
+		Tools trr = new PegaTools(frameId, testEnv);
 		return trr;
 	}
 	@Override
@@ -63,121 +54,12 @@ public class PegaToolsList extends WizardImpl implements ToolsList {
 		pegaDriver.findElement(By.xpath(Managerelationtypes_Button_xpath)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Tools trr = new PegaTools(framElmt, frameId);
-		trr._setEnvironment(testEnv, frameId);
+		Tools trr = new PegaTools(frameId, testEnv);
 		return trr;	
 	}
 	@Override
 	public Tools ManageTimePeriods() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	/*@Override
-	public Tools PersonalizeMgrDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Tools PersonalizeRepDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Tools PersonalizeOpsDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-	  
-	/*@Override
-	public boolean isDataImportButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isManageProductsButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isManageCompetitorsButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isManageRelationTypesButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isManageTimePeriodsButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isPersonalizeMgrDashboardButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isPersonalizeRepDashboardButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean isPersonalizeOpsDashboardDispayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public IDataImport DataImport() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(Dataimportwizard_Button_xpath)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		IDataImport di = new DataImportImpl(framElmt, frameId);
-		di._setEnvironment(testEnv, frameId);
-		return di;
-	}
-	@Override
-	public Void ManageProducts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void ManageCompetitors() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void ManageRelationTypes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void ManageTimePeriods() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void PersonalizeMgrDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void PersonalizeRepDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Void PersonalizeOpsDashboard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	  */
-
-
 }
 	

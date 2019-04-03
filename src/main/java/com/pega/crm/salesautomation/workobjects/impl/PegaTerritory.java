@@ -2,8 +2,8 @@ package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Territories;
 import com.pega.ri.WizardImpl;
 
@@ -11,8 +11,9 @@ public class PegaTerritory extends WizardImpl implements Territories
 {
 
 	
-	public PegaTerritory(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
+
+	public PegaTerritory(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
 
 	@Override

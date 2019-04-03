@@ -1,18 +1,8 @@
 package com.pega.crm.salesautomation.workobjects;
 
-import com.pega.ri.Wizard;
-
 import java.util.ArrayList;
-import java.util.List;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
-import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
-import com.pega.util.XPathUtil;
+import com.pega.ri.Wizard;
 
 public interface Login extends Wizard {
 	

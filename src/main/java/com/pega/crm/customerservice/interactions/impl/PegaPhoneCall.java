@@ -12,6 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.AutoComplete;
@@ -22,21 +23,17 @@ import com.pega.ri.Wizard;
 
 public class PegaPhoneCall extends PegaInteractions implements PhoneCall {
 
+	public PegaPhoneCall(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+		commonMethods = new CommonMethods(pegaDriver);
+	}
+
+
 	public String frameId = null;
 	public Wizard newWizard = null;
 	public CommonMethods commonMethods = null;
 	public static String timeStamp="";
 
-	public PegaPhoneCall(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		// TODO Auto-generated constructor stub
-		commonMethods = new CommonMethods(pegaDriver);
-	}
-
-	public PegaPhoneCall(WebElement elmt) {
-		super(elmt);
-		// TODO Auto-generated constructor stub
-	}
 	
 	@Override
 	public void searchCustomerByName(String lastName) {

@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Login;
 import com.pega.ri.WizardImpl;
 
@@ -15,12 +16,10 @@ public class PegaLogin extends WizardImpl implements Login {
 	String OPR_LEFTNAV = "//span[@class='menu-item-title-wrap']";
 	
 
-	public PegaLogin(WebElement elmt) {
-		super(elmt);
-	}
-	
-	public PegaLogin(WebElement elmt, String elmtId){
-		super(elmt, elmtId);
+
+
+	public PegaLogin(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
 
 	@Override

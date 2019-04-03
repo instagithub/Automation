@@ -1,11 +1,10 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Partners;
 import com.pega.crm.salesautomation.workobjects.PartnersList;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaPartnersList extends WizardImpl implements PartnersList
@@ -14,6 +13,10 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	
 	
 	
+	public PegaPartnersList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	String CREATE_PTR_BTN_XPATH = "//button[text()='Create partner']";
 	String PTR_SEARCH_FIELD_ID = "FilterTermForOrganization";
 	String PTR_FILTER_PLACEHOLDER_XPATH = "//input[@placeholder='Filter partners']";
@@ -25,20 +28,13 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	
 	
 	
-	public PegaPartnersList(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public Partners createPartner() {
 		findElement(By.xpath(CREATE_PTR_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Partners par = new PegaPartners(framElmt, frameId);
-		par._setEnvironment(testEnv, frameId);
+		Partners par = new PegaPartners(frameId, testEnv);
 		return par;	
 	}
 
@@ -55,10 +51,7 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 		
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Partners ptr = new PegaPartners(framElmt, frameId);
-		ptr._setEnvironment(testEnv, frameId);
+		Partners ptr = new PegaPartners(frameId, testEnv);
 		return ptr;	
 	}
 
@@ -98,11 +91,8 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 		findElement(By.xpath(PTR_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Partners ptr = new PegaPartners(framElmt, frameId);
-		ptr._setEnvironment(testEnv, frameId);
-		return ptr;	
+		Partners ptr = new PegaPartners(frameId, testEnv);
+		return ptr;
 	}
 	
 	

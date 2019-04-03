@@ -4,14 +4,19 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class PegaClosePlans extends WizardImpl implements ClosePlans{
+
+	public PegaClosePlans(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
 
 	String FILTERBY_ID="BaseFilterForLP";
 	String APPLYBUTTON_XPATH=PegaUtil.getButtonXpath("Apply");
@@ -22,9 +27,6 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 	String ADDNEW_XPATH=PegaUtil.getStrongButtonXPath("Add new");
 	String ORGNAME_TITLE = "OrganizationName";
 	
-	public PegaClosePlans(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-	}
 
 	@Override
 	public boolean isFilterMenuDisplayed() {

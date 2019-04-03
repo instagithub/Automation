@@ -3,6 +3,7 @@ package com.pega.crm.customerservice.interactions.impl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebElement;
@@ -11,20 +12,14 @@ import com.pega.ri.Wizard;
 
 public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundPhoneCall {
 
+	public PegaOutboundPhoneCall(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+		commonMethods = new CommonMethods(pegaDriver);
+		}
 	public String frameId = null;
 	public Wizard newWizard = null;
 	public CommonMethods commonMethods = null;
-
-	public PegaOutboundPhoneCall(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		// TODO Auto-generated constructor stub
-		commonMethods = new CommonMethods(pegaDriver);
-	}
-
-	public PegaOutboundPhoneCall(WebElement elmt) {
-		super(elmt);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void CaptureCallReasonAndPlaceCall(String reason, String status) {

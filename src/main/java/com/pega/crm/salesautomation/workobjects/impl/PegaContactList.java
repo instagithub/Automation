@@ -1,32 +1,25 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.ContactList;
 import com.pega.crm.salesautomation.workobjects.Contacts;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaContactList extends WizardImpl implements ContactList {
 
-	public PegaContactList(WebElement elmt, String elmtId)
-	{
-		super(elmt, elmtId);
+	public PegaContactList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
-	public PegaContactList(WebElement elmt) {
-		super(elmt);
-		// TODO Auto-generated constructor stub
-	}
+
+
 	public Contacts createContact()
 	{
 		findElement(By.xpath(CREATE_CONT_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts Cont = new PegaContact(framElmt, frameId);
-		Cont._setEnvironment(testEnv, frameId);
+		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
 
@@ -39,10 +32,7 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts Cont = new PegaContact(framElmt, frameId);
-		Cont._setEnvironment(testEnv, frameId);
+		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
 	
@@ -54,10 +44,7 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts Cont = new PegaContact(framElmt, frameId);
-		Cont._setEnvironment(testEnv, frameId);
+		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
 	
@@ -65,10 +52,7 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts Cont = new PegaContact(framElmt, frameId);
-		Cont._setEnvironment(testEnv, frameId);
+		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;
 	}
 

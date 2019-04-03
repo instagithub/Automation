@@ -1,8 +1,8 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Appointment;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
@@ -10,11 +10,12 @@ import com.pega.ri.WizardImpl;
 
 public class PegaAppointment extends WizardImpl implements Appointment{
 
-	public PegaAppointment(WebElement elmt, String elmtId){
-		super(elmt, elmtId);
-	}
 
 	
+	public PegaAppointment(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	@Override
 	public void setAppointmentSubject(String subject) {
 

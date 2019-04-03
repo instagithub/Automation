@@ -2,8 +2,8 @@ package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.OperatorList;
 import com.pega.crm.salesautomation.workobjects.Operators;
 import com.pega.framework.PegaWebElement;
@@ -12,6 +12,8 @@ import com.pega.ri.WizardImpl;
 
 public class PegaOperatorList extends WizardImpl implements OperatorList {
 	
+
+
 
 String OPERATORS_TAB = new String("//span[text()='Operators']");
 
@@ -46,14 +48,8 @@ By OPR_JOBTITLECOLUMN = By.xpath("//*[@data-test-id='201804100347110194172-th-5'
 String NO_OPERATORS_XPATH = "//div[text()='No operators']";
 String OPERATOR_NAME_XPATH = "//table[@id='gridLayoutTable']//tr[@aria-rowindex='1']//td[@data-attribute-name='Name']//span";
 
-
-public PegaOperatorList(WebElement elmt) {
-	super(elmt);
-	// TODO Auto-generated constructor stub
-}
-
-public PegaOperatorList(PegaWebElement framElmt, String frameId) {
-	super(framElmt,frameId);
+public PegaOperatorList(String frameId, TestEnvironment testEnv) {
+	super(frameId, testEnv);
 }
 
 @Override
@@ -62,10 +58,7 @@ public Operators creasteOperator() {
 	findElement(By.xpath(CREATE_OPR_BTN_XPATH)).click();
 	pegaDriver.waitForDocStateReady(2);
 	String frameId = pegaDriver.getActiveFrameId(false);
-	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-	pegaDriver.switchTo().frame(frameId);
-	Operators org = new PegaOperator(framElmt, frameId);
-	org._setEnvironment(testEnv, frameId);
+	Operators org = new PegaOperator(frameId, testEnv);
 	return org;	
 }
 
@@ -76,10 +69,7 @@ public OperatorList searchOperator(String oprName) {
 	findElement(By.id(OPR_SEARCH_FIELD)).sendKeys(Keys.ENTER);
 	pegaDriver.waitForDocStateReady(2);
 	String frameId = pegaDriver.getActiveFrameId(false);
-	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-	pegaDriver.switchTo().frame(frameId);
-	OperatorList oprList= new PegaOperatorList(framElmt, frameId);
-	oprList._setEnvironment(testEnv, frameId);
+	OperatorList oprList= new PegaOperatorList(frameId, testEnv);
 	return oprList;
 }
 
@@ -88,10 +78,7 @@ public Operators navigateOperator() {
 	
 	pegaDriver.waitForDocStateReady(2);
 	String frameId = pegaDriver.getActiveFrameId(false);
-	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-	pegaDriver.switchTo().frame(frameId);
-	Operators Opr = new PegaOperator(framElmt, frameId);
-	Opr._setEnvironment(testEnv, frameId);
+	Operators Opr = new PegaOperator(frameId, testEnv);
 	return Opr;
 }
 
@@ -112,10 +99,7 @@ public Operators openFirstOperator() {
 	findElement(By.xpath(OPERATOR_NAME_XPATH)).click();
 	pegaDriver.waitForDocStateReady(1);
 	String frameId = pegaDriver.getActiveFrameId(false);
-	PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-	pegaDriver.switchTo().frame(frameId);
-	Operators operator = new PegaOperator(framElmt, frameId);
-	operator._setEnvironment(testEnv, frameId);
+	Operators operator = new PegaOperator(frameId, testEnv);
 	return operator;
 }
 	@Override

@@ -3,8 +3,8 @@ package com.pega.crm.salesautomation.workobjects.impl;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Organizations;
 import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 import com.pega.framework.PegaWebElement;
@@ -13,6 +13,8 @@ import com.pega.ri.WizardImpl;
 public class PegaOrganizationsList extends WizardImpl implements OrganizationsList{
 	
 	
+		
+
 		String ORGANIZATIONS_TAB = new String("//span[text()='Organizations']");
 		
 		String CREATE_ORG_BTN_XPATH = new String("//button[text()='Create organization']");
@@ -24,14 +26,9 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		String ORGANIZATION_NAME_XPATH="//table[@data-test-id='201801031011410135512-layout']//tr[@aria-rowindex='1']//a[1]";
 		String NO_ORGANIZATIONS_XPATH = "//div[text='No organizations']";
 		
-		
-	public PegaOrganizationsList(WebElement elmt) {
-		super(elmt);
-	}
-	
-	public PegaOrganizationsList(WebElement elmt, String elmtId){
-		super(elmt, elmtId);
-	}
+		public PegaOrganizationsList(String frameId, TestEnvironment testEnv) {
+			super(frameId, testEnv);
+		}
 
 	@Override
 	public void search() {
@@ -55,10 +52,7 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	{
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Organizations org = new PegaOrganization(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;
 	
 	}
@@ -75,10 +69,7 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		pegaDriver.waitForDocStateReady(2);
 		
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		OrganizationsList org = new PegaOrganizationsList(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		OrganizationsList org = new PegaOrganizationsList(frameId, testEnv);
 		return org;
 		
 	}
@@ -107,14 +98,9 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		pegaDriver.switchTo().frame(frameId);
 		
 		frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Organizations org = new PegaOrganization(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		Organizations org = new PegaOrganization(frameId, testEnv);
 		
-		frameId = pegaDriver.getActiveFrameId(false);
-		framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+		frameId = pegaDriver.getActiveFrameId(true);
 		
 		return org;
 	}
@@ -132,10 +118,7 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		findElement(By.xpath(CREATE_ORG_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Organizations org = new PegaOrganization(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;	
 	}
 	
@@ -151,11 +134,8 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		
 		
 		frameId = pegaDriver.getActiveFrameId(false);
-		framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
 		
-		Organizations organization = new PegaOrganization(framElmt, frameId);
-		organization._setEnvironment(testEnv, frameId);
+		Organizations organization = new PegaOrganization(frameId, testEnv);
 		return organization;
 	
 }

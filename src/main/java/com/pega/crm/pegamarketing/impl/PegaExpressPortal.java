@@ -58,9 +58,8 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	public ContextDictionary openContextDictionary() {
 		pegaDriver.switchTo().defaultContent();
 		findElement(By.xpath(String.format(SETTINGS_SLIDER_MENU_ITEM_XPATH, "Context Dictionary"))).click();
-		String activeFrameID = pegaDriver.getActiveFrameId(true);
-		ContextDictionary contextDictionaryFrame = new PegaContextDictionaryFrame(null, activeFrameID);
-		contextDictionaryFrame._setEnvironment(testEnv, activeFrameID);
+		String activeFrameID = pegaDriver.getActiveFrameId(false);
+		ContextDictionary contextDictionaryFrame = new PegaContextDictionaryFrame(activeFrameID, testEnv);
 		return contextDictionaryFrame;
 
 	}

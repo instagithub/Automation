@@ -1,8 +1,8 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.crm.salesautomation.workobjects.Contacts;
 import com.pega.crm.salesautomation.workobjects.Organizations;
@@ -12,6 +12,10 @@ import com.pega.ri.WizardImpl;
 
 public class PegaRelationship extends WizardImpl implements Relationship {
 	
+	public PegaRelationship(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	String RelationType= "P2PRelationshipType";
 	String ExistingContact = "//label[contains(@for, 'Choose Existing Contact')]";
 	String NewContact = "//label[contains(@for, 'Create New Contact')]";
@@ -19,14 +23,6 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 	String RelationDesc ="RelationshipDesc";
 	String RelationNotes ="Notes";
 	
-	public PegaRelationship(WebElement elmt) {
-		super(elmt);
-	}
-	
-	
-	public PegaRelationship(WebElement elmt, String elmtId){
-		super(elmt, elmtId);
-	}
 
 	@Override
 	public String checkDefaults() {
@@ -42,10 +38,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		relationship.findSelectBox(By.id(RelationType)).selectByVisibleText(RelationshipType);
 	}
 
@@ -56,10 +49,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		
 		relationship.findElement(By.xpath("//span[contains(@name,'StartDate')]|//span[contains(@id, 'StartDate')]//img")).click();
 		
@@ -85,10 +75,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		relationship.findElement(By.xpath("//span[contains(@name,'EndDate')]|//span[contains(@id, 'EndDate')]//img")).click();
 		PegaWebElement wb; 
 		if(pegaDriver.verifyElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='30']"))) 
@@ -113,10 +100,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		
 		if(ContactType.toLowerCase().contains("exist"))
 			relationship.findElement(By.xpath(ExistingContact)).click();
@@ -132,10 +116,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		pegaDriver.findElement(By.id(CONTACT_NAME)).click();
 		PegaUtil.autoComplete(pegaDriver,CONTACT_NAME ,ContactName );
 	}
@@ -147,10 +128,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		relationship.findElement(By.id(RelationDesc)).sendKeys(RelationshipDescription);
 	}
 
@@ -161,10 +139,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		relationship.findElement(By.id(RelationNotes)).sendKeys(Notes);
 	
 	}
@@ -176,10 +151,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		PegaUtil.clickCreate(pegaDriver);
 		
 	}
@@ -192,10 +164,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//div[@string_type='field']//div[@class='RequiredField']")).getAttribute("text").trim();
 	}
 
@@ -207,10 +176,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//span[text()='Start date']/following::div[@class='field-item dataValueRead']//span")).getAttribute("text").trim();
 	}
 
@@ -221,10 +187,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//span[text()='End date']/following::div[@class='field-item dataValueRead']//span")).getAttribute("text").trim();
 	
 	}
@@ -237,10 +200,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//div[@class='field-item dataValueRead']//a[contains(@data-click,'ContactID')]")).getAttribute("text").trim();
 	
 	}
@@ -254,10 +214,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//span[contains(text(),'description')]/following-sibling::div//div")).getAttribute("text").trim();
 		
 	}
@@ -270,10 +227,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.waitForDocStateReady(2);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Relationship relationship= new PegaRelationship(framElmt, frameId);
-		relationship._setEnvironment(testEnv, frameId);
+		Relationship relationship= new PegaRelationship(frameId, testEnv);
 		return relationship.findElement(By.xpath("//span[contains(text(),'Notes')]/following-sibling::div")).getAttribute("text").trim();
 		
 	}
@@ -281,10 +235,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 	@Override
 	public Contacts setNewContactName(String ContactName) {
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts contact= new PegaContact(framElmt, frameId);
-		contact._setEnvironment(testEnv, frameId);
+		Contacts contact= new PegaContact(frameId, testEnv);
 		StringBuffer contname= new StringBuffer(ContactName);
 		contact.setLastName(contname);
 		return contact;
@@ -298,10 +249,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		//("//a[contains(text(),'"+OrgName+"')]")))	
 		pegaDriver.findElement(By.xpath("//a[contains(@title,'"+OrgName+"')]")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Organizations org= new PegaOrganization(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		Organizations org= new PegaOrganization(frameId, testEnv);
 		return org;
 	}
 
@@ -311,10 +259,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//a[text()='"+name+"']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc= new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc= new PegaAccounts(frameId, testEnv);
 		return acc;
 	}
 	
@@ -323,10 +268,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//a[text()='"+name+"']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Accounts acc= new PegaAccounts(framElmt, frameId);
-		acc._setEnvironment(testEnv, frameId);
+		Accounts acc= new PegaAccounts(frameId, testEnv);
 		return acc;
 	}
 
@@ -335,10 +277,7 @@ public class PegaRelationship extends WizardImpl implements Relationship {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath("//a[text()='"+ContactName+"']")).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Contacts cont= new PegaContact(framElmt, frameId);
-		cont._setEnvironment(testEnv, frameId);
+		Contacts cont= new PegaContact(frameId, testEnv);
 		return cont;
 		
 	}

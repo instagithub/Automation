@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Partners;
 import com.pega.ri.WizardImpl;
 
@@ -14,6 +15,10 @@ public class PegaPartners extends WizardImpl implements Partners {
 	
 	
 	
+	public PegaPartners(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	String WEBSITE_ID="Website";
 	String PHONE_ID="OfficePhone";
 	String PATNER_NAME_ID="Name";
@@ -47,10 +52,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	String OPERATORS_VALUES_XPATH="//tr[contains(@id, 'crmOperatorsInPartnerList')]//td[@data-importance='primary']//span";
 	
 
-	public PegaPartners(WebElement elmt, String elmtId) 
-	{
-		super(elmt, elmtId);
-	}
+	
 	
 	@Override
 	public void setWebSite(String WebSite) {

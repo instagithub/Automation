@@ -2,6 +2,7 @@ package com.pega.crm.salesautomation.workobjects;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.pega.ri.Wizard;
 
 public interface Accounts extends Wizard{

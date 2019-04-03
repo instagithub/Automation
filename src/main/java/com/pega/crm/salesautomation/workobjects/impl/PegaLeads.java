@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Leads;
 import com.pega.crm.salesautomation.workobjects.Tasks;
@@ -14,12 +15,12 @@ import com.pega.ri.WizardImpl;
 public class PegaLeads extends WizardImpl implements Leads
 {
 	
+	public PegaLeads(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	String LEAD_SUBTABS_XPATH = "//div[@role='tab']//h2";
 
-	public PegaLeads(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 
 
 	@Override

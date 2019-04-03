@@ -68,7 +68,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		pegaDriver.findElement(DESIGNER_MENU_ITEM).click();
 		String frameId1 = pegaDriver.getActiveFrameId(true);
 		Designer designer = new PegaDesigner(frameId1, testEnv);
-		designer._setEnvironment(testEnv, frameId1);
 		return designer;
 	}
 
@@ -83,7 +82,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		pegaDriver.findElement(REALTIME_ARTIFACTS).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		RealTimeArtifacts realTimeArtifacts = new PegaRealTimeArtifacts(frameId, testEnv);
-		realTimeArtifacts._setEnvironment(testEnv, frameId);
 		return realTimeArtifacts;
 
 	}

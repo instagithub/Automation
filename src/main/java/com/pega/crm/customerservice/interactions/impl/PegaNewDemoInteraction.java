@@ -3,22 +3,18 @@ package com.pega.crm.customerservice.interactions.impl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.NewDemoInteraction;
 
 public class PegaNewDemoInteraction extends PegaInteractions implements NewDemoInteraction{
 	
 	
 	
-	public PegaNewDemoInteraction(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		pop = true;
-		// TODO Auto-generated constructor stub
-	}
+	
 
-	public PegaNewDemoInteraction(WebElement elmt) {
-		super(elmt);
+	public PegaNewDemoInteraction(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 		pop = true;
-		
 	}
 
 	@Override

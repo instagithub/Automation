@@ -6,29 +6,26 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Leads;
 import com.pega.crm.salesautomation.workobjects.LeadsList;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaLeadsList extends WizardImpl implements LeadsList {
 
-	public PegaLeadsList(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
+	
+	
+	public PegaLeadsList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
 	}
-	
-	
+
 	@Override
 	public Leads createBusinessLead() {
 		PegaUtil.dropdown(pegaDriver, CREATE_LEAD_BTN_XPATH, 2);
 		
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	
 	}
 
@@ -38,10 +35,7 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 		PegaUtil.dropdown(pegaDriver, CREATE_LEAD_BTN_XPATH, 1);
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	
 	}
 
@@ -59,10 +53,7 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	
 	}
 
@@ -83,10 +74,7 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 		findElement(By.xpath(LEAD_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Leads lead = new PegaLeads(framElmt, frameId);
-		lead._setEnvironment(testEnv, frameId);
+		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;
 	}
 

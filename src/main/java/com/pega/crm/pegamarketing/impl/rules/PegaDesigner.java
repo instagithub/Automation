@@ -270,7 +270,6 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 			pegaDriver.findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
 			Designer designer = ObjectsBean.getDesigner();
-			designer._setEnvironment(testEnv, frameId);
 			pegaDriver.waitForDocStateReady();
 			return designer;
 		}

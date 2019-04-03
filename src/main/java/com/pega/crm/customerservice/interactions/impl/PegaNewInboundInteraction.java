@@ -9,6 +9,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.NewInboundInteraction;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
@@ -17,18 +18,13 @@ import com.pega.ri.Wizard;
 
 public class PegaNewInboundInteraction extends PegaInteractions implements NewInboundInteraction{
 	
+	public PegaNewInboundInteraction(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	public String frameId = null;
 	public Wizard newWizard = null;
 	
-	public PegaNewInboundInteraction(WebElement elmt, String frameId) {
-		super(elmt, frameId);
-		// TODO Auto-generated constructor stub
-	}
-
-	public PegaNewInboundInteraction(WebElement elmt) {
-		super(elmt);
-		// TODO Auto-generated constructor stub
-	}
 	
 	public String getDate(){
 		Calendar cal = Calendar.getInstance();

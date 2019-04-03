@@ -1,13 +1,17 @@
 package com.pega.crm.salesautomation.workobjects.impl;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Pulse;
 import com.pega.ri.WizardImpl;
 
 public class PegaPulse extends WizardImpl implements Pulse{
 	
+	public PegaPulse(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
+
 	String FOLLOWING_SECTION_XPATH="//h2[contains(text(),'Following')]";
 	String SALES_COACH_WIDGET_XPATH="//h2[contains(text(),'Coaching plans')]";
 	String FOLLOWERS_SECTION_XPATH="//h2[contains(text(),'Followers')]";
@@ -15,10 +19,6 @@ public class PegaPulse extends WizardImpl implements Pulse{
 	String PULSE_TEXTAREA_ID="pyMessage";
 	String PULSE_POST_BUTTON_XPATH=PegaUtil.getButtonXpath("Post");
 	String PULSE_FIRST_POST_XPATH="(//div[@data-node-id='pyPostDetails']//div[@class='pulse-display-post'])[1]";
-	public PegaPulse(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public void enterCommentsinPulse(String pulseComment) {

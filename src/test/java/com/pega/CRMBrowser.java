@@ -1,5 +1,6 @@
 package com.pega;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -285,7 +286,12 @@ public class CRMBrowser extends PegaBrowser {
 
 	@When("^user imports the following \"([^\"]*)\" RAP$")
 	public void user_imports_the_following_RAP(String rapPath) {
-		HTTPUtil.importRAP(rapPath, testEnv);
+		try {
+			HTTPUtil.importRAP(rapPath, testEnv);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -629,11 +635,8 @@ public class CRMBrowser extends PegaBrowser {
 		case "Dashboard": {
 			pegaDriver.getActiveFrameId(true);
 			Assert.assertTrue(pegaDriver.verifyElement(By.xpath("//div[contains(text(),'Dashboard')]")));
-			String frameId = pegaDriver.getActiveFrameId(false);
-			PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-			pegaDriver.switchTo().frame(frameId);
-			login = new PegaLogin(framElmt, frameId);
-			login._setEnvironment(testEnv, frameId);
+			String frameId = pegaDriver.getActiveFrameId(true);
+			login = new PegaLogin(frameId, testEnv);
 			break;
 		}
 		case "Tools": {

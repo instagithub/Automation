@@ -6,9 +6,9 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.HouseholdList;
 import com.pega.crm.salesautomation.workobjects.Households;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.WizardImpl;
 
 public class PegaHouseholdList extends WizardImpl implements HouseholdList{
@@ -16,20 +16,17 @@ public class PegaHouseholdList extends WizardImpl implements HouseholdList{
 	
 
 
-	public PegaHouseholdList(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
 
+
+	public PegaHouseholdList(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+		// TODO Auto-generated constructor stub
 	}
-
-
 	public Households createHousehold() {
 		findElement(By.xpath(CREATE_HH_BTN_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Households hh=new PegaHouseholds(framElmt, frameId);
-	    hh._setEnvironment(testEnv, frameId);	
+		Households hh=new PegaHouseholds(frameId, testEnv);
   
 		return hh;	
 		
@@ -43,10 +40,7 @@ public class PegaHouseholdList extends WizardImpl implements HouseholdList{
 		findElement(By.xpath(HH_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Households hh = new PegaHouseholds(framElmt, frameId);
-		hh._setEnvironment(testEnv, frameId);
+		Households hh = new PegaHouseholds(frameId, testEnv);
 		return hh;	
 	}
 	
@@ -68,10 +62,7 @@ public class PegaHouseholdList extends WizardImpl implements HouseholdList{
 		findElement(By.xpath(HH_NAME_XPATH)).click();
 		pegaDriver.waitForDocStateReady(1);
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Households household = new PegaHouseholds(framElmt, frameId);
-		household._setEnvironment(testEnv, frameId);
+		Households household = new PegaHouseholds(frameId, testEnv);
 		return household;
 	}
 

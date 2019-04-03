@@ -1,7 +1,6 @@
 package com.pega.crm.salesautomation.workobjects;
 
 import com.pega.ri.Wizard;
-import com.pega.util.XPathUtil;
 
 public interface OrganizationsList extends Wizard{
 	

@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.Organizations;
@@ -21,6 +22,10 @@ import com.pega.ri.WizardImpl;
 import com.pega.util.XPathUtil;
 
 public class PegaOpportunity extends WizardImpl implements Opportunities {
+
+	public PegaOpportunity(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
 
 	String OPP_SERACHBUTTON_XPATH=PegaUtil.getButtonXpath("Search");
 	String OPP_ACTIVITY_ROW_IDENTIFIER_XPATH = "//tr[contains(@id, 'ctivities')]";
@@ -102,11 +107,6 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	String OPP_NEXT_BEST_ACTIONS_XPATH="//div[@data-node-id='CloseDateAnalysis']";		
 	String OPP_STAGES[]={"Qualification","Analysis","Proposal","Decision","Negotiation"};
 	List<String> OPPSTAGES = new ArrayList<String>(Arrays.asList(OPP_STAGES));
-	public PegaOpportunity(WebElement elmt, String elmtId) 
-	{
-		super(elmt, elmtId);
-
-	}
 	
 	
 	@Override
@@ -791,10 +791,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(ORGANIZATION_BREADCRUMB_XPATH)).click();
 		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		Organizations org = new PegaOrganization(framElmt, frameId);
-		org._setEnvironment(testEnv, frameId);
+		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;
 		
 	}

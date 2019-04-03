@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Households;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
@@ -19,6 +20,10 @@ import com.pega.util.XPathUtil;
 
 public class PegaHouseholds extends WizardImpl implements Households
 {
+
+	public PegaHouseholds(String frameId, TestEnvironment testEnv) {
+		super(frameId, testEnv);
+	}
 
 	String HH_HOUSEHOLD_PAGE_HEADER_XPATH="//*[text()='Household']";
 	String HH_NAME_ID="Name";
@@ -48,9 +53,6 @@ public class PegaHouseholds extends WizardImpl implements Households
 	
 	String HH_SUBTABS_XPATH = "//div[@role='tab']//h2";
 	
-	public PegaHouseholds(WebElement elmt, String elmtId) {
-		super(elmt, elmtId);
-	}
 
 	@Override
 	public void setHouseholdName(String householdName) {
