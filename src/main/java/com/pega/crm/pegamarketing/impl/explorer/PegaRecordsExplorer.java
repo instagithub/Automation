@@ -9,13 +9,16 @@ import com.pega.crm.pegamarketing.impl.pages.PegaServiceRestRecords;
 import com.pega.crm.pegamarketing.pages.LandingPage;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
+import com.pega.page.TopDocumentImpl;
 
 
-public class PegaRecordsExplorer implements RecordsExplorer{
-	private PegaWebDriver pegaDriver = null;
+public class PegaRecordsExplorer extends TopDocumentImpl  implements RecordsExplorer{
+
+private PegaWebDriver pegaDriver = null;
 	private TestEnvironment testEnv = null;
-	
+
 	public PegaRecordsExplorer(String frameId,TestEnvironment testEnv) {
+		super(testEnv);
 		this.testEnv = testEnv;
 		this.pegaDriver = testEnv.getPegaDriver();
 	}
@@ -29,22 +32,21 @@ public class PegaRecordsExplorer implements RecordsExplorer{
 		for(int i=0; i<path.length-1; i++)
 		{
 			String categXpath = "//div[@node_name='pzRulesExplorerTree']//table[@id='bodyTbl_gbl']//ul[.//span[contains(text(),'"+path[i]+"')]][contains(@class,'rowContent')]/li//a";
-			PegaWebElement category = pegaDriver.findElement(By.xpath(categXpath));
+			PegaWebElement category = findElement(By.xpath(categXpath));
 			pegaDriver.handleWaits().waitForElementClickable(By.xpath(categXpath));
 			category.click();
 		}
 		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchTo().frame("Developer");
+		findFrame("Developer");
 		pegaDriver.handleWaits().waitForElementPresence(By.partialLinkText(path[path.length-1]));
 		System.out.println("The xpath is " +path[path.length-1]);
-		pegaDriver.findElement(By.partialLinkText(path[path.length-1])).click();
+		findElement(By.partialLinkText(path[path.length-1])).click();
 		pegaDriver.waitForDocStateReady();
 		
 		
 	}
 	private <T extends LandingPage> T createRightLandingPageObj(Class<T> type){
 		T page = null;
-		//String frameId = pegaDriver.getActiveFrameId(true);
 		String frameId="PegaGadget0Ifr";
 		String className = type.getName();
 		if(className.contains("ServiceRestRecord"))
@@ -58,6 +60,6 @@ public class PegaRecordsExplorer implements RecordsExplorer{
 		return page;
 	}
 	public void switchToDeveloperFrame() {
-		pegaDriver.switchTo().frame("Developer");
+		findFrame("Developer");
 	}
 }

@@ -17,7 +17,7 @@ public class PegaPaidMediaAudiences extends PegaLandingPage implements PaidMedia
 	
 	public String verifyPaidAudiencePg() {
 		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(PAIDMEDIA_AUDIENCES_PATH);
+		findElement(PAIDMEDIA_AUDIENCES_PATH);
 		String landingPageName = findElement(PAIDMEDIA_AUDIENCES_PATH).getText();
 		return landingPageName;
 	}

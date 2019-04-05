@@ -103,7 +103,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 			byShapeXpath = By.xpath("//*[@id='shapeLabel'][.//*[contains(text(),'" + shape.getName()
 					+ "')]]/preceding-sibling::*[@transform]");
 		}
-		WebElement shapeElmt = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, shapeName);
 		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return flowShapeObj;
@@ -138,7 +138,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 				"//*[@id='shapeLabel'][.//*[contains(text(),'" + shapeName + "')]]/preceding-sibling::*[@style]");
 
 		testEnv.getPegaDriver().waitForDocStateReady(2);
-		WebElement shapeElmt = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, shapeName);
 		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return flowShapeObj;
@@ -146,7 +146,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 
 	public OfferShape findStartShape() {
 		By byShapeXpath = By.xpath("//*[@id='shapeLabel']//*[text()='Start']");
-		WebElement shapeElmt = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "Start");
 		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return flowShapeObj;
@@ -155,7 +155,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 	public OfferShape findEndShape() {
 		By byShapeXpath = By.xpath("//*[@id='shapeLabel']//*[text()='End']");
 		testEnv.getPegaDriver().waitForDocStateReady(2);
-		WebElement shapeElmt = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "End");
 		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return flowShapeObj;
@@ -164,7 +164,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 	public OfferShape findEndShape(String label) {
 		By byShapeXpath = By.xpath("//*[@id='shapeLabel']//*[text()='" + label + "']");
 		testEnv.getPegaDriver().waitForDocStateReady(2);
-		WebElement shapeElmt = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "End");
 		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return flowShapeObj;
@@ -213,14 +213,14 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 	public Connector findConnector(String connName) {
 		By byShapeXpath = By
 				.xpath("//*[name()='path']/../following-sibling::*[name()='g']//*[text()='" + connName + "']");
-		WebElement connElem = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement connElem = findElement(byShapeXpath).getWebElement();
 		Connector connObj = new PegaConnector(connElem, this, connName);
 		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return connObj;
 	}
 
 	public Connector findConnector(By byShapeXpath) {
-		WebElement connElem = pegaDriver.findElement(byShapeXpath).getWebElement();
+		WebElement connElem = findElement(byShapeXpath).getWebElement();
 		Connector connObj = new PegaConnector(connElem, this);
 		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument());
 		return connObj;

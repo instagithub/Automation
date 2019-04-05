@@ -104,20 +104,20 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 
 		public void addRankedObjective() {
-			pegaDriver.findElement(RANKED_ADD_BUTTON).click();
+			findElement(RANKED_ADD_BUTTON).click();
 		}
 
 		public MarketingStrategy applyPrioritizationOffer() {
-			pegaDriver.findElement(APPLY_BUTTON).click(false);
+			findElement(APPLY_BUTTON).click(false);
 			String frameId = pegaDriver.getActiveFrameId(true);
 			MarketingStrategy strategy = new PegaMarketingStrategy(frameId, testEnv);
 			return strategy;
 		}
 
 		public void addPrioritizationOffer() {
-			pegaDriver.findElement(PRIORITIZATION_DIVISON).click(false);
+			findElement(PRIORITIZATION_DIVISON).click(false);
 			pegaDriver.waitForDocStateReady(2);
-			pegaDriver.findElement(PRIORITIZATION_ADD_BUTTON).click(false);
+			findElement(PRIORITIZATION_ADD_BUTTON).click(false);
 			pegaDriver.waitForDocStateReady(2);
 		}
 
@@ -142,16 +142,16 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 
 		public MarketingStrategy applyPriority() {
-			pegaDriver.findElement(APPLY_BUTTON).click(false);
+			findElement(APPLY_BUTTON).click(false);
 			String frameId = pegaDriver.getActiveFrameId(true);
 			MarketingStrategy strategy = new PegaMarketingStrategy(frameId, testEnv);
 			return strategy;
 		}
 
 		public void addPriority() {
-			pegaDriver.findElement(RAWPROPPENSITY_DIV).click(false);
+			findElement(RAWPROPPENSITY_DIV).click(false);
 			pegaDriver.waitForDocStateReady();
-			pegaDriver.findElement(RAWPROPPENSITY_ADD).click(false);
+			findElement(RAWPROPPENSITY_DIV).click(false);
 			pegaDriver.waitForDocStateReady(2);
 		}
 
@@ -173,16 +173,15 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public String getthenameofstrategy() {
-		String reqstring = pegaDriver.findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
+		String reqstring = findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
 		return reqstring;
 	}
 
 	public void selectcategoryLP() {
-		pegaDriver.findElement(ALLCATEGORIESLINK).click();
+		findElement(ALLCATEGORIESLINK).click();
 		// pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
 		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"))
-				.click();
+		findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]")).click();
 	}
 
 	public void searchstrategies(String strategy1, String strategy2) {
@@ -190,13 +189,12 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		System.out.println(strategy1 + strategy2);
 		pegaDriver.handleWaits().waitForElementPresence(SEARCHSTRATEGY);
 		selectcategoryLP();
-		// pegaDriver.findElement(SEARCHSTRATEGY).click();
-		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy1);
-		pegaDriver.findElement(VIEW_BTN).click();
+		findElement(SEARCHSTRATEGY).sendKeys(strategy1);
+		findElement(VIEW_BTN).click();
 		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(SEARCHSTRATEGY).clear();
-		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy2);
-		pegaDriver.findElement(VIEW_BTN).click();
+		findElement(SEARCHSTRATEGY).clear();
+		findElement(SEARCHSTRATEGY).sendKeys(strategy2);
+		findElement(VIEW_BTN).click();
 
 	}
 

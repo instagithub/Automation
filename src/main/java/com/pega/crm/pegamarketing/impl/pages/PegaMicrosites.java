@@ -25,7 +25,7 @@ public class PegaMicrosites extends PegaLandingPage implements Microsites {
 		pegaDriver.get(micrositeURL);
 		pegaDriver.handleWaits().waitTillTitleContains("Subscription");
 		pegaDriver.waitForDocStateReady(4);
-			return new PegaSubscription(t1);
+			return new PegaSubscription(micrositeURL, t1);
 		}
 
 }

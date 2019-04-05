@@ -264,10 +264,10 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 		}
 
 		public Designer createBussinessIssue(String aBussinessIssuename) {
-			pegaDriver.findElement(CREATE_LINK).click(false);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aBussinessIssuename);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
-			pegaDriver.findElement(APPLY_BUTTTON).click();
+			findElement(CREATE_LINK).click(false);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aBussinessIssuename);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
+			findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
 			Designer designer = ObjectsBean.getDesigner();
 			pegaDriver.waitForDocStateReady();
@@ -275,11 +275,11 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 		}
 
 		public Designer createGroup(String aGroupName) {
-			pegaDriver.findElement(CREATE_LINK).click();
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).clear();
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aGroupName);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
-			pegaDriver.findElement(APPLY_BUTTTON).click();
+			findElement(CREATE_LINK).click();
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).clear();
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aGroupName);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
+			findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
 			Designer designer = new PegaDesigner(frameId, testEnv);
 			return designer;
@@ -293,7 +293,6 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 			findElement(RuleInstance.EDIT_BUTTON).click();
 		}
 
-		// findElement(CONFIGURE_BUSSINESS_HIERARCHY_ICON).click();
 		if (verifyElement(EDIT_BUTTON)) {
 			findElement(RuleInstance.EDIT_BUTTON).click();
 		}
@@ -304,9 +303,9 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 
 	public void runOutboundScheduleNBADesigner() {
 		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(OUTBOUND_ACTIONS_LINK).click();
+		findElement(OUTBOUND_ACTIONS_LINK).click();
 		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(TRIGGER_RUN).click();
+		findElement(TRIGGER_RUN).click();
 	}
 
 	public class PegaConfigurePaidMediaDialog extends PegaConfigureDialog implements ConfigurePaidMediaDialog {

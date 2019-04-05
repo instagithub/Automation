@@ -44,7 +44,7 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 
 	public DesignerStudio switchToDesignerStudio() {
 		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(SWITCH_TO_DESIGNER_STUDIO_MODE).click();
+		findElement(SWITCH_TO_DESIGNER_STUDIO_MODE).click();
 		pegaDriver.waitForDocStateReady(3);
 		DesignerStudio designerStudio = new PegaDesignerStudio(testEnv);
 		return designerStudio;

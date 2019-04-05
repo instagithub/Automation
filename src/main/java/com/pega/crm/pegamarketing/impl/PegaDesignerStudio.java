@@ -18,7 +18,7 @@ public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 
 	public PMPortal launchPegaMarketingPortal() {
 		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchTo().frame("Developer");
+		findFrame("Developer");
 		pegaDriver.handleWaits().waitForElementVisibility(LAUNCH_PORTAL_LINK);
 		pegaDriver.handleWaits().waitForElementClickable(LAUNCH_PORTAL_LINK);
 		findElement(LAUNCH_PORTAL_LINK).click(false);
@@ -36,13 +36,13 @@ public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 
 	public void switchTab(Tabs tab) {
 		pegaDriver.waitForDocStateReady(false);
-		pegaDriver.switchTo().frame("Developer");
-		pegaDriver.findElement(By.xpath("//div[@role='tab']//*[contains(text(),'" + tab.getId() + "')]")).click();
+		findFrame("Developer");
+		findElement(By.xpath("//div[@role='tab']//*[contains(text(),'" + tab.getId() + "')]")).click();
 		pegaDriver.waitForDocStateReady();
 	}
 
 	public void switchToDeveloperFrame() {
-		pegaDriver.switchTo().frame("Developer");
+		findFrame("Developer");
 	}
 
 	public RecordsExplorer getRecordsExplorer() {

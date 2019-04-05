@@ -72,22 +72,22 @@ public class PegaChannels extends FrameImpl implements Channels {
 		}
 
 		public String getAccountName() {
-			String fullAccountName = pegaDriver.findElement(ACCOUNT_NAME).getText().trim();
+			String fullAccountName = findElement(ACCOUNT_NAME).getText().trim();
 			return fullAccountName.split(" ")[fullAccountName.split(" ").length - 1];
 		}
 
 		public String getOverallResult() {
-			return pegaDriver.findElement(OVERALL_RESULT).getText().trim();
+			return findElement(OVERALL_RESULT).getText().trim();
 		}
 
 		public String getResultDescription() {
-			return pegaDriver.findElement(RESULT_DESCRIPTION).getText().trim();
+			return findElement(RESULT_DESCRIPTION).getText().trim();
 		}
 
 		public void closeWindow() {
 			String currentHandle = pegaDriver.getWindowHandle();
 			Set<String> handles = pegaDriver.getWindowHandles();
-			pegaDriver.findElement(By.xpath("//input[@value='Close']")).click(false);
+			findElement(By.xpath("//input[@value='Close']")).click(false);
 			for (String handle : handles) {
 				if (handle.equals(currentHandle))
 					continue;

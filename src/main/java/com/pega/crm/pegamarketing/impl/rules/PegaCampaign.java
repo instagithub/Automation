@@ -311,14 +311,13 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 
 	@Override
 	public String getthenameofcampaign() {
-	String reqString = pegaDriver.findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();;
+	String reqString = findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();;
 		return reqString;
 	}
 	public void selectcategoryLP(){
-		pegaDriver.findElement(ALLCATEGORIESLINK).click();
-		//pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
+		findElement(ALLCATEGORIESLINK).click();
 		pegaDriver.waitForDocStateReady();
-	    pegaDriver.findElement(By.xpath("//*[@aria-label='Filter Categories']//*[text()='Sales']")).click();
+	    findElement(By.xpath("//*[@aria-label='Filter Categories']//*[text()='Sales']")).click();
 	}
 
 	@Override
@@ -327,13 +326,11 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		System.out.println(campaignName+campaignName1);
 		pegaDriver.handleWaits().waitForElementPresence(SEARCHCAMPAIGN);
 		selectcategoryLP();
-		//pegaDriver.handleWaits().waitForElementPresence(SEARCHCAMPAIGN);
-		pegaDriver.findElement(SEARCHCAMPAIGN).sendKeys(campaignName);
-		pegaDriver.findElement(VIEW_BTN).click();
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(SEARCHCAMPAIGN).clear();
-		pegaDriver.findElement(SEARCHCAMPAIGN).sendKeys(campaignName1);
-		pegaDriver.findElement(VIEW_BTN).click();
+		findElement(SEARCHCAMPAIGN).sendKeys(campaignName);
+		findElement(VIEW_BTN).click();
+		findElement(SEARCHCAMPAIGN).clear();
+		findElement(SEARCHCAMPAIGN).sendKeys(campaignName1);
+		findElement(VIEW_BTN).click();
 		
 	}
 

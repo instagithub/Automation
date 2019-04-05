@@ -20,7 +20,7 @@ public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment 
 
 	public void openEmailEditor() {
 		PegaWebElement frameElement = findElement(EMAIL_TEMPLATE_IFRAME);
-		pegaDriver.switchTo().frame(frameElement.getWebElement());
+		findFrame((PegaWebElement) frameElement.getWebElement());
 		findElement(EMAIL_TEMPLATE_DIV).click();
 		pegaDriver.switchTo().parentFrame();
 	}
@@ -53,7 +53,7 @@ public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment 
 	public void clickEnterInEditor() {
 		pegaDriver.waitForDocStateReady();
 		PegaWebElement frameElement = findElement(TREATMENT_CONTENT_IFRAME);
-		pegaDriver.switchTo().frame(frameElement.getWebElement());
+		findFrame((PegaWebElement) frameElement.getWebElement());
 		findElement(TREATMENT_BODY).sendKeys(Keys.RETURN);	
 		
 	}
