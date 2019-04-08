@@ -2,9 +2,10 @@ package com.pega.crm.pegamarketing.pages;
 
 import org.openqa.selenium.By;
 
+import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
-public interface UnsubscribedCustomers {
+public interface UnsubscribedCustomers extends RuleInstance{
 	By REFRESH_BUTTON = By.xpath(PMXPathUtil.getButtonPzhcBtnXPath("Refresh"));
 	By ALL_LABEL = By.xpath("//span[contains(text(),'ALL')]");
 	By NOT_INTRESTED_LABEL = By.xpath("//div[@id='report_body']//span[contains(text(),'Not Interested')]");
