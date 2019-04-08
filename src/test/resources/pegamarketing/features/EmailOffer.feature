@@ -1,7 +1,7 @@
 @smoke-pega-marketing
 Feature: Smoke Test cases
 # author : PM
-
+@smoke-email
 Scenario: Create an Email Offer Flow
     Given A User logs in with Analyst credentials
     When User expands Content from the Left Nav

@@ -97,7 +97,7 @@ public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{
 		offer.findElement(By.xpath(Offer.DIV_PROCESS_FLOW_XPATH)).click();
 		WebElement connElem = driver.findElement(byShapeXpath);
 		Connector connObj = new PegaConnector(connElem, offer, connectorName);
-		connObj._setEnvironment(testEnv, byShapeXpath, offer.getFrameDocument());
+		connObj._setEnvironment(testEnv, byShapeXpath, offer.getFrameDocument(),this.getFramesSet());
 		return connObj;
 	}
 
