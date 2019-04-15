@@ -9,10 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Accounts;
-import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Organizations;
-import com.pega.crm.salesautomation.workobjects.Relationship;
-import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
@@ -43,10 +40,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	
 	@Override
 	public Organizations getOrganizationDetails( ) {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations orgDetails = new PegaOrganization(frameId, testEnv);
 		return orgDetails;	
 	}
@@ -54,14 +48,9 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	public Organizations editOrganization()
 	
 	{
-		pegaDriver.getActiveFrameId(true);
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath(EDIT_BUTTON)).click();		
-		frameId = pegaDriver.getActiveFrameId(false);
+		findElement(By.xpath(EDIT_BUTTON)).click();		
+		String frameId = getActiveFrameId(false);
 		Organizations editOrg = new PegaOrganization(frameId, testEnv);
 		return editOrg;
 	}
@@ -69,18 +58,12 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Organizations changeOwner() {
 		
-		pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
+		findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath("//li[@title='Assign to a new owner']")).click();
+		findElement(By.xpath("//li[@title='Assign to a new owner']")).click();
 		//PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner");	
 		
-		 frameId = pegaDriver.getActiveFrameId(false);
-		
-		
+		String  frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 	    return Org;
 	}
@@ -88,19 +71,9 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Organizations changeHierarchy()
 	{
-		/*pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions ']")).click();
-		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath("//li[@title='Change parent organization']")).click();
-		*/
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change hierarchy");	
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
+		frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 	    return Org;
 	}
@@ -109,31 +82,31 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Organizations setNewOwner(String owner) {
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
 		
-		String frameId= pegaDriver.getActiveFrameId(false);
+		findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
+		
+		String frameId= getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 	
 		
-		/*pegaDriver.waitForDocStateReady(1);
-		frameId = pegaDriver.getActiveFrameId(false);
-		frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+		/*waitForDocStateReady(1);
+		frameId = getActiveFrameId(false);
+		frameElmt = findElement(By.id(frameId));
+		switchTo().frame(frameId);
 		
-		pegaDriver.findElement(By.id("crmSearchOwner")).sendKeys(selectAll);
-		pegaDriver.findElement(By.id("crmSearchOwner")).sendKeys(owner);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id("crmSearchOwner")).sendKeys(Keys.ENTER);
-		pegaDriver.waitForDocStateReady(2);*/
+		findElement(By.id("crmSearchOwner")).sendKeys(selectAll);
+		findElement(By.id("crmSearchOwner")).sendKeys(owner);
+		waitForDocStateReady(1);
+		findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
+		waitForDocStateReady(1);
+		findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
+		waitForDocStateReady(1);
+		findElement(By.id("crmSearchOwner")).sendKeys(Keys.ENTER);
+		waitForDocStateReady(2);*/
 		PegaUtil.autoComplete(pegaDriver, "crmSearchOwner",owner);
 		
-		pegaDriver.findElement(By.id("ChangeReason")).sendKeys("Change Owner Flow");
-		pegaDriver.findElement(By.xpath("//button[text()='Submit']")).click();
+		findElement(By.id("ChangeReason")).sendKeys("Change Owner Flow");
+		findElement(By.xpath("//button[text()='Submit']")).click();
 		
 		return Org;		
 	}
@@ -142,32 +115,31 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Organizations setHierarchy(String newParentOrg)
 	{
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 	
-		if(pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).isDisplayed())	
-		pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
-		/*pegaDriver.waitForDocStateReady(1);
-		frameId = pegaDriver.getActiveFrameId(false);
-		frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+		if(findElement(By.xpath("//a[@title='Switch to edit mode']")).isDisplayed())	
+		findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
+		/*waitForDocStateReady(1);
+		frameId = getActiveFrameId(false);
+		frameElmt = findElement(By.id(frameId));
+		switchTo().frame(frameId);
 		
 
 		
-		pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
-		pegaDriver.waitForDocStateReady(1);
-		/*pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(selectAll);
-		pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
-		pegaDriver.waitForDocStateReady(1);
+		findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
+		waitForDocStateReady(1);
+		/*findElement(By.id("crmSearchTerm")).sendKeys(selectAll);
+		findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
+		waitForDocStateReady(1);
 		
-		pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys(Keys.ENTER);*/
-		PegaUtil.autoComplete(pegaDriver, "crmSearchTerm", newParentOrg);
-		pegaDriver.waitForDocStateReady(2);		
-		pegaDriver.findElement(By.xpath("//button[text()='Submit']")).click();
+		findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
+		waitForDocStateReady(1);
+		findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
+		waitForDocStateReady(1);
+		findElement(By.id("crmSearchTerm")).sendKeys(Keys.ENTER);*/
+		PegaUtil.autoComplete(pegaDriver, "crmSearchTerm", newParentOrg);		
+		findElement(By.xpath("//button[text()='Submit']")).click();
 		return Org;	
 	}
 	
@@ -175,12 +147,9 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void setName(String name)   {
 		
-		pegaDriver.findElement(By.id("Name")).clear();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id("Name")).sendKeys(name);
-		pegaDriver.waitForDocStateReady(5);
+		findElement(By.id("Name")).clear();
+		findElement(By.id("Name")).sendKeys(name);
+		
 		
 	}
 
@@ -188,11 +157,11 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	public void setTerritory(String territory) 
 	{
 		
-		/*pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//a[contains(@name,'TerritoryID')")).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(ORG_TERRIORTY_ID)).clear();
-		pegaDriver.getActiveFrameId(true);*/
+		/*
+		findElement(By.xpath("//a[contains(@name,'TerritoryID')")).click();
+		
+		findElement(By.id(ORG_TERRIORTY_ID)).clear();
+		*/
 		PegaUtil.autoComplete(pegaDriver, ORG_TERRIORTY_ID, territory);	
 	}
 
@@ -211,18 +180,16 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Boolean verifyOrgNewHarness() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
-		return pegaDriver.verifyElement(By.xpath("//div[text()='Organization']"));
+		return verifyElement(By.xpath("//div[text()='Organization']"));
 	}
 
 
 	@Override
 	public void setWebsite(String name) {
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaWebElement wb;
-		wb= pegaDriver.findElement(By.id("Website"));
+		wb= findElement(By.id("Website"));
 		wb.clear();
 		wb.sendKeys(name);		
 	}
@@ -230,20 +197,16 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void setIndustry(String industry) {
 		
-		pegaDriver.findSelectBox(By.id("Industry")).selectByValue(industry);
+		findSelectBox(By.id("Industry")).selectByValue(industry);
 	}
 
 	@Override
 	public void setPhoneNumber(String phoneNumber) {
 		
-		//
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+		
 		PegaWebElement wb;
-		pegaDriver.getActiveFrameId(true);
-		wb= pegaDriver.findElement(By.id("PhoneNumber"));
-		pegaDriver.waitForDocStateReady(5);
+		
+		wb= findElement(By.id("PhoneNumber"));
 		wb.clear();
 		wb.sendKeys(phoneNumber);
 	}
@@ -251,92 +214,78 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public void setShortName(String shortName) {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
 		
-		pegaDriver.findElement(By.id("ShortName")).clear();	
+		findElement(By.id("ShortName")).clear();	
 		PegaWebElement wb;
-		wb = pegaDriver.findElement(By.id("ShortName"));
+		wb = findElement(By.id("ShortName"));
 		wb.sendKeys(shortName);
 	}
 
 
 	@Override
 	public void setTickerSymbol(String ticker) {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id("Ticker")).clear();
+		
+		findElement(By.id("Ticker")).clear();
 		PegaWebElement wb;
-		wb= pegaDriver.findElement(By.id("Ticker"));
+		wb= findElement(By.id("Ticker"));
 		wb.sendKeys(ticker); 
 	}
 
 
 	@Override
 	public void setEmployees(String employee) {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id("EmployeeCount")).clear();
-		pegaDriver.findElement(By.id("EmployeeCount")).sendKeys(employee);
+		
+		findElement(By.id("EmployeeCount")).clear();
+		findElement(By.id("EmployeeCount")).sendKeys(employee);
 	}
 
 
 	@Override
 	public void setRevenue(String revenue) {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id("Revenue")).clear();
-		pegaDriver.findElement(By.id("Revenue")).sendKeys(revenue);
+		
+		findElement(By.id("Revenue")).clear();
+		findElement(By.id("Revenue")).sendKeys(revenue);
 	}
 
 
 	@Override
 	public void setTarget(Boolean target) {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+		
 		if (target)
-			pegaDriver.findElement(By.xpath("//*[@data-test-id='2014120404484200106347']")).click();
+			findElement(By.xpath("//*[@data-test-id='2014120404484200106347']")).click();
 	}
 
 
 	@Override
 	public void setParentOrganization(String parentOrg) {
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.autoComplete(pegaDriver, ParentOrg, parentOrg);
 		
-		/*String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id(ParentOrg)).sendKeys(parentOrg);
-		pegaDriver.findElement(By.id(ParentOrg)).clear();
+		/*String frameId = getActiveFrameId(false);
+		PegaWebElement frameElmt = findElement(By.id(frameId));
+		switchTo().frame(frameId);
+		findElement(By.id(ParentOrg)).sendKeys(parentOrg);
+		findElement(By.id(ParentOrg)).clear();
 		
-		frameId = pegaDriver.getActiveFrameId(false);
-		frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.findElement(By.id(ParentOrg)).sendKeys(parentOrg);
+		frameId = getActiveFrameId(false);
+		frameElmt = findElement(By.id(frameId));
+		switchTo().frame(frameId);
+		findElement(By.id(ParentOrg)).sendKeys(parentOrg);
 
-		pegaDriver.findElement(By.id(ParentOrg)).sendKeys(Keys.ARROW_DOWN);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.findElement(By.id(ParentOrg)).sendKeys(Keys.ARROW_DOWN);
-		pegaDriver.findElement(By.id(ParentOrg)).sendKeys(Keys.ENTER); */
+		findElement(By.id(ParentOrg)).sendKeys(Keys.ARROW_DOWN);
+		waitForDocStateReady(2);
+		findElement(By.id(ParentOrg)).sendKeys(Keys.ARROW_DOWN);
+		findElement(By.id(ParentOrg)).sendKeys(Keys.ENTER); */
 	}
 
 
 	@Override
 	public void setDescription(String description) {
+	
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.id("pyDescription")).clear();
-		pegaDriver.findElement(By.id("pyDescription")).sendKeys(description);		
+		findElement(By.id("pyDescription")).clear();
+		findElement(By.id("pyDescription")).sendKeys(description);		
 	}
 
 
@@ -344,44 +293,38 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void setDomains(String[] domains) {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		//pegaDriver.findElement(By.xpath("//a[text()='Add domain']")).click();
+		//findElement(By.xpath("//a[text()='Add domain']")).click();
 		int domainCount;
 		domainCount = domains.length;
 		System.out.println("Domain Count is ---"+domainCount);
-		//pegaDriver.findElement(By.xpath("//a[text()='Add domain']")).click();
+		//findElement(By.xpath("//a[text()='Add domain']")).click();
 		
 		
 				
 		for (int i = 1; i<=domainCount;i++) {
-			frameId = pegaDriver.getActiveFrameId(false);
-			pegaDriver.switchTo().frame(frameId);
-			Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+			
+			Wizard wizard = findWizard(getActiveFrameId(false));
 			
 			wizard.findElement(By.xpath("//a[text()='Add domain']")).scrollIntoView();
-			//pegaDriver.findElement(By.xpath(SUBMIT_XPATH)).scrollIntoView();
+			//findElement(By.xpath(SUBMIT_XPATH)).scrollIntoView();
 			//wizard.findElement(By.xpath(CREATE_XPATH)).click();
 			
 			wizard.findElement(By.xpath("//a[text()='Add domain']")).click();
 			
-			frameId = pegaDriver.getActiveFrameId(false);
-			pegaDriver.switchTo().frame(frameId);
-			pegaDriver.findElement(By.id("Domain"+i)).clear();
-			pegaDriver.findElement(By.id("Domain"+i)).sendKeys(domains[i-1]);
+			findElement(By.id("Domain"+i)).clear();
+			findElement(By.id("Domain"+i)).sendKeys(domains[i-1]);
 		}
 	}
 	
 	
 	public void submit()
 	{
-		/*String frameId = pegaDriver.getActiveFrameId(false);
-		//PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);*/
-		pegaDriver.getActiveFrameId(true);
+		/*String frameId = getActiveFrameId(false);
+		//PegaWebElement frameElmt = findElement(By.id(frameId));
+		switchTo().frame(frameId);*/
 		
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		
+		Wizard wizard = findWizard(getActiveFrameId(false));
 		if(wizard.verifyElement(By.xpath("//button[@title='Create this item']")))
 		{
 			wizard.findElement(By.xpath("//button[@title='Create this item']")).scrollIntoView();
@@ -393,16 +336,16 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 			wizard.findElement(By.xpath("//button[@title='Complete this assignment']")).click();
 		}
 			
-		//pegaDriver.findElement(By.xpath(SUBMIT_XPATH)).scrollIntoView();
+		//findElement(By.xpath(SUBMIT_XPATH)).scrollIntoView();
 		/*wizard.findElement(By.xpath("//button[@title='Create this item']"))
 		
-		if(pegaDriver.verifyElement(By.xpath("//button[@title='Create this item']")))
-		pegaDriver.findElement(By.xpath("//button[@title='Create this item']")).click();
-		if(pegaDriver.verifyElement(By.xpath("//button[@title='Complete this assignment']")))
-			pegaDriver.findElement(By.xpath("//button[@title='Complete this assignment']")).click();	
-		//pegaDriver.findElement(By.xpath(PegaUtil.getStrongButtonXPath("Create"))).click();
+		if(verifyElement(By.xpath("//button[@title='Create this item']")))
+		findElement(By.xpath("//button[@title='Create this item']")).click();
+		if(verifyElement(By.xpath("//button[@title='Complete this assignment']")))
+			findElement(By.xpath("//button[@title='Complete this assignment']")).click();	
+		//findElement(By.xpath(PegaUtil.getStrongButtonXPath("Create"))).click();
 		*/
-		pegaDriver.getActiveFrameId(true);
+		
 	}
 
 	
@@ -424,7 +367,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public String getName() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		//"//span[@class='workarea_header_titles']"
 		return (new String(Org.findElement(By.xpath("//span[@class='field-caption dataLabelForRead']/span[text()='Name']/following::div/span")).getAttribute("text")).trim()); 
@@ -434,7 +377,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public String getTerritory() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Territory']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -447,7 +390,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public String getWebsite() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Website']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -456,7 +399,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getIndustry() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Industry']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -466,7 +409,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getPhoneNumber() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Phone number']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -476,7 +419,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getShortName() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Short name']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -486,7 +429,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getTickerSymbol() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Ticker symbol']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -496,7 +439,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getEmployees() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Employees']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -506,7 +449,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getRevenue() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 				 
 		return (((new String(Org.findElement(By.xpath("//span[text()='Revenue']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()).replaceAll(",","")));
@@ -515,7 +458,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String getTarget() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		
 		return (new String(Org.findElement(By.xpath("//span[text()='Target']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
@@ -526,7 +469,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public String getParentOrganization() {
 		String ParentOrg_xpath="//a[contains(@name,'ShowParentOrganization')]";
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
 		Org.verifyElement(By.xpath("//a[text()='Show Organization Hierarchy']"));
 		
@@ -546,9 +489,9 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	@Override
 	public String[] getDomains() {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
-		PegaWebElement table =  pegaDriver.findElement(By.xpath("//table[@pl_prop_class='PegaCRM-Embed-Domain']"));
+		PegaWebElement table =  findElement(By.xpath("//table[@pl_prop_class='PegaCRM-Embed-Domain']"));
 		String Domains[] = {" "," "};
 		return  Domains;
 	
@@ -565,43 +508,32 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public boolean verifyTwitterIcon() {
 		
-		pegaDriver.getActiveFrameId(true);
 		
-		return pegaDriver.verifyElement(By.xpath("//i[@title='Twitter']"));
+		
+		return verifyElement(By.xpath("//i[@title='Twitter']"));
 	}
 
 
 	@Override
 	public boolean verifyFacebookIcon() {
 		
-		pegaDriver.switchTo().defaultContent();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
 		
-		return pegaDriver.verifyElement(By.xpath("//i[@title='Facebook']"));
+		return verifyElement(By.xpath("//i[@title='Facebook']"));
 		
 	}
 
 
 	@Override
 	public boolean verifyGoogleMapIcon() {
-
-		pegaDriver.switchTo().defaultContent();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
 		
-		return pegaDriver.verifyElement(By.xpath("//i[@title='Google Map']"));
+		return verifyElement(By.xpath("//i[@title='Google Map']"));
 	}
 
 
 	@Override
 	public boolean verifyOrgNews() {
 		
-		pegaDriver.switchTo().defaultContent();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
-		
-		return pegaDriver.verifyElement(By.xpath("//div[@data-node-id='crmNewsFeeds']//div[text()='Org news']"));
+		return verifyElement(By.xpath("//div[@data-node-id='crmNewsFeeds']//div[text()='Org news']"));
 		
 	}
 
@@ -609,12 +541,8 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public ArrayList<String> verifySubTabs() {
 		
-		pegaDriver.switchTo().defaultContent();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
-		
 		ArrayList<String> s= new ArrayList<String>();
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(ORG_SUBTABS_XPATH));
+		List<WebElement> wb=findElements(By.xpath(ORG_SUBTABS_XPATH));
 		
 		for(WebElement w:wb)
 		{
@@ -629,12 +557,8 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public boolean checkMode(String str) {
 		
-		pegaDriver.switchTo().defaultContent();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		pegaDriver.switchTo().frame(frameId);
-		
-		//pegaDriver.findElement(By.xpath("//span[text()='Edit']")).getAttribute("text");
-		return str.equals(pegaDriver.findElement(By.xpath("//span[text()='"+str+"']")).getAttribute("text"));
+		//findElement(By.xpath("//span[text()='Edit']")).getAttribute("text");
+		return str.equals(findElement(By.xpath("//span[text()='"+str+"']")).getAttribute("text"));
 		
 	}
 
@@ -642,9 +566,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void changeTerritory(String newTerritory) {
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
+		findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
 		setTerritory(newTerritory);
 			
 	}
@@ -653,79 +575,57 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public String getOwner() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Organizations Org = new PegaOrganization(frameId, testEnv);
-		Org.verifyElement(By.xpath("//a[text()='Show Organization Hierarchy']"));
-		return (new String(Org.findElement(By.xpath("//span[text()='Owner']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
+		verifyElement(By.xpath("//a[text()='Show Organization Hierarchy']"));
+		return (new String(findElement(By.xpath("//span[text()='Owner']/following-sibling::div[@class='field-item dataValueRead']")).getAttribute("text")).trim()); 
 	}
 	
 	
 	
-	@Override
-	public Tasks addTask() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(2);
-		
-		pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
-		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath("//li[@role='presentation']//span[text()='Add task']")).click();
-				
-		frameId = pegaDriver.getActiveFrameId(false);
-		Tasks tasksDetails = new PegaTasks(frameId, testEnv);
-		return tasksDetails;	
-	}
-
+	
 
 	@Override
 	public boolean validateOrgTask(String orgTaskSubject, String orgTaskStatus, String DueDate,String OrgTaskAssignedTo, String orgTaskPriority) {
+	
 		
 		
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		Wizard wizard = findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]/tbody/tr[contains(@class,'Row')]")).scrollIntoView();
 		
 		List<WebElement> OrgTasks;
-		OrgTasks = pegaDriver.findElements(By.xpath("//table[contains(@pl_prop,'Tasks')]/tbody/tr[contains(@class,'Row')]"));
+		OrgTasks = findElements(By.xpath("//table[contains(@pl_prop,'Tasks')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = OrgTasks.size();
 		System.out.println("Task List size is" + rows);
 		WebElement RowData;
 		
-		//pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]")).scrollIntoView();
+		//findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]")).scrollIntoView();
 		
 		for (int i = 1;i<=rows;i++)
 			{
-				RowData = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']"));
+				RowData = findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']"));
 				System.out.println("Expected  org Task Due date value is "+ DueDate);
-				System.out.println("Actual org Task  Due date value is " +pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text").trim());
+				System.out.println("Actual org Task  Due date value is " +findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text").trim());
 				
 				
-				if(orgTaskSubject.equals(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Tasks')]")).getAttribute("text").trim()))
+				if(orgTaskSubject.equals(findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Tasks')]")).getAttribute("text").trim()))
 				{
-					String Taskname=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Tasks')]")).getAttribute("text");
+					String Taskname=findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Tasks')]")).getAttribute("text");
 					System.out.println("code passed upto tasks name");
-					String ActualTaskStatus=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Progress']//div")).getAttribute("text");
+					String ActualTaskStatus=findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Progress']//div")).getAttribute("text");
 					System.out.println("Actual status from screen scrapping should be empty" + ActualTaskStatus);
 					System.out.println("Expected Task Status" + orgTaskStatus);
-					String ActualDueDate=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text");
+					String ActualDueDate=findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text");
 					System.out.println("Actual value of  Due date" +ActualDueDate);
 					System.out.println("Expected  value  of Due date" +DueDate);
-					String ActualAssignedTo=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Assigned to']//span")).getAttribute("text");
-					String ActualTaskPriority=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Priority']//span")).getAttribute("text");
+					String ActualAssignedTo=findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Assigned to']//span")).getAttribute("text");
+					String ActualTaskPriority=findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Priority']//span")).getAttribute("text");
 					System.out.println("Actual value of AssignedTo"+ ActualAssignedTo);
 					System.out.println("Actual value of Priority"+ ActualTaskPriority);
 					System.out.println("Expected value of AssignedTo"+ OrgTaskAssignedTo);
 					System.out.println("Expected value of Priority"+ orgTaskPriority);
-					if((pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Progress']//div")).getAttribute("text").trim().contains(orgTaskStatus)) &&
-					//pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text").trim().contains(DueDate) && 
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Assigned to']//span")).getAttribute("text").trim().contains(OrgTaskAssignedTo) &&
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Priority']//span")).getAttribute("text").trim().contains(orgTaskPriority))
+					if((findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Progress']//div")).getAttribute("text").trim().contains(orgTaskStatus)) &&
+					//findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Due date']//span")).getAttribute("text").trim().contains(DueDate) && 
+					findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Assigned to']//span")).getAttribute("text").trim().contains(OrgTaskAssignedTo) &&
+					findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Priority']//span")).getAttribute("text").trim().contains(orgTaskPriority))
 					{	
 
 						System.out.println("**********conditions are met***************entered if and if and this retruns true");
@@ -745,31 +645,20 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void navigeToOrgTab(String tabName) {
 		
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
-		wizard.findElement(By.xpath("//div[@class='header']//h2[contains(text(),'"+tabName+"')]")).scrollIntoView();
 		
+		findElement(By.xpath("//div[@class='header']//h2[contains(text(),'"+tabName+"')]")).scrollIntoView();
 		
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//div[@class='header']//h2[contains(text(),'"+tabName+"')]")).click();
+		findElement(By.xpath("//div[@class='header']//h2[contains(text(),'"+tabName+"')]")).click();
 	}
 
 	
 	@Override
 	public Accounts AddAccount() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(2);
 		
-		pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
-		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath("//li[@role='presentation']//span[text()='Add account']")).click();
+		findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
+		findElement(By.xpath("//li[@role='presentation']//span[text()='Add account']")).click();
 				
-		frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Accounts AccountNewHarnessDetails = new PegaAccounts(frameId, testEnv);
 		return AccountNewHarnessDetails;	
 		
@@ -784,42 +673,41 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		//validate the expected account values 
 		System.out.println("Expected Values are");
 		System.out.println(AccountName + "****   "+ AccountOwner+" ****"+AccountIndustry +"******"+AccOpportunities +"******" +AccountTotAmount +"*******"+AccountStatus);
-	  //  Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+	  //  Wizard wizard = findWizard(getActiveFrameId(false));
 		//wizard.findElement(By.xpath("//span[@data-test-id='20150106035042083712546']")).scrollIntoView();
 	    // PegaUtil.clickRefresh(pegaDriver,"Accounts");
 		
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		List<WebElement> OrgAccounts;
-		OrgAccounts = pegaDriver.findElements(By.xpath("//table[contains(@pl_prop,'Accounts')]/tbody/tr[contains(@class,'Row')]"));
+		OrgAccounts = findElements(By.xpath("//table[contains(@pl_prop,'Accounts')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = OrgAccounts.size();
 		WebElement RowData;
 		System.out.println( "accounts list count is   " + rows);
 		
 		for (int i = 1;i<=rows;i++)
 			{	
-	pegaDriver.getActiveFrameId(true);
-	String ActualAccountname=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Accounts')]")).getAttribute("text");
-	String Actualamount=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Total amount']")).getAttribute("text");
-	String Actualowner= pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Owner']")).getAttribute("text");
-	String Actualindustry=pegaDriver.findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a3']")).getAttribute("text");
-	String ActualOppno=pegaDriver.findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Opportunities']")).getAttribute("text");
-	String ActualStatus=pegaDriver.findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a6']")).getAttribute("text");
+	
+	String ActualAccountname=findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Accounts')]")).getAttribute("text");
+	String Actualamount=findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Total amount']")).getAttribute("text");
+	String Actualowner= findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Owner']")).getAttribute("text");
+	String Actualindustry=findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a3']")).getAttribute("text");
+	String ActualOppno=findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Opportunities']")).getAttribute("text");
+	String ActualStatus=findElement(By.xpath("//table[@id='bodyTbl_right']//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a6']")).getAttribute("text");
 				
 			
 	System.out.println("Actual Values in row number "+ i + "are");
 	System.out.println(ActualAccountname + "****"+ Actualowner+" ****"+Actualindustry +"******"+ActualOppno+"******" +Actualamount +"*******"+ActualStatus);
 			
-				if(AccountName.equals(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Accounts')]")).getAttribute("text").trim()))
+				if(AccountName.equals(findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+(i)+"']//a[contains(@name,'Accounts')]")).getAttribute("text").trim()))
 				
 			
 					{
-					if(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Owner']")).getAttribute("text").trim().contains(AccountOwner) &&
-					   pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a3']")).getAttribute("text").trim().contains(AccountIndustry) && 
-					   pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Opportunities']")).getAttribute("text").trim().contains(AccOpportunities) &&
-					   pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Total amount']")).getAttribute("text").trim().contains(AccountTotAmount) &&
-					   pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a6']")).getAttribute("text").trim().contains(AccountStatus))
+					if(findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Owner']")).getAttribute("text").trim().contains(AccountOwner) &&
+					   findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a3']")).getAttribute("text").trim().contains(AccountIndustry) && 
+					   findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Opportunities']")).getAttribute("text").trim().contains(AccOpportunities) &&
+					   findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@data-attribute-name='Total amount']")).getAttribute("text").trim().contains(AccountTotAmount) &&
+					   findElement(By.xpath("//table[contains(@pl_prop,'Accounts')]//tr[@pl_index='"+i+"' and contains(@id,'InOrg')]//td[@headers='a6']")).getAttribute("text").trim().contains(AccountStatus))
 					{
 						System.out.println("*************************entered if and if");
 						return true;
@@ -833,24 +721,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	}
 
 
-	@Override
-	public Activity addActivity() {
 	
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
-		
-		//pegaDriver.findElement(By.xpath("//div[@string_type='field']//button[text()='Actions ']")).click();
-		
-		//String frameId = pegaDriver.getActiveFrameId(false);
-		//PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		//pegaDriver.switchTo().frame(frameId);
-		
-		//pegaDriver.findElement(By.xpath("//li[@role='presentation']//span[text()='Add activity']")).click();
-				
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Activity ActivityDetails = new PegaActivity(frameId, testEnv);
-		return ActivityDetails;
-		
-	}
 
 
 	@Override
@@ -859,12 +730,12 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 			String RelatedTo, String RelatedType) {
 		
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		List<WebElement> OrgActivities;
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		Wizard wizard = findWizard(getActiveFrameId(false));
 	    wizard.findElement(By.xpath("//table[contains(@pl_prop,'ActivitiesList')]//tr[contains(@class,'Row')]")).scrollIntoView();
-		OrgActivities = pegaDriver.findElements(By.xpath("//table[contains(@pl_prop,'ActivitiesList')]//tr[contains(@class,'Row')]"));
+		OrgActivities = findElements(By.xpath("//table[contains(@pl_prop,'ActivitiesList')]//tr[contains(@class,'Row')]"));
 		int actrows = OrgActivities.size();
 		System.out.println("Activity List count is " + actrows);
 		WebElement RowData;
@@ -873,22 +744,22 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 			{
 			
 			System.out.println("Expected Values are " +Subject + CommunicationType + actDate + CompletedBy + RelatedTo + RelatedType );
-				RowData = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']"));
-				if(Subject.equals(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//a[@title='Click to Open the Related Task']")).getAttribute("text").trim()))
+				RowData = findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']"));
+				if(Subject.equals(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//a[@title='Click to Open the Related Task']")).getAttribute("text").trim()))
 				{  
 					System.out.println("entered 1st IF");
 					System.out.println("Actual Values are");
-					System.out.println(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text"));
-					System.out.println(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text"));
-					System.out.println(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text"));
-					System.out.println(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span//a")).getAttribute("text"));
-					System.out.println(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a6']//span")).getAttribute("text"));
+					System.out.println(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text"));
+					System.out.println(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text"));
+					System.out.println(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text"));
+					System.out.println(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span//a")).getAttribute("text"));
+					System.out.println(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a6']//span")).getAttribute("text"));
 					
-					if(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text").trim().contains(CommunicationType) &&
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text").trim().contains(actDate) && 
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text").trim().contains(CompletedBy) &&
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span//a")).getAttribute("text").trim().contains(RelatedTo) &&
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span")).getAttribute("text").trim().contains(RelatedType))
+					if(findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text").trim().contains(CommunicationType) &&
+					findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text").trim().contains(actDate) && 
+					findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text").trim().contains(CompletedBy) &&
+					findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span//a")).getAttribute("text").trim().contains(RelatedTo) &&
+					findElement(By.xpath("//table[contains(@pl_prop,'OrgRelatedActivities')]//tr[@pl_index='"+(i)+"']//td[@headers='a5']//span")).getAttribute("text").trim().contains(RelatedType))
 						System.out.println("entered 2nd if");
 						return true;
 				
@@ -899,18 +770,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		
 	}
 
-	@Override
-	public Relationship addContact() {
-		
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(2);
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add contact");
-				
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Relationship relationShip= new PegaRelationship(frameId, testEnv);
-		return relationShip;
-	}
+	
 
 
 	@Override
@@ -920,11 +780,11 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		
 		
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		System.out.println("Expected Values are" + ContactName + RelationshipType+RelationshipDescription+StartDate+EndDate);
 		List<WebElement> OrgContacts;
-		OrgContacts= pegaDriver.findElements(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]/tbody/tr[contains(@class,'Row')]"));
+		OrgContacts= findElements(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = OrgContacts.size();
 		System.out.println("org contact row" + rows );
 		
@@ -933,23 +793,23 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		
 		for (int i = 0;i<rows;i++)
 			{
-				RowData = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']"));
-				if(ContactName.equals(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//a[contains(text(),'"+ContactName+"')]")).getText()))
+				RowData = findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']"));
+				if(ContactName.equals(findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//a[contains(text(),'"+ContactName+"')]")).getText()))
 					
-				{  String acontactname=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//a[contains(text(),'"+ContactName+"')]")).getText();
+				{  String acontactname=findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//a[contains(text(),'"+ContactName+"')]")).getText();
 				
 					System.out.println(" entered if " + i + "time" );
 					
-					String ActualRelationshiptype=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a2']//div")).getAttribute("text");
-					String  rdesc=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a3']//div")).getAttribute("text");
-					String startdate=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a4']//div")).getAttribute("text");
-					String Enddate=pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//div")).getAttribute("text");
+					String ActualRelationshiptype=findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a2']//div")).getAttribute("text");
+					String  rdesc=findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a3']//div")).getAttribute("text");
+					String startdate=findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a4']//div")).getAttribute("text");
+					String Enddate=findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//div")).getAttribute("text");
 					System.out.println("*********** print values**************");
 					System.out.println(acontactname + ActualRelationshiptype + rdesc + startdate +Enddate);
-					if(pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a2']//div")).getAttribute("text").trim().contains(RelationshipType) &&
-					pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a3']//div")).getAttribute("text").trim().contains(RelationshipDescription))  
-					//pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a4']//div")).getAttribute("text").trim().contains(StartDate) &&
-					//pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//div")).getAttribute("text").trim().contains(EndDate))
+					if(findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a2']//div")).getAttribute("text").trim().contains(RelationshipType) &&
+					findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a3']//div")).getAttribute("text").trim().contains(RelationshipDescription))  
+					//findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a4']//div")).getAttribute("text").trim().contains(StartDate) &&
+					//findElement(By.xpath("//table[contains(@pl_prop,'ContactsInOrg')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//div")).getAttribute("text").trim().contains(EndDate))
 					return true;
 					
 					}
@@ -964,10 +824,10 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	}																																																   
 	@Override
 	public List<String> getOpptyValues(String opptyName) {
-		//pegaDriver.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).scrollIntoView();
-		//pegaDriver.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
+		//findElement(By.xpath(PegaUtil.REFRESH_XPATH)).scrollIntoView();
+		//findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
-	Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+	Wizard wizard = findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(ORG_OPPTY_ROW_IDENTIFIER_XPATH)).scrollIntoView();
 		//wizard.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
@@ -989,9 +849,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void ClickToggletoConList() {
 		
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(listviewtoggle_xpath)).click();		
+		findElement(By.xpath(listviewtoggle_xpath)).click();		
 		
 	}
 

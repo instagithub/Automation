@@ -11,8 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-import com.pega.crm.salesautomation.workobjects.Activity;
-import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
@@ -520,21 +518,6 @@ public  class PegaUtil
 		return null;
 	}
 
-	public static Tasks addTask(PegaWebDriver pegaDriver) {
-		pegaDriver.getActiveFrameId(true);
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add task");
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Tasks tasksDetails = new PegaTasks(frameId, pegaDriver.getTestEnv());
-		return tasksDetails;
-		
-	}
-
-	public static Activity addActivity(PegaWebDriver pegaDriver) {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add activity");
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Activity ActivityDetails = new PegaActivity(frameId, pegaDriver.getTestEnv());
-		return ActivityDetails;
-	}
 	
 	public static List<String> getRowValues(PegaWebDriver pegaDriver,String RowIdentifier, String columValue1, String columValue2){
 		List<String> ColumnValues= new ArrayList<String>();

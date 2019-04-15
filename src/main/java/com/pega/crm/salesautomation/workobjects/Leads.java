@@ -68,7 +68,6 @@ public interface Leads extends Wizard
 	void setLeadMobile(String Mobile);
 	void setLeadDesc(String Desc);
 	
-	
 	String getLastName();
 	String getStage();
 	String getCompany();
@@ -88,8 +87,6 @@ public interface Leads extends Wizard
 	String getOwner();
 	void getActivitiesSubTab();
 	List<String> getTaskValues(String LeadName);
-	Tasks clickAddTask();
-	Activity clickAddActivity();
 	List<String> getActivityValues(String ActivityName);
 	void setContact(String ContactName);
 	String getCreatedDate();

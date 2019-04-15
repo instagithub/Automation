@@ -30,8 +30,7 @@ public interface Accounts extends Wizard{
 	void clickCreate();
 	void clickEdit();
 	void clickSubmit();
-	void clickChangeOwner();
-	Activity addActivity();					
+	void clickChangeOwner();				
 	void clickClose();
 	void clickFollow();
 	void clickUnFollow();
@@ -67,7 +66,6 @@ public interface Accounts extends Wizard{
 	boolean isActionItemValuePresent(String dropDownValue);
 	boolean validateAccOpportunities(String opptyName,String opptyStage,String opptyCloseReason,String opptyOwner,String opptyAmount,String oppCloseDate,String opptyMustWin,String opptyTerritory);
 	String getFollowedWOName();
-	Tasks addTask();
 	void getActivitiesSubTab();
 	List<String> getTaskValues(String taskSubject);
 	void getLeadSubTab();
@@ -76,7 +74,6 @@ public interface Accounts extends Wizard{
 	void refresh();
 	boolean isAccountFollowed();
 	List<String> getFollowers(String Follower);
-	Relationship clickContact();
 	void getContactSubTab();
 	ArrayList<String> getSubTabs();
 	List<String> getContactValues(String contactRelationship);			 

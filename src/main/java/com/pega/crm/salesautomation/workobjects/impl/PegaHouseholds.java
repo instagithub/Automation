@@ -56,79 +56,77 @@ public class PegaHouseholds extends WizardImpl implements Households
 
 	@Override
 	public void setHouseholdName(String householdName) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_NAME_ID)).sendKeys(householdName);
-		pegaDriver.findElement(By.id(HH_NAME_ID)).sendKeys(Keys.TAB);
+		 
+		 findElement(By.id(HH_NAME_ID)).sendKeys(householdName);
+		 findElement(By.id(HH_NAME_ID)).sendKeys(Keys.TAB);
 		
 	}
 
 	@Override
 	public void setPhoneNumber(String PhoneNumber) 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PhoneNumber);
+		 
+		 findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PhoneNumber);
 		
 	}
 
 	@Override
 	public void setDescription(String Description) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_DESCRIPTION_ID)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(Description);
+		 
+		 findElement(By.id(HH_DESCRIPTION_ID)).click();
+		 findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(Description);
 		
 	}
 
 	@Override
 	public void setStreet(String Street) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_STREET_ID)).sendKeys(Street);
+		 
+		 findElement(By.id(HH_STREET_ID)).sendKeys(Street);
 		
 	}
 
 	@Override
 	public void setCity(String City) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_CITY_ID)).sendKeys(City);
+		 
+		 findElement(By.id(HH_CITY_ID)).sendKeys(City);
 		
 	}
 
 	@Override
 	public void setState(String State) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_STATE_ID)).sendKeys(State);
+		 
+		 findElement(By.id(HH_STATE_ID)).sendKeys(State);
 		
 	}
 
 	@Override
 	public void setPincode(String Pin) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_ZIPCODE_ID)).sendKeys(Pin);
+		 
+		 findElement(By.id(HH_ZIPCODE_ID)).sendKeys(Pin);
 		
 	}
 
 	@Override
 	public void setCountry(String Country) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.id(HH_COUNTRY_ID)).selectByVisibleText("India");
-		//pegaDriver.findElement(By.id(HH_COUNTRY_ID)).sendKeys(Country);
+		 
+		 findSelectBox(By.id(HH_COUNTRY_ID)).selectByVisibleText("India");
+		// findElement(By.id(HH_COUNTRY_ID)).sendKeys(Country);
 		
 	}
 
 	@Override
 	public void clickCreate() {
 		
-		pegaDriver.waitForDocStateReady(1);
 		PegaUtil.clickCreate(pegaDriver);
 		
 	}
 
 	@Override
 	public String getHouseholdPageHeader() {
-		pegaDriver.getActiveFrameId(true);
-		String hhHeader=pegaDriver.findElement(By.xpath(HH_HOUSEHOLD_PAGE_HEADER_XPATH)).getText();
+		 
+		String hhHeader= findElement(By.xpath(HH_HOUSEHOLD_PAGE_HEADER_XPATH)).getText();
 		return hhHeader;
 
 	}
@@ -137,59 +135,49 @@ public class PegaHouseholds extends WizardImpl implements Households
 	public void clickAddMember() 
 	{
 		getMembersSubtab();
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).scrollIntoView();
-		pegaDriver.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).click();
+		findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).click();
 		
 	}
 	@Override
 	public void clickAddMemberinCreate()
 	{
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).scrollIntoView();
-		pegaDriver.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).click();
+		 findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).click();
 		
 	}
 
 	@Override
 	public void searchContact(String Contact) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_FILTERCONTACT_ID)).sendKeys(Contact);
-		pegaDriver.findElement(By.xpath(HH_FILTER_BUTTON_XPATH)).click();
+		 
+		 findElement(By.id(HH_FILTERCONTACT_ID)).sendKeys(Contact);
+		 findElement(By.xpath(HH_FILTER_BUTTON_XPATH)).click();
 		
 	}
 
 	@Override
 	public void setHouseholdContact(String Role) {
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.xpath(HH_FILTER_RESULT_XPATH)).click();
-		pegaDriver.waitForDocStateReady(5);
-		pegaDriver.findSelectBox(By.xpath(HH_ROLE_ID)).selectByVisibleText(Role);
+		 findElement(By.xpath(HH_FILTER_RESULT_XPATH)).click();
+		 findSelectBox(By.xpath(HH_ROLE_ID)).selectByVisibleText(Role);
 		PegaUtil.clickSubmit(pegaDriver);
-		
-
 	}
 
 	@Override
 	public String getHouseholdName() 
-	{
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.getActiveFrameId(true);
-		String hhName=pegaDriver.findElement(By.xpath(HH_NAME_VALUE_XPATH)).getText();
+	{	 
+		String hhName= findElement(By.xpath(HH_NAME_VALUE_XPATH)).getText();
 		return hhName;
 	}
 
 	@Override
 	public String getPhoneNumber() {
-		pegaDriver.getActiveFrameId(true);
-		String hhPhoneNumber=pegaDriver.findElement(By.xpath(HH_PHONENUMBER_VALUE_XPATH)).getText();
+		 
+		String hhPhoneNumber= findElement(By.xpath(HH_PHONENUMBER_VALUE_XPATH)).getText();
 		return hhPhoneNumber;
 	}
 
 	@Override
 	public int getActiveMember() {
-		pegaDriver.getActiveFrameId(true);
-		int hhActiveMember=Integer.parseInt(pegaDriver.findElement(By.xpath(HH_ACTIVE_MEMBER_XPATH)).getText());
+		 
+		int hhActiveMember=Integer.parseInt( findElement(By.xpath(HH_ACTIVE_MEMBER_XPATH)).getText());
 		return hhActiveMember;
 		
 	}
@@ -197,29 +185,28 @@ public class PegaHouseholds extends WizardImpl implements Households
 	@Override
 	public java.util.List<WebElement> getListOfActiveMember() {
 		getMembersSubtab();
-		java.util.List<WebElement> listofmember= pegaDriver.findElements(By.xpath(HH_MEMBERS_LIST_XPATH));
+		java.util.List<WebElement> listofmember=  findElements(By.xpath(HH_MEMBERS_LIST_XPATH));
 		return listofmember;
 	}
 
 	@Override
 	public String getDescription() {
-		pegaDriver.getActiveFrameId(true);
-		String hhDescription=pegaDriver.findElement(By.xpath(HH_DESCRIPTION_XPATH)).getText();
+		 
+		String hhDescription= findElement(By.xpath(HH_DESCRIPTION_XPATH)).getText();
 		return hhDescription;
 	}
 
 	@Override
 	public String getMemberName() {
 		getMembersSubtab();
-		pegaDriver.getActiveFrameId(true);
-		String hhMemberName=pegaDriver.findElement(By.xpath(HH_LISTOFMEMBERS_NAME_XPATH)).getText();
+		String hhMemberName= findElement(By.xpath(HH_LISTOFMEMBERS_NAME_XPATH)).getText();
 		return hhMemberName;
 	}
 
 	@Override
 	public String getMemberRole() {
-		pegaDriver.getActiveFrameId(true);
-		String hhMemberRole=pegaDriver.findElement(By.xpath(HH_LISTOFMEMBERS_ROLE_XPATH)).getText();
+		 
+		String hhMemberRole= findElement(By.xpath(HH_LISTOFMEMBERS_ROLE_XPATH)).getText();
 		return hhMemberRole;
 	}
 
@@ -242,9 +229,9 @@ public class PegaHouseholds extends WizardImpl implements Households
 
 	@Override
 	public void removeFriendMember(){
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath("//td[@data-attribute-name='RoleInfo']//select")).scrollIntoView();
-		List<WebElement> wb= pegaDriver.findElements(By.xpath("//td[@data-attribute-name='RoleInfo']//select"));
+		 
+		// findElement(By.xpath("//td[@data-attribute-name='RoleInfo']//select")).scrollIntoView();
+		List<WebElement> wb=  findElements(By.xpath("//td[@data-attribute-name='RoleInfo']//select"));
 		System.out.println("Size of the List:" + wb.size());
 		for(WebElement wb1:wb)
 		{
@@ -263,7 +250,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 @Override
 	public void selectHousehold(String HouseholdName) {
 		
-		pegaDriver.getActiveFrameId(true);
+		 
 		PegaUtil.autoComplete(pegaDriver, "HouseholdToJoinID",HouseholdName);
 		clickSubmit();
 		clickSubmit();
@@ -272,15 +259,15 @@ public class PegaHouseholds extends WizardImpl implements Households
 	@Override
 	public boolean checkContactInHousehold(String contactName) {
 		
-		pegaDriver.getActiveFrameId(true);
+		 
 		List<WebElement> Householdcontacts;  
-		Householdcontacts = pegaDriver.findElements(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]/tbody/tr[contains(@class,'Row')]"));
+		Householdcontacts =  findElements(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = Householdcontacts .size();
 		
 		for (int i = 1; i<= rows;i++)
 		{
-			WebElement wb = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'SelectedMembers') and @pl_index='"+i+"']//div[contains(@node_name,'FirstName')]//span//a"));
-			WebElement wb1 = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'SelectedMembers') and @pl_index='"+i+"']//div[contains(@node_name,'LastName')]//span//a"));
+			WebElement wb =  findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'SelectedMembers') and @pl_index='"+i+"']//div[contains(@node_name,'FirstName')]//span//a"));
+			WebElement wb1 =  findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'SelectedMembers') and @pl_index='"+i+"']//div[contains(@node_name,'LastName')]//span//a"));
 			if(contactName.contains(wb.getAttribute("text")) && contactName.contains(wb1.getAttribute("text")));
 			return true;
 		}
@@ -291,14 +278,14 @@ public class PegaHouseholds extends WizardImpl implements Households
 	@Override
 	public void clickMember(String contactName) {
 		
-		pegaDriver.getActiveFrameId(true);
+		 
 		List<WebElement> Householdcontacts;  
-		Householdcontacts = pegaDriver.findElements(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]/tbody/tr[contains(@class,'Row')]"));
+		Householdcontacts =  findElements(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = Householdcontacts .size();
 		
 		for (int i = 1; i<= rows;i++)
 		{
-			WebElement wb = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'Members') and @pl_index='"+i+"']//div[contains(@node_name,'FirstName')]//span//a"));
+			WebElement wb =  findElement(By.xpath("//table[contains(@pl_prop_class,'HouseholdMember')]//tr[contains(@id,'Members') and @pl_index='"+i+"']//div[contains(@node_name,'FirstName')]//span//a"));
 			if(contactName.contains(wb.getAttribute("text")))
 			wb.click();
 			}
@@ -311,8 +298,8 @@ public class PegaHouseholds extends WizardImpl implements Households
 
 	@Override
 	public void setComments(String Comments) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(HH_CLOSE_COMMENTS_ID)).sendKeys(Comments);
+		 
+		 findElement(By.id(HH_CLOSE_COMMENTS_ID)).sendKeys(Comments);
 		
 	}
 	@Override
@@ -324,7 +311,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 	@Override
 	public void getMembersSubtab() {
 		PegaUtil.getSubTab(pegaDriver, "Members");
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		Wizard wizard =  findWizard( getActiveFrameId(false));
 		wizard.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).scrollIntoView();
 		
 	}
@@ -332,7 +319,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 	@Override
 	public ArrayList<String> getSubTabs() {
 		ArrayList<String> s= new ArrayList<String>();
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(HH_SUBTABS_XPATH));
+		List<WebElement> wb= findElements(By.xpath(HH_SUBTABS_XPATH));
 		
 		for(WebElement w:wb)
 		{

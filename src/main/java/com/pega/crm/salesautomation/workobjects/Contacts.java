@@ -98,8 +98,7 @@ public interface Contacts extends Wizard
 	void clickFollow();
 	void clickUnFollow();
 	String houseHoldExists(String HouseholdName);
-	void clickHousehold(String HouseholdName);										  
-	Activity addActivity();									   
+	void clickHousehold(String HouseholdName);										  								   
 	String getFirstName();
 	String getLastName();
 	String getFullname();
@@ -123,9 +122,7 @@ public interface Contacts extends Wizard
 	List<String> getLeadRowValues(String leadName);
 	void getActivitiesSubTab();
 	List<String> getActivityValues(String subject);
-	Tasks clickAddTask();
 	List<String> getTaskValues(String RowName);
-	Relationship clickOnAddContact();
 	void NavigateToHouseholdMembers();
 	boolean householdAssociated();
 	ArrayList<String> getSubTabs();

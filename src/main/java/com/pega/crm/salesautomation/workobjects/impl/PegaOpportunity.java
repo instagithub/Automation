@@ -12,10 +12,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
-import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.Organizations;
-import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
@@ -111,9 +109,9 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	
 	@Override
 	public void setAmount(String oppAmount) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_AMOUNT_ID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(OPP_AMOUNT_ID)).sendKeys(oppAmount);
+		
+		findElement(By.id(OPP_AMOUNT_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(OPP_AMOUNT_ID)).sendKeys(oppAmount);
 		
 		
 	}
@@ -127,9 +125,9 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void setName(String oppName) 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_NAME_ID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(OPP_NAME_ID)).sendKeys(oppName);
+		
+		findElement(By.id(OPP_NAME_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(OPP_NAME_ID)).sendKeys(oppName);
 		
 	}
 
@@ -147,23 +145,18 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void setForecastCategory(String oppforecastcategory) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.id(OPP_FORECASTCATEGORY_ID)).selectByVisibleText(oppforecastcategory);
+		
+		findSelectBox(By.id(OPP_FORECASTCATEGORY_ID)).selectByVisibleText(oppforecastcategory);
 		
 	}
 
 	
 	@Override
-
-	
-
-	
-
 	public String setStage(String oppStage) {
 		StringBuffer selectedStage=new StringBuffer(oppStage);
 
-		pegaDriver.getActiveFrameId(true);
-		selectedStage=new StringBuffer(pegaDriver.findSelectBox(By.id(OPP_STAGE_ID)).getFirstSelectedOption().getText());
+		
+		selectedStage=new StringBuffer(findSelectBox(By.id(OPP_STAGE_ID)).getFirstSelectedOption().getText());
 		if(selectedStage.equals("Select..."))
 		{
 			selectedStage=new StringBuffer(OPPSTAGES.get(0));
@@ -172,7 +165,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 				NewStage=new StringBuffer(OPPSTAGES.get(i-1));
 			else
 				NewStage=new StringBuffer(OPPSTAGES.get(i+1));
-			pegaDriver.findSelectBox(By.id(OPP_STAGE_ID)).selectByVisibleText(NewStage.toString());*/
+			findSelectBox(By.id(OPP_STAGE_ID)).selectByVisibleText(NewStage.toString());*/
 		}
 		return selectedStage.toString();
 	}
@@ -180,25 +173,25 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void clickOK() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		Wizard wizard=pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		
+		Wizard wizard=findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(OPP_OK_BUTTON_XPATH)).scrollIntoView();
-		//pegaDriver.findElement(By.xpath(OPP_OK_BUTTON_XPATH)).scrollIntoView();
-		pegaDriver.findElement(By.xpath(OPP_OK_BUTTON_XPATH)).click();
+		//findElement(By.xpath(OPP_OK_BUTTON_XPATH)).scrollIntoView();
+		findElement(By.xpath(OPP_OK_BUTTON_XPATH)).click();
 		
 	}
 
 	@Override
 	public String getName() {
-		pegaDriver.getActiveFrameId(true);
-		String oppname=pegaDriver.findElement(By.xpath(OPP_NAME_VALUE_XPATH)).getText();
+		
+		String oppname=findElement(By.xpath(OPP_NAME_VALUE_XPATH)).getText();
 		return oppname;
 	}
 
 	@Override
 	public ArrayList<String> getSubTabs() {
 		ArrayList<String> s= new ArrayList<String>();
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(OPP_SUBTABS_XPATH));
+		List<WebElement> wb=findElements(By.xpath(OPP_SUBTABS_XPATH));
 		for(WebElement w:wb)
 		{
 			String s1=w.getText();
@@ -210,47 +203,45 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void clickEdit() {
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, 1);
 		
 	}
 
 	@Override
 	public boolean isStageEnabled() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b=pegaDriver.findElement(By.id(OPP_STAGE_ID)).isEnabled();
+		
+		boolean b=findElement(By.id(OPP_STAGE_ID)).isEnabled();
 		return b;
 		
 	}
 
 	@Override
 	public boolean isCloseDateEnabled() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b=pegaDriver.findElement(By.xpath(OPP_CALANDER_XPATH)).isEnabled();
+		
+		boolean b=findElement(By.xpath(OPP_CALANDER_XPATH)).isEnabled();
 		return b;
 	}
 
 	@Override
 	public boolean isAmountEnabled() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b=pegaDriver.findElement(By.id(OPP_AMOUNT_ID)).isEnabled();
+		
+		boolean b=findElement(By.id(OPP_AMOUNT_ID)).isEnabled();
 		return b;
 		
 	}
 
 	@Override
 	public void clickSubmitButton() {
-		/*pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_SUBMIT_BUTTON_ID)).click();*/
+		/*
+		findElement(By.xpath(OPP_SUBMIT_BUTTON_ID)).click();*/
 		PegaUtil.clickSubmit(pegaDriver);
 	}
 
 	@Override
 	public String getAmount() {
 		String s[]= null;
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.getActiveFrameId(true);
-		String amount=pegaDriver.findElement(By.xpath(OPP_AMOUNT_VALUE_XPATH)).getText();
+		String amount=findElement(By.xpath(OPP_AMOUNT_VALUE_XPATH)).getText();
 		try {
 			amount=NumberFormat.getCurrencyInstance(Locale.US).parse(amount).toString();
 			 s = amount.split(":");
@@ -264,7 +255,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public String getForecast() {
-		String forecast=pegaDriver.findElement(By.xpath(OPP_FORECAST_VALUE_XPATH)).getText().trim();
+		String forecast=findElement(By.xpath(OPP_FORECAST_VALUE_XPATH)).getText().trim();
 		return forecast;
 	}
 
@@ -276,31 +267,31 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public String getSectionHeader() {
-		pegaDriver.getActiveFrameId(true);
-		String ownerHeader=pegaDriver.findElement(By.xpath(OPP_SECTION_VALUE_XPATH)).getText();
+		
+		String ownerHeader=findElement(By.xpath(OPP_SECTION_VALUE_XPATH)).getText();
 		return ownerHeader;
 	}
 
 	@Override
 	public void setOwner(String changeOwner) {
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(OPP_SWITCH_TO_EDIT_MODE_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_CHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
+		
+		//findElement(By.xpath(OPP_SWITCH_TO_EDIT_MODE_XPATH)).click();
+		
+		findElement(By.id(OPP_CHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
 		PegaUtil.autoComplete(pegaDriver, OPP_CHANGEOWNER_ID, changeOwner);
 		
 	}
 
 	@Override
 	public void setReason(String reason) {
-		pegaDriver.findElement(By.id(OPP_CHANGEREASON_ID)).sendKeys(reason);
+		findElement(By.id(OPP_CHANGEREASON_ID)).sendKeys(reason);
 		
 	}
 
 	@Override
 	public String getOwner() {
-		pegaDriver.getActiveFrameId(true);
-		String owner=pegaDriver.findElement(By.xpath(OPP_OWNER_VALUE_XPATH)).getText().trim();
+		
+		String owner=findElement(By.xpath(OPP_OWNER_VALUE_XPATH)).getText().trim();
 		return owner;
 	}
 
@@ -320,14 +311,14 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void setCloseReason(String closeReason) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.xpath(OPP_CLOSEREASON_XPATH)).selectByVisibleText(closeReason);
+		
+		findSelectBox(By.xpath(OPP_CLOSEREASON_XPATH)).selectByVisibleText(closeReason);
 		
 	}
 
 	@Override
 	public void setCloseComments(String closeComments) {
-		pegaDriver.findElement(By.id(OPP_CLOSECOMMENTS_ID)).sendKeys(closeComments);
+		findElement(By.id(OPP_CLOSECOMMENTS_ID)).sendKeys(closeComments);
 		
 	}
 
@@ -345,46 +336,42 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getStageForBusiness() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		String stage=pegaDriver.findElement(By.xpath(OPP_STAGE_BUSINESS_VALUE_XPATH)).getText();
+		
+		String stage=findElement(By.xpath(OPP_STAGE_BUSINESS_VALUE_XPATH)).getText();
 		return stage;
 	}
 
 	@Override
 	public String getStageForIndividual() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		String stage=pegaDriver.findElement(By.xpath(OPP_STAGE_INDIVIDUAL_VALUE_XPATH)).getText();
+		
+		String stage=findElement(By.xpath(OPP_STAGE_INDIVIDUAL_VALUE_XPATH)).getText();
 		return stage;
 	}
 
 	@Override
 	public void clickCloneOpportunity() {
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Clone opportunity");
 		
 	}
 
 	@Override
 	public String getSectionCustomHeader() {
-		pegaDriver.getActiveFrameId(true);
-		String CloneHeader=pegaDriver.findElement(By.xpath(OPP_OPPTY_CUSTOM_SECTION_VALUE_XPATH)).getText();
+		
+		String CloneHeader=findElement(By.xpath(OPP_OPPTY_CUSTOM_SECTION_VALUE_XPATH)).getText();
 		return CloneHeader;
 		
 	}
 
 	@Override
 	public void setSubject(String subject) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_SUBJECT_ID)).sendKeys(subject);
+		
+		findElement(By.id(OPP_SUBJECT_ID)).sendKeys(subject);
 		
 	}
 
-	@Override
-	public Tasks clickAddTask() {
-		return(PegaUtil.addTask(pegaDriver));
-		
-	}
+	
 
 	@Override
 	public void setDueDate() {
@@ -395,16 +382,16 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void setType(String type) 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.xpath(OPP_TYPE_XPATH)).selectByVisibleText(type);
+		
+		findSelectBox(By.xpath(OPP_TYPE_XPATH)).selectByVisibleText(type);
 		
 	}
 
 	@Override
 	public void setStatus(String status) 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.xpath(OPP_STATUS_XPATH)).selectByVisibleText(status);
+		
+		findSelectBox(By.xpath(OPP_STATUS_XPATH)).selectByVisibleText(status);
 		
 	}
 
@@ -414,12 +401,11 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 		
 	/*	Actions ac = new Actions(pegaDriver);
 		System.out.println("In Add row" + ac);*/
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(2);
-		/*ac.moveToElement(pegaDriver.findElement(By.xpath(OPP_ADDROW_XPATH))).click();
-		pegaDriver.getActiveFrameId(true);*/
+		
+		/*ac.moveToElement(findElement(By.xpath(OPP_ADDROW_XPATH))).click();
+		*/
 		PegaWebElement wb=
-				pegaDriver.findElement(By.xpath(OPP_ADDROW_XPATH));
+				findElement(By.xpath(OPP_ADDROW_XPATH));
 		wb.sendKeys(Keys.ENTER);
 		
 	}
@@ -427,7 +413,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void clickUpdateContacts() 
 	{
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Update contacts");
 		
 	}
@@ -435,16 +421,16 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void enterContact(String contactName)
 	{
-		pegaDriver.getActiveFrameId(true);
-		/*pegaDriver.findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(contactName);
-		pegaDriver.findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(Keys.TAB);*/
+		
+		/*findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(contactName);
+		findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(Keys.TAB);*/
 		PegaUtil.autoComplete(pegaDriver, OPP_SEARCH_CONTACT_ID, contactName);
 	}
 
 	@Override
 	public void setPrimaryContact() 
 	{
-		pegaDriver.findElement(By.id(OPP_PRIMARY_CONTACT_ID)).click();
+		findElement(By.id(OPP_PRIMARY_CONTACT_ID)).click();
 		
 	}
 
@@ -452,11 +438,11 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	public void clickContactSubtab() 
 	{
 		PegaUtil.getSubTab(pegaDriver, "Contacts");
-		Wizard wizard = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		
 		//wizard.findElement(By.xpath(PegaUtil.OPP_CONTACT_REFRESH_XPATH)).scrollIntoView();
 		//wizard.findElement(By.xpath(PegaUtil.OPP_CONTACT_REFRESH_XPATH)).click();
 		//PegaUtil.clickRefresh(pegaDriver);
-		pegaDriver.getActiveFrameId(true);
+		
 		
 	}
 	
@@ -464,24 +450,24 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	public void clickCloseplanSubtab() 
 	{
 		System.out.println("Inside Function");
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.getSubTab(pegaDriver, "Close plans");
-		//pegaDriver.findElement(By.xpath("//h3[contains(text(),'Close plans')]")).click();
-		pegaDriver.getActiveFrameId(true);
+		//findElement(By.xpath("//h3[contains(text(),'Close plans')]")).click();
+		
 		PegaWebElement wb;
 		PegaWebElement wb1;
-		wb1 = pegaDriver.findElement(By.xpath("//div[@node_name='ClosePlanButtons']"));
+		wb1 = findElement(By.xpath("//div[@node_name='ClosePlanButtons']"));
 		
 		wb = wb1.findElement(By.xpath("//button[text()='Add new']"));
 		int i= 1;
 		boolean re;
 		
 		
-		while (!(pegaDriver.verifyElement(By.id("PEGA_GRID18"))))
+		while (!(verifyElement(By.id("PEGA_GRID18"))))
 		{
-			pegaDriver.getActiveFrameId(true);
+			
 			System.out.println("i value is : " + i);
-			//pegaDriver.getTestEnv().getDriverActions().moveToElement(wb).click().perform();
+			//getTestEnv().getDriverActions().moveToElement(wb).click().perform();
 			wb1.findElement(By.xpath("//button[text()='Add new']")).click();
 			i++;
 			
@@ -493,23 +479,22 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public String getContactNameInSubtab() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.waitForDocStateReady(1);
-		String name=pegaDriver.findElement(By.xpath(OPP_CONTACTNAME_SUBTAB_XPATH)).getText();
+		
+		String name=findElement(By.xpath(OPP_CONTACTNAME_SUBTAB_XPATH)).getText();
 		return name;
 	}
 
 	@Override
 	public String getUpdateContactsHeader() {
-		pegaDriver.getActiveFrameId(true);
-		String header=pegaDriver.findElement(By.xpath(OPP_UPDATE_CONTACT_HEADER_XPATH)).getText();
+		
+		String header=findElement(By.xpath(OPP_UPDATE_CONTACT_HEADER_XPATH)).getText();
 		return header;
 	}
 
 	@Override
 	public void clickMegeOpportunity() 
 	{
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Merge opportunity");
 		
 	}
@@ -517,72 +502,68 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void selectOpportunuty()
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_SELECTDUPLICATE_CONTACT_XPATH)).click();
+		
+		findElement(By.xpath(OPP_SELECTDUPLICATE_CONTACT_XPATH)).click();
 		
 	}
 	@Override
 	public void selectOpportunitytoMerge(String opptyName)
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_NAME_ID)).sendKeys(opptyName);
-		pegaDriver.findElement(By.xpath(OPP_SERACHBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_SELECTDUPLICATE_CONTACT_XPATH)).click();
+		
+		findElement(By.id(OPP_NAME_ID)).sendKeys(opptyName);
+		findElement(By.xpath(OPP_SERACHBUTTON_XPATH)).click();
+		
+		findElement(By.xpath(OPP_SELECTDUPLICATE_CONTACT_XPATH)).click();
 	}
 
 	@Override
 	public void clickNext() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_NEXT_BUTTON_XPATH)).click();
+		
+		findElement(By.xpath(OPP_NEXT_BUTTON_XPATH)).click();
 		
 	}
 
 	@Override
 	public void setDescrptionWhileMerge(String Description) 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_SELECTCHECKBOX_FOR_DESCRIPTION_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id(OPP_DESCRIPTION_WHILEMERGE_ID)).sendKeys(Description);
+		
+		findElement(By.xpath(OPP_SELECTCHECKBOX_FOR_DESCRIPTION_XPATH)).click();
+
+		findElement(By.id(OPP_DESCRIPTION_WHILEMERGE_ID)).sendKeys(Description);
 		
 	}
 
 	@Override
 	public void setOpptyMustWinWhileMerge() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_SELECT_CHECKBOX_OPPTY_MUST_WIN_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id(OPP_SELECT_OPPTY_MUST_WIN_ID)).click();
+		
+		findElement(By.xpath(OPP_SELECT_CHECKBOX_OPPTY_MUST_WIN_XPATH)).click();
+		findElement(By.id(OPP_SELECT_OPPTY_MUST_WIN_ID)).click();
 		
 	}	
 	
 	public void clickFollow()
 	{
-		pegaDriver.findElement(By.xpath(OPP_FOLLOW_XPATH)).click();
+		findElement(By.xpath(OPP_FOLLOW_XPATH)).click();
 	}
 	public void clickUnFollow()
 	{
-		if(pegaDriver.verifyElement(By.xpath(OPP_UNFOLLOW_XPATH)))
-			pegaDriver.findElement(By.xpath(OPP_UNFOLLOW_XPATH)).click();
+		if(verifyElement(By.xpath(OPP_UNFOLLOW_XPATH)))
+			findElement(By.xpath(OPP_UNFOLLOW_XPATH)).click();
 		else
 		{
 			clickFollow();
-			pegaDriver.getActiveFrameId(true);
-			pegaDriver.waitForDocStateReady(4);
-			pegaDriver.findElement(By.xpath(OPP_UNFOLLOW_XPATH)).click();
-		}
 			
-		pegaDriver.waitForDocStateReady(2);
+			findElement(By.xpath(OPP_UNFOLLOW_XPATH)).click();
+		}
+
 	}
 	
 	@Override
 	public String getFollowedWOName() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.navigate().refresh();
-		String accName=pegaDriver.findElement(By.xpath(OPP_FOLLOWTESTING_XPATH)).getText();
+		
+		String accName=findElement(By.xpath(OPP_FOLLOWTESTING_XPATH)).getText();
 		System.out.println(":::::::::::::::::::::::::::::Followed opptyName:::::::::::"+accName);
 		return accName;
 		
@@ -590,8 +571,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public boolean isFollowingListEmpty()
 	{
-		pegaDriver.switchTo().defaultContent();
-		/*Wizard wizard=pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		/*Wizard wizard=findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(OPP_FOLLOWSCROLLING_XPATH)).scrollIntoView();*/
 		return(PegaUtil.isListEmpty(pegaDriver));
 		
@@ -600,27 +580,27 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void setSource(String Source) {
-		pegaDriver.findSelectBox(By.id(OPP_SOURCE_ID)).selectByValue(Source);
+		findSelectBox(By.id(OPP_SOURCE_ID)).selectByValue(Source);
 	}
 
 
 	@Override
 	public void setShotName(String shortname) {
-		pegaDriver.findElement(By.id(OPP_SHORTNAME_ID)).sendKeys(shortname);		
+		findElement(By.id(OPP_SHORTNAME_ID)).sendKeys(shortname);		
 	}
 
 
 	@Override
 	public void setOpptyMustWin() {
-		pegaDriver.findElement(OPP_MUSTWIN_ID).click();
+		findElement(OPP_MUSTWIN_ID).click();
 		
 	}
 
 
 	@Override
 	public void setDescrption(String Description) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_DESCRIPTION_ID)).sendKeys(Description);
+		
+		findElement(By.id(OPP_DESCRIPTION_ID)).sendKeys(Description);
 	}
 
 
@@ -634,8 +614,8 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getClosedate() {
 		
-		pegaDriver.getActiveFrameId(true);
-		String closedate = pegaDriver.findElement(By.xpath(OPP_CLOSEDATE_VALUE_XPATH)).getText();
+		
+		String closedate = findElement(By.xpath(OPP_CLOSEDATE_VALUE_XPATH)).getText();
 		return closedate;
 	}
 
@@ -643,7 +623,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getTerritory() {
 
-		String territory = pegaDriver.findElement(By.xpath(OPP_TERRIROTRY_VALUE_XPATH)).getText();
+		String territory = findElement(By.xpath(OPP_TERRIROTRY_VALUE_XPATH)).getText();
 		return territory;
 	}
 
@@ -651,7 +631,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getShortName() {
 
-		String shortname= pegaDriver.findElement(By.xpath(OPP_SHORTNAME_VALUE_XPATH)).getText();
+		String shortname= findElement(By.xpath(OPP_SHORTNAME_VALUE_XPATH)).getText();
 		return shortname;
 	}
 
@@ -659,14 +639,14 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getSource() {
 
-		String source = pegaDriver.findElement(By.xpath(OPP_SOURCE_VALUE_XPATH)).getText();
+		String source = findElement(By.xpath(OPP_SOURCE_VALUE_XPATH)).getText();
 		return source;
 	}
 
 
 	@Override
 	public String getWin() {
-		String win = pegaDriver.findElement(By.xpath(OPP_WIN_VALUE_XPATH)).getText();
+		String win = findElement(By.xpath(OPP_WIN_VALUE_XPATH)).getText();
 		return win;
 	}
 
@@ -688,10 +668,10 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public String getOpptyStatus() {
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_TECHINALSECTION_EXPAND)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String opptystatus= pegaDriver.findElement(By.xpath(OPP_STATUS_VALUE_XPATH)).getText().trim();
+		
+		findElement(By.xpath(OPP_TECHINALSECTION_EXPAND)).click();
+	
+		String opptystatus= findElement(By.xpath(OPP_STATUS_VALUE_XPATH)).getText().trim();
 		return opptystatus;
 	}
 
@@ -708,8 +688,8 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public List<String> getTaskValues(String RowName) {
-		//pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
-		pegaDriver.findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).click();
+		//findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
+		findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, OPP_TASK_ROW_IDENTIFIER_XPATH, RowName));
 		
@@ -717,18 +697,11 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 
 	@Override
-	public Activity clickAddActivity() 
-	{
-		return(PegaUtil.addActivity(pegaDriver));
-	}
-
-
-	@Override
 	public List<String> getActivityValues(String ActivityName) {
-		Wizard wizard=pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		Wizard wizard=findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
-		//pegaDriver.findElement(By.xpath()).scrollIntoView();
-		pegaDriver.findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).click();
+		//findElement(By.xpath()).scrollIntoView();
+		findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).click();
 		
 		return(PegaUtil.getRowValues(pegaDriver, OPP_ACTIVITY_ROW_IDENTIFIER_XPATH, ActivityName));
 	}
@@ -736,13 +709,13 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void clickUpdateStagefromSubtab() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_CHANGE_STAGE_XPATH)).click();
+		
+		findElement(By.xpath(OPP_CHANGE_STAGE_XPATH)).click();
 	}
 	@Override
 	public boolean isMovetoNextStageAvailable() {
-		pegaDriver.getActiveFrameId(true);
-		Wizard wizard=pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
+		
+		Wizard wizard=findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(OPP_MOVE_TO_NEXT_STAGE_XPATH)).scrollIntoView();
 		return (wizard.findElement(By.xpath(OPP_MOVE_TO_NEXT_STAGE_XPATH)).isDisplayed());
 	}
@@ -751,46 +724,46 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public boolean isWinProvavilityAvailable() {
 		
-		return (pegaDriver.findElement(By.xpath(OPP_WIN_PROBABILITY_XPATH)).isDisplayed());
+		return (findElement(By.xpath(OPP_WIN_PROBABILITY_XPATH)).isDisplayed());
 	}
 
 
 	@Override
 	public boolean isCloseDateAvailable() {
-		return (pegaDriver.findElement(By.xpath(OPP_CLOSE_DATE_XPATH)).isDisplayed());
+		return (findElement(By.xpath(OPP_CLOSE_DATE_XPATH)).isDisplayed());
 	}
 
 
 	@Override
 	public boolean isNextBestActionAvailable() {
-		return (pegaDriver.findElement(By.xpath(OPP_NEXT_BEST_ACTIONS_XPATH)).isDisplayed());
+		return (findElement(By.xpath(OPP_NEXT_BEST_ACTIONS_XPATH)).isDisplayed());
 	}
 
 
 	@Override
 	public String getDefaultAccount() {
-		pegaDriver.getActiveFrameId(true);
+		
 		String desc;
-		//if(pegaDriver.verifyElement(By.xpath(defaultOrg)))
-		desc= pegaDriver.findElement(By.xpath(defaultAcc)).getAttribute("text").trim();		
+		//if(verifyElement(By.xpath(defaultOrg)))
+		desc= findElement(By.xpath(defaultAcc)).getAttribute("text").trim();		
 		return desc;
 		
 	}
 @Override
 	public String getOppID() {
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(TECHINICAL_INFORMATION)).scrollIntoView();
-		pegaDriver.findElement(By.xpath(TECHINICAL_INFORMATION)).click();
-		pegaDriver.getActiveFrameId(true);
-		return (pegaDriver.findElement(By.xpath("//span[text()='ID']/..//div/span")).getText());
+		
+		//findElement(By.xpath(TECHINICAL_INFORMATION)).scrollIntoView();
+		findElement(By.xpath(TECHINICAL_INFORMATION)).click();
+		
+		return (findElement(By.xpath("//span[text()='ID']/..//div/span")).getText());
 	}
 
 	
 	@Override
 	public Organizations navigateToOrgFromBreadCrumb() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(ORGANIZATION_BREADCRUMB_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
+		
+		findElement(By.xpath(ORGANIZATION_BREADCRUMB_XPATH)).click();
+		String frameId = getActiveFrameId(false);
 		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;
 		
@@ -799,39 +772,38 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void clearNameinMergeOppty() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_NAME_ID)).sendKeys(PegaUtil.SelectAll);
+		
+		findElement(By.id(OPP_NAME_ID)).sendKeys(PegaUtil.SelectAll);
 	}
 
 
 	@Override
 	public void clearAccountinMergeOppty() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_CONTACT_ID)).sendKeys(PegaUtil.SelectAll);
+		
+		findElement(By.id(OPP_CONTACT_ID)).sendKeys(PegaUtil.SelectAll);
 	}
 
 
 	@Override
 	public void clearOwnerinMergeOppty() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(OPP_CLEARCHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
+		
+		findElement(By.id(OPP_CLEARCHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
 	}
 
 
 	@Override
 	public void clickSearch() {
-		pegaDriver.findElement(By.xpath(OPP_SERACHBUTTON_XPATH)).click();
+		findElement(By.xpath(OPP_SERACHBUTTON_XPATH)).click();
 	}
 
 
 	@Override
 	public void setCloseplanupdates() {
-		pegaDriver.findElement(By.id("cke_1_contents")).click();
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id("cke_1_contents")).sendKeys("Testing");	
-		//pegaDriver.findElement(By.xpath("")).sendKeys("");
-		//pegaDriver.findElement(By.xpath("")).sendKeys("");
+		findElement(By.id("cke_1_contents")).click();
+		
+		findElement(By.id("cke_1_contents")).sendKeys("Testing");	
+		//findElement(By.xpath("")).sendKeys("");
+		//findElement(By.xpath("")).sendKeys("");
 		
 	}
 
@@ -839,22 +811,22 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void clickSalesTeamSubtab() {
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//h2[contains(text(),'Sales team')]")).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//i[contains(@name,'crmSalesTeam')]")).click();
+		
+		findElement(By.xpath("//h2[contains(text(),'Sales team')]")).click();
+		
+		findElement(By.xpath("//i[contains(@name,'crmSalesTeam')]")).click();
 	}
 
 
 	@Override
 	public void addTeamMember(String operator) {
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		PegaUtil.autoComplete(pegaDriver, OPP_SEARCH_CONTACT_ID, operator);
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.xpath("//select[contains(@id,'TeamMemberRole')]")).selectByVisibleText("Sales Rep");
-		//pegaDriver.findElement(By.id("crmSearchTerm")).sendKeys("operator");
-		pegaDriver.findElement(By.id("ModalButtonSubmit")).click();
+		
+		findSelectBox(By.xpath("//select[contains(@id,'TeamMemberRole')]")).selectByVisibleText("Sales Rep");
+		//findElement(By.id("crmSearchTerm")).sendKeys("operator");
+		findElement(By.id("ModalButtonSubmit")).click();
 		
 		
 	}
@@ -862,9 +834,9 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public boolean isTeamMemberAdded(String opr, String Role)
 	{
-		pegaDriver.getActiveFrameId(true);
-		if(pegaDriver.verifyElement(By.xpath("//a[contains(@class,'Strong') and text()='"+opr+"']")))
-			if(pegaDriver.verifyElement(By.xpath("//table[@pl_prop_class='PegaCRM-Party-TeamMember']//td//div[contains(text(),'"+Role+"')]")))
+		
+		if(verifyElement(By.xpath("//a[contains(@class,'Strong') and text()='"+opr+"']")))
+			if(verifyElement(By.xpath("//table[@pl_prop_class='PegaCRM-Party-TeamMember']//td//div[contains(text(),'"+Role+"')]")))
 				return true;
 		else 
 		{

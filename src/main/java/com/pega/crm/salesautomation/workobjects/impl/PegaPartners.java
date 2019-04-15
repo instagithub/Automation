@@ -57,103 +57,73 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setWebSite(String WebSite) {
 		
-		pegaDriver.waitForDocStateReady(1);
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(WEBSITE_ID)).sendKeys(PegaUtil.SelectAll);
-		
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(WEBSITE_ID)).sendKeys(WebSite);
+		findElement(By.id(WEBSITE_ID)).sendKeys(PegaUtil.SelectAll);
+	
+		findElement(By.id(WEBSITE_ID)).sendKeys(WebSite);
 		
 	}
 
 	@Override
 	public void setPhone(String Phone) {
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
 		
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PHONE_ID)).sendKeys(Phone);
+		findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
+	
+		findElement(By.id(PHONE_ID)).sendKeys(Phone);
 	}
 
 	@Override
 	public void setPartnerName(String Partner) {
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PATNER_NAME_ID)).sendKeys(PegaUtil.SelectAll);
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PATNER_NAME_ID)).sendKeys(Partner);
+
+		findElement(By.id(PATNER_NAME_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PATNER_NAME_ID)).sendKeys(Partner);
 		
 	}
 	
 	@Override
 	public void setPartnerID(String PartnerID) {
-		pegaDriver.waitForDocStateReady(1);
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PARTNER_ID)).sendKeys(PegaUtil.SelectAll);
 		
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PARTNER_ID)).sendKeys(PartnerID);
+		findElement(By.id(PARTNER_ID)).sendKeys(PegaUtil.SelectAll);
+		
+		findElement(By.id(PARTNER_ID)).sendKeys(PartnerID);
 	}
 
 	@Override
 	public void setPartnerTaxID(String TaxID) {
-		pegaDriver.waitForDocStateReady(1);
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(PARTNER_TAXID)).sendKeys(TaxID);
+		findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
+		
+		
+		findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_TAXID)).sendKeys(TaxID);
 	}
 
 	@Override
 	public void setPartnerWorkFax(String WorkFax) {
-		/*pegaDriver.waitForDocStateReady(1);
-		pegaDriver.getActiveFrameId(true);
-		PegaWebElement wb =pegaDriver.findElement(By.id(PARTNER_WORKFAX));
-		String selectAll= Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE);
-		wb.sendKeys(selectAll);
-		wb.sendKeys(Keys.TAB);
-		pegaDriver.getActiveFrameId(true);*/
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.findElement(By.id(PARTNER_WORKFAX)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(PARTNER_WORKFAX)).sendKeys(WorkFax);
+		
+		findElement(By.id(PARTNER_WORKFAX)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_WORKFAX)).sendKeys(WorkFax);
 	}
 	
 
 	@Override
 	public void setEmail(String Email)
 	{
-		pegaDriver.waitForDocStateReady(1);
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
-		
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(EMAIL_ID)).sendKeys(Email);
+		findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(EMAIL_ID)).sendKeys(Email);
 		
 	}
 
 	@Override
 	public void setPartnerType(String PartnerType) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findSelectBox(By.id(PARTNER_TYPE)).selectByVisibleText(PartnerType);
+		
+		findSelectBox(By.id(PARTNER_TYPE)).selectByVisibleText(PartnerType);
 		
 	}
 
 	@Override
 	public void setSFAAccess() 
 	{
-		pegaDriver.waitForDocStateReady(2);
-		/*//pegaDriver.getActiveFrameId(true);
-		Wizard wizrd = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
-		wizrd.findElement(By.id(SFA_ACCESS_TYPE_ID)).doClickWithMouse();
-		//testEnv.getScriptExecutor().click(pegaDriver.findElement(By.id(SFA_ACCESS_TYPE_ID)));*/
-		//pegaDriver.findElement(By.id(SFA_ACCESS_TYPE_ID)).click();
-		/*pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(SFA_ACCESS_TYPE_ID)).click();
-*/		//pegaDriver.findElement(By.id(SFA_ACCESS_TYPE_ID)).sendKeys((Keys.SPACE));
 		
-	//	pegaDriver.waitForDocStateReady(2);
 		
 		int counter=0;
 		
@@ -162,10 +132,10 @@ public class PegaPartners extends WizardImpl implements Partners {
 			{
 			
 				System.out.println("Entered while : "+counter);
-				pegaDriver.getActiveFrameId(true);
-				pegaDriver.findElement(SFA_ACCESS_TYPE_ID).click();;
-				pegaDriver.getActiveFrameId(true);
-				if(pegaDriver.verifyElement(By.id(TERRITORY_FIELD_ID)))
+				
+				findElement(SFA_ACCESS_TYPE_ID).click();;
+				
+				if(verifyElement(By.id(TERRITORY_FIELD_ID)))
 					{
 						System.out.println("Entered If");
 						counter++;
@@ -179,7 +149,6 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setTerritory(String TerritoryName)
 	{
-		pegaDriver.waitForDocStateReady(1);
 		PegaUtil.autoComplete(pegaDriver, TERRITORY_FIELD_ID, TerritoryName);
 		
 	}
@@ -187,20 +156,20 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void clickcreateTerritory()
 	{
-		pegaDriver.findElement(By.xpath(CREATE_TERRITORY_XPATH)).click();
+		findElement(By.xpath(CREATE_TERRITORY_XPATH)).click();
 		
 	}
 
 	@Override
 	public void setTerritoryName(String TerritoryName) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(TERRITORYNAME_ID)).sendKeys(TerritoryName);
+		
+		findElement(By.id(TERRITORYNAME_ID)).sendKeys(TerritoryName);
 		
 	}
 
 	@Override
 	public void setOwner(String OwnerName) {
-		pegaDriver.getActiveFrameId(true);
+		
 		PegaUtil.autoComplete(pegaDriver, TERRITORY_OWNER_ID, OwnerName);
 		
 	}
@@ -213,15 +182,15 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public void clickSubmitTerritoryScreen() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(TERRITORY_SUBMIT_ID)).click();
+		
+		findElement(By.id(TERRITORY_SUBMIT_ID)).click();
 		
 	}
 
 	@Override
 	public void SubmitPartner() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(CREATE_BUTTON_XPATH)).click();
+		
+		findElement(By.xpath(CREATE_BUTTON_XPATH)).click();
 		
 	}
 
@@ -234,8 +203,8 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public String getWebSite() 
 	{
-		pegaDriver.getActiveFrameId(true);
-		String website=pegaDriver.findElement(By.xpath(WEBSITE_VALUE_XPATH)).getText();
+		
+		String website=findElement(By.xpath(WEBSITE_VALUE_XPATH)).getText();
 		return website;
 	}
 	
@@ -243,24 +212,24 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public String getPartnerID()
 	{
-		pegaDriver.getActiveFrameId(true);
-		String partnerID=pegaDriver.findElement(By.xpath(ID_VALUE_PATH)).getText();
+		
+		String partnerID=findElement(By.xpath(ID_VALUE_PATH)).getText();
 		return partnerID;
 	}
 	
 	@Override
 	public String getPartnerWorkFax() {
 		
-		pegaDriver.getActiveFrameId(true);
-		String partnerfax=pegaDriver.findElement(By.xpath(WORK_FAX_VALUE_PATH)).getText();
+		
+		String partnerfax=findElement(By.xpath(WORK_FAX_VALUE_PATH)).getText();
 		return partnerfax;
 	}
 
 	@Override
 	public String getPartnerTaxID() {
 		
-		pegaDriver.getActiveFrameId(true);
-		String partnertaxId=pegaDriver.findElement(By.xpath(TAX_ID_VALUE_PATH)).getText();
+		
+		String partnertaxId=findElement(By.xpath(TAX_ID_VALUE_PATH)).getText();
 		return partnertaxId;
 	}
 	
@@ -270,51 +239,51 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public String getPhone() {
-		pegaDriver.getActiveFrameId(true);
-		String phone = pegaDriver.findElement(By.xpath(PHONE_VALUE_XPATH)).getText();
+		
+		String phone = findElement(By.xpath(PHONE_VALUE_XPATH)).getText();
 		return phone;
 	}
 
 	@Override
 	public String getPartnerName() {
-		pegaDriver.getActiveFrameId(true);
-		String PartnerName = pegaDriver.findElement(By.xpath(NAME_VALUE_XPATH)).getText();
+		
+		String PartnerName = findElement(By.xpath(NAME_VALUE_XPATH)).getText();
 		return PartnerName;
 	}
 
 	@Override
 	public String getEmail() {
-		pegaDriver.getActiveFrameId(true);
-		String Email = pegaDriver.findElement(By.xpath(EMAIL_VALUE_XPATH)).getText();
+		
+		String Email = findElement(By.xpath(EMAIL_VALUE_XPATH)).getText();
 		return Email;
 	}
 
 	@Override
 	public String getPartnerType() {
-		String PartnerType = pegaDriver.findElement(By.xpath(PARTNERTYPE_VALUE_XPATH)).getText();
+		String PartnerType = findElement(By.xpath(PARTNERTYPE_VALUE_XPATH)).getText();
 		return PartnerType;
 	}
 
 	@Override
 	public void updatePhone(String UpdatedPhone) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
-		pegaDriver.findElement(By.id(PHONE_ID)).sendKeys(UpdatedPhone);
+		
+		findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PHONE_ID)).sendKeys(UpdatedPhone);
 		
 	}
 
 	@Override
 	public void updateEmail(String UpdatedEmail) {
-		//pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		//
+		findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//pegaDriver.findElement(By.id(EMAIL_ID)).sendKeys(Keys.TAB);
-		pegaDriver.findElement(By.id(EMAIL_ID)).sendKeys(UpdatedEmail);
+		//findElement(By.id(EMAIL_ID)).sendKeys(Keys.TAB);
+		findElement(By.id(EMAIL_ID)).sendKeys(UpdatedEmail);
 		
 		
 	}
@@ -322,17 +291,16 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void clickEdit() {
 		
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath("//button[text()='Edit']")).click();
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.getActiveFrameId(true);		
+		
+		findElement(By.xpath("//button[text()='Edit']")).click();
+				
 	}
 
 	@Override
 	public void clickSubmitReviewScreen() 
 	{
 		
-		pegaDriver.findElement(By.xpath(SUBMIT_BUTTON_XPATH)).click();
+		findElement(By.xpath(SUBMIT_BUTTON_XPATH)).click();
 		
 	}
 
@@ -348,8 +316,8 @@ public class PegaPartners extends WizardImpl implements Partners {
 	public List<String> getOperators() 
 	{
 		ArrayList<String> s= new ArrayList<String>();
-		pegaDriver.getActiveFrameId(true);
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(OPERATORS_VALUES_XPATH));
+		
+		List<WebElement> wb=findElements(By.xpath(OPERATORS_VALUES_XPATH));
 		for(WebElement w:wb)
 		{
 			String s1=w.getText();

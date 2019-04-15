@@ -6,7 +6,6 @@ import org.openqa.selenium.Keys;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Operators;
 import com.pega.framework.PegaWebElement;
-import com.pega.framework.elmt.Frame;
 import com.pega.ri.WizardImpl;
 import com.pega.util.XPathUtil;
 
@@ -46,7 +45,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 	@Override
 	public void setOperatorID(String str) {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		PegaOperator Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPERATORID_FIELD).click();
 		Opr.findElement(OPERATORID_FIELD).sendKeys(str);
@@ -56,11 +55,11 @@ public class PegaOperator extends WizardImpl implements Operators {
 	@Override
 	public void setPassword(String str) {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_PWD_BUTTON).click();
 
-		frameId = pegaDriver.getActiveFrameId(false);
+		frameId = getActiveFrameId(false);
 		Opr = new PegaOperator(frameId, testEnv);
 
 		PegaWebElement pwe = Opr.findElement(By.xpath("//div[@id='modalContent']//input[@id='pyPwdNew']"));
@@ -79,12 +78,12 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 		pwe = Opr.findElement(By.xpath("//div[@id='modalContent']//button[@id='ModalButtonSubmit']"));
 		pwe.click();
-		// pegaDriver.findElement(By.id("ModalButtonSubmit")).click();
+		// findElement(By.id("ModalButtonSubmit")).click();
 	}
 
 	@Override
 	public void setTitle(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(By.id(OPR_TITLE)).click();
 		Opr.findElement(By.id(OPR_TITLE)).sendKeys(str);
@@ -93,7 +92,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setFirstName(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_FIRST_NAME).click();
 		Opr.findElement(OPR_FIRST_NAME).sendKeys(str);
@@ -102,7 +101,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setLastName(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_LAST_NAME).click();
 		Opr.findElement(OPR_LAST_NAME).sendKeys(str);
@@ -111,7 +110,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setFullName(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		// Opr.findElement(OPR_FULL_NAME).click();
 		// Opr.findElement(OPR_FULL_NAME).sendKeys(str);
@@ -120,7 +119,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setPostition(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_POSTITION).click();
 		Opr.findElement(OPR_POSTITION).sendKeys(str);
@@ -129,7 +128,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setPhone(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_TELEPHONE).click();
 		Opr.findElement(OPR_TELEPHONE).sendKeys(str);
@@ -138,7 +137,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setEmail(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_EMAILADDRESS).click();
 		Opr.findElement(OPR_EMAILADDRESS).sendKeys(str);
@@ -147,7 +146,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setTimeZone(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findSelectBox(By.id(OPR_TIMEZONE)).selectByValue(str);
 
@@ -155,7 +154,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setReportTo(String str) {
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		Opr.findElement(OPR_REPORTSTO).click();
 		Opr.findElement(OPR_REPORTSTO).sendKeys(str);
@@ -167,10 +166,8 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setOperatorType(String str) {
-
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		frame.findSelectBox(By.id("pyAccessGroup")).selectByVisibleText(str);
+		 
+		 findSelectBox(By.id("pyAccessGroup")).selectByVisibleText(str);
 	}
 
 	@Override
@@ -182,8 +179,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public Operators navigateOperator() {
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
 		return Opr;
 	}
@@ -191,30 +187,24 @@ public class PegaOperator extends WizardImpl implements Operators {
 	@Override
 	public String getOperatorId() {
 
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyUserIdentifier']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyUserIdentifier']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getTitle() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyTitle']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyTitle']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getFirstName() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyFirstName']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyFirstName']/following-sibling::Div/span"))
 				.getAttribute("text");
 
 	}
@@ -222,228 +212,194 @@ public class PegaOperator extends WizardImpl implements Operators {
 	@Override
 	public String getLastName() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyLastName']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyLastName']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getFullName() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//*[text()='Full Name']/../../div/span")).getAttribute("text");
+		 
+		return  findElement(By.xpath("//*[text()='Full Name']/../../div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getPostition() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyPosition']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyPosition']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getPhone() {
-
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyTelephone']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyTelephone']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getEmail() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyEmailAddress']/following-sibling::Div/span"))
+		 
+		return  findElement(By.xpath("//label[@for='pyEmailAddress']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getTimeZone() {
 
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyDefaultTimeZone']/following-sibling::Div"))
+		 return  findElement(By.xpath("//label[@for='pyDefaultTimeZone']/following-sibling::Div"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getReportsTo() {
-
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyReportTo']/following-sibling::Div"))
+		 
+		return  findElement(By.xpath("//label[@for='pyReportTo']/following-sibling::Div"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getOperatorType() {
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[@for='pyAccessGroup']/following-sibling::Div/span"))
+		
+		 
+		return  findElement(By.xpath("//label[@for='pyAccessGroup']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getTerritory() {
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.findElement(By.xpath("//label[contains(text(),'Territory')]/following-sibling::Div"))
+
+		
+		 
+		return  findElement(By.xpath("//label[contains(text(),'Territory')]/following-sibling::Div"))
 				.getAttribute("text");
 
 	}
 
 	@Override
 	public void defaultSalesRepAccess() {
-
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
+		 
 
 		// Verify for Organization Read Permissions at Territory and Child level
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID1']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID1']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
 
 		// Verify for Account Read Permission at territory and Child level
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID2']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID2']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
 
 		// Verify for Contact Read, update and Create permissions at territory and child
 		// levels
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Lead Read, update and Create permissions at territory and child
 		// levels
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Opportunity Read, update and Create permissions at territory and
 		// child levels
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Task Read, update and Create permissions at territory and child
 		// levels
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		frame.verifyElement(By
+		 verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 	}
 
 	@Override
-	public void navigateToAccessAndPermissionsTab() {
-
-		pegaDriver.waitForDocStateReady();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		frame.findElement(By.xpath("//div[@role='tab']/h3[contains(text(),'Access & Permissions')]")).click();
+	public void navigateToAccessAndPermissionsTab() {	 
+		 findElement(By.xpath("//div[@role='tab']/h3[contains(text(),'Access & Permissions')]")).click();
 	}
 
 	public boolean verifyOprNewHarness() {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.verifyElement(OPR_TEMPLATE_CHECKBOX);
+		
+		 
+		return  verifyElement(OPR_TEMPLATE_CHECKBOX);
 	}
 
 	@Override
 	public void clickNext() {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		frame.findElement(By.xpath(OPR_NEXT_BUTTON_XPATH)).click();
+		findElement(By.xpath(OPR_NEXT_BUTTON_XPATH)).click();
 
 	}
 
 	@Override
 	public boolean verifyOprAccessScreen() {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.verifyElement(OPR_DEFAULT_ACCESS_CHECKBOX);
+		return verifyElement(OPR_DEFAULT_ACCESS_CHECKBOX);
 
 	}
 
 	@Override
 	public boolean verifyOprSalesGoalsScreen() {
 
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		return frame.verifyElement(By.xpath("//table[@id='bodyTbl_right']"));
+		return verifyElement(By.xpath("//table[@id='bodyTbl_right']"));
 
 	}
 
 	@Override
 	public void clickFinish() {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Frame frame = pegaDriver.findFrame(frameId);
-		frame.findElement(By.xpath(OPR_NEXT_BUTTON_XPATH)).click();
+		findElement(By.xpath(OPR_NEXT_BUTTON_XPATH)).click();
 
-		frame = pegaDriver.findFrame(frameId);
-		if (frame.verifyElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']")))
-			frame.findElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']"))
+		if (verifyElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']")))
+			findElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']"))
 					.click();
 
 	}

@@ -56,8 +56,7 @@ public PegaOperatorList(String frameId, TestEnvironment testEnv) {
 public Operators creasteOperator() {
 	
 	findElement(By.xpath(CREATE_OPR_BTN_XPATH)).click();
-	pegaDriver.waitForDocStateReady(2);
-	String frameId = pegaDriver.getActiveFrameId(false);
+	String frameId = getActiveFrameId(false);
 	Operators org = new PegaOperator(frameId, testEnv);
 	return org;	
 }
@@ -67,24 +66,22 @@ public OperatorList searchOperator(String oprName) {
 	
 	findElement(By.id(OPR_SEARCH_FIELD)).sendKeys(oprName);
 	findElement(By.id(OPR_SEARCH_FIELD)).sendKeys(Keys.ENTER);
-	pegaDriver.waitForDocStateReady(2);
-	String frameId = pegaDriver.getActiveFrameId(false);
+	String frameId = getActiveFrameId(false);
 	OperatorList oprList= new PegaOperatorList(frameId, testEnv);
 	return oprList;
 }
 
 @Override
 public Operators navigateOperator() {
-	
-	pegaDriver.waitForDocStateReady(2);
-	String frameId = pegaDriver.getActiveFrameId(false);
+
+	String frameId = getActiveFrameId(false);
 	Operators Opr = new PegaOperator(frameId, testEnv);
 	return Opr;
 }
 
 @Override
 public boolean isOperatorListEmpty() {
-	pegaDriver.getActiveFrameId(true);
+	
 	try {
 		findElement(By.xpath(NO_OPERATORS_XPATH));
 	} catch (Exception ex) {
@@ -95,40 +92,33 @@ public boolean isOperatorListEmpty() {
 
 @Override
 public Operators openFirstOperator() {
-	pegaDriver.getActiveFrameId(true);
+	
 	findElement(By.xpath(OPERATOR_NAME_XPATH)).click();
-	pegaDriver.waitForDocStateReady(1);
-	String frameId = pegaDriver.getActiveFrameId(false);
+	String frameId = getActiveFrameId(false);
 	Operators operator = new PegaOperator(frameId, testEnv);
 	return operator;
 }
 	@Override
 	public boolean verifyOperatorListPage()
 	{
-	
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		System.out.println("entered");
+		//Assert.assertTrue(verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)));
+		//Assert.assertTrue(verifyElement(By.id(OPR_SEARCH_FIELD)));
 		
-		//Assert.assertTrue(pegaDriver.verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)));
-		//Assert.assertTrue(pegaDriver.verifyElement(By.id(OPR_SEARCH_FIELD)));
+		//Assert.assertTrue(verifyElement(By.xpath(refreshButton)));
+		//Assert.assertTrue(verifyElement(By.xpath(filterButton)));
 		
-		//Assert.assertTrue(pegaDriver.verifyElement(By.xpath(refreshButton)));
-		//Assert.assertTrue(pegaDriver.verifyElement(By.xpath(filterButton)));
-		
-		if(pegaDriver.verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)) && 
-		   pegaDriver.verifyElement(By.id(OPR_SEARCH_FIELD)) &&
-				pegaDriver.verifyElement(By.xpath(refreshButton)) &&
-				pegaDriver.verifyElement(By.xpath(filterButton)) &&
-				pegaDriver.verifyElement(OPR_NAMECOLUMN) &&
-				pegaDriver.verifyElement(OPR_TYPECOLUMN) &&
-				pegaDriver.verifyElement(OPR_PRIMARYTERRITORYCOLUMN) &&
-				pegaDriver.verifyElement(OPR_REPORTSTOCOLUMN) &&
-				pegaDriver.verifyElement(OPR_JOBTITLECOLUMN) &&
-				pegaDriver.verifyElement(OPR_JOBTITLECOLUMN) &&
-				pegaDriver.verifyElement(OPR_NAMECOLUMN)) 
+		if(verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)) && 
+		   verifyElement(By.id(OPR_SEARCH_FIELD)) &&
+				verifyElement(By.xpath(refreshButton)) &&
+				verifyElement(By.xpath(filterButton)) &&
+				verifyElement(OPR_NAMECOLUMN) &&
+				verifyElement(OPR_TYPECOLUMN) &&
+				verifyElement(OPR_PRIMARYTERRITORYCOLUMN) &&
+				verifyElement(OPR_REPORTSTOCOLUMN) &&
+				verifyElement(OPR_JOBTITLECOLUMN) &&
+				verifyElement(OPR_JOBTITLECOLUMN) &&
+				verifyElement(OPR_NAMECOLUMN)) 
 		return true;
 		else 
 		return false;
@@ -139,8 +129,8 @@ public Operators openFirstOperator() {
 
 	@Override
 	public boolean validateListPage() {
-		pegaDriver.getActiveFrameId(true);
-		return pegaDriver.verifyElement(By.xpath(OPR_FILTER_PLACEHOLDER));
+		
+		return verifyElement(By.xpath(OPR_FILTER_PLACEHOLDER));
 		
 		
 	}
@@ -148,51 +138,51 @@ public Operators openFirstOperator() {
 	@Override
 	public boolean validateOprListPage() {
 	
-	if(!pegaDriver.verifyElement(By.xpath(OPR_FILTER_PLACEHOLDER)))
+	if(!verifyElement(By.xpath(OPR_FILTER_PLACEHOLDER)))
 	{
 		System.out.println("*************1");
 		return false;
 	}
 		
-	else if(!pegaDriver.verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)))
+	else if(!verifyElement(By.xpath(CREATE_OPR_BTN_XPATH)))
 	{
 		System.out.println("*************2");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(By.xpath(refreshButton)))
+	else if(!verifyElement(By.xpath(refreshButton)))
 	{
 		System.out.println("*************3");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(By.xpath(filterButton)))
+	else if(!verifyElement(By.xpath(filterButton)))
 	{
 		System.out.println("*************4");
 		return false;
 	}
 	// operator List Columns
-	else if(!pegaDriver.verifyElement(OPR_NAMECOLUMN))
+	else if(!verifyElement(OPR_NAMECOLUMN))
 	{
 		System.out.println("*************5");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(OPR_PRIMARYTERRITORYCOLUMN))
+	else if(!verifyElement(OPR_PRIMARYTERRITORYCOLUMN))
 	{
 		System.out.println("*************6");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(OPR_REPORTSTOCOLUMN))
+	else if(!verifyElement(OPR_REPORTSTOCOLUMN))
 	{
 		System.out.println("*************7");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(OPR_JOBTITLECOLUMN))
+	else if(!verifyElement(OPR_JOBTITLECOLUMN))
 	{
 		System.out.println("*************8");
 		return false;
 	}
-	else if(!pegaDriver.verifyElement(OPR_JOBTITLECOLUMN))
+	else if(!verifyElement(OPR_JOBTITLECOLUMN))
 		return false;
-	else if(!pegaDriver.verifyElement(OPR_NAMECOLUMN))
+	else if(!verifyElement(OPR_NAMECOLUMN))
 	{
 		System.out.println("*************9");
 		return false;

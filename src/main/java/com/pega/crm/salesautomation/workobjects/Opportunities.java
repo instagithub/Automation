@@ -39,7 +39,6 @@ public interface Opportunities extends Wizard{
 	void clickSubmit();
 	void clickChangeOwner();
 	void clickCloneOpportunity();
-	Tasks clickAddTask();
 	void clickSubmitButton();
 	void clickUpdateContacts();
 	void clickCloseForBusiness();
@@ -85,7 +84,6 @@ public interface Opportunities extends Wizard{
 	String getOpptyStatus();
 	void getActivitiesSubTab();
 	List<String> getTaskValues(String RowName);
-	Activity clickAddActivity();
 	List<String> getActivityValues(String ActivityName);
 	void clickUpdateStagefromSubtab();
 	boolean isMovetoNextStageAvailable();

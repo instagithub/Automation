@@ -103,7 +103,6 @@ public interface Organizations extends Wizard {
 
 	Organizations setHierarchy(String newParentOrg);
 
-	Tasks addTask();
 
 	Accounts AddAccount();
 
@@ -120,10 +119,6 @@ public interface Organizations extends Wizard {
 			String StartDate, String EndDate);
 
 	void navigeToOrgTab(String tabName);
-
-	Activity addActivity();
-
-	Relationship addContact();
 
 	void getOpptySubTab();
 

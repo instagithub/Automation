@@ -23,53 +23,53 @@ public class PegaForecast extends WizardImpl implements Forecast{
 	@Override
 	public boolean isTerritoryDisplayed() {
 		
-		return pegaDriver.findElement(By.id(TERRITORY_ID)).isVisible();
+		return  findElement(By.id(TERRITORY_ID)).isVisible();
 	}
 
 	@Override
 	public boolean isOverrideLevelDisplayed() {
 		
-		return pegaDriver.findElement(By.id(OVERRIDE_ID)).isVisible();
+		return  findElement(By.id(OVERRIDE_ID)).isVisible();
 	}
 
 	@Override
 	public boolean isYearDisplayed() {
-		return pegaDriver.findElement(By.xpath(YEAR_XPATH)).isVisible();
+		return  findElement(By.xpath(YEAR_XPATH)).isVisible();
 	}
 
 	@Override
 	public boolean isFilterDisplayed() {
-		return pegaDriver.findElement(By.xpath(FILTERBUTTON_XPATH)).isVisible();
+		return  findElement(By.xpath(FILTERBUTTON_XPATH)).isVisible();
 	}
 
 	@Override
 	public boolean isAdvancedDisplayed() {
-		return pegaDriver.findElement(By.xpath(ADVANCED_XPATH)).isVisible();
+		return  findElement(By.xpath(ADVANCED_XPATH)).isVisible();
 	}
 
 	@Override
 	public void setTerritory(String Territory) {
-		pegaDriver.findElement(By.id(TERRITORY_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(TERRITORY_ID)).sendKeys(PegaUtil.SelectAll);
 		PegaUtil.autoComplete(pegaDriver, TERRITORY_ID, Territory);
 		
 	}
 
 	@Override
 	public void clickFilter() {
-		pegaDriver.findElement(By.xpath(FILTERBUTTON_XPATH)).click();
+		 findElement(By.xpath(FILTERBUTTON_XPATH)).click();
 	}
 
 	@Override
 	public void setYear(String year) {
-		pegaDriver.waitForDocStateReady(true);
-		pegaDriver.findSelectBox(By.xpath(YEAR_XPATH)).selectByVisibleText(year);
+
+		 findSelectBox(By.xpath(YEAR_XPATH)).selectByVisibleText(year);
 		
 	}
 
 	@Override
 	public String getQ1ValueClosed() {
-		pegaDriver.getActiveFrameId(true);
-		return pegaDriver.findElement(By.xpath(Q1_CLOSED_XPATH)).getText();
+		 
+		return  findElement(By.xpath(Q1_CLOSED_XPATH)).getText();
 	}
 
 	

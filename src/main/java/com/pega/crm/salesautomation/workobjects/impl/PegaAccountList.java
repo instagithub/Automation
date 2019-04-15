@@ -37,20 +37,15 @@ public class PegaAccountList extends WizardImpl implements AccountList
 	public StringBuffer WOName;
 	public Accounts createAccount() {
 		findElement(By.xpath(CREATE_ACC_BTN_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Accounts acc = new PegaAccounts(frameId, testEnv);
+		Accounts acc = new PegaAccounts(getActiveFrameId(false), testEnv);
 		return acc;	
 		
 	}
 
 
 	public Accounts navigateAccount(StringBuffer acc_name) {
-		
-		//pegaDriver.getActiveFrameId(true);
 		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(acc_name);
 		findElement(By.xpath(ACC_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
 		if(verifyElement(By.xpath(ACC_NAME_XPATH)))
 		{
 			findElement(By.xpath(ACC_NAME_XPATH)).click();
@@ -59,18 +54,15 @@ public class PegaAccountList extends WizardImpl implements AccountList
 		{
 			openFirstAccount();
 		}
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Accounts acc = new PegaAccounts(frameId, testEnv);
+		Accounts acc = new PegaAccounts(getActiveFrameId(false), testEnv);
 		return acc;	
 	}
 	
 	public Accounts navigateAccount(String acc_name) {
 		
-		//pegaDriver.getActiveFrameId(true);
 		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(acc_name);
 		findElement(By.xpath(ACC_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
+		 
 		if(verifyElement(By.xpath(ACC_NAME_XPATH)))
 		{
 			findElement(By.xpath(ACC_NAME_XPATH)).click();
@@ -78,31 +70,26 @@ public class PegaAccountList extends WizardImpl implements AccountList
 		else
 		{
 			openFirstAccount();
-		}
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Accounts acc = new PegaAccounts(frameId, testEnv);
+		} 
+		Accounts acc = new PegaAccounts(getActiveFrameId(false), testEnv);
 		return acc;	
 	}
 
 	@Override
 	public Accounts openFirstAccount() {
-		pegaDriver.getActiveFrameId(true);
 		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(PegaUtil.SelectAll);
 		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(Keys.TAB);
 		findElement(By.xpath(BUSINESSTAB_XPATH)).click();
 		String name=findElement(By.xpath(ACC_NAME_XPATH)).getText();
 		WOName= new StringBuffer(name);
-		findElement(By.xpath(ACC_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Accounts acc = new PegaAccounts(frameId, testEnv);
+		findElement(By.xpath(ACC_NAME_XPATH)).click(); 
+		Accounts acc = new PegaAccounts(getActiveFrameId(false), testEnv);
 		return acc;
 	}
 
 	@Override
 	public Boolean isAccountListEmpty() {
-		pegaDriver.getActiveFrameId(true);
+		
 		try {
 			findElement(By.xpath(NO_ACCOUNTS_XPATH));
 		} catch (Exception ex) {
@@ -114,77 +101,77 @@ public class PegaAccountList extends WizardImpl implements AccountList
 
 	@Override
 	public boolean isCreateButtonDisplayed() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b= pegaDriver.findElement(By.xpath(CREATE_ACC_BTN_XPATH)).isVisible();
-		return b;
+		 
+		return  findElement(By.xpath(CREATE_ACC_BTN_XPATH)).isVisible();
+	
 	}
 
 
 	@Override
 	public boolean isFilterTextBoxDisplayed() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b= pegaDriver.findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).isVisible();
-		return b;
+		 
+		return  findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).isVisible();
+		
 	}
 
 
 	@Override
 	public String getFilterPlaceHolder() {
-		pegaDriver.getActiveFrameId(true);
-		String b= pegaDriver.findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).getAttribute("placeholder");
-		return b;
+		 
+		return  findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).getAttribute("placeholder");
+		
 	}
 
 
 	@Override
 	public boolean isFilterButtonDisplayed() {
-		pegaDriver.getActiveFrameId(true);
-		boolean b= pegaDriver.findElement(By.xpath(ACC_FILTERBUTTON_XPATH)).isVisible();
-		return b;
+		 
+		return  findElement(By.xpath(ACC_FILTERBUTTON_XPATH)).isVisible();
+		
 	}
 
 
 	@Override
 	public boolean isAllButtonDisplayed() {
-		boolean b= pegaDriver.findElement(By.xpath(ACC_ALL_BUTTON_XPATH)).isVisible();
-		return b;
+		return findElement(By.xpath(ACC_ALL_BUTTON_XPATH)).isVisible();
+		
 	}
 
 
 	@Override
 	public boolean isBusinessButtonDisplayed() {
-		boolean b= pegaDriver.findElement(By.xpath(BUSINESSTAB_XPATH)).isVisible();
-		return b;	}
+		return findElement(By.xpath(BUSINESSTAB_XPATH)).isVisible();
+			
+		}
 
 
 	@Override
 	public boolean isIndividualButtonDisplayed() {
-		boolean b= pegaDriver.findElement(By.xpath(ACC_INDIVIDUAL_BUTTON_XPATH)).isVisible();
-		return b;
+		return  findElement(By.xpath(ACC_INDIVIDUAL_BUTTON_XPATH)).isVisible();
+		
 	}
 
 
 	@Override
 	public boolean isExportButtonDisplayed() {
-		boolean b= pegaDriver.findElement(By.xpath(ACC_EXPORT_BUTTON_XPATH)).isVisible();
-		return b;
+		return findElement(By.xpath(ACC_EXPORT_BUTTON_XPATH)).isVisible();
+		
 	}
 
 
 	@Override
 	public boolean isRefreshButtonDisplayed() {
 		
-		boolean b= pegaDriver.findElement(By.xpath(OPP_REFRESH_BUTTON_XPATH)).isVisible();
-		return b;
+		return findElement(By.xpath(OPP_REFRESH_BUTTON_XPATH)).isVisible();
 	}
 
 
 	@Override
 	public ArrayList<String> getTableHeaders() {
-		pegaDriver.getActiveFrameId(true);
+		 
 		ArrayList<String> s= new ArrayList<String>();
 		
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(ACC_TABLE_HEADER_XPATH));
+		List<WebElement> wb=findElements(By.xpath(ACC_TABLE_HEADER_XPATH));
 		for(WebElement w:wb)
 		{
 			String s1=w.getText();

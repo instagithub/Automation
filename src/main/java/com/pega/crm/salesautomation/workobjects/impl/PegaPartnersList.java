@@ -32,8 +32,7 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	@Override
 	public Partners createPartner() {
 		findElement(By.xpath(CREATE_PTR_BTN_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Partners par = new PegaPartners(frameId, testEnv);
 		return par;	
 	}
@@ -42,15 +41,13 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	public Partners navigatePartner(String partnerName) {
 		findElement(By.xpath(PTR_FILTER_PLACEHOLDER_XPATH)).sendKeys(partnerName);
 		findElement(By.xpath(PTR_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
 		
-		if(pegaDriver.verifyElement(By.xpath(PTR_NAME_XPATH)))
+		
+		if(verifyElement(By.xpath(PTR_NAME_XPATH)))
 		findElement(By.xpath(PTR_NAME_XPATH)).click();
 		else
 		openFirstPartner();
-		
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Partners ptr = new PegaPartners(frameId, testEnv);
 		return ptr;	
 	}
@@ -58,11 +55,11 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	@Override
 	public boolean searchOperator(String OperatorName) 
 	{
-		pegaDriver.getActiveFrameId(true);
+		
 		findElement(By.id(OPR_FILTER_ID)).sendKeys(PegaUtil.SelectAll);
 		findElement(By.id(OPR_FILTER_ID)).sendKeys(OperatorName);
 		findElement(By.xpath(PTR_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
+		
 		String name=findElement(By.xpath(OPR_NAME_XPATH)).getText();
 		if(name.equals(OperatorName))
 		{
@@ -75,7 +72,7 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	
 	@Override
 	public boolean isPartnerListEmpty() {
-		pegaDriver.getActiveFrameId(true);
+		
 		if(verifyElement(By.xpath(NO_PARTNERS_XPATH)))
 		return true;
 		else
@@ -85,12 +82,11 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	@Override
 	public Partners openFirstPartner() {
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		findElement(By.xpath(PTR_FILTER_PLACEHOLDER_XPATH)).clear();
 		findElement(By.xpath(PTR_FILTERBUTTON_XPATH)).click();
 		findElement(By.xpath(PTR_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Partners ptr = new PegaPartners(frameId, testEnv);
 		return ptr;
 	}

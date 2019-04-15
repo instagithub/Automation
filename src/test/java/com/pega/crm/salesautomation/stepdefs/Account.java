@@ -14,7 +14,6 @@ import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.AccountList;
 import com.pega.crm.salesautomation.workobjects.Accounts;
-import com.pega.crm.salesautomation.workobjects.Activity;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.crm.salesautomation.workobjects.ContactList;
 import com.pega.crm.salesautomation.workobjects.Contacts;
@@ -24,8 +23,6 @@ import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.OpportunityList;
 import com.pega.crm.salesautomation.workobjects.Organizations;
 import com.pega.crm.salesautomation.workobjects.OrganizationsList;
-import com.pega.crm.salesautomation.workobjects.Relationship;
-import com.pega.crm.salesautomation.workobjects.Tasks;
 import com.pega.framework.PegaWebDriver;
 
 import cucumber.api.java.en.Then;
@@ -49,8 +46,6 @@ public class Account
 	LeadsList leadlist;
 	public ClosePlans closeplans;
 	String CLOSEPLANS_COMMENTS="Entering closeplans";
-	Tasks task;
-	Activity activity;
 	public static String Subject=null; 
 	String OPP_TableHeader[]={"Name", "Account", "Stage", "Owner", "Amount"," ", "Close date", "Must win", "Territory","Source",""};
 	List<String> OPP_LISTHEADER = new ArrayList<String>(Arrays.asList(OPP_TableHeader));
@@ -84,8 +79,6 @@ public class Account
 	ContactList contList;
 	Contacts cont;
 	public AccountList accList, accountsList;
-	
-	public Relationship relationship;
 	public Opportunities opportunity;
 	SimpleDateFormat format= new SimpleDateFormat("MM/DD/YYYY");
 	SimpleDateFormat format1= new SimpleDateFormat("M/DD/YYYY");

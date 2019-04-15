@@ -17,8 +17,7 @@ public class PegaContactList extends WizardImpl implements ContactList {
 	public Contacts createContact()
 	{
 		findElement(By.xpath(CREATE_CONT_BTN_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId =  getActiveFrameId(false);
 		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
@@ -28,10 +27,8 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		
 		findElement(By.id(CONT_SEARCH_FIELD_ID)).sendKeys(contactName);
 		findElement(By.xpath(CONT_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId =  getActiveFrameId(false);
 		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
@@ -40,25 +37,22 @@ public class PegaContactList extends WizardImpl implements ContactList {
 		
 		findElement(By.id(CONT_SEARCH_FIELD_ID)).sendKeys(contactName);
 		findElement(By.xpath(CONT_FILTERBUTTON_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId =  getActiveFrameId(false);
 		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;	
 	}
 	
 	public Contacts openFirstContact() {
 		findElement(By.xpath(CONT_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId =  getActiveFrameId(false);
 		Contacts Cont = new PegaContact(frameId, testEnv);
 		return Cont;
 	}
 
 	@Override
 	public boolean isContactListEmpty() {
-		pegaDriver.getActiveFrameId(true);
+		  
 		try {
 			findElement(By.xpath(NO_CONTACTS_XPATH));
 		} catch (Exception ex) {

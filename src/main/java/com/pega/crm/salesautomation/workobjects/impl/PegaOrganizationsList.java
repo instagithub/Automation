@@ -37,21 +37,17 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	
 	public void verifyOrgListpage()
 	{	
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
+	
 		
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(CREATE_ORG_BTN_XPATH)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.id(ORG_SEARCH_FIELD)));
-		Assert.assertTrue(pegaDriver.verifyElement(By.xpath(filterButton)));
+		Assert.assertTrue(verifyElement(By.xpath(CREATE_ORG_BTN_XPATH)));
+		Assert.assertTrue(verifyElement(By.id(ORG_SEARCH_FIELD)));
+		Assert.assertTrue(verifyElement(By.xpath(filterButton)));
 		
 	}
 	
 	public Organizations navigateOrganiztion()
 	{
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;
 	
@@ -62,13 +58,12 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	@Override
 	public OrganizationsList searchOrganization(String orgName) {
 		
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		findElement(By.id(ORG_SEARCH_FIELD)).sendKeys(orgName);
 		findElement(By.id(ORG_SEARCH_FIELD)).sendKeys(Keys.ENTER);
-		pegaDriver.waitForDocStateReady(2);
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		OrganizationsList org = new PegaOrganizationsList(frameId, testEnv);
 		return org;
 		
@@ -77,15 +72,14 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	@Override
 	public Organizations openOrganization(String OrgName)
 	{
-		pegaDriver.getActiveFrameId(true);
+		
 		
 		findElement(By.id(ORG_SEARCH_FIELD)).clear();
 		findElement(By.id(ORG_SEARCH_FIELD)).sendKeys(OrgName);
 		findElement(By.id(ORG_SEARCH_FIELD)).sendKeys(Keys.ENTER);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.getActiveFrameId(true);
-		if(pegaDriver.verifyElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")))
-		pegaDriver.findElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")).click();
+		
+		if(verifyElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")))
+		findElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")).click();
 		else
 		{
 			findElement(By.id(ORG_SEARCH_FIELD)).clear();
@@ -93,14 +87,8 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 			openFirstOrganization();
 		}
 		
-		String frameId= pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		frameId = pegaDriver.getActiveFrameId(false);
+		String frameId= getActiveFrameId(false);
 		Organizations org = new PegaOrganization(frameId, testEnv);
-		
-		frameId = pegaDriver.getActiveFrameId(true);
 		
 		return org;
 	}
@@ -116,8 +104,7 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	@Override
 	public Organizations createOrganization() {
 		findElement(By.xpath(CREATE_ORG_BTN_XPATH)).click();
-		pegaDriver.waitForDocStateReady(2);
-		String frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		Organizations org = new PegaOrganization(frameId, testEnv);
 		return org;	
 	}
@@ -125,15 +112,8 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	@Override
 	public Organizations openFirstOrganization() {
 		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
 		findElement(By.xpath(ORGANIZATION_NAME_XPATH)).click();
-		pegaDriver.waitForDocStateReady(1);
-		
-		
-		frameId = pegaDriver.getActiveFrameId(false);
+		String frameId = getActiveFrameId(false);
 		
 		Organizations organization = new PegaOrganization(frameId, testEnv);
 		return organization;
@@ -143,11 +123,9 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 	@Override
 	public boolean isOrganizationListEmpty() {
 		
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement framElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		pegaDriver.getActiveFrameId(true);
+		String frameId = getActiveFrameId(false);
+		PegaWebElement framElmt = findElement(By.id(frameId));
+		
 		if(verifyElement(By.xpath(NO_ORGANIZATIONS_XPATH)))
 		return true;
 		else

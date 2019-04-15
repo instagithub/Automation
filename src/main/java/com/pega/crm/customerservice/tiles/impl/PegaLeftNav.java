@@ -5,39 +5,27 @@ import org.openqa.selenium.By;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.tiles.LeftNav;
 import com.pega.crm.salesautomation.workobjects.AccountList;
-import com.pega.crm.salesautomation.workobjects.AppointmentList;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.crm.salesautomation.workobjects.ContactList;
-import com.pega.crm.salesautomation.workobjects.EngagementMaps;
 import com.pega.crm.salesautomation.workobjects.Forecast;
 import com.pega.crm.salesautomation.workobjects.HouseholdList;
 import com.pega.crm.salesautomation.workobjects.LeadsList;
-import com.pega.crm.salesautomation.workobjects.Login;
 import com.pega.crm.salesautomation.workobjects.OperatorList;
 import com.pega.crm.salesautomation.workobjects.OpportunityList;
 import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 import com.pega.crm.salesautomation.workobjects.PartnersList;
-import com.pega.crm.salesautomation.workobjects.Pulse;
-import com.pega.crm.salesautomation.workobjects.QuickCreate;
 import com.pega.crm.salesautomation.workobjects.TerritoriesList;
-import com.pega.crm.salesautomation.workobjects.ToolsList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaAccountList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaAppointmentList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaClosePlans;
 import com.pega.crm.salesautomation.workobjects.impl.PegaContactList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaEngagementMaps;
 import com.pega.crm.salesautomation.workobjects.impl.PegaForecast;
 import com.pega.crm.salesautomation.workobjects.impl.PegaHouseholdList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaLeadsList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaLogin;
 import com.pega.crm.salesautomation.workobjects.impl.PegaOperatorList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaOpportunityList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaOrganizationsList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaPartnersList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaPulse;
-import com.pega.crm.salesautomation.workobjects.impl.PegaQuickCreate;
 import com.pega.crm.salesautomation.workobjects.impl.PegaTerritoriesList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaToolsList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
 
@@ -75,15 +63,7 @@ public class PegaLeftNav implements LeftNav {
 	
 	
 	
-	@Override
-	public Login getDashboards() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(OPR_DASHBOARD)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Login login = new PegaLogin(frameId,testEnv);
-		return login;
-	}
-	
+
 	@Override
 	public OperatorList getOperatorsList() {
 		pegaDriver.switchTo().defaultContent();
@@ -180,16 +160,7 @@ public class PegaLeftNav implements LeftNav {
 		return pegaDriver.findElement(By.xpath(RECENTS_LATEST_XPATH)).getText();
 	}
 	
-	@Override
-	public AppointmentList getAppointmentsList() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(APP_LIST_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(LISTVIEW_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		AppointmentList appList = new PegaAppointmentList(frameId, testEnv);
-		return appList;
-	}
+	
 	@Override
 	public TerritoriesList getTerritoriesList() {
 		pegaDriver.switchTo().defaultContent();
@@ -197,50 +168,6 @@ public class PegaLeftNav implements LeftNav {
 		String frameId = pegaDriver.getActiveFrameId(false);
 		TerritoriesList terrList = new PegaTerritoriesList(frameId, testEnv);
 		return terrList;
-	}
-	
-	@Override
-	public ToolsList getToolsList() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(TOOLS_LIST_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		ToolsList toolsList= new PegaToolsList(frameId, testEnv);
-		return toolsList;
-
-	}
-
-
-
-	@Override
-	public QuickCreate getQuickCreate() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(QUICK_CREATE_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		QuickCreate quick= new PegaQuickCreate(frameId, testEnv);
-		return quick;
-	}
-
-
-
-	@Override
-	public Pulse getPulseList() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(PULSE_LIST_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Pulse pulseList= new PegaPulse(frameId, testEnv);
-		return pulseList;
-		
-	}
-
-
-
-	@Override
-	public EngagementMaps getEngagementMaps() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(EGMAP_LIST_XPATH)).click();
-		String frameId = pegaDriver.getActiveFrameId(false);
-		EngagementMaps egMaps= new PegaEngagementMaps(frameId, testEnv);
-		return egMaps;
 	}
 
 

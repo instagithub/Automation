@@ -20,22 +20,16 @@ import com.pega.crm.pegamarketing.DesignerStudio;
 import com.pega.crm.pegamarketing.PMPortal;
 import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
 import com.pega.crm.salesautomation.workobjects.AccountList;
-import com.pega.crm.salesautomation.workobjects.AppointmentList;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.crm.salesautomation.workobjects.ContactList;
-import com.pega.crm.salesautomation.workobjects.EngagementMaps;
 import com.pega.crm.salesautomation.workobjects.Forecast;
 import com.pega.crm.salesautomation.workobjects.HouseholdList;
 import com.pega.crm.salesautomation.workobjects.LeadsList;
-import com.pega.crm.salesautomation.workobjects.Login;
 import com.pega.crm.salesautomation.workobjects.OperatorList;
 import com.pega.crm.salesautomation.workobjects.OpportunityList;
 import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 import com.pega.crm.salesautomation.workobjects.PartnersList;
-import com.pega.crm.salesautomation.workobjects.Pulse;
 import com.pega.crm.salesautomation.workobjects.TerritoriesList;
-import com.pega.crm.salesautomation.workobjects.ToolsList;
-import com.pega.crm.salesautomation.workobjects.impl.PegaLogin;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
@@ -68,14 +62,8 @@ public class CRMBrowser extends PegaBrowser {
 	public OperatorList oprList;
 	public PartnersList parList;
 	public ContactList conList;
-	public Login login;
-	public ToolsList toolsList;
-	// public DataLoader dataloader;
-	public AppointmentList appList;
-	public EngagementMaps egMaps;
 	public Forecast forecast;
 	public ClosePlans closeplans;
-	public Pulse pulseList;
 	// variable to check whether campaign exists or not
 	public boolean campaignExists;
 
@@ -632,7 +620,7 @@ public class CRMBrowser extends PegaBrowser {
 			parList = sfaPortal.getLeftNav().getPartnersList();
 			break;
 		}
-		case "Dashboard": {
+		/*case "Dashboard": {
 			pegaDriver.getActiveFrameId(true);
 			Assert.assertTrue(pegaDriver.verifyElement(By.xpath("//div[contains(text(),'Dashboard')]")));
 			String frameId = pegaDriver.getActiveFrameId(true);
@@ -655,7 +643,7 @@ public class CRMBrowser extends PegaBrowser {
 		case "Pulse": {
 			pulseList = sfaPortal.getLeftNav().getPulseList();
 			break;
-		}
+		}*/
 		case "Forecast": {
 			forecast = sfaPortal.getLeftNav().getForecast();
 			break;

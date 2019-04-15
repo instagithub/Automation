@@ -30,41 +30,37 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
 	@Override
 	public boolean isFilterMenuDisplayed() {
-		return pegaDriver.findElement(By.id(FILTERBY_ID)).isVisible();
+		return  findElement(By.id(FILTERBY_ID)).isVisible();
 	}
 
 	@Override
 	public boolean isApplyButtonDisplayed() {
-		return pegaDriver.findElement(By.xpath(APPLYBUTTON_XPATH)).isVisible();
+		return  findElement(By.xpath(APPLYBUTTON_XPATH)).isVisible();
 	}
 
 	@Override
 	public boolean isExportButtonDisplayed() {
-		return pegaDriver.findElement(By.xpath(EXPORTBUTTON_XPATH)).isVisible();
+		return  findElement(By.xpath(EXPORTBUTTON_XPATH)).isVisible();
 	}
 
 	@Override
 	public void clickOppty() {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(CLOSEPLAN_OPPTY)).click();
+		 findElement(By.xpath(CLOSEPLAN_OPPTY)).click();
 	}
 
 	@Override
 	public void enterClosePlans(String comments) {
-		pegaDriver.getActiveFrameId(true);
-		if(pegaDriver.verifyElement(By.xpath(ADDNEW_XPATH)))
-			pegaDriver.findElement(By.xpath(ADDNEW_XPATH)).click();
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.getActiveFrameId(true);
-		WebElement wb=pegaDriver.findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor')]")).getWebElement();
-		pegaDriver.switchTo().frame(wb);
-		pegaDriver.findElement(By.xpath(CLOSEPLAN_COMMETNS)).sendKeys(comments);
+		if( verifyElement(By.xpath(ADDNEW_XPATH)))
+			 findElement(By.xpath(ADDNEW_XPATH)).click();
+		WebElement wb= findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor')]")).getWebElement();
+		// pegaDriver.switchTo().frame(wb);
+		 findElement(By.xpath(CLOSEPLAN_COMMETNS)).sendKeys(comments);
 		
 	}
 	
 	@Override
 	public void filterBy(String option) {
-		Select filter = new Select(pegaDriver.findElement(By.id(FILTERBY_ID)));
+		Select filter = new Select( findElement(By.id(FILTERBY_ID)));
 		filter.selectByVisibleText(option);
 	}
 
@@ -75,14 +71,14 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
 	@Override
 	public void apply() {
-		PegaWebElement applyButton = pegaDriver.findElement(By.xpath(APPLYBUTTON_XPATH));
+		PegaWebElement applyButton =  findElement(By.xpath(APPLYBUTTON_XPATH));
 		applyButton.click();
 	}
 
 	@Override
 	public List<WebElement> getOrgsFromOpportunities() {
-		pegaDriver.getActiveFrameId(true);
-		List<WebElement> opportunities = pegaDriver.findElements(By.xpath(CLOSEPLAN_OPPORTUNITY_ORG));
+		 getActiveFrameId(true);
+		List<WebElement> opportunities =  findElements(By.xpath(CLOSEPLAN_OPPORTUNITY_ORG));
 		return (opportunities);
 	}
 	
