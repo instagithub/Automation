@@ -3,6 +3,7 @@ package com.pega.crm.pegamarketing.impl.pages;
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.pages.Subscription;
 import com.pega.framework.PegaWebDriver;
+import com.pega.framework.elmt.Frame;
 
 public class PegaSubscription extends PegaLandingPage  implements Subscription{
 	
@@ -15,14 +16,11 @@ public class PegaSubscription extends PegaLandingPage  implements Subscription{
 		}
 	@Override
 	public void unsubscribe() {
-		pegaDriver.switchTo().defaultContent();
-		findFrame("MarketingMicrositeIfr");
+		Frame frame = pegaDriver.findFrame("MarketingMicrositeIfr");
 		pegaDriver.handleWaits().sleep(10);
-		findElement(NOT_INTRESTED_RADIO_BUTTON).click(false);
-		findElement(UNSUBSCRIBE_BUTTON).click();
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchTo().defaultContent();
-		findFrame("MarketingMicrositeIfr");
+		frame.findElement(NOT_INTRESTED_RADIO_BUTTON).click();
+		frame.findElement(UNSUBSCRIBE_BUTTON).click();		
+		pegaDriver.findFrame("MarketingMicrositeIfr");
 	}
 	@Override
 	public void closeSubscription() {

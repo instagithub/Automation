@@ -1,6 +1,8 @@
 package com.pega.crm.pegamarketing.impl.explorer;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
@@ -9,12 +11,15 @@ import com.pega.crm.pegamarketing.impl.pages.PegaServiceRestRecords;
 import com.pega.crm.pegamarketing.pages.LandingPage;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
+import com.pega.framework.elmt.Frame;
 import com.pega.page.TopDocumentImpl;
 
 
 public class PegaRecordsExplorer extends TopDocumentImpl  implements RecordsExplorer{
 
-private PegaWebDriver pegaDriver = null;
+	private static final Logger LOGGER = LoggerFactory.getLogger(PegaRecordsExplorer.class.getName());
+	
+	private PegaWebDriver pegaDriver = null;
 	private TestEnvironment testEnv = null;
 
 	public PegaRecordsExplorer(String frameId,TestEnvironment testEnv) {
@@ -27,20 +32,17 @@ private PegaWebDriver pegaDriver = null;
 		return createRightLandingPageObj(t);
 	}
 	public void navigateTo(String... path) {
-		pegaDriver.switchTo().defaultContent();
-		switchToDeveloperFrame();
+		Frame frame = findFrame("Developer");
 		for(int i=0; i<path.length-1; i++)
 		{
 			String categXpath = "//div[@node_name='pzRulesExplorerTree']//table[@id='bodyTbl_gbl']//ul[.//span[contains(text(),'"+path[i]+"')]][contains(@class,'rowContent')]/li//a";
-			PegaWebElement category = findElement(By.xpath(categXpath));
+			PegaWebElement category = frame.findElement(By.xpath(categXpath));
 			pegaDriver.handleWaits().waitForElementClickable(By.xpath(categXpath));
 			category.click();
 		}
-		pegaDriver.switchTo().defaultContent();
-		findFrame("Developer");
 		pegaDriver.handleWaits().waitForElementPresence(By.partialLinkText(path[path.length-1]));
-		System.out.println("The xpath is " +path[path.length-1]);
-		findElement(By.partialLinkText(path[path.length-1])).click();
+		LOGGER.debug("The xpath is " +path[path.length-1]);
+		frame.findElement(By.partialLinkText(path[path.length-1])).click();
 		pegaDriver.waitForDocStateReady();
 		
 		
@@ -59,7 +61,5 @@ private PegaWebDriver pegaDriver = null;
 		}
 		return page;
 	}
-	public void switchToDeveloperFrame() {
-		findFrame("Developer");
-	}
+	
 }

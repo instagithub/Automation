@@ -304,7 +304,6 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 	public void runOutboundScheduleNBADesigner() {
 		pegaDriver.waitForDocStateReady();
 		findElement(OUTBOUND_ACTIONS_LINK).click();
-		pegaDriver.switchToActiveFrame();
 		findElement(TRIGGER_RUN).click();
 	}
 

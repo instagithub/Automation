@@ -42,7 +42,6 @@ public class PegaConfigureDialog extends PegaModalDialog implements ConfigureDia
 		frame.findElement(SEARCH_ICON).click();
 	}
 	public boolean isSegmentAdded() {
-		pegaDriver.switchToActiveFrame();
 		boolean isRemoveFound = frame.verifyElement(REMOVE_BUTTON);
 		boolean isDeleteButtonFound = frame.verifyElement(DELETE_ICON);
 		return isRemoveFound && isDeleteButtonFound;

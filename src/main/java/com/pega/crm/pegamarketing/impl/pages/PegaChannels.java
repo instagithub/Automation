@@ -47,7 +47,6 @@ public class PegaChannels extends FrameImpl implements Channels {
 
 	public TestConnectivityResults testConnection(String connectionName) {
 		pegaDriver = testEnv.getPegaDriver();
-		pegaDriver.switchToActiveFrame();
 		String currentHandle = pegaDriver.getWindowHandle();
 		findElement(By.xpath("//span[text()='" + connectionName + "']/ancestor::tr[1]//a[@title='Test']")).click(false);
 		for (String handle : pegaDriver.getWindowHandles()) {

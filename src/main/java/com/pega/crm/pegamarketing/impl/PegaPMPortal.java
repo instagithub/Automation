@@ -45,12 +45,10 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void expandAudiences() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(AUDIENCES_MENU).click();
 	}
 
 	public Segments openSegments() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(SEGMENTS_MENU).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		Segments segments = new PegaSegments(frameId, testEnv);
@@ -58,7 +56,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void expandMenuItems(String menuName) {
-		pegaDriver.switchTo().defaultContent();
 		findElement(NEW_ICON).mouseOver();
 		findElement(HOME_ICON).mouseOver();
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(menuName))).click();
@@ -72,7 +69,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void expandContent() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(CONTENT_MENU).click();
 
 	}
@@ -96,7 +92,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public LandingPage openLandingPage(LandingPageType landingPage) {
-		pegaDriver.switchTo().defaultContent();
 		findElement(NEW_ICON).mouseOver();
 		findElement(HOME_ICON).mouseOver();
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
@@ -181,7 +176,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void closeWelcomeDialog() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(ModalDialog.CLOSE_BUTTON).click();
 	}
 }
