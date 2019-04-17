@@ -91,10 +91,11 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		return strategies;
 	}
 
+	
 	public LandingPage openLandingPage(LandingPageType landingPage) {
 		pegaDriver.switchTo().defaultContent();
 		findElement(NEW_ICON).mouseOver();
-		findElement(HOME_ICON).mouseOver();
+		findElement(HOME_ICON).mouseOver(); 
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
 		pegaDriver.waitForDocStateReady();
 		String frameId = pegaDriver.getActiveFrameId(true);
