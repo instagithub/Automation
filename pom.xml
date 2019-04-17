@@ -12,7 +12,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<tags>@smoke-pega-marketing</tags>
+		<tags>@smoke-pega-marketingA</tags>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<baseClass>com.pega.CRMTestEnvironment</baseClass>
 		<maven.compiler.target>1.8</maven.compiler.target>

@@ -92,6 +92,7 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public LandingPage openLandingPage(LandingPageType landingPage) {
+		pegaDriver.switchTo().defaultContent(); //Vinod added
 		findElement(NEW_ICON).mouseOver();
 		findElement(HOME_ICON).mouseOver();
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();

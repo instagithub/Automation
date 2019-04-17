@@ -1,4 +1,4 @@
-@smoke-pega-marketing
+@smoke-pega-marketingA
 Feature: Smoke Test cases
 # author : PM
 
