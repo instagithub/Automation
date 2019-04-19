@@ -80,7 +80,6 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 	public void close() {
 		findElement(CLOSE_ICON).click(false);
 		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
 	}
 
 	public void create() {

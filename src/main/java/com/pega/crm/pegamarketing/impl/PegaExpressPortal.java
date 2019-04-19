@@ -22,28 +22,24 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	}
 
 	public void openDataTypesExplorer() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(DATATYPES_EXPLORER_BY).click();
 		pegaDriver.waitForDocStateReady();
 
 	}
 
 	public void openUsersExplorer() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(USERS_EXPLORER_BY).click();
 		pegaDriver.waitForDocStateReady();
 
 	}
 
 	public void openSettingsExplorer() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(SETTINGS_EXPLORER_BY).click(false);
 		pegaDriver.waitForDocStateReady(false);
 
 	}
 
 	public DesignerStudio switchToDesignerStudio() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(SWITCH_TO_DESIGNER_STUDIO_MODE).click();
 		pegaDriver.waitForDocStateReady(3);
 		DesignerStudio designerStudio = new PegaDesignerStudio(testEnv);
@@ -56,7 +52,6 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	}
 
 	public ContextDictionary openContextDictionary() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(By.xpath(String.format(SETTINGS_SLIDER_MENU_ITEM_XPATH, "Context Dictionary"))).click();
 		String activeFrameID = pegaDriver.getActiveFrameId(false);
 		ContextDictionary contextDictionaryFrame = new PegaContextDictionaryFrame(activeFrameID, testEnv);
@@ -65,7 +60,6 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 	}
 
 	public Channels openChannels() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(By.xpath(String.format(SETTINGS_SLIDER_MENU_ITEM_XPATH, "Channels"))).click();
 		String activeFrameID = pegaDriver.getActiveFrameId(true);
 		Channels channels = new PegaChannels(activeFrameID, testEnv);

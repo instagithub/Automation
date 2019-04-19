@@ -122,10 +122,9 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 
 		public boolean isRankedAdded() {
-			pegaDriver.switchToActiveFrame();
-			boolean isRemoveFound = pegaDriver.verifyElement(RANKED_REMOVE_BUTTON);
-			boolean isRankedObjectiveFound = pegaDriver.verifyElement(RANKED_ADDED_LABEL);
-			boolean isDeleteButtonFound = pegaDriver.verifyElement(DELETE_ICON);
+			boolean isRemoveFound = verifyElement(RANKED_REMOVE_BUTTON);
+			boolean isRankedObjectiveFound = verifyElement(RANKED_ADDED_LABEL);
+			boolean isDeleteButtonFound = verifyElement(DELETE_ICON);
 			return isRemoveFound && isRankedObjectiveFound && isDeleteButtonFound;
 		}
 

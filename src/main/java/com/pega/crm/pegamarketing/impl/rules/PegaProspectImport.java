@@ -37,7 +37,6 @@ public class PegaProspectImport extends PegaRuleInstance implements ProspectImpo
 	public void openProspectData() {
 		findElement(PROSPECT_DATA_LINK).click(false);
 		pegaDriver.waitForDocStateReady();
-		pegaDriver.switchToActiveFrame();
 	}
 
 	@Override

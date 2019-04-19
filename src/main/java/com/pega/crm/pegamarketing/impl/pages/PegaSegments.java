@@ -43,15 +43,13 @@ public class PegaSegments extends PegaLandingPage implements Segments {
 	}
 
 	public Segment createSegment() {
-		pegaDriver.handleWaits().waitForElementVisibility(CREATE_BTN);
 		findElement(CREATE_BTN).click();
-		String frameId = pegaDriver.getActiveFrameId(true);
+		String frameId = getActiveFrameId(true);
 		Segment segment = new PegaSegment(frameId, this.testEnv);
 		return segment;
 	}
 
 	public Segment openSegmentRule(String segName) {
-		pegaDriver.switchToActiveFrame();
 		findElement(Segments.SEARCH_INPUT_BOX)
 				.sendKeys(segName + Keys.TAB);
 		findElement(Segments.VIEW_BTN).click();
