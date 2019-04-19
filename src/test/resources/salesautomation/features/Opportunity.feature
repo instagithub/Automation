@@ -12,7 +12,6 @@ Background:
     When users clicks on Create OpprotunityButton and selects "<Opptype>"
     When Enters all the mandatory data for "<Opptype>"
     Then "<Opptype>" Opportunity should be created
-    Then opportunity should have all the tabs
 
     Examples: 
    | Opptype    |

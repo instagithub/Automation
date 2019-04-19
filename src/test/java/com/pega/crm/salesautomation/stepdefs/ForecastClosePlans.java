@@ -39,6 +39,7 @@ public class ForecastClosePlans {
     public ForecastClosePlans(CRMBrowser browser){
         this.browser = browser;
         salesPortal = browser.getPortal(SFAPortal.class);
+        this.closeplans=browser.closeplans;
     }
 
     @Given("^a sales rep is at the Close Plans page$")

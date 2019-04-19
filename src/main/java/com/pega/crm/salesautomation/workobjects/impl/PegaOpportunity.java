@@ -34,8 +34,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	String OPP_CLOSEDATE_VALUE_XPATH="//span[text()='Close date']/../../div/span";
 	String OPP_CHANGE_STAGE_XPATH=PegaUtil.getButtonXpath("Change stage");
 	String OPP_AMOUNT_ID="OpportunityAmount";
-	String OPP_CALANDER_XPATH="//span[contains(@id, 'CloseDateSpan')]/span | //img[contains(@data-ctl,'DatePicker')]"; /*added img attribute -Raghu*/
-	//String OPP_CALANDER_XPATH="CloseDate"; /*changing  from xpath to  id to Closedate by Raghu*/
+	String OPP_CALANDER_XPATH="//span[contains(@id, 'CloseDateSpan')]/span | //img[contains(@data-ctl,'DatePicker')]";
 	//String OPP_NEXTYEAR_="nextYear";
 	String OPP_DAY_XPATH="//*[@data-day='1']";
 	String OPP_NAME_ID="Name";
@@ -192,6 +191,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	public ArrayList<String> getSubTabs() {
 		ArrayList<String> s= new ArrayList<String>();
 		List<WebElement> wb=findElements(By.xpath(OPP_SUBTABS_XPATH));
+		System.out.println(wb.size());
 		for(WebElement w:wb)
 		{
 			String s1=w.getText();

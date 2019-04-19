@@ -33,6 +33,7 @@ public  class PegaUtil
 	public static String SUBMIT_XPATH="//button[@id='ModalButtonSubmit']"+"|"+ XPathUtil.getButtonPzBtnMidXPath("Submit") + "|" + PegaUtil.getStrongButtonXPath("Submit");
 	public static String ADDRESSTYPE_XPATH="//select[contains(@id,'AddressType')]";
 	public static String SUBTABS_XPATH="//div[@role='tablist']//div[contains(@class, 'count')]//h2";
+	public static String SUBTAB_XPATH = "//div[@role='tablist']//div[contains(@class, 'count')]";
 	public static String NO_ITEM_XPATH="//tr[@id='Grid_NoResults']" + "|" + "//div[text()='No cases are being followed']";
 	public static String ACTION_BUTTON_XPATH=PegaUtil.getButtonXpath("Actions");
 	public static String OK_BUTTON_XPATH="//button[contains(@data-click,'doFormSubmit')]"+"|"+ XPathUtil.getButtonPzBtnMidXPath("OK") + "|" + "//button[@id='ModalButtonSubmit']";
@@ -187,9 +188,8 @@ public  class PegaUtil
 	}
 
 	public static void setDate(PegaWebDriver pegaDriver, String Locator) {
-		
+		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(Locator)).click();
-		//pegaDriver.findElement(By.id(Locator)).click(); /* changed  to find element by id*/
 		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(OPP_NEXTYEAR_XPATH)).click();
 		pegaDriver.getActiveFrameId(true);
@@ -324,22 +324,11 @@ public  class PegaUtil
 														 
 		pegaDriver.waitForDocStateReady(2);
 		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(SUBTABS_XPATH)).scrollIntoView();
+		// pegaDriver.findElement(By.xpath(SUBTABS_XPATH)).scrollIntoView();
 		Wizard wiz = pegaDriver.findWizard(pegaDriver.getActiveFrameId(false));
-		wiz.findElement(By.xpath(SUBTABS_XPATH)).scrollIntoView();
-		List<WebElement> wb=pegaDriver.findElements(By.xpath(SUBTABS_XPATH));
-		for(WebElement w:wb)
-		{
-			String s1=w.getText();
-			if(s1.equalsIgnoreCase(subtabName))
-			{
-				w.click();
-				pegaDriver.waitForDocStateReady(4);
-				pegaDriver.getActiveFrameId(true);
-				
-				break;
-			}
-		}
+		wiz.findElement(By.xpath(SUBTAB_XPATH+"//*[text() = '"+subtabName+"']")).click();
+		pegaDriver.waitForDocStateReady(4);
+		pegaDriver.getActiveFrameId(true);
 			  
 	}
 
@@ -374,6 +363,7 @@ public  class PegaUtil
 	
 	public static void clickEdit(PegaWebDriver pegaDriver)
 	{
+		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(ACC_EDIT_XPATH)).click();
 	}
 	public static void clickCreate(PegaWebDriver pegaDriver)
@@ -395,7 +385,7 @@ public  class PegaUtil
 	
 	public static void clickDiscard(PegaWebDriver pegaDriver)
 	{
-		
+		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(DISCARD_XPATH)).click();
 	}
 	public static void clickOK(PegaWebDriver pegaDriver)
@@ -444,6 +434,7 @@ public  class PegaUtil
 	}	
 	public static void navigateToRecentItem(PegaWebDriver pegaDriver, String WOName)
 	{
+		pegaDriver.getActiveFrameId(true);
 		pegaDriver.findElement(By.xpath(RECENT_WO_XPATH + "//a[text()='" + WOName +"']")).click();
 	}
   public static boolean isRowValuePresent(PegaWebDriver pegaDriver, String RowIdentifier, String ColumnIdentifier, String RowValue)

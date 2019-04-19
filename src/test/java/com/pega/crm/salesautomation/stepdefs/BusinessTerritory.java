@@ -94,7 +94,7 @@ public class BusinessTerritory
 	@When("^User enters the data for \"(.+)\" \"(.+)\" \"(.+)\" \"(.+)\" and submits$")
 	public void user_enters_the_data_and_submits(String TerritoryName, String ParentTerritory, String TerritoryOwner,  String ReservedForPartner)
 	{
-		TerryName= TerritoryName+ new Random().nextInt(100);
+		TerryName= TerritoryName+ new Random().nextInt(1000);
 		 trr.setTerritoryName(TerryName);
 	     trr.setOwner(TerritoryOwner);
 	     trr.setReservedForPartner(ReservedForPartner);
