@@ -79,7 +79,17 @@ public class PegaOrganizationsList extends WizardImpl implements OrganizationsLi
 		findElement(By.id(ORG_SEARCH_FIELD)).sendKeys(Keys.ENTER);
 		
 		if(verifyElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")))
-		findElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")).click();
+		{
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			findElement(By.xpath("//a[contains(text(),'"+OrgName+"')]")).click();
+			
+		}
+		
 		else
 		{
 			findElement(By.id(ORG_SEARCH_FIELD)).clear();

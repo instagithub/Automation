@@ -186,6 +186,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 	public java.util.List<WebElement> getListOfActiveMember() {
 		getMembersSubtab();
 		java.util.List<WebElement> listofmember=  findElements(By.xpath(HH_MEMBERS_LIST_XPATH));
+		System.out.println("Size of the members list:"+ listofmember.size());
 		return listofmember;
 	}
 

@@ -62,7 +62,7 @@ public class Partner
 	String PARTNER_NAME_CLOSE="First Alert";
 	String PARTNER_PHONE="8995994999";
 	String PARTNER_WEBSITE="www.partner1.com";
-	String TERRITORY_NAME= new String("Automation_Partner_Territory"+new Random().nextInt(100));
+	String TERRITORY_NAME= new String("Automation_Partner_Territory"+new Random().nextInt(10000));
 
 	String TERRITORY_OWNER="Terry Mason";
 	String PARENT_TERRITORY="Global";

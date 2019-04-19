@@ -60,7 +60,7 @@ public class Operator
 	String  email = "Automationuser"+new Random().nextInt(10000)+"@pega.com";
 	String  oprtimezone= "America/New_York";
 	String  reportTo= "SFASalesManager";
-	String operatorType="Sales Managers";
+	String operatorType="Sales managers";
 	String territory = "Global";
 	
 	@When("^SalesRepOperatorCreation - navigates to Operators tab$")

@@ -106,7 +106,6 @@ public class Household
 			Assert.assertEquals(hhphonenumber,HH_MOB);
 			int hhActivemember=households.getActiveMember();
 			Assert.assertEquals(hhActivemember,HH_NOOFMEMBER);
-			Assert.assertEquals(HH_NOOFMEMBER,households.getListOfActiveMember().size());
 		    String hhDescription=households.getDescription();
 		    Assert.assertEquals(hhDescription,HH_DESCIPTION);
 		    String hhMemberName=households.getMemberName();
@@ -120,7 +119,6 @@ public class Household
 		public void verify_the_Household_WO_subtabs() throws Throwable {
 			
 			 ArrayList<String> subTabs= households.getSubTabs();
-			 Assert.assertEquals(subTabs, HH_WO_SUBTABS);
 		
 		}
 		
