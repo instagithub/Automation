@@ -10,6 +10,7 @@ import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.SFAPortal;
 import com.pega.crm.salesautomation.workobjects.AccountList;
+import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.crm.salesautomation.workobjects.ContactList;
 import com.pega.crm.salesautomation.workobjects.Contacts;
 import com.pega.framework.PegaWebDriver;
@@ -30,6 +31,7 @@ public class Contact
 	private CRMBrowser browser;
 	ContactList contList;
 	Contacts cont;
+	Accounts acc;
 	public AccountList accList, accountsList;
 	private PegaWebDriver pegaDriver;
 	
@@ -40,7 +42,8 @@ public class Contact
 		pegaDriver=testEnv.getPegaDriver();
 		sfaPortal = browser.getPortal(SFAPortal.class);
 		this.contList=browser.conList;
-		this.accList=browser.accList;CONT_FULLNAME= new StringBuffer("");
+		this.accList=browser.accList;
+		CONT_FULLNAME= new StringBuffer("");
 		CONT_FULLNAME= CONT_FULLNAME.append(CONT_FIRSTNAME);
 		CONT_FULLNAME=CONT_FULLNAME.append(" ").append(CONT_LASTNAME);
 		CONT_WORKEMAIL=CONT_FULLNAME+"@"+CONT_COMPANY+".com";
@@ -132,8 +135,8 @@ public class Contact
 		public void Primary_Individual_account_should_be_created_automatically() throws Throwable 
 		{
 			accList=browser.sfaPortal.getLeftNav().getAccountList();
-			accList.navigateAccount(CONT_FULLNAME.toString());
+			acc=accList.navigateAccount(CONT_FULLNAME.toString());
 			String fullname= CONT_FULLNAME.toString();
-			Assert.assertEquals(cont.getPrimaryContactName(), fullname);
+			Assert.assertEquals(acc.getPrimaryContactName(), fullname);
 		}
 }

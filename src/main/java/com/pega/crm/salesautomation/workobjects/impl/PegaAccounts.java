@@ -69,6 +69,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	String ACC_CONTACT_ROW_IDENTIFIER_XPATH="//tr[contains(@oaargs, 'UPLUS-SAPLUS-LINK-ENTITY-C2A')]";
 	public String WO_NAME=null;
 	String ACC_SUBTABS_XPATH = "//div[@role='tab']//h2";
+	String ACC_PRIMARY_CONTACT_XPATH="//*[text()='Primary contact']/..//div/span";
 	
 	
 	
@@ -552,5 +553,11 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		}
 		System.out.println(s.size());
 		return s;
+	}
+
+	@Override
+	public String getPrimaryContactName() {
+		String primaryContact =  findElement(By.xpath(ACC_PRIMARY_CONTACT_XPATH)).getText();
+		return primaryContact;
 	}
 	}

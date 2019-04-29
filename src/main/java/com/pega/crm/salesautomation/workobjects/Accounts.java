@@ -3,6 +3,8 @@ package com.pega.crm.salesautomation.workobjects;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
+
 import com.pega.ri.Wizard;
 
 public interface Accounts extends Wizard{
@@ -24,7 +26,8 @@ public interface Accounts extends Wizard{
 	void setEmployees(String employees);
 	void setTickerSymbol(String ticker);
 	void setRevenue(String revenue);
-	
+	String getPrimaryContactName();
+		
 	
 	
 	void clickCreate();
