@@ -66,7 +66,7 @@ Feature: Outbound Phone call test cases
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
     When check additional account for address change and submit
-    Then check the dialog in in confirm screen and in progress task in left nav
+    #Then check the dialog in in confirm screen and in progress task in left nav
     When confirm the changes made
     Then check for completed or cancelled task "Address Change"
     When launch wrapup to complete outbound interaction
