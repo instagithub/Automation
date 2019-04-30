@@ -36,7 +36,7 @@ public interface PhoneCall extends Interactions{
 	String LAST_INTERACTION_XPATH= "//span[text()='Last interaction']";
 	String REASON_XPATH = "//span[text()='Reason']";
 	String STATUS_XPATH = "//span[text()='Status']";
-	String NPS_XPATH = "//span[text()='NPS']";
+	String NPS_XPATH = "//span[contains(text(),'NPS')]";
 	String CONTACT_INFO_XPATH = "//div[text()='Contact information']";
 	String CALL_BACK_XPATH = "//span[text()='Call back']";
 	String CALL1_BACK_XPATH = "//span[text()='Callback']";
