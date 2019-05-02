@@ -17,7 +17,6 @@ public interface OutboundPhoneCall extends Interactions{
 	void CaptureCallReasonAndPlaceCall(String reason, String status);
 	void exitInteraction(String exitComments);
 	void launchOutboundWrapUp();
-	void launchOutboundInteraction(String contactName, String callStatus);
 	void launchOutboundInteractionforSecond(String contactName, String callStatus);
 	void launchOutboundInteractionforFirst(String contactName, String callStatus);
 	void submitChanges();

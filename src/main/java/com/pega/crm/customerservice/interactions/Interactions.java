@@ -205,251 +205,46 @@ public interface Interactions extends Wizard{
 	String NEW_CONTACT_PRIMARY_MAIL_ID_XPATH= "//input[@data-test-id='201704190553530597142991' and contains(@name,'PrimaryEmail')]";
 	String YES_BUTTON_XPATH = "//button[contains(.,'Yes')]";
 	void addTask();
-	void launchAddressChange();
-	void addressChange();
-	void launchStatementCopy();
-	void lauchStatementCopyFromSuggestions();
-	void selectStatementForCopy();
-	void statementFee();
-	String StatementCopyID();
-	void confirmStatementFlow();
-	void statementCopy();
-	void wrapUp();
-	
 	void selectReasonForDispute();
 	void confirmDisputeDetails();
 	String checkCaseStatus(String caseId);
-	
 	Wizard switchToFrame();
-	void switchToDefault();
-	void setDate(String dt);
-	void setDates(String dt,By locator);
-	void checkbox(String xpath);
-	
-	void scrollToBottomofpage();
-	void addressChangeB2B(String changeAddressText , String emailId , String faxNo);
-    void changeToDifferentAccoutn(String accountNo,String selectAccountNo);	
-    
-    String getChildText();
-	void checkContactVerification();
 	void contactVerificationWithTwoQuestions();
-	void selectAccount();
-	void launchUpdateContactProfile();
-	void tabsCount();
-	String tabName();
-	void selectDropDownValue(String text);
-	void profileSubmitButton();
-	String getChildInteractionId();
-	String getParentInteractionId();
-	void completeWrapUpForInteractions(String text1, String text2);
-	String getParentIDStatus(String parentid);
-	String getChildStatusValue(String parentid);
-	
-	
-	void changeToDifferentAccount(String accountNo,String selectAccountNo);	
-	void clickTab(String tabText);
-    String verifyBusinessUnitAddedToTask();
-	List<String> verifyListOfTaskUnderBusinessUnit();
-	void clickCloseButton();
-	void dropDownValueSelect(String text);
-	String getSecondValue();
-	String addressChangeAndGetCaseID();
-	String getSecondListValue();
-	boolean verifyHomePage();
 	Set<String> clickCompositeLink(String headerName);
-	boolean switchToCompositeWindow(String headerName);
-	String verifyCompositeWindowData();
-	void windowClose();
-	boolean switchToCompositeWindow(String header, By locator);
-	void cancelWork();
-	String verifyStatusForWork(String text,String verifyText);
-	void refershExitInteraction(By xpathElement);
-	void searchCustomerByName(String lastName);
-	void searchCustomerByLastName(String lastName);
-	void clickSearchButton();
-	Map<String,String> verifySearchResult(PegaWebDriver webDriver);
-	void selectCustomerStatement();
 	void selectReasonForDispute(String reason);
 	void selectDisputeTransaction(String tranName);
 	void searchByCustomerNameAndAccountNo(String lastName, String accountNum);
 	void selectCustomer();
-	void selectBUCustomer();
-	void contactVerification();
 	void confirmAddressChange();
 	void clickOnOtherActionsButton();
-	void clickOnToolsMenuButton();
 	void changeAddress();
 	String verifyCompletedTask(String serviceProcess);
 	void launchWrapup();
-	void WrapUpInteraction();
 	void completeWrapUp(String reason);
 	void completeWrapUpWithoutReason();
-	void completeChatWrapUpWithoutReason();
-	String hoverOnCoachingTip();
 	void changeAdditionalAddress();
 	void confirmFlow();
-	
-	//Open New Account methods
 	void selectAProduct(String category, String product, String owner);
 	void enterAccountDetails();
-	
 	void launchCaseFromWorkbasket(String workBasket, String caseID);
 	void launchServiceProcess(String serviceProcess);
-	void confirmModifyBULinks();
-	void addBUName(String name, String role);
-	void updateBUCommDetails();
-	void openAuthorizedContacts();
 	void accountSelection(String acctNumber);
-	void closeChildInteraction();
-	
-	void closeParentInteractions();
-	void launchCaseFromInboundWorkbasket(String workBasket, String id);
-	void selectInteraction(String contact);
-	void launchSuggestedTask(String suggestedTask);
-	void selectStatementForLostCard();
 	void stolenCardAcknowledgement();
-	void selectAddressForDelivery(String delivery);
 	void closeAccount(String reason, String comment);
-	void negotiateRetention();
-	void removeItemFromOffer();
-	void learnMoreAndAcceptOffer();
-	void deferOffer();
-	void declineOffer();
-	void switchCase(String serviceProcess);
-	void selectComplaint();
-	void selectTypeAsIssueAs(String option, String type, String issueType);
-	
-	//void switchToInteraction(String interaction);
 	void switchInteraction(String interaction);
-	
-	void launchDisputeTranFromLink(String transId);
-	void cancelFlow();
-	void submitCancelFlow();
-	
-	void lauchQuickWrap();
-	
-	//Driver Changes methods
-	List<WebElement> noChoachingTips();
-	String noDialog();
-	void launchOffer(String suggestedOffer);
-	void submitFlow();
-	void searchCustomerByNameInbound(String lastName);
-	
-	//inbound
-	void selectInboundCustomer();
-	
-	//create contact
-	void launchCreateContactFlow();
-	void launchChildInteraction();
-	void launchChildInteraction(String contact);
-	String getCaseID();
-	void searchPreviousCaseId(String caseID);
-	void contactVerificationWithOneQuestions();
 	void contactVerificationWithQuestions();
-	void verifyOptionsInToolsMenu();
-	String getFutureDate();
-	String getPastDate();
 	void datePicker();
-	void updateContactProfile(String DOB, String Gender, String status);
 	void updatePrimaryAddressInContactProfile();
 	void userSwitchToTab(String tab);
-	void openNewAccountFlow(String category, String product, String owner);
-	void sendCorrespondanceFlow(String mailID, String subject);
-	void searchWithPreviousCaseId();
-	void completeWrapUpbyRating(int arg1);
-	void completeWrapUpbyreason(String reason);
-	void verifyRecentInteractions();
 	void selectSingleserviceprocess(String serviceProcess);
-	void selectAddTask();
-	void searchForServiceProcess(String serviceName);
-	void clickOnSearchResult(String searchResult);
-	void clickOnCollapseIcon();
-	void AddtaskFromCollapse();
-	void launchWrapupFromCollapse();
-	void selectIncludeprospects();
-	void deleteAccountAssociation(String orgName);
 	void verifyRecentCases();
 	void closeInteraction();
-	void selectaccountfromaccountSummary(String AcNo);
-	void clickAccountNumber();
-	void upDateAddress(String AdLn1, String AdLn2, String PCode, String Phone);
 	void verifytheStatusForTheCase(String Status);
 	void selectCaseFromCasesWidget();
 	void selectSubCaseFromTasks(String subCase);
-	void selectIdentificationType(String method);
-	void selectDistributionType(String method);
-	void selectViewDetails();
-	void enterResolveNotesandSubmit();
-	void clickOnCasesButton();
-	void selectDisputeTransactionwithOutsubmit(String tranName);
-	void selectResolutionTypeforComplaint(String resolutionType);
-	void selectWorkResolutionforScheduleActivity(String workResolution);
-	void scheduleActivityAppointment(String type, String account, String topic, String assign, String operator);
-	void scheduleActivityEscalate(String assign, String operator);
-	void acceptOrDeclainOffer(String type);
-	void switchtoTabforUser(String tabName);
-	void addbundle();
-	void clickOnActionButton(String bundleName);
-	void selectOptionsUnderActionButton(String option, String bundleName);
-	void selectbundlefromDuplicate(String mergeType, String bundleName);
-	void scheduleAppointment(String subject);
-	void confirmAppointment();
-	void launchCaseUnderMyWorkbasket(String workBasket);
-	void enterComments();
-	void negotiateRetentionFlow(String reason, String provider, String rating);
-	void recentCasesSearchWithCaseID(String Tab);
-	void selectresultfromprospects(String username);
-	void selectQuestionswithoutSubmit();
-	void submitWithoutSelectingQuestions();
-	void closeAccountwithcomment(String comment);
-	void clickOnActionsitem(String buttonName);
-	void exitInteractionwithcomment();
-	void customerInquiry();
-	void searchforRecentCasesinWidget();
-	void filterinRecentCasesWidget(String status);
-	void selectConfigTools();
-	void selectTabAtConfigTools(String tabName);
-	void deleteAllExistingDialogs();
-	void configureNewDialog(String dialog);
-	void updateDialog(String Dialog);
-	void deleteAllExistingCoachingTips();
-	void deleteAllAssignedCoachingTips();
-	void createNewCoachingTips(String CoachingTipName, String CoachingTip);
-	void assignCoachingTips(String CoachingTipName, String AssignTo, String AssignToValue, String FromDate,
-			String ToDate);
-	void updateCoachingTips(String CoachingTipName, String CoachingTip);
-	void selectrequiredBU(String required);
-	void confirmchange();
-	void selectCustomerfromresult(String username);
-	String getCaseIDunderToolsmenu();
-	void ShowdataLink(String LinkName);
-	void selectMultiDisputeTranxFromCasesWidget();
 	void CaptureCallReasonAndPlaceCall(String reason, String status);
-	void switchBetweenNewPhoneCallTabs(String tabName);
-	void enterAnonymousFieldsAndSubmit(String type, String firstName, String lastName, String emailId);
-	void validateFavorites(String contact);
-	void reopenCase();
-	
-	
-	void updateID(String source, String id);
-	void createContactNote();
 	void contactVerificationQuestions();
-	void clickContactNotVerified();
 	void contactVerificationQuesforServiceCases();
-	void clickonContactNotVerified();
-	void clickOtherActionsandByPassVerification();
-	void enterReasonAndClickSubmitButton();
-	void verifyByPassVerificationinHistory();
-	//void validateStatusofCase();
-	void contactVerificationQuestionsforInteractions();
-	void validateSearchScreen();
-	void clickonContactNotVerifiedForInteractions();
-	void contactVerificationforContact();
-	void verifyNoQuestionsAvailable();
 	String getCaseDetails();
-	void LaunchCaseFromMyCasesWidget();
-	void LaunchCaseFromRecentWorkWidget();
-	void completeAnonymouswrapup();
-
 	
 }

@@ -22,15 +22,8 @@ public interface NewInboundInteraction extends Interactions{
 	String URL = "https://www.pega.com/system/files/docs/2016/Oct/Pega-Customer-Service-Application-Data-Sheet.pdf";
 	String LINK_TEXT =	"Pega Link";
 	
-	String createInboundCase(String channelType, String accNum, String contactId) throws AWTException;
-	void searchInboundCase(String interactionID);
-	void clickSendCorrespondanceFromNextBestAction();
-	void configureEmailAndSend();
-	void verifyStatusAndConfirmTask(PegaWebDriver pegaWebDriver);
-	String createInboundCaseOnlyMandatoryFields();
-	void searchAgain();
-	void attachURL();
-	void createInboundCaseWithoutmandatoryFields();
-	void inboundCaseWithFutureDate(String channelType);
+		
+	
+	
 		
 }

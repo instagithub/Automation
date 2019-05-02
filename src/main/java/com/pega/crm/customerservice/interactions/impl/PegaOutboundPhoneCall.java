@@ -73,39 +73,7 @@ public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundP
 		wrapUp.click();
 	}
 	
-	public void launchOutboundInteraction(String contactName, String callStatus)
-	{
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard  = pegaDriver.findWizard(frameId);
-		String custName;
-		String phType;
-		
-		PegaWebElement outboundCallTable = pegaDriver.findElement(By.xpath(OUTBOUND_SIMULATION_TABLE_XPATH));
-		int outboundCallRows = outboundCallTable.findElements(By.tagName("tr")).size();
-		System.out.println(outboundCallRows);
-		for(int i=2; i <= outboundCallRows; i++)
-		{
-			custName = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr["+i+"]/td[1]/div/span")).getText();
-			System.out.println(custName);
-			phType = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr["+i+"]/td[4]/div/span")).getText();
-			System.out.println(phType);
-			DropDown callStatusDropdown = newWizard.findSelectBox(By.id("OutboundCallStatus"+(i-1)));
-			if(!custName.equalsIgnoreCase(contactName) && phType.equalsIgnoreCase("Home Phone"))
-			{
-				
-				callStatusDropdown.selectByValue("No Answer");
-			}
-			else if(custName.equalsIgnoreCase(contactName))
-			{
-				callStatusDropdown.selectByValue(callStatus);
-			}
-		}
-		
-		
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
-		  submitButton.click(false);
-	}
+	
 	
 	public void launchOutboundInteractionforFirst(String contactName, String callStatus)
 	{

@@ -88,54 +88,23 @@ public interface PhoneCall extends Interactions{
 	String ADD_NEW_ACCOUNT_ASSOCIATION_XPATH = "//a[@title='Add New Account Association ']";
 	
 	
-	void searchCustomerByName(String lastName);
-	void searchCustomerByAccountNumber(String accNum);
-//	void searchByCustomerNameAndAccountNo(String lastName,String accNo);
-//	void selectCustomer();
-	void contactVerification();
+	
 	void accountSelection(String accountNum);
-	void clickSearchButton();
-	Map<String,String> verifySearchResultWithAccountNo(PegaWebDriver pegaWebDriver);
-	Map<String,String> verifySearchResult(PegaWebDriver pegaWebDriver);
-	String verifyInvaidInputResult();
-	void verifyExitInteractionWindowAndSubmitComment();
-	Map<String,String> createNewContactBasicInfo();
-	void createPrimaryContactAddress();
-	void enterCommunicatioOption();
-//	void clickOnToolsMenuButton();
-//	void clickOnOtherActionsButton();
+	
+	
 	void launchServiceProcess(String serviceProcess);
-//	void changeAddress();
-//	void changeAdditionalAddress();
+
 	void confirmAddressChange();
-//	void confirmFlow();
-	String getCaseID();
-//	String hoverOnCoachingTip();
+
 	String verifyCompletedTask(String serviceProcess);
 	
 	
-//	void launchWrapup();
-//	void completeWrapUp(String reason);
-	void updateBUCommDetails();
-	void addBUName(String name, String role);
-	void confirmModifyBULinks();
-	void searchPhoneNumber(String phoneNumber);
+
 	void closeAccount(String reason, String comment);
-	void selectBUContact();
-	void searchByBUName(String buName);
+	
+
 	
 	void searchByEmail(String email);
 	void scheduleActivity(String type, String account, String topic, String assign, String operator);
-	void searchSSNNumber(String SSNNumber);
-	void launchAddressChangeEditLink();
-	void modifyAccountLinks(String accNum, String role);
 
-	void searchPreviousCaseId(String caseID);
-	void enterMandatoryFieldsInContacts(String Fitstname, String lastname, String mailid);
-	void enterAllFieldsInContactCreation();
-	void enterMandatoryFieldsInContactCreation();
-	void submitthechangesforopenaccount();
-	void searchCustomerByLastName(String lastName);
-	void newContactWithMandatoryFields(String FirstName, String LastName, String MailId);
-	void modifyAccountLinksfornewcontact(String accNum, String role);
 }

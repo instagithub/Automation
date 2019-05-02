@@ -22,30 +22,6 @@ public class PegaResearchInteraction extends PegaInteractions implements Researc
 	
 
 	@Override
-	public void launchUpdateContactProfile() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard  = pegaDriver.findWizard(frameId);
-		PegaWebElement updateContactProfile = newWizard.findElement(By.linkText("Update Contact Profile"));
-		updateContactProfile.doubleClick();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		
-	}
-
-	@Override
-	public void updateContactProfile() {
-		PegaWebElement occupation = newWizard.findElement(By.xpath(OCCUPATION_XPATH));
-		occupation.sendKeys("HR");
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
-		submitButton.click(false);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		
-	}
-
-
-	
-	@Override
 	public String checkCaseStatus(String caseId) {
 		
 		PegaWebElement searchBox = findElement(By.xpath("//input[@id='pySearchText']"));
@@ -57,23 +33,6 @@ public class PegaResearchInteraction extends PegaInteractions implements Researc
 		return caseStatus;
 	}
 	
-	@Override
-	public void searchCaseStatus(String searchType, String value) {
-		
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.switchToActiveFrame();
-		
-		DropDown selectType = pegaDriver.findSelectBox(By.xpath("//select[@name='$PpyDisplayHarness$pSelectedDataSource']"));
-		selectType.selectByValue(searchType);
-		
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.findElement(By.xpath("//input[@id='pySearchText']")).sendKeys(Keys.CLEAR);
-		pegaDriver.findElement(By.xpath("//input[@id='pySearchText']")).sendKeys(value);
-		pegaDriver.findElement(By.xpath("//i[@name='CPMSearch_pyDisplayHarness_3']")).click();
-	}
 	
-
-	
-
 
 }

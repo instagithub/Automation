@@ -5,7 +5,6 @@ import com.pega.Browser;
 import com.pega.CRMBrowser;
 import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
-import com.pega.crm.customerservice.interactions.DialogsAndCoachingTips;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.NewDemoInteraction;
 import com.pega.crm.customerservice.interactions.NewInboundInteraction;
@@ -28,7 +27,6 @@ public class NewTopNav {
 	private PhoneCall phoneCall;
 	private ResearchInteraction researchInteraction;
 	private NewInboundInteraction inboundInteraction;
-	private DialogsAndCoachingTips dialogsAndCoachingTips;
 	private OutboundPhoneCall outboundPhoneCall;
 	private TopNav topnav;
 	public String[] caseStatus = new String[10];
@@ -332,9 +330,7 @@ public class NewTopNav {
 		return inboundInteraction;
 	}
 
-	public DialogsAndCoachingTips getDialogsAndCoachingTips() {
-		return dialogsAndCoachingTips;
-	}
+
 
 	public Interactions getInteractions() {
 		return interactions;
