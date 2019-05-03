@@ -40,20 +40,6 @@ public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundP
 		  	
 	}
 	
-	@Override
-	public void CaptureCallReasonAndPlaceCallWithoutSubmit(String reason, String status) {
-		  
-		  frameId = pegaDriver.getActiveFrameId(false);
-		  newWizard  = pegaDriver.findWizard(frameId);
-		  DropDown reasonDropdown = newWizard.findSelectBox(By.xpath(OUTBOUND_REASON_XPATH));
-		  reasonDropdown.selectByVisibleText(reason);
-		  pegaDriver.waitForDocStateReady(2);
-		  
-		  String finalXpath =  new String(OUTBOUND_STATUS_XPATH).replace("#status#", status);
-		  pegaDriver.findElement(By.xpath(finalXpath)).click();
-		  pegaDriver.waitForDocStateReady(3);
-		  		
-	}
 	
 	public void exitInteraction(String exitComments)
 	{
@@ -113,39 +99,7 @@ public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundP
 		
 	}
 
-	public void launchOutboundInteractionforSecond(String contactName, String callStatus)
-	{
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard  = pegaDriver.findWizard(frameId);
-		System.out.println("In 2nd");
-		String custName;
-		String phType;
-		
-		PegaWebElement outboundCallTable = pegaDriver.findElement(By.xpath(OUTBOUND_SIMULATION_TABLE_XPATH));
-		int outboundCallRows = outboundCallTable.findElements(By.tagName("tr")).size();
-		System.out.println(outboundCallRows);
-		for(int i=2; i <= outboundCallRows; i++)
-		{
-			custName = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr["+i+"]/td[1]/div/span")).getText();
-			System.out.println(custName);
-			custName=custName.trim();
-			phType = pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr["+i+"]/td[4]/div/span")).getText();
-			System.out.println(phType);
-			DropDown callStatusDropdown = newWizard.findSelectBox(By.xpath("//select[contains(@name,'l"+(i-1)+"$pOutboundCallStatus')]"));
-			if (custName.equalsIgnoreCase(contactName) && (phType.equalsIgnoreCase("Home Phone")||phType.equalsIgnoreCase("HOM")))
-			{
-				callStatusDropdown.selectByValue(callStatus);
-			}
-			
-			if  (custName.equalsIgnoreCase(contactName) && (phType.equalsIgnoreCase("Mobile Phone")||phType.equalsIgnoreCase("MOB")))
-			{
-				callStatusDropdown.selectByValue(callStatus);
-			}
-			
-		}
-		
-		
-	}
+	
 
 	public void submitChanges(){
 	
@@ -154,32 +108,7 @@ public class PegaOutboundPhoneCall extends PegaInteractions implements OutboundP
 		  submitButton.click(false);
 		 
 	}
-	public void submitoutboundverificationchanges() {
-		 pegaDriver.switchToActiveFrame();
-		  if(pegaDriver.verifyElement(By.xpath("//*[contains(text(),'Contact Verification')]")))
-		  {
-			  System.out.println("I am in IF loop");
-		  int pageexists=pegaDriver.findElements(By.xpath("//*[contains(text(),'Contact Verification')]")).size();
-			if(pageexists>0){
-			int noOfQstns=pegaDriver.findElements(By.xpath("//input[contains(@id,'IsSecurityQuestionVerified')]")).size();
-			if(noOfQstns>0){
-			for(int i=1;i<=noOfQstns;i++){
-				pegaDriver.waitForDocStateReady(5);
-				PegaWebElement chkBox=pegaDriver.findElement(By.xpath("(//input[contains(@id,'IsSecurityQuestionVerified')])["+i+"]"));
-				chkBox.check();
-				pegaDriver.waitForDocStateReady(1);
-				/*if(!chkBox.isSelected()){
-					chkBox.check();
-				}*/
-				}
-			}
-			PegaWebElement submit = pegaDriver.findElement(By.xpath("//button[contains(.,'Submit')]"));
-			submit.click(false);
-			pegaDriver.waitForDocStateReady(3);
-			}
-		  }
-
-	}
+	
 
 	
 	

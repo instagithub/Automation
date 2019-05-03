@@ -20,19 +20,6 @@ public class PegaResearchInteraction extends PegaInteractions implements Researc
 	public Wizard newWizard = null;
 	
 	
-
-	@Override
-	public String checkCaseStatus(String caseId) {
-		
-		PegaWebElement searchBox = findElement(By.xpath("//input[@id='pySearchText']"));
-		searchBox.sendKeys(caseId);
-		PegaWebElement searchIcon = findElement(By.xpath("//img[@title='Search for an Item ']"));
-		searchIcon.sendKeys(Keys.ENTER);
-		PegaWebElement status = findElement(By.xpath("//span[contains(text(),'Resolved')]"));
-		String caseStatus = status.getText();
-		return caseStatus;
-	}
-	
 	
 
 }

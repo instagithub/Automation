@@ -124,18 +124,8 @@ public class OutboundCall {
 	@When("^submit account details$")
 	public void submit_account_details() {
 	   
-		//outboundPhoneCall.enterAccountDetails();
 		interaction.enterAccountDetails();
 		
-	}
-	
-	@Then("^User launches outbound api simulation \"([^\"]*)\"$")
-	public void user_launches_outbound_api_simulation(String outboundApiSimulation) {
-	    
-//		outboundPhoneCall.createOutboundApiSimulationInteraction(outboundApiSimulation);
-		
-		
-	    
 	}
 	
 	
@@ -191,52 +181,15 @@ public class OutboundCall {
 	    
 	}
 	
-	@Then("^User Launches Second interaction for \"([^\"]*)\" with Call status \"([^\"]*)\"$")
-	public void user_Launches_Second_interaction_for_with_Call_status(String contactName, String callStatus)  {
-		outboundPhoneCall.launchOutboundInteractionforSecond(contactName, callStatus);
-		
-	}
+
 	
 	@Then("^Submit the changes$")
 	public void submit_the_changes() {
 	    outboundPhoneCall.submitChanges();
 	}
 	
-	@Then("^User clicks confirm$")
-	public void user_clicks_confirm() {
-
-	}
 	
-	
-	
-	@Then("^Select the verification questions and submit for outboundcall$")
-	public void select_the_verification_questions_and_submit_for_outboundcall() throws Throwable {
-		outboundPhoneCall.submitoutboundverificationchanges();
-	}
-	/*@When("^get the interaction ID$")
-	public void get_the_interaction_ID() {
 		
-		//intID = interaction.getCaseID();
-		//System.out.println(intID);
-	    	    
-	}*/
-	
-	@When("^Search \"([^\"]*)\" status of outbound interaction$")
-	public void search_status_of_outbound_interaction(String status) 
-	{
-		String caseStatus = interaction.checkCaseStatus(intID);
-		
-		if(!(caseStatus.equalsIgnoreCase(status)))
-		{
-			Assert.fail("Interaction status is not "+status);
-		}
-
-	}
-	
-	@When("^Select reason \"([^\"]*)\" and Outbound call status \"([^\"]*)\" and do not Submit$")
-	public void select_reason_and_Outbound_call_status_and_do_not_Submit(String reason, String status) throws Throwable {
-		outboundPhoneCall.CaptureCallReasonAndPlaceCallWithoutSubmit(reason, status);
-	}
 
 	@Then("^verify the error message displayed for the reason  box$")
 	public void verify_the_error_message_displayed_for_the_reason_box() throws Throwable {

@@ -83,18 +83,6 @@ public class CRMBrowser extends PegaBrowser {
 		configuration = testEnv.getConfiguration();
 	}
 
-	/*public <T extends Portal> T getPortal(Class<T> type) {
-		T portal = null;
-		String className = type.getName();
-		if (className.contains("PMPortal")) {
-			portal = type.cast(new PegaPMPortal(testEnv));
-		} else if (className.contains("PegaExpressPortal")) {
-			portal = type.cast(new PegaExpressPortal(testEnv));
-		} else if (className.contains("DesignerStudio")) {
-			portal = type.cast(new PegaDesignerStudio(testEnv));
-		}
-		return portal;
-	}*/
 
 	public PMPortal getPMPortal() {
 		return pegaMarketingPortal;
@@ -108,41 +96,6 @@ public class CRMBrowser extends PegaBrowser {
 		return pegaExpressPortal;
 	}
 
-/*	@After
-	public void afterHook(Scenario scenario) {
-		String testcaseID = null;
-		for (String tag : scenario.getSourceTagNames()) {
-			if (tag.startsWith("@TC-"))
-				testcaseID = tag;
-		}
-		String logMessage = testcaseID + " : " + scenario.getName() + "Selenium Test Completed";
-
-		logMessage = logMessage.replaceAll(" ", "%20");
-		String url = pegaDriver.getCurrentUrl();
-		System.out.println("::::::::::::::URL" + url);
-		int index = url.indexOf("prweb");
-		if (index < 0)
-			return;
-		url = url.substring(0, index);
-
-		url = url + "prweb/PRRestService/BuildSmokeNoAuth/Utility/WriteLogMessage?message='" + logMessage + "'";
-		URL myURL;
-		try {
-			myURL = new URL(url);
-			URLConnection myURLConnection = myURL.openConnection();
-			myURLConnection.connect();
-			BufferedReader br = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
-			String inputLine;
-			while ((inputLine = br.readLine()) != null) {
-				System.out.println(inputLine);
-			}
-			br.close();
-		} catch (MalformedURLException e) {
-			e.getStackTrace();
-		} catch (IOException e) {
-			e.getStackTrace();
-		}
-	}*/
 
 	@Given("^A User logs in with Analyst credentials$")
 	public void a_User_logs_in_with_Analyst_credentials() {
@@ -334,12 +287,6 @@ public class CRMBrowser extends PegaBrowser {
 		switchBetweenPortal(portal);
 	}
 
-	@When("^user clicks on New message button$")
-	public void user_clicks_on_New_message_button() {
-
-		clickOnMessageButton();
-
-	}
 
 	@When("^user navigates to \"([^\"]*)\" tab$")
 	public void user_navigates_to_tab(String tabname) {

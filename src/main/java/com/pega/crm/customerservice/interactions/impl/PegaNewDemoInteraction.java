@@ -19,26 +19,11 @@ public class PegaNewDemoInteraction extends PegaInteractions implements NewDemoI
 
 	@Override
 	public void acceptCall() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath("//button[contains(.,'Accept')]")).click();
+		findElement(By.xpath("//button[contains(.,'Accept')]")).click();
 		pegaDriver.waitForDocStateReady(2);
 	}
 	
 	
 
-	
-
-
-
-	/*@Override
-	public void addTask() {
-		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		PegaWebElement addTaskButton = pegaDriver.findElement(By.xpath(ADD_TASK_XPATH));
-		addTaskButton.click();
-		
-		
-	}*/
 
 }

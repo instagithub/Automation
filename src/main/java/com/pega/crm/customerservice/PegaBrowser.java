@@ -110,14 +110,6 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 
 	}
 
-	public void clickOnMessageButton() {
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement message = pegaDriver.findElement(By.xpath("//span/a[@title='Create new Alert Message']"));
-		message.click();
-	}
 
 	public void switchToTab(String tabname) {
 		pegaDriver.switchToActiveFrame();

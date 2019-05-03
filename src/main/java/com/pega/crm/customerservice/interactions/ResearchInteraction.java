@@ -5,7 +5,7 @@ public interface ResearchInteraction extends Interactions{
 	String OCCUPATION_XPATH = "//input[@id='Occupation']";
 	String CLOSE_INTERACTION_XPATH = "//a[@class='Wrap_up' and text()='Close']";
 	
-	String checkCaseStatus(String caseId);
+	
 	
 
 
