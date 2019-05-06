@@ -57,4 +57,12 @@ public class DemoInteraction {
 		
 	}
 
+	
+	@When("^user navigates to \"([^\"]*)\" tab$")
+	public void user_navigates_to_tab(String tabname) {
+
+		demoInteraction.switchToTab(tabname);
+
+	}
+	
 }

@@ -6,5 +6,7 @@ public interface NewDemoInteraction extends Interactions {
 	
 	void acceptCall();
 
+	void switchToTab(String tabname);
+
 
 }

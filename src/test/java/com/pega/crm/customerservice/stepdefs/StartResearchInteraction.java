@@ -771,6 +771,21 @@ public class StartResearchInteraction {
 	}
 
 
+
+	@When("^click on \"([^\"]*)\" link$")
+	public void click_on_link(String linkName) {
+		researchInteraction.selectLinkUnderShareandFeedback(linkName);
+		
+
+	}
+
+	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
+	public void select_and_serach_for(String searchType, String value) {
+		researchInteraction.selectandSearchResearchType(searchType, value);
+		
+	}
+
+
 	
 
 }

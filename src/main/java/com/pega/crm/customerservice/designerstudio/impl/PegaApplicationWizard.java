@@ -30,74 +30,56 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 
 	public void createNewApplication(String builton, String type, String organization) {
 		WebDriverWait wait = new WebDriverWait(pegaDriver, 120);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Wizard newWizard = pegaDriver.findWizard(frameId);
-
-		pegaDriver.switchToActiveFrame();
 		int s;
 
 		s = (int) Math.ceil(Math.random() * 100);
-		PegaWebElement webElement = pegaDriver.findElement(By.xpath("//span/input[@id='pyApplicationNameAsEntered']"));
+		PegaWebElement webElement = findElement(By.xpath("//span/input[@id='pyApplicationNameAsEntered']"));
 		webElement.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		webElement.sendKeys(Keys.DELETE);
 		webElement.sendKeys("Test" + s);
 
-		DropDown builtOn = newWizard
-				.findSelectBox(By.xpath("//select[@name='$PpyWorkPage$ppyBasedOnFrameworkNameAndVersion']"));
+		DropDown builtOn = findSelectBox(By.xpath("//select[@name='$PpyWorkPage$ppyBasedOnFrameworkNameAndVersion']"));
 		builtOn.selectByVisibleText(builton);
-		PegaWebElement orgName = pegaDriver.findElement(By.xpath("//input[@id='pyOrganizationName']"));
+		PegaWebElement orgName = findElement(By.xpath("//input[@id='pyOrganizationName']"));
 		orgName.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		orgName.sendKeys(Keys.DELETE);
 		orgName.sendKeys(organization);
 
-		pegaDriver.waitForDocStateReady(2);
-
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-
-		DropDown structure = newWizard
-				.findSelectBox(By.xpath("//select[@name='$PpyWorkPage$ppyCreateLayerOptionSelected']"));
+	
+		DropDown structure = findSelectBox(By.xpath("//select[@name='$PpyWorkPage$ppyCreateLayerOptionSelected']"));
 		structure.selectByVisibleText(type);
-		;
 
-		pegaDriver.findElement(By.xpath("//div[text()='Next >']")).click(false);
-		pegaDriver.waitForDocStateReady(2);
-		int i = pegaDriver.findElements(By.xpath("//span[@id='PegaRULESErrorFlag']")).size();
+		findElement(By.xpath("//div[text()='Next >']")).click(false);
+		
+		int i = findElements(By.xpath("//span[@id='PegaRULESErrorFlag']")).size();
 		System.out.println(i);
 		if (i != 0) {
 
 			createNewApplication(builton, type, organization);
 		} else {
-			// click Next for case types screen
+			
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Add business objective']")));
 
-			pegaDriver.switchToActiveFrame();
-			pegaDriver.findElement(By.xpath("//div[text()='Next >']")).click(false);
-			pegaDriver.waitForDocStateReady(10);
-			// click next
+			findElement(By.xpath("//div[text()='Next >']")).click(false);
+			
 
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h2[text()='" + builton + "']")));
-			pegaDriver.findElement(By.xpath("//div[text()='Next >']")).click(false);
-			// click next
-			pegaDriver.waitForDocStateReady(10);
+			findElement(By.xpath("//div[text()='Next >']")).click(false);
+			
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 					"//div[contains(text(),'Please address any issue(s) and review the class groups before generating this application')]")));
-			int j = pegaDriver
-					.findElements(
-							By.xpath("//div[contains(text(),'This application has  1 case(s) with naming conflicts')]"))
-					.size();
+			int j = findElements(By.xpath("//div[contains(text(),'This application has  1 case(s) with naming conflicts')]")).size();
 			if (j != 0) {
-				PegaWebElement survey = pegaDriver
-						.findElement(By.xpath("//input[@id='pyNameNodeToken' and @value='Survey']"));
+				PegaWebElement survey = findElement(By.xpath("//input[@id='pyNameNodeToken' and @value='Survey']"));
 				survey.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 				survey.sendKeys(Keys.DELETE);
 				survey.sendKeys("survey1");
 			}
-			pegaDriver.findElement(By.xpath("//div[text()='Next >']")).click(false);
-			pegaDriver.waitForDocStateReady(10);
-			pegaDriver.findElement(By.xpath("//div[text()='Create']")).click(false);
-			pegaDriver.waitForDocStateReady(15);
+			findElement(By.xpath("//div[text()='Next >']")).click(false);
+		
+			findElement(By.xpath("//div[text()='Create']")).click(false);
+			
 
 		}
 	}
@@ -106,11 +88,11 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 	public void createNewCase(String caseName, String stageName) {
 		pegaDriver.switchTo().defaultContent();
 		// click on Cases
-		pegaDriver.findElement(By.xpath("//label[text()='Cases']")).click(false);
+		findElement(By.xpath("//label[text()='Cases']")).click(false);
 		WebDriverWait wait = new WebDriverWait(pegaDriver, 1000);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[text()='Add a case type']")));
-		pegaDriver.findElement(By.xpath("//a[text()='Add a case type']")).click(false);
-		pegaDriver.waitForDocStateReady(2);
+		findElement(By.xpath("//a[text()='Add a case type']")).click(false);
+		
 		// switching to a modal dialog
 		Set<String> handles = pegaDriver.getWindowHandles();
 		Iterator<String> itr = handles.iterator();
@@ -120,50 +102,27 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 			lastHandle = itr.next();
 		}
 		pegaDriver.switchTo().window(lastHandle);
-		PegaWebElement casename = pegaDriver.findElement(By.xpath("//input[@placeholder='Case type name']"));
+		PegaWebElement casename = findElement(By.xpath("//input[@placeholder='Case type name']"));
 		casename.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		casename.sendKeys(Keys.DELETE);
 		casename.sendKeys(caseName);
-		pegaDriver
-				.findElement(By.xpath("//button[contains(@name,'pzModalEditorButtons_D_pzCaseTypeConfiguration')][1]"))
-				.click(false);
-		pegaDriver.switchTo().defaultContent();
+		
+		findElement(By.xpath("//button[contains(@name,'pzModalEditorButtons_D_pzCaseTypeConfiguration')][1]")).click(false);
+	
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='" + caseName + "']")));
-		pegaDriver.waitForDocStateReady(5);
-		/*
-		 * String frameId = pegaDriver.getActiveFrameId(false); WebElement frameElmt =
-		 * pegaDriver.findElement(By.id(frameId)).getWebElement();
-		 * pegaDriver.switchTo().frame(frameElmt);
-		 */
-		pegaDriver.switchToActiveFrame();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='Edit case type:']")));
-		pegaDriver.findElement(By.xpath("//label[text()='Life cycle']")).click(false);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.findElement(By.xpath("//button[contains(@name,'pzManageCaseTypeStages_CaseTypeStages')]"))
-				.click(false);
-		wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//input[@name='$PCaseTypeStages$ppyStages$l1$ppyStageName']")));
+		findElement(By.xpath("//label[text()='Life cycle']")).click(false);
+		findElement(By.xpath("//button[contains(@name,'pzManageCaseTypeStages_CaseTypeStages')]")).click(false);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='$PCaseTypeStages$ppyStages$l1$ppyStageName']")));
 
-		PegaWebElement StageName = pegaDriver
-				.findElement(By.xpath("//input[@name='$PCaseTypeStages$ppyStages$l1$ppyStageName']"));
+		PegaWebElement StageName = findElement(By.xpath("//input[@name='$PCaseTypeStages$ppyStages$l1$ppyStageName']"));
 		StageName.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		StageName.sendKeys(Keys.DELETE);
-		// StageName.sendKeys("Collect Travel info");
 		StageName.sendKeys(stageName);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.findElement(By.xpath("//button[contains(@name,'pzCaseTypeScreensHelp_CaseTypeStages')]"))
-				.click(false);
-		pegaDriver.waitForDocStateReady(5);
+		findElement(By.xpath("//button[contains(@name,'pzCaseTypeScreensHelp_CaseTypeStages')]")).click(false);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='field-item dataLabelWrite' and text()='Add processes?']")));
 
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.xpath("//div[@class='field-item dataLabelWrite' and text()='Add processes?']")));
-
-		// pegaDriver.findElement(By.xpath("//div[@node_name='pzCaseTypeScreens']")).click(false);
-		// pegaDriver.findElement(By.xpath("//div[@node_name='pzCaseTypeScreens']")).click(false);
-		// pegaDriver.findElement(By.xpath("//div[@section_index='1' and
-		// @class='layout-body
-		// clearfix']//div[contains(@data-click,'pzDoCaseDesignerAction')]")).click(false);
-
+		
 		Robot bot;
 		try {
 			bot = new Robot();
@@ -175,86 +134,44 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 			e.printStackTrace();
 		}
 
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(By.xpath("//div[text()='Add processes?']")).click(false);
-		pegaDriver.waitForDocStateReady(1);
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(By.xpath("//button[@class='Confirm pzhc']")).click(false);
-		pegaDriver.switchToActiveFrame();
+		findElement(By.xpath("//div[text()='Add processes?']")).click(false);
+		findElement(By.xpath("//button[@class='Confirm pzhc']")).click(false);
+		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//i[@class=' icons pi pi-caret-down']")));
 
-		pegaDriver.findElement(By.xpath("//i[@class=' icons pi pi-caret-down']")).click(false);
-
-		pegaDriver.findElement(By.xpath("//span[text()='Add process']")).click(false);
-
-		pegaDriver.findElement(By.xpath("//button[@title='Click to Save']"));
-		pegaDriver.waitForDocStateReady(5);
-		// pegaDriver.findElement(By.xpath("//button[contains(@name,'pzCaseTypeScreensHelp_CaseTypeStages')]")).click(false);
-		// pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		pegaDriver
-				.findElement(By.xpath(
-						"//a[contains(@title,'" + stageName + "') and contains(@name,'pzDisplayCDCompatibleShapes')]"))
-				.click(false);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(By.xpath("//button[contains(@name,'pzCaseTypeScreensHelp_CaseTypeStages')]"))
-				.click(false);
-		pegaDriver.waitForDocStateReady(5);
-		pegaDriver.switchToActiveFrame();
+		findElement(By.xpath("//i[@class=' icons pi pi-caret-down']")).click(false);
+		findElement(By.xpath("//span[text()='Add process']")).click(false);
+		findElement(By.xpath("//button[@title='Click to Save']"));
+		findElement(By.xpath("//a[contains(@title,'" + stageName + "') and contains(@name,'pzDisplayCDCompatibleShapes')]")).click(false);
+		findElement(By.xpath("//button[contains(@name,'pzCaseTypeScreensHelp_CaseTypeStages')]")).click(false);
+		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='Configure view']")));
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(By.xpath("//button[contains(@name,'pzCDFlowActionPropertyPanel')]")).click(false);
-		wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//a[contains(text(),'View description goes here')]")));
-		pegaDriver.findElement(By.xpath("//input[contains(@name,'$PSectionPage$ppyEmbeddedFields$l1$ppyLabel')]"))
-				.sendKeys("Travel date");
-		pegaDriver.findElement(By.xpath("//input[contains(@name,'$PSectionPage$ppyEmbeddedFields$l1$ppyLabel')]"))
-				.sendKeys(Keys.TAB);
-		pegaDriver.waitForDocStateReady(1);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		Wizard newWizard = pegaDriver.findWizard(frameId);
-		/*
-		 * Select dropdown1 = new Select(pegaDriver.findElement(By.xpath(
-		 * "//select[contains(@name,'ppyPropertyType')]")));
-		 * dropdown1.selectByVisibleText("Date only");
-		 */
-		DropDown opName = newWizard.findSelectBox(By.xpath("//select[contains(@name,'ppyPropertyType')]"));
+		
+		findElement(By.xpath("//button[contains(@name,'pzCDFlowActionPropertyPanel')]")).click(false);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'View description goes here')]")));
+		findElement(By.xpath("//input[contains(@name,'$PSectionPage$ppyEmbeddedFields$l1$ppyLabel')]")).sendKeys("Travel date");
+		findElement(By.xpath("//input[contains(@name,'$PSectionPage$ppyEmbeddedFields$l1$ppyLabel')]")).sendKeys(Keys.TAB);
+		
+		
+		
+		DropDown opName = findSelectBox(By.xpath("//select[contains(@name,'ppyPropertyType')]"));
 		opName.selectByVisibleText("Date only");
 
-		pegaDriver.findElement(By.xpath("//button[contains(text(),'Submit')]")).click(false);
-		pegaDriver.waitForDocStateReady(5);
-		// wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='field-item
-		// dataLabelWrite' and text()='Add processes?']")));
-		pegaDriver.findElement(By.xpath("//button[@title='Click to Save']")).click(false);
-		pegaDriver.waitForDocStateReady(5);
+		findElement(By.xpath("//button[contains(text(),'Submit')]")).click(false);
+		findElement(By.xpath("//button[@title='Click to Save']")).click(false);
+		
 
 	}
 
 	@Override
 	public void modifyAccessGroup() {
-		pegaDriver.waitForDocStateReady(2);
-		WebDriverWait wait = new WebDriverWait(pegaDriver, 10);
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(By.xpath(CS_IMPL_OPERATOR_MENU_XPATH)).click();
-		pegaDriver.switchTo().defaultContent();
-		// List<WebElement> list =
-		// pegaDriver.findElements(By.xpath(CS_IMPL_LOG_OFF_XPATH));
-		pegaDriver.findElement(By.xpath(CS_IMPL_OPERATOR_XPATH)).click(false);
-		/*
-		 * String frameId = pegaDriver.getActiveFrameId(false); WebElement frameElmt =
-		 * pegaDriver.findElement(By.id(frameId)).getWebElement();
-		 * pegaDriver.switchTo().frame(frameElmt);
-		 */
-		pegaDriver.switchToActiveFrame();
-		// wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@title='Click
-		// to edit' and text()='CSC System Administrator']")));
-		pegaDriver.findElement(By.xpath("//input[@name='$PRH_$ppyaccessgroups_opid$l$ppyRadioButtonAG'][1]"))
-				.click(false);
-		pegaDriver.findElement(By.xpath("//button[@title='Save your changes to this record']")).click(false);
-		pegaDriver.waitForDocStateReady(2);
+		findElement(By.xpath(CS_IMPL_OPERATOR_MENU_XPATH)).click();
+		findElement(By.xpath(CS_IMPL_OPERATOR_XPATH)).click(false);
+		findElement(By.xpath("//input[@name='$PRH_$ppyaccessgroups_opid$l$ppyRadioButtonAG'][1]")).click(false);
+		findElement(By.xpath("//button[@title='Save your changes to this record']")).click(false);
+		
+		
+		
 
 	}
 

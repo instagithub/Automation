@@ -38,14 +38,11 @@ public class PegaPhoneCall extends PegaInteractions implements PhoneCall {
 
 	@Override
 	public void searchByEmail(String emailId) {
-		 pegaDriver.switchToActiveFrame();
-		 frameId = pegaDriver.getActiveFrameId(false);
-	     newWizard  = pegaDriver.findWizard(frameId);
-	     PegaWebElement collapseIcon = newWizard.findElement(By.xpath("//div[@title='Disclose Advanced search']"));
+		 PegaWebElement collapseIcon = findElement(By.xpath("//div[@title='Disclose Advanced search']"));
          collapseIcon.click();
-         PegaWebElement email = newWizard.findElement(By.id(SEARCH_EMAIL_ID));
+         PegaWebElement email = findElement(By.id(SEARCH_EMAIL_ID));
          email.sendKeys(emailId);
-         PegaWebElement search = newWizard.findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
+         PegaWebElement search = findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
          search.click();  
 		
 	}
@@ -60,32 +57,29 @@ public class PegaPhoneCall extends PegaInteractions implements PhoneCall {
 
 	@Override
 	public void scheduleActivity(String type, String account, String topic, String assign, String operator) {
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-        newWizard  = pegaDriver.findWizard(frameId); 
-		PegaWebElement activity = newWizard.findElement(By.xpath("//div[text()='Conference call']"));
+		
+		PegaWebElement activity = findElement(By.xpath("//div[text()='Conference call']"));
 		activity.click();
-		PegaWebElement date = newWizard.findElement(By.id("StartDate"));
+		PegaWebElement date = findElement(By.id("StartDate"));
 		date.sendKeys(getTomorrowDate());
-		DropDown linkAccount = newWizard.findSelectBox(By.id("SelectedAccountNumber"));
+		DropDown linkAccount = findSelectBox(By.id("SelectedAccountNumber"));
 		linkAccount.selectByValue(account);
-		DropDown topicValue = newWizard.findSelectBox(By.id("Topic"));
+		DropDown topicValue = findSelectBox(By.id("Topic"));
 		topicValue.selectByValue(topic);
-		DropDown schedule = newWizard.findSelectBox(By.id("ScheduleFor"));
+		DropDown schedule = findSelectBox(By.id("ScheduleFor"));
 		schedule.selectByValue(assign);
-		pegaDriver.waitForDocStateReady(1);
-		DropDown opName = newWizard.findSelectBox(By.id("Operator"));
+		
+		DropDown opName = findSelectBox(By.id("Operator"));
 		opName.selectByValue(operator);
-		DropDown otherPhone = newWizard.findSelectBox(By.id("TelephoneNumber"));
+		DropDown otherPhone = findSelectBox(By.id("TelephoneNumber"));
 		otherPhone.selectByValue("Other");
-		pegaDriver.waitForDocStateReady(1);
-		PegaWebElement phnum = newWizard.findElement(By.xpath("//input[@id='OtherPhone']"));
+		
+		PegaWebElement phnum = findElement(By.xpath("//input[@id='OtherPhone']"));
 		phnum.sendKeys("987654321");
 						
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
         submitButton.click(false);
-        pegaDriver.waitForDocStateReady(2);
-        
+             
           		
         
 	}

@@ -6,8 +6,6 @@ import com.pega.framework.PegaWebDriver;
 
 public interface OutboundPhoneCall extends Interactions{
 
-	/*String OUTBOUND_REASON_ID = "OutboundCallReason";
-	String OUTBOUND_STATUS_XPATH = "//label[contains(text(),'#status#')]"*/;
 	String EXITCOMMENT_TEXTAREA_XPATH = "//textarea[@data-test-id='2015070207425705881733']";
 	String OUTBOUND_WRAP_UP_XPATH = "//button[@title = 'Wrap Up']";
 	

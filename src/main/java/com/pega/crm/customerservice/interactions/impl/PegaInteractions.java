@@ -54,54 +54,31 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 		this.pop = pop;
 	}
 
-
-
-
-	
-
-
-
-	
-
 	@Override
 	public void addTask() {
-		pegaDriver.waitForDocStateReady(3);
-		String frameId = pegaDriver.getActiveFrameId(false);
-		WebElement frameElmt = pegaDriver.findElement(By.id(frameId)).getWebElement();
-		pegaDriver.switchTo().frame(frameElmt);
-		PegaWebElement addTaskButton = pegaDriver.findElement(By.xpath(ADD_TASK_XPATH));
-		pegaDriver.findElement(By.xpath(ADD_TASK_XPATH)).sendKeys(Keys.PAGE_UP);
+		PegaWebElement addTaskButton = findElement(By.xpath(ADD_TASK_XPATH));
+		findElement(By.xpath(ADD_TASK_XPATH)).sendKeys(Keys.PAGE_UP);
 		addTaskButton.click();
-		pegaDriver.waitForDocStateReady(3);
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath("//button[@title='Add Task']"));
 
 	}
 
 	
 
-	
-
-	
-	
-
 	@Override
 	public void selectReasonForDispute() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown distributionDropDown = newWizard.findSelectBox(By.id("DisputeReason"));
+		DropDown distributionDropDown = findSelectBox(By.id("DisputeReason"));
 		distributionDropDown.selectByValue("CreditAsDebit");
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 
 	}
 
 	@Override
 	public void confirmDisputeDetails() {
-		PegaWebElement confirmButton = newWizard.findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
+		PegaWebElement confirmButton = findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
 		confirmButton.click(false);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
+		
 
 	}
 
@@ -118,36 +95,19 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	}
 
 	
-
-	
-
 	
 	@Override
 	public Wizard switchToFrame() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		Wizard newWizard = pegaDriver.findWizard(frameId);
+		frameId = getActiveFrameId(false);
+		Wizard newWizard = findWizard(frameId);
 		return newWizard;
 	}
-
-	
-
-	
-
-	
-
-	
-
-	
-	
-
-	
-
 
 
 	@Override
 	public Set<String> clickCompositeLink(String headerName) {
 		// TODO Auto-generated method stub
-		PegaWebElement pegaWebElement = pegaDriver.findElement(By.xpath("//*[@title='" + headerName + "']"));
+		PegaWebElement pegaWebElement = findElement(By.xpath("//*[@title='" + headerName + "']"));
 		pegaWebElement.click();
 		Set<String> winObj = pegaDriver.getWindowHandles();
 		System.out.println("Value for the Window Object are : : : :" + winObj);
@@ -161,30 +121,25 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void selectDisputeTransaction(String tranName) {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).build().perform();
 		pegaDriver.waitForDocStateReady(2);
 		String TRANSACTION_ID_XPATH = "//input[@title='Select Dispute Transaction with ID #tranName#']";
 		String finalXPath = new String(TRANSACTION_ID_XPATH).replace("#tranName#", tranName);
 
-		PegaWebElement transLink = newWizard.findElement(By.xpath(finalXPath));
+		PegaWebElement transLink = findElement(By.xpath(finalXPath));
 		transLink.click();
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click(false);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
+		
 
 	}
 
 	@Override
 	public void selectReasonForDispute(String reason) {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown distributionDropDown = newWizard.findSelectBox(By.xpath("//select[@data-test-id='2015031611430403041178']"));
+		DropDown distributionDropDown = findSelectBox(By.xpath("//select[@data-test-id='2015031611430403041178']"));
 		distributionDropDown.selectByValue(reason);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 
 	}
@@ -192,173 +147,125 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void searchByCustomerNameAndAccountNo(String lastName, String accountNum) {
-
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement pegaWebElement = pegaDriver.findElement(By.xpath(LAST_NAME_XPATH));
+		PegaWebElement pegaWebElement = findElement(By.xpath(LAST_NAME_XPATH));
 		pegaWebElement.clear();
 		pegaWebElement.sendKeys(lastName);
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement searchButon = newWizard.findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
+		
+		PegaWebElement searchButon = findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
 		searchButon.click();
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath("//span[contains(text(),'" + lastName + "')]"));
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		pegaWebElement = pegaDriver.findElement(By.xpath(ACCOUNT_NO_XPATH));
+		
+		pegaWebElement = findElement(By.xpath(ACCOUNT_NO_XPATH));
 		pegaWebElement.clear();
 		pegaWebElement.sendKeys(accountNum);
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement search = newWizard.findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
+		
+		PegaWebElement search = findElement(By.xpath(PHONECALL_RESULT_SEARCH_XPATH));
 		search.click();
 	}
 
 	@Override
 	public void selectCustomer() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		List<WebElement> rows = pegaDriver
-				.findElements(By.xpath("//tr[contains(@id,'PD_Search_Customer$ppxResults')]"));
+		
+		List<WebElement> rows = findElements(By.xpath("//tr[contains(@id,'PD_Search_Customer$ppxResults')]"));
 		rows.get(rows.size() - 1).click();
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement submit = newWizard.findElement(By.xpath(CONTACT_RESULT_SUBMIT_XPATH));
+		
+		PegaWebElement submit = findElement(By.xpath(CONTACT_RESULT_SUBMIT_XPATH));
 		submit.click();
 
 	}
 
 
-
 	@Override
 	public void contactVerificationWithTwoQuestions() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement verificationCheckBox1 = newWizard.findElement(By.id(CONTACT_VERIFICATION_1_ID));
+		
+		PegaWebElement verificationCheckBox1 = findElement(By.id(CONTACT_VERIFICATION_1_ID));
 		verificationCheckBox1.check();
-		if (pegaDriver.verifyElement(By.id(CONTACT_VERIFICATION_2_ID))) {
-			PegaWebElement verificationCheckBox2 = newWizard.findElement(By.id(CONTACT_VERIFICATION_2_ID));
+		if (verifyElement(By.id(CONTACT_VERIFICATION_2_ID))) {
+			PegaWebElement verificationCheckBox2 = findElement(By.id(CONTACT_VERIFICATION_2_ID));
 			verificationCheckBox2.check();
 		}
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement submit = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		
+		PegaWebElement submit = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submit.click();
-		pegaDriver.waitForDocStateReady(3);
+	
 	}
 
 	
 
 	@Override
 	public void contactVerificationWithQuestions() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		int pageexists = pegaDriver.findElements(By.xpath("//span[contains(text(),'Contact Verification')]")).size();
+		
+		int pageexists = findElements(By.xpath("//span[contains(text(),'Contact Verification')]")).size();
 		if (pageexists > 0) {
-			int noOfQstns = pegaDriver.findElements(By.xpath("//input[contains(@id,'IsSecurityQuestionVerified')]"))
-					.size();
+			int noOfQstns = findElements(By.xpath("//input[contains(@id,'IsSecurityQuestionVerified')]")).size();
 			if (noOfQstns > 0) {
 				for (int i = 1; i <= noOfQstns; i++) {
-					pegaDriver.waitForDocStateReady(5);
-					PegaWebElement chkBox = pegaDriver
-							.findElement(By.xpath("(//input[contains(@id,'IsSecurityQuestionVerified')])[" + i + "]"));
+					
+					PegaWebElement chkBox = findElement(By.xpath("(//input[contains(@id,'IsSecurityQuestionVerified')])[" + i + "]"));
 					chkBox.check();
-					pegaDriver.waitForDocStateReady(1);
-					/*
-					 * if(!chkBox.isSelected()){ chkBox.check(); }
-					 */
+					
 				}
 			}
 
-			//String numberofquestext = pegaDriver.findElement(By.xpath("//div[@data-test-id='201802070240470255365646']")).getText();
-
-			PegaWebElement submit = pegaDriver.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+			
+			PegaWebElement submit = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 			submit.click(false);
-			pegaDriver.waitForDocStateReady(3);
+			
 		}
 	}
 	@Override
 	public void contactVerificationQuestions() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		int pageexists = pegaDriver.findElements(By.xpath("//span[contains(text(),'Verify contact')]")).size();
+		
+		int pageexists = findElements(By.xpath("//span[contains(text(),'Verify contact')]")).size();
 		if (pageexists > 0) {
-			int noOfQstns = pegaDriver.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).size();
+			int noOfQstns = findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).size();
 
 			if (noOfQstns > 0) {
 				for (int i = 1; i <= noOfQstns; i++) {
-					pegaDriver.waitForDocStateReady(5);
-					pegaDriver
-					.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();
+					
+					findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();
 
-					pegaDriver.waitForDocStateReady(1);
-					/*
-					 * if(!chkBox.isSelected()){ chkBox.check(); }
-					 */
+				
 				}
 			}
 
-			//String numberofquestext = pegaDriver.findElement(By.xpath("//div[@data-test-id='201802070240470255365646']")).getText();
-
-			PegaWebElement submit = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
+			PegaWebElement submit = findElement(By.xpath("//button[text()='Verified']"));
 			submit.click(false);
-			pegaDriver.waitForDocStateReady(3);
+			
 		}
 	}
 
 
-
-
-
-
 	@Override
 	public void contactVerificationQuesforServiceCases() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		int pageexists = pegaDriver.findElements(By.xpath("//*[contains(text(),'Verify contact')]")).size();
+		
+		int pageexists = findElements(By.xpath("//*[contains(text(),'Verify contact')]")).size();
 
 		if (pageexists > 0) {
-			int noOfQstns = pegaDriver.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).size();
-			//String minques=pegaDriver.findElement(By.xpath("//span[@data-test-id='20180208090340000417548']")).getText();
-			//String[] arrQues= minques.split("\\s");            
-			//int minquestions = Integer.parseInt(arrQues[3]);
+			int noOfQstns = findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).size();
 			if (noOfQstns > 0) {
 				for (int i = 1; i <=noOfQstns; i++) {
-					//pegaDriver.waitForDocStateReady(5);
-					pegaDriver.waitForDocStateReady(1);
-
-					pegaDriver.findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();
-					pegaDriver.waitForDocStateReady(4);
-
+					
+					findElements(By.xpath("//label[contains(@for,'Pass') and contains(@class,'rb_ rb_standard radioLabel')]")).get(i-1).click();
+			
 
 					try{
-						PegaWebElement verification = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-						pegaDriver.waitForDocStateReady();
+						PegaWebElement verification = findElement(By.xpath("//button[text()='Verified']"));
+						
 						if(verification.isEnabled())
 						{
-							pegaDriver.switchTo().defaultContent();
-							pegaDriver.waitForDocStateReady();
-							pegaDriver.switchToActiveFrame();
-							pegaDriver.waitForDocStateReady();
-							PegaWebElement submitButtons = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-							pegaDriver.waitForDocStateReady();
+							
+							PegaWebElement submitButtons = findElement(By.xpath("//button[text()='Verified']"));
 							submitButtons.click(false);
-							pegaDriver.waitForDocStateReady();
 							break;
 						}
 					}
 					catch(Exception e) {
-						pegaDriver.waitForDocStateReady(1);
-						pegaDriver.switchToActiveFrame();
-						PegaWebElement verification = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-						pegaDriver.waitForDocStateReady();
+						PegaWebElement verification =findElement(By.xpath("//button[text()='Verified']"));
 						if(verification.isEnabled())
 						{
-							pegaDriver.switchTo().defaultContent();
-							pegaDriver.waitForDocStateReady();
-							pegaDriver.switchToActiveFrame();
-							pegaDriver.waitForDocStateReady();
-							PegaWebElement submitButtons = pegaDriver.findElement(By.xpath("//button[text()='Verified']"));
-							pegaDriver.waitForDocStateReady();
+							PegaWebElement submitButtons = findElement(By.xpath("//button[text()='Verified']"));
 							submitButtons.click(false);
-							pegaDriver.waitForDocStateReady();
 							break;
 						}
 					}
@@ -374,37 +281,28 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 		else
 		{
-			Assert.assertFalse("No Verification validated successfully", pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Verify contact')]")));
+			Assert.assertFalse("No Verification validated successfully", verifyElement(By.xpath("//label[contains(text(),'Verify contact')]")));
 		}
 
 	}
 
 
 
-
-
-
-	
-	
-
-	
-
 	@Override
 	public void clickOnOtherActionsButton() {
-		pegaDriver.waitForDocStateReady(1);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(2);
+		
+		frameId = getActiveFrameId(false);
+		newWizard = findWizard(frameId);
+		
 		try{
-		PegaWebElement otherActions = pegaDriver.findElement(By.xpath("//button[@title='Other actions']"));
+		PegaWebElement otherActions = findElement(By.xpath("//button[@title='Other actions']"));
 		otherActions.click(false);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		pegaDriver.waitForDocStateReady(2);
-
+		
 	}
 
 	
@@ -412,54 +310,46 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void changeAddress() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement changeAddress1 = newWizard.findElement(By.xpath(ADDRESS_LINE1_XPATH));
+		PegaWebElement changeAddress1 = findElement(By.xpath(ADDRESS_LINE1_XPATH));
 		changeAddress1.clear();
 		changeAddress1.sendKeys("123");
-		PegaWebElement changeAddress = newWizard.findElement(By.xpath(ADDRESS_LINE2_XPATH));
+		PegaWebElement changeAddress = findElement(By.xpath(ADDRESS_LINE2_XPATH));
 		changeAddress.clear();
 		changeAddress.sendKeys("New Street");
-		DropDown CountryCode = newWizard.findSelectBox(By.xpath(COUNTRY_CODE_XPATH));
+		DropDown CountryCode = findSelectBox(By.xpath(COUNTRY_CODE_XPATH));
 		CountryCode.selectByValue("AUS");
-		PegaWebElement zipCode = newWizard.findElement(By.xpath(POSTAL_CODE_XPATH));
+		PegaWebElement zipCode = findElement(By.xpath(POSTAL_CODE_XPATH));
 		zipCode.clear();
 		zipCode.sendKeys("11001 ");
-		PegaWebElement city = newWizard.findElement(By.xpath(CITY_XPATH));
+		PegaWebElement city = findElement(By.xpath(CITY_XPATH));
 		city.clear();
 		city.sendKeys("Sydney ");
-		PegaWebElement HomePhone = newWizard.findElement(By.xpath(HOME_PHONE_XPATH));
+		PegaWebElement HomePhone = findElement(By.xpath(HOME_PHONE_XPATH));
 		HomePhone.clear();
 		HomePhone.sendKeys("12345659099 ");
-		PegaWebElement CellPhone = newWizard.findElement(By.xpath(CELL_PHONE_XPATH));
+		PegaWebElement CellPhone = findElement(By.xpath(CELL_PHONE_XPATH));
 		CellPhone.clear();
 		CellPhone.sendKeys("2288909023 ");
-		PegaWebElement Fax = newWizard.findElement(By.xpath(FAX_XPATH));
+		PegaWebElement Fax = findElement(By.xpath(FAX_XPATH));
 		Fax.clear();
 		Fax.sendKeys("2288909023 ");
-		PegaWebElement Email = newWizard.findElement(By.xpath(EMAIL_ID_XPATH));
+		PegaWebElement Email = findElement(By.xpath(EMAIL_ID_XPATH));
 		Email.clear();
 		Email.sendKeys("test@pega.com ");
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 	}
 	
 	@Override
 	public void confirmAddressChange() {
-		pegaDriver.switchToActiveFrame();
-		PegaWebElement confirmButton = pegaDriver.findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
+		PegaWebElement confirmButton = findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
 		confirmButton.click(false);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-
 	}
 
 
 	@Override
 	public String verifyCompletedTask(String serviceProcess) {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
+		
 		String SERVICE_PROCESS_XPATH = "//a[text()='#sericecase#' and (@class='Standard_task' or @class='Standard_offer')]";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#sericecase#", serviceProcess);
 		return finalXPath;
@@ -469,15 +359,13 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	@Override
 	public void launchWrapup() {
 
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement wrapUp = newWizard.findElement(By.xpath(WRAP_UP_XPATH));
+		PegaWebElement wrapUp = findElement(By.xpath(WRAP_UP_XPATH));
 
 		try {
 
 			wrapUp.click();
 		} catch (Exception e) {
-			PegaWebElement wrapUp1 = newWizard.findElement(By.xpath("//i[@title='Wrap Up']"));
+			PegaWebElement wrapUp1 = findElement(By.xpath("//i[@title='Wrap Up']"));
 			wrapUp1.click();
 			e.printStackTrace();
 		}	
@@ -486,114 +374,94 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void completeWrapUp(String reason) {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown disposition = newWizard.findSelectBox(By.xpath(REASON_FOR_INTERACTION_XPATH));
+		
+		DropDown disposition = findSelectBox(By.xpath(REASON_FOR_INTERACTION_XPATH));
 		disposition.selectByValue(reason);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click(false);
-		pegaDriver.switchToActiveFrame();
+		
 
 	}
 
 	@Override
 	public void completeWrapUpWithoutReason() {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click(false);
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.switchToActiveFrame();
-
+		
 	}
 
 
 
 	@Override
 	public void changeAdditionalAddress() {
-		//PegaWebElement checkBox = newWizard.findElement(By.id(ADDRESS_CHANGE_CHECKBOX_ID));
-		PegaWebElement checkBox = newWizard.findElement(By.xpath(SELECT_ADDITIONAL_ACCOUNTS_XPATH));	
+		
+		PegaWebElement checkBox = findElement(By.xpath(SELECT_ADDITIONAL_ACCOUNTS_XPATH));	
 		checkBox.click();
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 
 	}
 
 	@Override
 	public void confirmFlow() {
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement confirmButton = newWizard.findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
+		
+		PegaWebElement confirmButton = findElement(By.xpath(SERVICECASE_CONFIRM_XPATH));
 		confirmButton.click(false);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
+		
 
 	}
 
 	@Override
 	public void selectAProduct(String category, String product, String owner) {
 
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown categoryDropdown = newWizard.findSelectBox(By.xpath(PRODUCT_CATEGORY_XPATH));
+		
+		DropDown categoryDropdown = findSelectBox(By.xpath(PRODUCT_CATEGORY_XPATH));
 		categoryDropdown.selectByValue(category);
 
-		pegaDriver.waitForDocStateReady(3);
-
-		categoryDropdown = newWizard.findSelectBox(By.xpath(PRODUCT_ID_XPATH));
+		
+		categoryDropdown = findSelectBox(By.xpath(PRODUCT_ID_XPATH));
 		categoryDropdown.sendKeys(Keys.TAB);
+		
 
-		pegaDriver.waitForDocStateReady(10);
-
-		DropDown productDropdown = newWizard.findSelectBox(By.xpath(PRODUCT_ID_XPATH));
+		DropDown productDropdown = findSelectBox(By.xpath(PRODUCT_ID_XPATH));
 		productDropdown.click(false);
 
-		pegaDriver.waitForDocStateReady(10);
+	
 
-		productDropdown = newWizard.findSelectBox(By.xpath(PRODUCT_ID_XPATH));
+		productDropdown = findSelectBox(By.xpath(PRODUCT_ID_XPATH));
 		productDropdown.selectByValue(product);
 
-		pegaDriver.waitForDocStateReady(3);
+	
 
 		String finalXpath = new String(PRODUCTOWNER_XPATH).replace("#owner#", owner);
-		pegaDriver.findElement(By.xpath(finalXpath)).click();
+		findElement(By.xpath(finalXpath)).click();
 
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 
-		pegaDriver.switchToActiveFrame();
-		PegaWebElement secans = pegaDriver.findElement(By.xpath("//input[contains(@name,'SecurityAnswer')]"));
+		
+		PegaWebElement secans = findElement(By.xpath("//input[contains(@name,'SecurityAnswer')]"));
 		secans.sendKeys("test");
 	}
 
 	public void enterAccountDetails() {
 
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
 
 	}
 
 	public void launchCaseFromWorkbasket(String workBasket, String caseID) {
-		System.out.println(caseID);
-
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement workBasketTab = newWizard.findElement(By.xpath(WORKBASKET_LINK_XPATH));
+		
+		PegaWebElement workBasketTab = findElement(By.xpath(WORKBASKET_LINK_XPATH));
 		workBasketTab.click();
-		DropDown workBasketSelect = newWizard.findSelectBox(By.xpath(WORKBASKET_XPATH));
+		DropDown workBasketSelect = findSelectBox(By.xpath(WORKBASKET_XPATH));
 		workBasketSelect.selectByValue(workBasket);
 		String finalXpath = new String(WB_CASE_XPATH).replace("#id#", caseID);
-		PegaWebElement launchCaseID = newWizard.findElement(By.xpath(finalXpath));
-		System.out.println(finalXpath);
+		PegaWebElement launchCaseID = findElement(By.xpath(finalXpath));
 		launchCaseID.scrollIntoView();
-		pegaDriver.waitForDocStateReady(5);
 		launchCaseID.click();
 
 	}
@@ -602,63 +470,47 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	public void launchServiceProcess(String serviceProcess) {
 		String SERVICE_PROCESS_XPATH = "//a[text()='#sericecase#' and @class='Add_task']";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#sericecase#", serviceProcess);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement serviceCase = newWizard.findElement(By.xpath(finalXPath));
-		//PegaWebElement serviceCase = newWizard.findElement(By.xpath("//a[@data-test-id='2014123005242607302524']"));
+		PegaWebElement serviceCase = findElement(By.xpath(finalXPath));
 		serviceCase.doubleClick();
 	}
 
 	@Override
 	public void accountSelection(String acctNumber) {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		// String finalXPath = new
-		// String(ACCOUNT_VALUE_XPATH).replace("#accounNumber#", acctNumber);
-		PegaWebElement accountSelection = newWizard
-				.findElement(By.xpath("//*[contains(text(),'" + acctNumber + "')]/ancestor::tr[1]"));
+		PegaWebElement accountSelection = findElement(By.xpath("//*[contains(text(),'" + acctNumber + "')]/ancestor::tr[1]"));
 		accountSelection.click();
-		PegaWebElement submit = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submit = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submit.click(false);
 		
 	}
 
 	@Override
 	public void stolenCardAcknowledgement() {
-
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement selectStatement = newWizard.findElement(By.xpath("//span[contains(@title,'disclosure')]"));//input[@id='pySelected']
+		PegaWebElement selectStatement = findElement(By.xpath("//span[contains(@title,'disclosure')]"));//input[@id='pySelected']
 		selectStatement.click(false);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click();
-		pegaDriver.switchToActiveFrame();
+	
 	}
 
 
 	@Override
 	public void closeAccount(String reason, String comment) {
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown reasonDropDown = newWizard.findSelectBox(By.id("Reason"));
+		DropDown reasonDropDown = findSelectBox(By.id("Reason"));
 		reasonDropDown.selectByValue(reason);
-		PegaWebElement comments = newWizard.findElement(By.id("Comments"));
+		PegaWebElement comments = findElement(By.id("Comments"));
 		comments.sendKeys(comment);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click(false);
-		pegaDriver.switchToActiveFrame();
+		
 
 	}
 
 
 	@Override
 	public void switchInteraction(String interactionItem) {
-		pegaDriver.switchTo().defaultContent();
-		//String InteractionTitle = "//a[contains(text(),'#interactionItem#')]";
 		String InteractionTitle = "//*[contains(text(),'#interactionItem#')]/ancestor::span[contains(@class,'tab')]";
 		String finalXPath = new String(InteractionTitle).replace("#interactionItem#", interactionItem);
-		PegaWebElement interactionTitle = pegaDriver.findElement(By.xpath(finalXPath));
+		PegaWebElement interactionTitle = findElement(By.xpath(finalXPath));
 		interactionTitle.click();
 	}
 
@@ -666,26 +518,23 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	@Override
 	public String getCaseDetails() {
 
-		PegaWebElement toolsButton = pegaDriver.findElement(By.xpath("//button[@title='Help' or @title='Other actions']"));
+		PegaWebElement toolsButton = findElement(By.xpath("//button[@title='Help' or @title='Other actions']"));
 		toolsButton.click(false);
-		PegaWebElement viewHistory = pegaDriver.findElement(By.xpath("(//span[text()='History and Attachments'])[2]"));
+		PegaWebElement viewHistory = findElement(By.xpath("(//span[text()='History and Attachments'])[2]"));
 		viewHistory.click();
-		pegaDriver.waitForDocStateReady(2);
 		testEnv.getBrowser().switchToWindow(2);
-		String idOfCase = pegaDriver.findElement(By.xpath("//span[contains(text(),'I-') or contains(text(),'S-') or contains(text(),'C-') or contains(text(),'Task-') or contains(text(),'IDS-') ]")).getText();
+		String idOfCase = findElement(By.xpath("//span[contains(text(),'I-') or contains(text(),'S-') or contains(text(),'C-') or contains(text(),'Task-') or contains(text(),'IDS-') ]")).getText();
 		testEnv.getBrowser().close();
 		testEnv.getBrowser().switchToWindow(1);
 		System.out.println(idOfCase);
 		CaseID = idOfCase.trim();
-		System.out.println(CaseID);
 		return CaseID;
 	}
 
 	
 	@Override
 	public void datePicker() {
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement datePicker = pegaDriver.findElement(By.xpath("//input[@name='$PpyWorkPage$pCloseDate' or @name='$POpportunityPage$pCloseDate']"));
+		PegaWebElement datePicker = findElement(By.xpath("//input[@name='$PpyWorkPage$pCloseDate' or @name='$POpportunityPage$pCloseDate']"));
 		datePicker.clear();
 		datePicker.sendKeys("10/10/2022");
 		
@@ -694,60 +543,49 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void updatePrimaryAddressInContactProfile() {
-		pegaDriver.waitForDocStateReady(3);
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement newAddress = pegaDriver.findElement(By.xpath("//a[@title='Add a new address']"));
+		
+		PegaWebElement newAddress = findElement(By.xpath("//a[@title='Add a new address']"));
 		newAddress.click();
 
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement checkBox = pegaDriver.findElement(By.xpath("//input[@title='Check if primary']"));
+		
+		PegaWebElement checkBox = findElement(By.xpath("//input[@title='Check if primary']"));
 		checkBox.click();
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement changeAddress1 = pegaDriver.findElement(By.xpath(ADDRESS_LINE1_XPATH));
+		
+		PegaWebElement changeAddress1 = findElement(By.xpath(ADDRESS_LINE1_XPATH));
 		changeAddress1.sendKeys("123");
-		PegaWebElement changeAddress = pegaDriver.findElement(By.xpath(ADDRESS_LINE2_XPATH));
+		PegaWebElement changeAddress = findElement(By.xpath(ADDRESS_LINE2_XPATH));
 		changeAddress.sendKeys("New Street");
-		DropDown CountryCode = pegaDriver.findSelectBox(By.xpath(COUNTRY_CODE_XPATH));
+		DropDown CountryCode = findSelectBox(By.xpath(COUNTRY_CODE_XPATH));
 		CountryCode.selectByValue("USA");// AUS
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement city = pegaDriver.findElement(By.xpath(CITY_XPATH));
+		
+		PegaWebElement city = findElement(By.xpath(CITY_XPATH));
 		city.sendKeys("Alabama");// Sydney
-		DropDown state = pegaDriver.findSelectBox(By.xpath("//select[@title='Select State']"));
+		DropDown state = findSelectBox(By.xpath("//select[@title='Select State']"));
 		state.selectByValue("AL");
-		PegaWebElement zipCode = pegaDriver.findElement(By.xpath(POSTAL_CODE_XPATH));
+		PegaWebElement zipCode = findElement(By.xpath(POSTAL_CODE_XPATH));
 		zipCode.sendKeys("35006");
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement submitButton = pegaDriver.findElement(By.id("ModalButtonSubmit"));
+		
+		PegaWebElement submitButton = findElement(By.id("ModalButtonSubmit"));
 		submitButton.click();
 	}
 
 	@Override
 	public void userSwitchToTab(String tab) {
-		pegaDriver.waitForDocStateReady(3);
-
+	
 		String Tab_XPATH = "//h3[@class='layout-group-item-title'][text()='#sericecase#']";
 		String final_Tab_XPath = new String(Tab_XPATH).replace("#sericecase#", tab);
 
-		PegaWebElement overview = pegaDriver.findElement(By.xpath(final_Tab_XPath));
+		PegaWebElement overview = findElement(By.xpath(final_Tab_XPath));
 		overview.click();
 	}
 
 	
 	@Override
 	public void verifyRecentCases() {
-
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-
 		
 		String SERVICE_PROCESS_XPATH = "//span[contains(@class,'smartInfoNew') and text()='#IdofCase#']";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#IdofCase#", CaseID);
-		pegaDriver.waitForDocStateReady(3);
-		Assert.assertTrue("case ID is not present", pegaDriver.verifyElement(By.xpath(finalXPath)));
+		Assert.assertTrue("case ID is not present", verifyElement(By.xpath(finalXPath)));
 
 	}
 
@@ -757,10 +595,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	public void selectSingleserviceprocess(String serviceProcess) {
 		String SERVICE_PROCESS_XPATH = "//a[text()='#sericecase#' and @class='Add_task']";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#sericecase#", serviceProcess);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement serviceCase = newWizard.findElement(By.xpath(finalXPath));
+		PegaWebElement serviceCase = findElement(By.xpath(finalXPath));
 		serviceCase.click();
 
 	}
@@ -768,10 +603,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void closeInteraction() {
-		pegaDriver.waitForDocStateReady(2);
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		PegaWebElement closeInteraction = newWizard.findElement(By.xpath(CLOSE_INTERACTION_XPATH));
+		PegaWebElement closeInteraction = findElement(By.xpath(CLOSE_INTERACTION_XPATH));
 		closeInteraction.scrollIntoView();
 		closeInteraction.click(false);
 	}
@@ -779,35 +611,18 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void verifytheStatusForTheCase(String Status) {
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-
-		System.out.println(CaseID);
-		System.out.println(String.valueOf(CaseID));
 		String SERVICE_PROCESS_XPATH = "//span[contains(text(),'"+ Status+"')]";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#IdofCase#", CaseID);
 
-		pegaDriver.waitForDocStateReady(1);
-		Assert.assertTrue("case Status is not present or incorrect", pegaDriver.verifyElement(By.xpath(finalXPath)));
+		Assert.assertTrue("case Status is not present or incorrect", verifyElement(By.xpath(finalXPath)));
 	}
 
 	@Override
 	public void selectCaseFromCasesWidget() {
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-
-		System.out.println(CaseID);
-		System.out.println(String.valueOf(CaseID));
-
 		String SERVICE_PROCESS_XPATH = "//span[contains(text(),'#IdofCase#')]/ancestor::div[1]/preceding-sibling::div[1]/span/a[contains(@title,'Review this service case')]";
-		//span/a[contains(text(),'#IdofCase#')]
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#IdofCase#", CaseID);
 
-		PegaWebElement selectCase = pegaDriver.findElement(By.xpath(finalXPath));
+		PegaWebElement selectCase = findElement(By.xpath(finalXPath));
 		selectCase.click();
 	}
 
@@ -815,18 +630,10 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 
 	@Override
 	public void selectSubCaseFromTasks(String subCase) {
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-
-		System.out.println(CaseID);
-		System.out.println(String.valueOf(CaseID));
-
 		String SERVICE_PROCESS_XPATH = "//div[contains(@class,'dataValueRead')]/a[contains(text(),'#CaseName#')]";
 		String finalXPath = new String(SERVICE_PROCESS_XPATH).replace("#CaseName#", subCase);
 
-		PegaWebElement selectsubCase = pegaDriver.findElement(By.xpath(finalXPath));
+		PegaWebElement selectsubCase = findElement(By.xpath(finalXPath));
 		selectsubCase.click();
 	}
 
@@ -844,17 +651,14 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	@Override
 	public void CaptureCallReasonAndPlaceCall(String reason, String status) {
 
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard  = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(2);
-		DropDown reasonDropdown = newWizard.findSelectBox(By.xpath(OUTBOUND_REASON_XPATH));
+		DropDown reasonDropdown = findSelectBox(By.xpath(OUTBOUND_REASON_XPATH));
 		reasonDropdown.selectByValue(reason);
-		pegaDriver.waitForDocStateReady(2);
+		
 		String finalXpath =  new String(OUTBOUND_STATUS_XPATH).replace("#status#", status);
-		PegaWebElement rdbutton = newWizard.findElement(By.xpath(finalXpath));
+		PegaWebElement rdbutton = findElement(By.xpath(finalXpath));
 		rdbutton.click();
-		pegaDriver.waitForDocStateReady(3);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
+		
+		PegaWebElement submitButton = findElement(By.xpath(SERVICECASE_SUBMIT_XPATH));
 		submitButton.click(false);
 
 

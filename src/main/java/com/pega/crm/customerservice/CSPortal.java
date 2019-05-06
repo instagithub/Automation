@@ -13,19 +13,7 @@ public interface CSPortal extends Portal{
 	
 	LeftNav getLeftNav();
 
-	void deleteAlert();
-
-	void newMessage();
-
-	void cancelModifyAlertDailogue();
-
-	void refreshAlertSection();
-
-	void doubleClickAlert(String message);
-
-	void modifyAlert(String string, String modifyingField);
-
-	void createAlert(String startDate, String endDate, String title, String message);
+	
 	
 	
 	
