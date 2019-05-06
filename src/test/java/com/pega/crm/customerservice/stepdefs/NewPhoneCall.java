@@ -840,6 +840,15 @@ public class NewPhoneCall {
 	}
 
 
+	@Then("^verify the wrapup dialog$")
+	public void verify_the_wrapup_dialog() throws Throwable {
+	   
+	}
+
+	@Then("^User will be navigated to the portal$")
+	public void user_will_be_navigated_to_the_portal() throws Throwable {
+	    
+	}
 	
 
 	

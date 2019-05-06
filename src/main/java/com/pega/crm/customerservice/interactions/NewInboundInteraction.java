@@ -21,9 +21,12 @@ public interface NewInboundInteraction extends Interactions{
 	String SEARCHCASE_SUBMIT_XPATH = "//button[@class='Strong pzhc' and @title='Complete this assignment']";
 	String URL = "https://www.pega.com/system/files/docs/2016/Oct/Pega-Customer-Service-Application-Data-Sheet.pdf";
 	String LINK_TEXT =	"Pega Link";
+	String RESEARCH_SEARCH_XPATH = "//button[@data-test-id='201610210121280330388569']";
+	String FIRST_NAME_SEARCH_BOX_XPATH ="//input[@data-test-id='201610202344320051247936']";
 	
-		
-	
+	void filterwithInitialValues(String searchBox, String searchString);
+
+	void filterWithAllForAccount(String AcNo, String Type, String Status, String OwnerName);
 	
 		
 }

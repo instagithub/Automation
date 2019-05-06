@@ -69,6 +69,7 @@ public class CRMBrowser extends PegaBrowser {
 
 	public static String EDIT_XPATH = PegaUtil.getButtonXpath("Edit");
 	public static String WO_FOLLOW_XPATH = PegaUtil.getButtonXpath("Follow");
+	String CS_SOCIAL_OPERATORID_XPATH = "//span/a[contains(@data-click,'showMenu')]";
 
 	private PegaExpressPortal pegaExpressPortal;
 	private PMPortal pegaMarketingPortal;
@@ -223,6 +224,17 @@ public class CRMBrowser extends PegaBrowser {
 		String finalXPath = new String(XPath).replace("#count#", tabName);
 		PegaWebElement tabElement = pegaDriver.findElement(By.xpath(finalXPath));
 		tabElement.click();
+	}
+	
+	
+	@Then("^Operator logs of the social portal$")
+	public void operator_logs_of_the_social_portal() throws Throwable {
+		socialportallogout();
+	}
+	
+	@When("^Operator logs of the portal$")
+	public void csr_logout_of_the_portal() {
+		logout();
 	}
 
 }

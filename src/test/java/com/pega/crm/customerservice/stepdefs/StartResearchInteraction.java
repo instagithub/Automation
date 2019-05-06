@@ -15,6 +15,7 @@ import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.customerservice.interactions.impl.PegaNewInboundInteraction;
 import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
@@ -30,6 +31,7 @@ public class StartResearchInteraction {
 
 	private ResearchInteraction researchInteraction;
 	private Interactions interaction;
+	private PegaNewInboundInteraction inboundInteraction;
 	private CommonMethods commonMethods;
 	private PegaWebDriver pegaDriver;
 	TestEnvironment testEnv;
@@ -785,7 +787,45 @@ public class StartResearchInteraction {
 		
 	}
 
+	@Then("^Verify Operator name \"([^\"]*)\"$")
+	public void verify_Operator_name(String username) throws Throwable {
+		pegaDriver.switchTo().defaultContent();
+		if (username.equalsIgnoreCase("CA Sys Admin")) {
+			String FinalXpath = "//div[@class='content-item content-field item-1 remove-all-spacing   dataValueWrite flex flex-row ']/i[@title='"
+					+ username + "']";
+			pegaDriver.verifyElement(By.xpath(FinalXpath));
+		} else if (username.equalsIgnoreCase("Dan Percival")) {
+			String FinalXpath = "//div[@class='field-item dataValueWrite']/img[contains(@title,'" + username + "')]";
+			pegaDriver.verifyElement(By.xpath(FinalXpath));
+		} else {
+			String FinalXpath = "//div[@class='field-item dataValueWrite']/span/a[contains(@title,'" + username + "')]";
+			pegaDriver.verifyElement(By.xpath(FinalXpath));
+		}
+		if (username.equalsIgnoreCase("Back office user ")) {
+			String FinalXpath = "//a[text()='" + username + "']";
+			pegaDriver.verifyElement(By.xpath(FinalXpath));
 
+		}
+		if (username.equalsIgnoreCase("Back office manager ")) {
+			String FinalXpath = "//a[text()='" + username + "']";
+			pegaDriver.verifyElement(By.xpath(FinalXpath));
+
+		}
+	}
+	
+	@When("^Filter the result with \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void filter_the_result_with_and(String searchBox, String searchString) {
+		inboundInteraction.filterwithInitialValues(searchBox, searchString);
+
+	}
+	
+	@When("^Filter with Account number \"([^\"]*)\" Type \"([^\"]*)\" Status \"([^\"]*)\" and owner \"([^\"]*)\"$")
+	public void filter_with_Account_number_Type_Status_and_owner(String AcNo, String Type, String Status,
+			String OwnerName) {
+
+		inboundInteraction.filterWithAllForAccount(AcNo, Type, Status, OwnerName);
+
+	}
 	
 
 }
