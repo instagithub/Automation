@@ -86,8 +86,6 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 
 	@Override
 	public void createNewCase(String caseName, String stageName) {
-		pegaDriver.switchTo().defaultContent();
-		// click on Cases
 		findElement(By.xpath("//label[text()='Cases']")).click(false);
 		WebDriverWait wait = new WebDriverWait(pegaDriver, 1000);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[text()='Add a case type']")));

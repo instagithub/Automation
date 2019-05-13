@@ -59,64 +59,19 @@ public interface TopNav {
 	String AGENT_XPATH = "//input[@data-test-id='20141113081132029320504']";
 	String PASSWORD_XPATH = "//input[@data-test-id='20141113081132029523156']";
 	String	ERROR_MESSAGE_XPATH= "//span[@data-test-id='20141113081132029941929' and contains(text(),'The passive terminal cannot be updated while the Agent')]";
-	
 	PhoneCall createNewPhoneCall();
-	NewDemoInteraction createNewDemoPop();
-	NewInboundInteraction startInboundCase();
-	void searchPortal(String name);
-	String getStatusOfCase();
-	ResearchInteraction searchResult(String interactionType, String name);
-	ResearchInteraction search(String name);
-	void createNewDemoPop_BROWN();
-	NewDemoInteraction Accept_NewDemoPop_BROWN();
-	NewDemoInteraction NewDemoPop_BROWN();
-	//ChatInteraction chatAgentLogin(String serverName, String displayName);
-	//ApplicationWizard createApplication(String name);
 	OutboundPhoneCall createOutboundPhoneCall();
-	ResearchInteraction searchDropDownresult(String result);
+	ResearchInteraction search(String name);
 	ResearchInteraction closeInteraction();
-	//DialogsAndCoachingTips ConfigDialog();
-	ApplicationWizard launchNewAppWizard();
-	ApplicationWizard createNewApplication(String appName, String appType, String caseTypes, String channels,
-			Boolean cdh, String dataTypes);
-	void selectApp(String AppName);
-	void clickOnUseThisApp();
-	void selectCaseTypes(String SelectAllFlag, DataTable CaseType);
-	void selectChannels(String SelectAllFlag, DataTable Channel);
-	void selectDataTypes(String SelectAllFlag, DataTable DataType);
-	void selectCDH(String Flag);
-	void selectAppStructure(String AppStructure);
-	void advancedSettings();
-	void clicksOnCreateApp();
-	void modifyAccessGroupNew();
-	void logOutDS();
-	void selectNavigationFromDS(DataTable ListOfValues);
-	void clickOnQuerySettingsTab();
-	void checkSearch(String CheckBox);
-	void Reindex(String ReindexOf);
 	ResearchInteraction initiateACall(String result);
-	void startDataFlow();
-//	void checkDataFlow();
-	void socialLogOutDS();
-	void stopDataFlow();
-	void modifyAccessGroupToCS();
-	void clickSearchConfiguration();
-	void selectDataSource();
-	void selectAccountDataSourceFields(DataTable AccountFields);
-	void selectContactDataSource();
-	void selectOrganizationDataSource();
-	void addDSMNode();
-	void openLandingPage(String designerStudio, String decisioning, String infrastructure, String services, String dataflow);
-	void SwitchToInteractionPortal();
-	void addDSMNodesInDecisionDataStore();
-	void addDSMNodesInAdaptiveDecisionManager();
-	void addDSMNodesInDataFlow();
-	void addDSMNodesInRealTimeDataGrid();
-	void addDSMNodesInStream();
-	void switchToDSMTabs(String tabName);
-	void deletesNewAppAccessGroup();
-	void switchToNewApplication();
-	void launchServiceProcessExpress();
+	ResearchInteraction searchDropDownresult(String result);
+	ResearchInteraction searchResult(String interactionType, String name);
+	String getStatusOfCase();
+	void searchPortal(String name);
+	NewInboundInteraction startInboundCase();
+	NewDemoInteraction createNewDemoPop();
+	ResearchInteraction setResearchInteraction();
+	
 	
 	
 	

@@ -35,18 +35,17 @@ public class DemoInteraction {
 
 	@Then("^verify the toaster pop values for connor$")
 	public void verify_the_toaster_pop_values_for_connor() throws Throwable {
-		pegaDriver.switchTo().defaultContent();
 		Assert.assertTrue("Incoming call icon not present",
-				pegaDriver.verifyElement(By.xpath("//i[@class='cursordefault  icons cti-status pcti-phone cti-status-smart']")));
+				demoInteraction.verifyElement(By.xpath("//i[@class='cursordefault  icons cti-status pcti-phone cti-status-smart']")));
 		Assert.assertTrue("Incoming call text not present",
-				pegaDriver.verifyElement(By.xpath("//div[text()='Incoming call...']")));
-		Assert.assertTrue("Sara name text not present", pegaDriver.verifyElement(By.xpath("//span[text()='Sara']")));
+				demoInteraction.verifyElement(By.xpath("//div[text()='Incoming call...']")));
+		Assert.assertTrue("Sara name text not present", demoInteraction.verifyElement(By.xpath("//span[text()='Sara']")));
 		Assert.assertTrue("Connor name text not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Connor']")));
+				demoInteraction.verifyElement(By.xpath("//span[text()='Connor']")));
 		Assert.assertTrue("phone num text not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='617-374-9637']")));
+				demoInteraction.verifyElement(By.xpath("//span[text()='617-374-9637']")));
 		Assert.assertTrue("Decline button not visible",
-				pegaDriver.verifyElement(By.xpath("//button[@title='Decline the call']")));
+				demoInteraction.verifyElement(By.xpath("//button[@title='Decline the call']")));
 
 	}
 		

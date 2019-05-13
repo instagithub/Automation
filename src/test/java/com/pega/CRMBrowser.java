@@ -16,6 +16,8 @@ import com.google.inject.Inject;
 import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.PegaBrowser;
 import com.pega.crm.customerservice.SFAPortal;
+import com.pega.crm.customerservice.interactions.Interactions;
+import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.pegamarketing.DesignerStudio;
 import com.pega.crm.pegamarketing.PMPortal;
 import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
@@ -64,6 +66,8 @@ public class CRMBrowser extends PegaBrowser {
 	public ContactList conList;
 	public Forecast forecast;
 	public ClosePlans closeplans;
+	public ResearchInteraction researchInteraction;
+	public Interactions interactions;
 	// variable to check whether campaign exists or not
 	public boolean campaignExists;
 
@@ -115,6 +119,9 @@ public class CRMBrowser extends PegaBrowser {
 		super.login(configuration.getCredential("BO_USER_ID"), configuration.getCredential("BO_USER_PASSWORD"));
 		csPortal = getPortal(CSPortal.class);
 		pegaDriver = testEnv.getPegaDriver();
+		researchInteraction = csPortal.getTopNav().setResearchInteraction();
+		//interactions = researchInteraction;
+		
 	}
 	@When("^User logs in to CS portal as CSR$")
 	public void user_logs_in_to_CS_portal_as_CSR() throws Throwable {

@@ -32,12 +32,10 @@ public class PegaNewInboundInteraction extends PegaInteractions implements NewIn
 
 	
 	public void filterwithInitialValues(String searchBox, String searchString) {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		
+				
 		if(searchBox.equalsIgnoreCase("first name")||searchBox.equalsIgnoreCase("organization name")){
 			
-			PegaWebElement searchtype = pegaDriver.findElement(By.xpath(FIRST_NAME_SEARCH_BOX_XPATH));
+			PegaWebElement searchtype = findElement(By.xpath(FIRST_NAME_SEARCH_BOX_XPATH));
 			searchtype.sendKeys(searchString);
 		}
 		
@@ -45,28 +43,24 @@ public class PegaNewInboundInteraction extends PegaInteractions implements NewIn
 			String initialXPath = "//input[@title='Search #Issue#']";
 			String finalXPath = new String(initialXPath).replace("#Issue#", searchBox);
 
-			PegaWebElement searchtype = pegaDriver.findElement(By.xpath(finalXPath));
+			PegaWebElement searchtype = findElement(By.xpath(finalXPath));
 			searchtype.sendKeys(searchString);
 		}
 		
-
-		pegaDriver.waitForDocStateReady(10);
-		pegaDriver.switchToActiveFrame();
-
 		if (searchString.equalsIgnoreCase("123450000")) {
-			PegaWebElement searchButton = pegaDriver.findElement(By.xpath(RESEARCH_SEARCH_XPATH));
+			PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.click();
 		} else if (searchString.equalsIgnoreCase("Acme Software")) {
-			PegaWebElement searchButton = pegaDriver.findElement(By.xpath(RESEARCH_SEARCH_XPATH));
+			PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.click();
 		} else if (searchString.equalsIgnoreCase("Rebecca")) {
-			List<WebElement> searchButton = pegaDriver.findElements(By.xpath(RESEARCH_SEARCH_XPATH));
+			List<WebElement> searchButton = findElements(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.get(0).click();
 		} else if (searchString.equalsIgnoreCase("Credit Card Fees & Charges")) {
-			PegaWebElement searchButton = pegaDriver.findElement(By.xpath(RESEARCH_SEARCH_XPATH));
+			PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.click();
 		} else if (searchString.equalsIgnoreCase("12457890")) {
-			PegaWebElement searchButton = pegaDriver.findElement(By.xpath(RESEARCH_SEARCH_XPATH));
+			PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.click();
 		}
 
@@ -74,25 +68,19 @@ public class PegaNewInboundInteraction extends PegaInteractions implements NewIn
 	
 	@Override
 	public void filterWithAllForAccount(String AcNo, String Type, String Status, String OwnerName) {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-
-		PegaWebElement accountNumber = pegaDriver.findElement(By.xpath("//input[@title='Search account number']"));
+		PegaWebElement accountNumber = findElement(By.xpath("//input[@title='Search account number']"));
 		accountNumber.sendKeys(AcNo);
 
-		PegaWebElement accountType = pegaDriver.findElement(By.xpath("//input[@title='Search account type']"));
+		PegaWebElement accountType = findElement(By.xpath("//input[@title='Search account type']"));
 		accountType.sendKeys(Type);
 
-		PegaWebElement accountStatus = pegaDriver.findElement(By.xpath("//input[@title='Search status']"));
+		PegaWebElement accountStatus = findElement(By.xpath("//input[@title='Search status']"));
 		accountStatus.sendKeys(Status);
 
-		PegaWebElement accountOwner = pegaDriver.findElement(By.xpath("//input[@title='Search owner first name']"));
+		PegaWebElement accountOwner = findElement(By.xpath("//input[@title='Search owner first name']"));
 		accountOwner.sendKeys(OwnerName);
 
-		pegaDriver.waitForDocStateReady(10);
-		pegaDriver.switchToActiveFrame();
-
-		PegaWebElement searchButton = pegaDriver.findElement(By.xpath(RESEARCH_SEARCH_XPATH));
+		PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 		searchButton.click();
 
 	}

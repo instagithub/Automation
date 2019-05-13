@@ -123,7 +123,6 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	public void selectDisputeTransaction(String tranName) {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).build().perform();
-		pegaDriver.waitForDocStateReady(2);
 		String TRANSACTION_ID_XPATH = "//input[@title='Select Dispute Transaction with ID #tranName#']";
 		String finalXPath = new String(TRANSACTION_ID_XPATH).replace("#tranName#", tranName);
 

@@ -53,21 +53,18 @@ public class OutboundCall {
 	
 	@Then("^Verify fields on search screen$")
 	public void verify_fields_on_search_screen() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchToActiveFrame();
-		Assert.assertTrue("Unknown customer field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.UNKNOWN_CUSTOMER_XPATH)));
-		Assert.assertTrue("Contact information field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.CONTACT_INFO_XPATH)));
-		//Assert.assertTrue("CUSTOMER SUMMARY field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.CUSTOMER_SUMMARY_XPATH)));
-		Assert.assertTrue("Relationship field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.RELATIONSHIP_XPATH)));
-		pegaDriver.switchToActiveFrame();
+	
+		Assert.assertTrue("Unknown customer field is not present",interaction.verifyElement(By.xpath(PhoneCall.UNKNOWN_CUSTOMER_XPATH)));
+		Assert.assertTrue("Contact information field is not present",interaction.verifyElement(By.xpath(PhoneCall.CONTACT_INFO_XPATH)));
 		
-		Assert.assertTrue("Add task button is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.ADDTASK_XPATH)));
-		Assert.assertTrue("Wrap Up button is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.WRAP_UP_XPATH)));
+		Assert.assertTrue("Relationship field is not present",interaction.verifyElement(By.xpath(PhoneCall.RELATIONSHIP_XPATH)));
 		
-		/*Assert.assertTrue("Initial dialog is not present", pegaDriver.verifyElement(By.xpath(
-				"//div[contains(text(), 'Thank you for contacting U+Bank.  My name is    CS CSR. How can I help you today?')]")));*/
-		Assert.assertTrue("Search text is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.SEARCH_XPATH)));
-		Assert.assertTrue("General assistance text is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.GENERAL_ASSISTANCE_XPATH)));
+		
+		Assert.assertTrue("Add task button is not present",interaction.verifyElement(By.xpath(PhoneCall.ADDTASK_XPATH)));
+		Assert.assertTrue("Wrap Up button is not present",interaction.verifyElement(By.xpath(PhoneCall.WRAP_UP_XPATH)));
+		
+		Assert.assertTrue("Search text is not present",interaction.verifyElement(By.xpath(PhoneCall.SEARCH_XPATH)));
+		Assert.assertTrue("General assistance text is not present",interaction.verifyElement(By.xpath(PhoneCall.GENERAL_ASSISTANCE_XPATH)));
 		
 		
 	}
@@ -132,16 +129,15 @@ public class OutboundCall {
 	@Then("^capture outbound interaction ID$")
 	public void capture_outbound_interaction_ID() {
 		
-		pegaDriver.switchTo().defaultContent();
-		String outboundInteractionText = pegaDriver.findElement(By.xpath("//div[contains(@pyclassname,'PegaCA-Work-Outbound')]/descendant::div[contains(@class,'dataLabelWrite')]")).getText();
-		System.out.println(outboundInteractionText);
+		String outboundInteractionText = interaction.findElement(By.xpath("//div[contains(@pyclassname,'PegaCA-Work-Outbound')]/descendant::div[contains(@class,'dataLabelWrite')]")).getText();
+		
 		int p=outboundInteractionText.indexOf("OC-");
 		int q=outboundInteractionText.lastIndexOf("is");
 		caseID=outboundInteractionText.substring(p, q);
 		//caseID = outboundInteractionText.substring(14,19);
 		caseID=caseID.trim();
-		System.out.println(caseID);
-		pegaDriver.findElement(By.xpath("//button[contains(@data-click,'closeContainer')]/descendant::div[text()='Close']")).click();
+		
+		interaction.findElement(By.xpath("//button[contains(@data-click,'closeContainer')]/descendant::div[text()='Close']")).click();
 	    
 	}
 
@@ -155,22 +151,13 @@ public class OutboundCall {
 	
 	@Then("^User verifies checkpoints in the interaction launched$")
 	public void user_verifies_checkpoints_in_the_interaction_launched() {
-		//pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard  = pegaDriver.findWizard(frameId);
-		Assert.assertTrue("Outbound call ID is not present", pegaDriver.verifyElement(By.xpath(
-				"//span[contains(text(),'"+caseID+"')]")));
-		//Assert.assertTrue("Deadline is not present or is incorrect", pegaDriver.verifyElement(By.xpath("//span[contains(text(),'in 3d') or contains(text(),'in 4d') or contains(text(),'3 hours from now') or contains(text(),'4 hours from now')]")));
-		Assert.assertTrue("Status is not present", pegaDriver.verifyElement(By.xpath(
-				"//span[contains(text(),'New')]")));
-		pegaDriver.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr[2]")).click();
-		pegaDriver.waitForDocStateReady(3);
-		Assert.assertTrue("Customer name is not present", pegaDriver.verifyElement(By.xpath(
-				"//span[contains(@class,'work_identifier')][contains(text(),'Sara Connor')]")));
-		Assert.assertTrue("Call reason is not present", pegaDriver.verifyElement(By.xpath(
-				"//span[contains(text(),'Initiate')]")));
-		Assert.assertTrue("Dialog is not present", pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Hello, my name is CS CSR.')][contains(text(),'calling on behalf of pega.com about Address Change')]")));
+		Assert.assertTrue("Outbound call ID is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'"+caseID+"')]")));
+		Assert.assertTrue("Status is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'New')]")));
+		interaction.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr[2]")).click();
+	
+		Assert.assertTrue("Customer name is not present", interaction.verifyElement(By.xpath("//span[contains(@class,'work_identifier')][contains(text(),'Sara Connor')]")));
+		Assert.assertTrue("Call reason is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'Initiate')]")));
+		Assert.assertTrue("Dialog is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'Hello, my name is CS CSR.')][contains(text(),'calling on behalf of pega.com about Address Change')]")));
 		
 	}
 
@@ -193,11 +180,8 @@ public class OutboundCall {
 
 	@Then("^verify the error message displayed for the reason  box$")
 	public void verify_the_error_message_displayed_for_the_reason_box() throws Throwable {
-		pegaDriver.switchToActiveFrame();
-		   
-		Assert.assertTrue("Select a reason for outbound call is not present", pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Select a reason for outbound call')]")));
-		//Assert.assertTrue("Value cannot be blank is not present", pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Value cannot be blank')]")));
-		Assert.assertTrue("Outbound call status is not present", pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Outbound call status')]")));
+		Assert.assertTrue("Select a reason for outbound call is not present", interaction.verifyElement(By.xpath("//label[contains(text(),'Select a reason for outbound call')]")));
+		Assert.assertTrue("Outbound call status is not present", interaction.verifyElement(By.xpath("//label[contains(text(),'Outbound call status')]")));
 		
 	}
 

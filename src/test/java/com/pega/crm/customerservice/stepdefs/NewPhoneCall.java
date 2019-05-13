@@ -21,6 +21,7 @@ import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
+import com.pega.framework.elmt.FrameImpl;
 import com.pega.ri.Wizard;
 
 import cucumber.api.DataTable;
@@ -104,7 +105,6 @@ public class NewPhoneCall {
 	
 	@When("^Click on Add Task to launch Service Process$")
 	public void click_on_Add_Task_to_launch_Service_Process() {
-		pegaDriver.waitForDocStateReady(3);
 		interaction.addTask();
 	}
 	
@@ -113,37 +113,36 @@ public class NewPhoneCall {
 
 	@Then("^Verify all the service process items and other fields$")
 	public void verify_all_the_service_process_items_and_other_fields() {
-		pegaDriver.waitForDocStateReady(1);
-		Assert.assertTrue("Add Task heading is not present",pegaDriver.verifyElement(By.xpath(interaction.ADD_TASKS_HEADER_XPATH)));
-		Assert.assertTrue("Add Task heading is not present",pegaDriver.verifyElement(By.xpath(interaction.Btn_AddTasks_Xpath)));
-		Assert.assertTrue("Search input box is not present",pegaDriver.verifyElement(By.xpath(interaction.SEARCH_INPUT_BOX_XPATH)));
+		Assert.assertTrue("Add Task heading is not present",interaction.verifyElement(By.xpath(interaction.ADD_TASKS_HEADER_XPATH)));
+		Assert.assertTrue("Add Task heading is not present",interaction.verifyElement(By.xpath(interaction.Btn_AddTasks_Xpath)));
+		Assert.assertTrue("Search input box is not present",interaction.verifyElement(By.xpath(interaction.SEARCH_INPUT_BOX_XPATH)));
 
-		Assert.assertTrue("Account Service process header is not present",pegaDriver.verifyElement(By.xpath(interaction.ACCOUNT_HEADER_XPATH)));
-		Assert.assertTrue("Contact Service process header is not present",pegaDriver.verifyElement(By.xpath(interaction.CONTACT_HEADER_XPATH)));
-		Assert.assertTrue("General Servive process header is not present",pegaDriver.verifyElement(By.xpath(interaction.GENERAL_HEADER_XPATH)));
-		Assert.assertTrue("Add Task button is not present",pegaDriver.verifyElement(By.xpath(interaction.ADD_TASKS_BUTTON_XPATH)));
-		Assert.assertTrue("Cancel button is not present",pegaDriver.verifyElement(By.xpath(interaction.CANCEL_BUTTON_XPATH)));
+		Assert.assertTrue("Account Service process header is not present",interaction.verifyElement(By.xpath(interaction.ACCOUNT_HEADER_XPATH)));
+		Assert.assertTrue("Contact Service process header is not present",interaction.verifyElement(By.xpath(interaction.CONTACT_HEADER_XPATH)));
+		Assert.assertTrue("General Servive process header is not present",interaction.verifyElement(By.xpath(interaction.GENERAL_HEADER_XPATH)));
+		Assert.assertTrue("Add Task button is not present",interaction.verifyElement(By.xpath(interaction.ADD_TASKS_BUTTON_XPATH)));
+		Assert.assertTrue("Cancel button is not present",interaction.verifyElement(By.xpath(interaction.CANCEL_BUTTON_XPATH)));
 
 	
 
-		Assert.assertTrue("Address Change is not present",pegaDriver.verifyElement(By.xpath(interaction.ADDRESS_CHANGE_XPATH)));
-		Assert.assertTrue("Close Account is not present",pegaDriver.verifyElement(By.xpath(interaction.CLOSE_ACCOUNT_XPATH)));
-		Assert.assertTrue("Modify Contact Links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_CONTACT_LINKS_XPATH)));
-		Assert.assertTrue("Dispute Transaction is not present",pegaDriver.verifyElement(By.xpath(interaction.DISPUTE_TRANSACTION_XPATH)));
-		Assert.assertTrue("Lost or stolen card is not present",pegaDriver.verifyElement(By.xpath(interaction.LOST_OR_STOLEN_XPATH)));
-		Assert.assertTrue("Statement copy is not present",pegaDriver.verifyElement(By.xpath(interaction.STATEMENT_COPY_XPATH)));
-		Assert.assertTrue("Modify account links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_ACCOUNT_LINKS_XPATH)));
-		Assert.assertTrue("Modify Organizations links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_CONTACT_TO_ORG_LINKS_XPATH)));
-		Assert.assertTrue("Update contact profile is not present",pegaDriver.verifyElement(By.xpath(interaction.UPDATE_CONTACT_PROFILE_XPATH)));
-		Assert.assertTrue("Modify account links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_ACCOUNT_LINKS_XPATH)));
-		Assert.assertTrue("Modify organization links is not present",pegaDriver.verifyElement(By.xpath(interaction.MODIFY_ORGANIZATION_LINKS_XPATH)));
+		Assert.assertTrue("Address Change is not present",interaction.verifyElement(By.xpath(interaction.ADDRESS_CHANGE_XPATH)));
+		Assert.assertTrue("Close Account is not present",interaction.verifyElement(By.xpath(interaction.CLOSE_ACCOUNT_XPATH)));
+		Assert.assertTrue("Modify Contact Links is not present",interaction.verifyElement(By.xpath(interaction.MODIFY_CONTACT_LINKS_XPATH)));
+		Assert.assertTrue("Dispute Transaction is not present",interaction.verifyElement(By.xpath(interaction.DISPUTE_TRANSACTION_XPATH)));
+		Assert.assertTrue("Lost or stolen card is not present",interaction.verifyElement(By.xpath(interaction.LOST_OR_STOLEN_XPATH)));
+		Assert.assertTrue("Statement copy is not present",interaction.verifyElement(By.xpath(interaction.STATEMENT_COPY_XPATH)));
+		Assert.assertTrue("Modify account links is not present",interaction.verifyElement(By.xpath(interaction.MODIFY_ACCOUNT_LINKS_XPATH)));
+		Assert.assertTrue("Modify Organizations links is not present",interaction.verifyElement(By.xpath(interaction.MODIFY_CONTACT_TO_ORG_LINKS_XPATH)));
+		Assert.assertTrue("Update contact profile is not present",interaction.verifyElement(By.xpath(interaction.UPDATE_CONTACT_PROFILE_XPATH)));
+		Assert.assertTrue("Modify account links is not present",interaction.verifyElement(By.xpath(interaction.MODIFY_ACCOUNT_LINKS_XPATH)));
+		Assert.assertTrue("Modify organization links is not present",interaction.verifyElement(By.xpath(interaction.MODIFY_ORGANIZATION_LINKS_XPATH)));
 	
 
-		Assert.assertTrue("Send correspondence is not present",	pegaDriver.verifyElement(By.xpath(interaction.SEND_CORRESPONDENCE_XPATH)));
-		Assert.assertTrue("General service request is not present",pegaDriver.verifyElement(By.xpath(interaction.GENERAL_SERVICE_REQUEST_XPATH)));
+		Assert.assertTrue("Send correspondence is not present",	interaction.verifyElement(By.xpath(interaction.SEND_CORRESPONDENCE_XPATH)));
+		Assert.assertTrue("General service request is not present",interaction.verifyElement(By.xpath(interaction.GENERAL_SERVICE_REQUEST_XPATH)));
 		
-		Assert.assertTrue("Schedule activity is not present",pegaDriver.verifyElement(By.xpath(interaction.SCHEDULE_ACTIVITY_XPATH)));
-		Assert.assertTrue("Open new account is not present",pegaDriver.verifyElement(By.xpath(interaction.OPEN_NEW_ACCOUNT_XPATH)));
+		Assert.assertTrue("Schedule activity is not present",interaction.verifyElement(By.xpath(interaction.SCHEDULE_ACTIVITY_XPATH)));
+		Assert.assertTrue("Open new account is not present",interaction.verifyElement(By.xpath(interaction.OPEN_NEW_ACCOUNT_XPATH)));
 
 	}
 
@@ -169,19 +168,18 @@ public class NewPhoneCall {
 	@Then("^check the dialog in in confirm screen and in progress task in left nav$")
 	public void check_the_dialog_in_in_confirm_screen_and_in_progress_task_in_left_nav() {
 		
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'changes')]")).getText();
-		System.out.println(dialog);
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'changes')]")).getText();
 		Assert.assertEquals("Address Change flow dialog is not present or incorrect",
 				"I have made the changes you requested.", dialog);
-		Assert.assertTrue("In Progress Label is not present",pegaDriver.verifyElement(By.xpath("//a[contains(text(),'Address Change')]")));
+		Assert.assertTrue("In Progress Label is not present",interaction.verifyElement(By.xpath("//a[contains(text(),'Address Change')]")));
 	
 		String fullAddress = null;
-		List<WebElement> address = pegaDriver.findElements(
+		List<WebElement> address = interaction.findElements(
 				By.xpath("//div[@node_name='CANewAddress']//div[@class='field-item dataValueRead']/span"));
 		for (WebElement e : address) {
 			fullAddress = fullAddress + e.getText();
 		}
-		System.out.println(fullAddress);
+		
 
 	}
 	
@@ -195,7 +193,7 @@ public class NewPhoneCall {
 	@Then("^check for completed or cancelled task \"([^\"]*)\"$")
 	public void check_for_completed_or_cancelled_task(String serviceProcess) {
 		Assert.assertTrue("Completed process Label is not present",
-				pegaDriver.verifyElement(By.xpath(interaction.verifyCompletedTask(serviceProcess))));
+				interaction.verifyElement(By.xpath(interaction.verifyCompletedTask(serviceProcess))));
 				
 	}
 	
@@ -210,13 +208,9 @@ public class NewPhoneCall {
 	
 	@Then("^Get the case ID from History and Attachments link$")
 	public void get_the_case_ID_from_History_and_Attachments_link() throws Throwable {
-		pegaDriver.waitForDocStateReady(3);
+		
 		CaseID=interaction.getCaseDetails();
-		
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-		
+				
 	}
 
 
@@ -225,7 +219,7 @@ public class NewPhoneCall {
 	public void complete_the_wrap_up() {
 	   
 	    interaction.completeWrapUpWithoutReason();
-	    System.out.println(caseId);
+	  
 	    CRMObjectsBean.getObjectsMap().put("caseids", caseId);
 	}
 	
@@ -236,7 +230,7 @@ public class NewPhoneCall {
 	public void complete_the_wrap_up_and_verify_reason(String reason)  {
 
 		interaction.completeWrapUp(reason);
-	    System.out.println(caseId);
+	   
 	    CRMObjectsBean.getObjectsMap().put("caseids", caseId);
 	}
 	
@@ -261,39 +255,36 @@ public class NewPhoneCall {
 	
 	@Then("^verifiy left nav, header, composites, dialogs and other sections$")
 	public void verifiy_left_nav_header_composites_dialogs_and_other_sections() {
-		pegaDriver.waitForDocStateReady(2);
 		
-		pegaDriver.switchToActiveFrame();
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath(PhoneCall.PHONE_XPATH));
 		
-		Assert.assertTrue("phone field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.PHONE_XPATH)));
-		Assert.assertTrue("Email Field is not present",pegaDriver.verifyElement(By.xpath("//span[text()='Email']")));
-		Assert.assertTrue("Address field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.ADDRESS_XPATH)));
-		Assert.assertTrue("Chrun risk is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.CHURN_RISK_XPATH)));
-		Assert.assertTrue("Lifetime Value is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.LIFETIME_XPATH)));
-		Assert.assertTrue("Customer since field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.CUSTOMER_SINCE_XPATH)));
-		Assert.assertTrue("Call back field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.NPS_TREND_XPATH)));
-		Assert.assertTrue("Last interaction field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.LAST_INTERACTION_XPATH)));
-		Assert.assertTrue("Reason field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.REASON_XPATH)));
-		Assert.assertTrue("NPS field is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.NPS_XPATH)));
+		Assert.assertTrue("phone field is not present",interaction.verifyElement(By.xpath(PhoneCall.PHONE_XPATH)));
+		Assert.assertTrue("Email Field is not present",interaction.verifyElement(By.xpath("//span[text()='Email']")));
+		Assert.assertTrue("Address field is not present",interaction.verifyElement(By.xpath(PhoneCall.ADDRESS_XPATH)));
+		Assert.assertTrue("Chrun risk is not present",interaction.verifyElement(By.xpath(PhoneCall.CHURN_RISK_XPATH)));
+		Assert.assertTrue("Lifetime Value is not present",interaction.verifyElement(By.xpath(PhoneCall.LIFETIME_XPATH)));
+		Assert.assertTrue("Customer since field is not present",interaction.verifyElement(By.xpath(PhoneCall.CUSTOMER_SINCE_XPATH)));
+		Assert.assertTrue("Call back field is not present",interaction.verifyElement(By.xpath(PhoneCall.NPS_TREND_XPATH)));
+		Assert.assertTrue("Last interaction field is not present",interaction.verifyElement(By.xpath(PhoneCall.LAST_INTERACTION_XPATH)));
+		Assert.assertTrue("Reason field is not present",interaction.verifyElement(By.xpath(PhoneCall.REASON_XPATH)));
+		Assert.assertTrue("NPS field is not present",interaction.verifyElement(By.xpath(PhoneCall.NPS_XPATH)));
 		
-		pegaDriver.switchToActiveFrame();
+	
 
-		Assert.assertTrue("Add Task button is not present",pegaDriver.verifyElement(By.xpath("//button[contains(@title,'Add')]")));
-		Assert.assertTrue("Wrap up button is not present",pegaDriver.verifyElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Wrap Up']")));
-		Assert.assertTrue("Summary tab is not present", pegaDriver.verifyElement(By.xpath("//h3[text()='Overview']")));
-		Assert.assertTrue("Open service case section is not present",pegaDriver.verifyElement(By.xpath("//h2[text()='Recent cases']")));
-		Assert.assertTrue("Recent Interactions section is not present",pegaDriver.verifyElement(By.xpath("//h2[text()='Recent interactions']")));
-		pegaDriver.verifyElement(By.xpath("//h2[text()='Authorized Contacts']"));
+		Assert.assertTrue("Add Task button is not present",interaction.verifyElement(By.xpath("//button[contains(@title,'Add')]")));
+		Assert.assertTrue("Wrap up button is not present",interaction.verifyElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Wrap Up']")));
+		Assert.assertTrue("Summary tab is not present", interaction.verifyElement(By.xpath("//h3[text()='Overview']")));
+		Assert.assertTrue("Open service case section is not present",interaction.verifyElement(By.xpath("//h2[text()='Recent cases']")));
+		Assert.assertTrue("Recent Interactions section is not present",interaction.verifyElement(By.xpath("//h2[text()='Recent interactions']")));
+		interaction.verifyElement(By.xpath("//h2[text()='Authorized Contacts']"));
 
 	}
 	
 	@Then("^check for \"([^\"]*)\" account displayed$")
 	public void check_for_account_displayed(String accountNumber) throws Throwable {
-		/*String ACCOUNT_NUMBER_XPATH = "//*[contains(@oaargs, '#accountNumber#')]";
-		String finalXPath = new String(ACCOUNT_NUMBER_XPATH).replace("#accountNumber#", accountNumber);*/
+		
 		Assert.assertTrue(accountNumber+" account is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'"+accountNumber+"')]/ancestor::tr[1]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'"+accountNumber+"')]/ancestor::tr[1]")));
 	   
 	}
 
@@ -301,22 +292,22 @@ public class NewPhoneCall {
 	
 	@Then("^verify \"([^\"]*)\" flow is launched$")
 	public void verify_flow_is_launched(String serviceProcess) {
-		pegaDriver.waitForDocStateReady(2);
+		
 		String INPROGESS_LABEL_XPATH = "//a[contains(text(),'#serviceProcess#')]";
 		String finalXPathInProgress = new String(INPROGESS_LABEL_XPATH).replace("#serviceProcess#", serviceProcess);
 		Assert.assertTrue(serviceProcess +"In Progress Label is not present",
-				pegaDriver.verifyElement(By.xpath(finalXPathInProgress)));
+				interaction.verifyElement(By.xpath(finalXPathInProgress)));
 		
 		/*interaction.clickOnToolsMenuButton();*/
 
 
 		interaction.clickOnOtherActionsButton();
-		Assert.assertTrue("Where Am I menu option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.WHERE_AM_I_XPATH)));
-		Assert.assertTrue("History and Attachment option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH)));
-		Assert.assertTrue("Pulse option is not present", pegaDriver.verifyElement(By.xpath(PhoneCall.PULSE_XPATH)));
+		Assert.assertTrue("Where Am I menu option is not present",interaction.verifyElement(By.xpath(PhoneCall.WHERE_AM_I_XPATH)));
+		Assert.assertTrue("History and Attachment option is not present",interaction.verifyElement(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH)));
+		Assert.assertTrue("Pulse option is not present", interaction.verifyElement(By.xpath(PhoneCall.PULSE_XPATH)));
 
-		Assert.assertTrue("Refresh menu option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.REFRESH_XPATH)));
-		Assert.assertTrue("Cancel this work menu option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.CANCEL_WORK_XPATH)));
+		Assert.assertTrue("Refresh menu option is not present",interaction.verifyElement(By.xpath(PhoneCall.REFRESH_XPATH)));
+		Assert.assertTrue("Cancel this work menu option is not present",interaction.verifyElement(By.xpath(PhoneCall.CANCEL_WORK_XPATH)));
 		Actions action = new Actions(pegaDriver.getDriver());
 		action.sendKeys(Keys.ESCAPE).build().perform();
 		
@@ -331,18 +322,18 @@ public class NewPhoneCall {
 	
 	@Then("^verify dialog, FA header and other options for Schedule Activity$")
 	public void verify_dialog_FA_header_and_other_options_for_Schedule_Activity() {
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'schedule')]")).getText();
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'schedule')]")).getText();
 		System.out.println(dialog);
 		Assert.assertEquals("Schedule Activity initial dialog is not present or incorrect",
 				"In order to schedule the activity, I'll need a few details from you. ", dialog);
 		Assert.assertTrue("Schedule Activity FA header is not present",
-				pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Schedule Activity')]")));
+				interaction.verifyElement(By.xpath("//label[contains(text(),'Schedule Activity')]")));
 		Assert.assertTrue("In Schedule Activity Conference call is not present",
-				pegaDriver.verifyElement(By.xpath("//div[text()='Conference call']")));
+				interaction.verifyElement(By.xpath("//div[text()='Conference call']")));
 		Assert.assertTrue("In Schedule Activity Appointment is not present",
-				pegaDriver.verifyElement(By.xpath("//div[text()='Appointment']")));
+				interaction.verifyElement(By.xpath("//div[text()='Appointment']")));
 		Assert.assertTrue("In Schedule Activity Task is not present",
-				pegaDriver.verifyElement(By.xpath("//div[text()='Task']")));
+				interaction.verifyElement(By.xpath("//div[text()='Task']")));
 	}
 	
 
@@ -367,94 +358,82 @@ public class NewPhoneCall {
 
 	@Then("^verify that \"([^\"]*)\" flow is launched with dialog$")
 	public void verify_that_flow_is_launched_with_dialog(String serviceProcess) throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
+		
 		if (serviceProcess == "Address change") {
 			Assert.assertTrue("Address change flow header is not present",
-					pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Address Change')]")));
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+					interaction.verifyElement(By.xpath("//label[contains(text(),'Address Change')]")));
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
 			Assert.assertEquals("Address Change flow dialog is not present or incorrect",
 					"May I have the new address and phone number for your Individual account, please?", dialog);
 		} else if (serviceProcess == "Statement Copy") {
 			Assert.assertTrue("Address change flow header is not present",
-					pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Recent Statements')]")));
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+					interaction.verifyElement(By.xpath("//label[contains(text(),'Recent Statements')]")));
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
 			Assert.assertEquals("Address Change flow dialog is not present or incorrect",
 					"Which statements would you like to receive copies of, Ms. Connor?", dialog);
-			Assert.assertTrue("Flow action header message is not present", pegaDriver
+			Assert.assertTrue("Flow action header message is not present", interaction
 					.verifyElement(By.xpath("//div[text()='Select the statements requested by the customer:']")));
 		}
 
 		else if (serviceProcess == "Schedule appointment") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
 			Assert.assertEquals("Appointment dialog is not present or incorrect",
 					"         Please enter  details for the Appointment     ", dialog);
 
 		}
 
-		else if (serviceProcess == "Open new account") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
-			Assert.assertEquals("Open new account dialog is not present or incorrect",
-					"Thank you for your interest in our products, Ms. Biggs. What type of account are you interested in opening today?",
-					dialog);
-		}
-
 		else if (serviceProcess == "Add New Organization") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
 			Assert.assertEquals("Add new organization dialog is not present or incorrect",
 					"Can you spell the name of your business for me? And, what is the company's primary address?",
 					dialog);
 		} else if (serviceProcess == "Create lead") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Create Lead dialog is not present or incorrect",
 					"Thank you for your interest in our products, Ms. Connor. Let me collect some details from you so that a sales person can contact you.",
 					dialog);
 		} else if (serviceProcess == "Modify account links") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Modify Account links dialog is not present or incorrect",
 					"I can add or delete an account link. Can you give me the account number of the account you'd like me to link or unlink to your profile?",
 					dialog);
 		}
 
 		else if (serviceProcess == "Primary Communication") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("PrimaryCommunication dialog is not present or incorrect",
 					"What is the primary phone number? Do you have a general email or fax number that I should record?",
 					dialog);
 		}
 
 		else if (serviceProcess == "Schedule appointment") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Schedule appointment dialog is not present or incorrect",
 					"Please enter details for the Appointment", dialog);
 		}
 
 		else if (serviceProcess == "Offer negotiator") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Schedule appointment dialog is not present or incorrect",
 					"Hi Ms. Connor, before I close your account, can I ask you a few questions about your experience with us as your provider?",
 					dialog);
 		}
 
 		else if (serviceProcess == "Make offer") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Schedule appointment dialog is not present or incorrect",
 					"Would you be interested in learning more about our Cash Rewards promotion ?", dialog);
 		}
 
 		else if (serviceProcess == "Dispute Transaction") {
-			String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
-			System.out.println(dialog);
+			String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+			
 			Assert.assertEquals("Dispute Transaction dialog is not present or incorrect",
 					"Which transaction were you concerned about  Ms. Connor?", dialog);
 		}
@@ -472,32 +451,32 @@ public class NewPhoneCall {
 	@Then("^verify the contact displayed$")
 	public void verify_the_contact_displayed() throws Throwable {
 		Assert.assertTrue("search results are not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Lake']")));
+				interaction.verifyElement(By.xpath("//span[text()='Lake']")));
 		Assert.assertTrue("search results are not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Jennifer']")));
+				interaction.verifyElement(By.xpath("//span[text()='Jennifer']")));
 		Assert.assertTrue("search results are not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Easton']")));
-		Assert.assertTrue("search results are not present", pegaDriver.verifyElement(By.xpath("//span[text()='MD']")));
+				interaction.verifyElement(By.xpath("//span[text()='Easton']")));
+		Assert.assertTrue("search results are not present", interaction.verifyElement(By.xpath("//span[text()='MD']")));
 	}
 
 	
 	@Then("^Verify the dialog, FA header, message displayed$")
 	public void verify_the_dialog_FA_header_message_displayed() throws Throwable {
-		String dialog = pegaDriver.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
+		String dialog = interaction.findElement(By.xpath(PhoneCall.DIALOG_ID)).getText();
 		System.out.println(dialog);
 		Assert.assertEquals("Select Account dialog is not present or incorrect",
 				"Is there an account you are calling about today?",
 				dialog);
-		Assert.assertTrue("Select an Account FA header is not present",pegaDriver.verifyElement(By.xpath("//span[text()='Select an account']")));
-		Assert.assertTrue("Select an account flow action dialog is not present",pegaDriver.verifyElement(By.xpath("//div[contains(text(),'Select an account for')]")));
-		Assert.assertTrue("Select an account flow action dialog is not present",pegaDriver.verifyElement(By.xpath("//div[contains(text(),'or press Submit to continue')]")));
+		Assert.assertTrue("Select an Account FA header is not present",interaction.verifyElement(By.xpath("//span[text()='Select an account']")));
+		Assert.assertTrue("Select an account flow action dialog is not present",interaction.verifyElement(By.xpath("//div[contains(text(),'Select an account for')]")));
+		Assert.assertTrue("Select an account flow action dialog is not present",interaction.verifyElement(By.xpath("//div[contains(text(),'or press Submit to continue')]")));
 		
 		phoneInteraction.clickOnOtherActionsButton();
-		Assert.assertTrue("Where Am I menu option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.WHERE_AM_I_XPATH)));
-		Assert.assertTrue("Refresh menu option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.REFRESH_XPATH)));
-		Assert.assertTrue("Exit Interaction option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.EXIT_INTE_XPATH)));
-		Assert.assertTrue("History and Attachment option is not present",pegaDriver.verifyElement(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH)));
-		Assert.assertTrue("Pulse option is not present", pegaDriver.verifyElement(By.xpath(PhoneCall.PULSE_XPATH)));
+		Assert.assertTrue("Where Am I menu option is not present",interaction.verifyElement(By.xpath(PhoneCall.WHERE_AM_I_XPATH)));
+		Assert.assertTrue("Refresh menu option is not present",interaction.verifyElement(By.xpath(PhoneCall.REFRESH_XPATH)));
+		Assert.assertTrue("Exit Interaction option is not present",interaction.verifyElement(By.xpath(PhoneCall.EXIT_INTE_XPATH)));
+		Assert.assertTrue("History and Attachment option is not present",interaction.verifyElement(By.xpath(PhoneCall.HISTORY_ATTACHMENTS_XPATH)));
+		Assert.assertTrue("Pulse option is not present", interaction.verifyElement(By.xpath(PhoneCall.PULSE_XPATH)));
 	}
 
 	@When("^select \"([^\"]*)\" and options as account \"([^\"]*)\" topic \"([^\"]*)\" Assign to \"([^\"]*)\" and name \"([^\"]*)\"$")
@@ -507,7 +486,7 @@ public class NewPhoneCall {
 
 	@Then("^Confirm the case details$")
 	public void confirm_the_case_details() throws Throwable {
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'scheduled')]")).getText();
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'scheduled')]")).getText();
 		System.out.println(dialog);
 		Assert.assertEquals("Schedule Activity confirm flow dialog is not present or incorrect",
 				"I've scheduled your request, Mrs. Lake.", dialog);
@@ -519,120 +498,110 @@ public class NewPhoneCall {
 
 	@Then("^verify Connor name and Interaction title and dialog$")
 	public void verify_Connor_name_and_Interaction_title_and_dialog() throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath("//span[contains(text(),'Sara') and contains(text(),'Connor')]"));
 		Assert.assertTrue("Account Name is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Sara') and contains(text(),'Connor')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Sara') and contains(text(),'Connor')]")));
 		
-		pegaDriver.switchToActiveFrame();
+		
 	}
 
 	@Then("^Verify all the details for \"([^\"]*)\" Account number$")
 	public void verify_all_the_details_for_Account_number(String AccountNumber) throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
+		
 
 		// span[regex:contains(text(),'^[A-Za-z]{1,}\s[0-9]{1,}[,]\s[0-9]{1,}$')]
 
 		if (AccountNumber == "1234500078963456") {
 			Assert.assertTrue("Credit Card header are not present",
-					pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Credit Card')]")));
+					interaction.verifyElement(By.xpath("//span[contains(text(),'Credit Card')]")));
 			Assert.assertTrue("Account Owner name header are not present",
-					pegaDriver.verifyElement(By.xpath("//p[contains(text(),'Sara Connor')]")));
+					interaction.verifyElement(By.xpath("//p[contains(text(),'Sara Connor')]")));
 		}
 
 		if (AccountNumber == "111110000") {
 			Assert.assertTrue("Credit Card header are not present",
-					pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Commercial Checking')]")));
+					interaction.verifyElement(By.xpath("//span[contains(text(),'Commercial Checking')]")));
 			Assert.assertTrue("Account Owner name header are not present",
-					pegaDriver.verifyElement(By.xpath("//p[contains(text(),'Acme Software ')]")));
+					interaction.verifyElement(By.xpath("//p[contains(text(),'Acme Software ')]")));
 
 		}
 
 		// Account field
 		Assert.assertTrue("Account header are not present",
-				pegaDriver.verifyElement(By.xpath("//div[label[contains(text(),'Account #')]]")));
+				interaction.verifyElement(By.xpath("//div[label[contains(text(),'Account #')]]")));
 		Assert.assertTrue("Account number header are not present",
-				pegaDriver.verifyElement(By.xpath("//a[contains(text(),'" + AccountNumber + "')]")));
+				interaction.verifyElement(By.xpath("//a[contains(text(),'" + AccountNumber + "')]")));
 		Assert.assertTrue("Account type header are not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Account type')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Account type')]")));
 
-		//Assert.assertTrue("Account Owner header are not present",pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Account owner')]")));
+		//Assert.assertTrue("Account Owner header are not present",interaction.verifyElement(By.xpath("//span[contains(text(),'Account owner')]")));
 
 		Assert.assertTrue("Edit link is not present",
-				pegaDriver.verifyElement(By.xpath("//a[contains(text(),'Edit')]")));
+				interaction.verifyElement(By.xpath("//a[contains(text(),'Edit')]")));
 
 		// Balance field
 		Assert.assertTrue("Status header is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Status')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Status')]")));
 		Assert.assertTrue("Active header is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Active')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Active')]")));
 		Assert.assertTrue("Last statement date is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Last statement date')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Last statement date')]")));
 		Assert.assertTrue("Next statement date is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Next statement date')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Next statement date')]")));
 
 		// Payment date
 		Assert.assertTrue("Payment date is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Payment date')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Payment date')]")));
 		Assert.assertTrue("Last payment amount is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Last payment amount')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Last payment amount')]")));
 		Assert.assertTrue("Last payment posted is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Last payment posted')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Last payment posted')]")));
 		Assert.assertTrue("YTD payments is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'YTD payments')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'YTD payments')]")));
 
 		// Min payment
 		Assert.assertTrue("Min. payments is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Min. payment')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Min. payment')]")));
 		Assert.assertTrue("Min. payments is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Available balance')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Available balance')]")));
 		Assert.assertTrue("Avg monthly balance is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Avg monthly balance')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Avg monthly balance')]")));
 		Assert.assertTrue("Account open date is not present",
-				pegaDriver.verifyElement(By.xpath("//span[contains(text(),'Account open date')]")));
+				interaction.verifyElement(By.xpath("//span[contains(text(),'Account open date')]")));
 	}
 
 	@Then("^verify the tabs in \"([^\"]*)\" widget$")
 	public void verify_the_tabs_in_widget(String widgetName) throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
 
 		if (widgetName.equalsIgnoreCase("Transaction")) {
 			Assert.assertTrue("Date field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Date']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Date']")));
 			Assert.assertTrue("Txn ID field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Transaction id']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Transaction id']")));
 			Assert.assertTrue("Merchant field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Merchant']")));
-			//Assert.assertTrue("Txn amount field is not present",pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Transaction amount']")));
-			Assert.assertTrue("Txn amount field is not present",pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Amount']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Merchant']")));
+			//Assert.assertTrue("Txn amount field is not present",interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Transaction amount']")));
+			Assert.assertTrue("Txn amount field is not present",interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Amount']")));
 		}
 
 		if (widgetName.equalsIgnoreCase("Statements")) {
 			Assert.assertTrue("Month field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Month']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Month']")));
 			Assert.assertTrue("Start balance field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Start balance']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='Start balance']")));
 			Assert.assertTrue("End balance field is not present",
-					pegaDriver.verifyElement(By.xpath("//div[@class='cellIn ' and text()='End balance']")));
+					interaction.verifyElement(By.xpath("//div[@class='cellIn ' and text()='End balance']")));
 		}
 	}
 
 	@Then("^Select the Stage as \"([^\"]*)\" and Rating as \"([^\"]*)\" and submit$")
 	public void select_the_Stage_as_and_Rating_as_and_submit(String Stage, String Rating) throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
-		DropDown leadStage = pegaDriver.findSelectBox(By.xpath("//select[@id='LeadStage']"));
+		DropDown leadStage = interaction.findSelectBox(By.xpath("//select[@id='LeadStage']"));
 		leadStage.selectByValue(Stage);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		DropDown leadRating = pegaDriver.findSelectBox(By.xpath("//select[@id='LeadRating']"));
+		DropDown leadRating = interaction.findSelectBox(By.xpath("//select[@id='LeadRating']"));
 		leadRating.selectByValue(Rating);
-		pegaDriver.waitForDocStateReady(2);
-		PegaWebElement submitButton = newWizard.findElement(By.xpath(OK_BUTTON_XPATH));
+		
+		PegaWebElement submitButton = interaction.findElement(By.xpath(OK_BUTTON_XPATH));
 		submitButton.click();
 	}
 
@@ -644,12 +613,12 @@ public class NewPhoneCall {
 	@Then("^verify Close Account dialog, header and question for connor$")
 	public void verify_Close_Account_dialog_header_and_question_for_connor() throws Throwable {
 		Assert.assertTrue("Close Account flow header is not present",
-				pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Close an account')]")));
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'hear')]")).getText();
-		System.out.println(dialog);
+				interaction.verifyElement(By.xpath("//label[contains(text(),'Close an account')]")));
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'hear')]")).getText();
+		
 		Assert.assertEquals("Close account flow dialog is not present or incorrect",
 				"I'm sorry to hear you'd like to close this account, Ms. Connor.  May I ask the reason?", dialog);
-		Assert.assertTrue("Flow action header message is not present", pegaDriver
+		Assert.assertTrue("Flow action header message is not present", interaction
 				.verifyElement(By.xpath("//div[text()='Enter the reason for closing the account 1234500078963456']"))); 
 	}
 
@@ -660,46 +629,43 @@ public class NewPhoneCall {
 
 	@Then("^verify the dialog, status and changes$")
 	public void verify_the_dialog_status_and_changes() throws Throwable {
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(.,'request')]")).getText();
-		System.out.println(dialog);
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(.,'request')]")).getText();
+		
 		Assert.assertEquals("Close Account flow dialog is not present or incorrect",
 				"I've completed entering your request.", dialog);
 		Assert.assertTrue("Close Account  is not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Close Account']")));
+				interaction.verifyElement(By.xpath("//span[text()='Close Account']")));
 
 		Assert.assertTrue("Serive case status is not present",
-				pegaDriver.verifyElement(By.xpath("//span[text()='Open']")));
+				interaction.verifyElement(By.xpath("//span[text()='Open']")));
 	}
 
 	@Then("^Verify the Status of \"([^\"]*)\" is \"([^\"]*)\"$")
 	public void verify_the_Status_of_is(String subCase, String Status) throws Throwable {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
-		
+			
 		
 		if(subCase.equalsIgnoreCase("Pick Up Card At Branch")||subCase.equalsIgnoreCase("Resolve work")||subCase.equalsIgnoreCase("Dispute Transaction")
 				||subCase.equalsIgnoreCase("Complete scheduled appointment")||subCase.equalsIgnoreCase("Process dispute")||subCase.equalsIgnoreCase("Resolve complaint or compliment")){
 			Assert.assertTrue(" Enter new account address field is not present",
-					newWizard.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]")));
+					interaction.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]")));
 			
 			
 			}
 			
 		else{
 			Assert.assertTrue(" Enter new account address field is not present",
-					newWizard.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]")));
+					interaction.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]")));
 			
 		}	
 		
 		if(Status.equalsIgnoreCase("Open")){
 			Assert.assertTrue(" Completed field is not present",
-					newWizard.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
+					interaction.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
 			
 		}
 		else if (Status.equalsIgnoreCase("Completed")){
 			Assert.assertTrue(" Completed field is not present",
-					newWizard.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
+					interaction.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
 			
 		}
 	}
@@ -721,11 +687,9 @@ public class NewPhoneCall {
 
 	@Then("^Verify \"([^\"]*)\" subcase is displayed$")
 	public void verify_subcase_is_displayed(String subCase) throws Throwable {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
+		
 		Assert.assertTrue(" Sub case field is not present",
-					newWizard.verifyElement(By.xpath("//div[contains(@class,'dataValueRead')]/a[contains(text(),'"+subCase+"')]")));
+				interaction.verifyElement(By.xpath("//div[contains(@class,'dataValueRead')]/a[contains(text(),'"+subCase+"')]")));
 	}
 
 	@When("^Select \"([^\"]*)\" sub case$")
@@ -735,12 +699,11 @@ public class NewPhoneCall {
 
 	@Then("^Verify the header and other deatis in close account page$")
 	public void verify_the_header_and_other_deatis_in_close_account_page() throws Throwable {
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.waitForDocStateReady(3);
+		
 							
-			Assert.assertTrue("Close Account header is not present",pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Close Account')]")));
-			Assert.assertTrue("Reason header is not present",pegaDriver.verifyElement(By.xpath("//div[text()='Reason']")));
-			Assert.assertTrue("Comments header is not present",pegaDriver.verifyElement(By.xpath("//div[text()='Comments']")));
+			Assert.assertTrue("Close Account header is not present",interaction.verifyElement(By.xpath("//label[contains(text(),'Close Account')]")));
+			Assert.assertTrue("Reason header is not present",interaction.verifyElement(By.xpath("//div[text()='Reason']")));
+			Assert.assertTrue("Comments header is not present",interaction.verifyElement(By.xpath("//div[text()='Comments']")));
 	}
 
 	@When("^Select \"([^\"]*)\" statement  and submit$")
@@ -750,13 +713,12 @@ public class NewPhoneCall {
 
 	@Then("^Verify Dialog, amount and In-progress task for \"([^\"]*)\" statement$")
 	public void verify_Dialog_amount_and_In_progress_task_for_statement(String disputeId) throws Throwable {
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.waitForDocStateReady(3);
+		
 		
 					
-		//String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent']")).getText();
-		String dialog = pegaDriver.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'charge')]")).getText();
-		System.out.println(dialog);
+		//String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent']")).getText();
+		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'charge')]")).getText();
+		
 		
 		if(disputeId.equalsIgnoreCase("1029")){
 			
@@ -789,16 +751,16 @@ public class NewPhoneCall {
 	}
 				
 		Assert.assertTrue("In progress Dispute Transaction field is not present",
-				pegaDriver.verifyElement(By.xpath("//a[contains(@title,'Dispute Transaction')]")));
+				interaction.verifyElement(By.xpath("//a[contains(@title,'Dispute Transaction')]")));
 		
 		Assert.assertTrue("Dispute Transaction flow action header is not present",
-				pegaDriver.verifyElement(By.xpath("//label[contains(text(),'Dispute Transaction')]")));
+				interaction.verifyElement(By.xpath("//label[contains(text(),'Dispute Transaction')]")));
 		
 				
 		interaction.clickOnOtherActionsButton();
-		Assert.assertTrue("Where Am I menu option is not present",pegaDriver.verifyElement(By.xpath(phoneInteraction.WHERE_AM_I_XPATH)));
-		Assert.assertTrue("Refresh menu option is not present",pegaDriver.verifyElement(By.xpath(phoneInteraction.REFRESH_XPATH)));
-		Assert.assertTrue("Exit Interaction option is not present",pegaDriver.verifyElement(By.xpath(phoneInteraction.CANCEL_WORK_XPATH)));
+		Assert.assertTrue("Where Am I menu option is not present",interaction.verifyElement(By.xpath(phoneInteraction.WHERE_AM_I_XPATH)));
+		Assert.assertTrue("Refresh menu option is not present",interaction.verifyElement(By.xpath(phoneInteraction.REFRESH_XPATH)));
+		Assert.assertTrue("Exit Interaction option is not present",interaction.verifyElement(By.xpath(phoneInteraction.CANCEL_WORK_XPATH)));
 	}
 
 	@When("^Select a dispute \"([^\"]*)\" and submit$")
@@ -808,22 +770,19 @@ public class NewPhoneCall {
 
 	@Then("^Verify the confirm screen and inprogress task$")
 	public void verify_the_confirm_screen_and_inprogress_task() throws Throwable {
-		pegaDriver.waitForDocStateReady(2);
+		
 
-		Assert.assertTrue("Dispute Transaction field is not present",pegaDriver.verifyElement(By.xpath("//a[contains(@title,'Dispute Transaction')]")));
-		Assert.assertTrue("Dispute Transaction flow action dialog is not present",pegaDriver.verifyElement(By.xpath("//div[text()='Claim(s) successfully created, please confirm!']")));
+		Assert.assertTrue("Dispute Transaction field is not present",interaction.verifyElement(By.xpath("//a[contains(@title,'Dispute Transaction')]")));
+		Assert.assertTrue("Dispute Transaction flow action dialog is not present",interaction.verifyElement(By.xpath("//div[text()='Claim(s) successfully created, please confirm!']")));
 
-		Assert.assertTrue("Dispute Transaction flow action dialog is not present",pegaDriver.verifyElement(By.xpath("//span[text()='Dispute Transaction']")));
+		Assert.assertTrue("Dispute Transaction flow action dialog is not present",interaction.verifyElement(By.xpath("//span[text()='Dispute Transaction']")));
 	}
 
 	@Then("^Verify the \"([^\"]*)\" status displayed$")
 	public void verify_the_status_displayed(String status) throws Throwable {
-		frameId = pegaDriver.getActiveFrameId(false);
-		newWizard = pegaDriver.findWizard(frameId);
-		pegaDriver.waitForDocStateReady(3);
 		String Initial_Xpath = "//div[@class='field-item dataValueRead']/span[contains(text(),'#statustype#')]";
 		String Final_XPath = new String(Initial_Xpath).replace("#statustype#", status);
-		Assert.assertTrue("Status is not present",pegaDriver.verifyElement(By.xpath(Final_XPath)));
+		Assert.assertTrue("Status is not present",interaction.verifyElement(By.xpath(Final_XPath)));
 	}
 
 	@When("^Confirm the Dispute transaction flow$")
@@ -836,7 +795,7 @@ public class NewPhoneCall {
 		String Initial_Xpath = "//span[text()='(#total#)']";
 		String Final_XPath = new String(Initial_Xpath).replace("#total#", count);
 
-		Assert.assertTrue("Count is not present", pegaDriver.verifyElement(By.xpath(Final_XPath)));
+		Assert.assertTrue("Count is not present", interaction.verifyElement(By.xpath(Final_XPath)));
 	}
 
 
