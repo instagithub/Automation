@@ -6,14 +6,13 @@ Feature: Demo Interaction Test cases
   Scenario: Validation when Account is switched from Individual to Commercial
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    When CSR launches Demo Interaction for "Demo Pop - CONNOR"
-    Then verify the toaster pop values for connor
-    When CSR accepts the demo call
+    When CSR launches Demo Interaction for "Demo Pop - CONNOR" and accepts the call
+	Then verifiy left nav, header, composites, dialogs and other sections
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
     When Launch "Address Change" service process
-    When select the verification questions for service cases and click on verified
-    Then verify "Address Change" flow is launched
+    #When select the verification questions for service cases and click on verified
+    #Then verify "Address Change" flow is launched
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
     When check additional account for address change and submit
@@ -27,17 +26,16 @@ Feature: Demo Interaction Test cases
     When search for I- and S- items
     Then verify the status
     When Operator logs of the portal
-    
-    
+
   # author : Prakash
   @TC-creatlead
   Scenario: Verify all the options present under account and Create Lead for user
     Given a user is on login page of CS Portal
     When User logs in to CS portal as mikejones
-    Then Verify Operator name "Mike Jones"
-    When CSR launches Demo Interaction for "Demo Pop - CONNOR"
-    Then verify the toaster pop values for connor
-    When CSR accepts the demo call
+    #When CSR launches Demo Interaction for "Demo Pop - CONNOR"
+    When CSR launches Demo Interaction for "Demo Pop - CONNOR" and accepts the call
+    #Then verify the toaster pop values for connor
+    #When CSR accepts the demo call
     Then verifiy left nav, header, composites, dialogs and other sections
     Then verify Connor name and Interaction title and dialog
     Then Verify all the details for "1234500078963456" Account number

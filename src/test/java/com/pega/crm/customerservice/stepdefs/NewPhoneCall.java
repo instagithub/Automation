@@ -256,7 +256,7 @@ public class NewPhoneCall {
 	@Then("^verifiy left nav, header, composites, dialogs and other sections$")
 	public void verifiy_left_nav_header_composites_dialogs_and_other_sections() {
 		
-		pegaDriver.handleWaits().waitForElementVisibility(By.xpath(PhoneCall.PHONE_XPATH));
+		//pegaDriver.handleWaits().waitForElementVisibility(By.xpath(PhoneCall.PHONE_XPATH));
 		
 		Assert.assertTrue("phone field is not present",interaction.verifyElement(By.xpath(PhoneCall.PHONE_XPATH)));
 		Assert.assertTrue("Email Field is not present",interaction.verifyElement(By.xpath("//span[text()='Email']")));
@@ -756,11 +756,7 @@ public class NewPhoneCall {
 		Assert.assertTrue("Dispute Transaction flow action header is not present",
 				interaction.verifyElement(By.xpath("//label[contains(text(),'Dispute Transaction')]")));
 		
-				
-		interaction.clickOnOtherActionsButton();
-		Assert.assertTrue("Where Am I menu option is not present",interaction.verifyElement(By.xpath(phoneInteraction.WHERE_AM_I_XPATH)));
-		Assert.assertTrue("Refresh menu option is not present",interaction.verifyElement(By.xpath(phoneInteraction.REFRESH_XPATH)));
-		Assert.assertTrue("Exit Interaction option is not present",interaction.verifyElement(By.xpath(phoneInteraction.CANCEL_WORK_XPATH)));
+	
 	}
 
 	@When("^Select a dispute \"([^\"]*)\" and submit$")

@@ -6,7 +6,6 @@ Feature: Start Research test cases
   Scenario: Search with All fields under Accounts for Connor
     Given a user is on login page of CS Portal
     When User logs in to CS portal as bouser
-    Then Verify Operator name "Back office user"
     Then User will be navigated to the portal
     When Select "account" and serach for "Connor"
     Then Verify the left nav header and search results

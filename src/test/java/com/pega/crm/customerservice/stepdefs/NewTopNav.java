@@ -71,6 +71,15 @@ public class NewTopNav {
 		interactions = this.demoInteraction;
 
 	}
+	
+	
+	@When("^CSR launches Demo Interaction for \"([^\"]*)\" and accepts the call$")
+	public void csr_launches_Demo_Interaction_for_and_accepts_the_call(String demoInteraction) throws Throwable {
+		csPortal = browser.getPortal(CSPortal.class);
+		this.demoInteraction = csPortal.getTopNav().getDemoInteractionType(demoInteraction);
+		interactions = this.demoInteraction;
+	}
+	
 	@When("^User launches demo interaction \"([^\"]*)\"$")
 	public void user_launches_demo_interaction(String demoInteraction) throws Throwable {
 		csPortal = browser.getPortal(CSPortal.class);

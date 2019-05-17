@@ -8,8 +8,8 @@ Feature: BO user Test cases
     When User logs in to CS portal as bouser
     Then Verify the research object
     Then Verify Operator name "Back office user"
-    When Favorites already Exist in My Favorites
-    Then User will be navigated to the portal
+    #When Favorites already Exist in My Favorites
+    #Then User will be navigated to the portal
     When Select "contact" and serach for "Biggs"
     Then Verify the left nav header and search results for biggs
     When Filter the result with "first name" and "Rebecca"
