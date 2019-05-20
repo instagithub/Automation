@@ -290,8 +290,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	@Override
 	public void clickOnOtherActionsButton() {
 		
-		frameId = getActiveFrameId(false);
-		newWizard = findWizard(frameId);
+		
 		
 		try{
 		PegaWebElement otherActions = findElement(By.xpath("//button[@title='Other actions']"));
