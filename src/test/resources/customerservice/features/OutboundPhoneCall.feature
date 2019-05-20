@@ -6,9 +6,8 @@ Feature: Outbound Phone call test cases
   Scenario: Outbound phone call with Address Change and Disconnected Number
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
-    Then User places an outbound phone call
+    When User places an outbound phone call
     Then Verify fields on search screen
     Then Search for customer with lastname "connor" and accNo "12345000"
     Then select result from the result and proceed
@@ -21,9 +20,8 @@ Feature: Outbound Phone call test cases
   Scenario: Outbound phone call answered with DisputeTransaction
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    Then Verify Operator name "CS CSR"
     Then User will be navigated to the portal
-    Then User places an outbound phone call
+    When User places an outbound phone call
     Then Verify fields on search screen
     Then Search for customer with lastname "Biggs" and accNo "12345678"
     Then select result from the result and proceed

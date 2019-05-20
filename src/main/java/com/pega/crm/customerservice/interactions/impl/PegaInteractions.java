@@ -295,7 +295,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 		
 		try{
 		PegaWebElement otherActions = findElement(By.xpath("//button[@title='Other actions']"));
-		otherActions.click(false);
+		otherActions.click();
 		}
 		catch(Exception e)
 		{

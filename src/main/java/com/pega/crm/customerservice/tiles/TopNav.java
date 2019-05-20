@@ -64,13 +64,13 @@ public interface TopNav {
 	ResearchInteraction search(String name);
 	ResearchInteraction closeInteraction();
 	ResearchInteraction initiateACall(String result);
-	ResearchInteraction searchDropDownresult(String result);
 	ResearchInteraction searchResult(String interactionType, String name);
 	String getStatusOfCase();
 	void searchPortal(String name);
 	NewInboundInteraction startInboundCase();
 	NewDemoInteraction createNewDemoPop();
 	ResearchInteraction setResearchInteraction();
+	ResearchInteraction selectandSearchResearchType(String searchType, String value);
 	
 	
 	

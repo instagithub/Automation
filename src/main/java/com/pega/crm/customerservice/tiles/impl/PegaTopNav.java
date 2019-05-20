@@ -247,32 +247,7 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 		return researchInteraction;
 	}
 
-	@Override
-	public ResearchInteraction searchDropDownresult(String result) {
-		
-		if(verifyElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[5]/div/span/button")))
-		{
-		PegaWebElement selectAccount = findElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[5]/div/span/button"));
-		selectAccount.click(false);
-		PegaWebElement startresearch=findElement(By.xpath("//span[contains(text(),'Start research')]"));
-		startresearch.click();
-		}
-		else if(verifyElement(By.xpath("//span/a[contains(text(),'"+result+"')]")))
-		{
-			PegaWebElement selectAccount = findElement(By.xpath("//span/a[contains(text(),'"+result+"')]"));
-			selectAccount.click(false);
-		}
-		else{
-			//PegaWebElement selectAccount = findElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[8]/div/span/button"));
-			PegaWebElement selectAccount = findElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[@class=' gridCell ']//*[@aria-haspopup='true' and contains(@data-click,'CPMSearchResultMenu')]"));
-			selectAccount.click(false);
-			PegaWebElement startresearch=findElement(By.xpath("//span[contains(text(),'Start research')]"));
-			startresearch.click();
-		}
-		String frameId = getActiveFrameId(false);
-		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
-		return researchInteraction;
-	}
+	
 	@Override
 	public ResearchInteraction initiateACall(String result) {
 		if(verifyElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[5]/div/span/button")))
@@ -329,13 +304,29 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 	@Override
 	public ResearchInteraction setResearchInteraction() {
 		
+		
+		
 		String frameId = getActiveFrameId(false);
 		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
 		return researchInteraction;
 	}
 	
+	@Override
+	public ResearchInteraction selectandSearchResearchType(String searchType, String value) {
+		
+		
+		DropDown selectType = findSelectBox(By.xpath(TopNav.SELECT_DATA_SOURCE_XPATH));
+		selectType.selectByValue(searchType);
 
+		findElement(By.xpath(TopNav.SEARCH_BOX_XPATH)).sendKeys(Keys.CLEAR);
+		findElement(By.xpath(TopNav.SEARCH_BOX_XPATH)).sendKeys(value);
+		findElement(By.xpath(TopNav.SEARCH_ITEM_XPATH)).click();
+		
 
+		String frameId = getActiveFrameId(false);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
+		return researchInteraction;
+	}
 
 
 

@@ -102,7 +102,7 @@ public class NewTopNav {
 		interactions = inboundInteraction;
 	}
 
-	@Then("^User places an outbound phone call$")
+	@When("^User places an outbound phone call$")
 	public void user_places_an_outbound_phone_call() {
 		csPortal = browser.getPortal(CSPortal.class);
 		outboundPhoneCall = csPortal.getTopNav().getInteractionType("Outbound Phone Call");
@@ -134,14 +134,7 @@ public class NewTopNav {
 		interactions = researchInteraction;
 	}
 
-	@When("^Select the result \"([^\"]*)\" displayed$")
-	public void select_the_result_displayed(String result) {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().searchDropDownresult(result);
-		interactions = researchInteraction;
 
-	}
-	
 	
 	@Then("^Verify the research object$")
 	public void verify_the_research_object() throws Throwable {
@@ -149,7 +142,15 @@ public class NewTopNav {
 		researchInteraction = csPortal.getTopNav().setResearchInteraction();
 		interactions = researchInteraction;
 	}
-
+	
+	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
+	public void select_and_serach_for(String searchType, String value) {
+		csPortal = browser.getPortal(CSPortal.class);
+		researchInteraction = csPortal.getTopNav().selectandSearchResearchType(searchType, value);
+		interactions = researchInteraction;
+		
+	}
+	
 	
 	@When("^Select the Account \"([^\"]*)\" for Initiate a Call displayed$")
 	public void select_the_Account_for_Initiate_a_Call_displayed(String result)  {

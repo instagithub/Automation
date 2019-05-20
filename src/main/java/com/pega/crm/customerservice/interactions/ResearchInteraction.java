@@ -6,7 +6,9 @@ public interface ResearchInteraction extends Interactions{
 	String CLOSE_INTERACTION_XPATH = "//a[@class='Wrap_up' and text()='Close']";
 	void socialportallogout();
 	void selectLinkUnderShareandFeedback(String linkName);
-	void selectandSearchResearchType(String searchType, String value);
+	//void selectandSearchResearchType(String searchType, String value);
+	void filterwithValues(String searchBox, String searchString);
+	void searchDropDownresult(String result);
 	
 	
 	

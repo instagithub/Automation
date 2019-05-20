@@ -119,7 +119,7 @@ public class CRMBrowser extends PegaBrowser {
 		super.login(configuration.getCredential("BO_USER_ID"), configuration.getCredential("BO_USER_PASSWORD"));
 		csPortal = getPortal(CSPortal.class);
 		pegaDriver = testEnv.getPegaDriver();
-		researchInteraction = csPortal.getTopNav().setResearchInteraction();
+		//researchInteraction = csPortal.getTopNav().setResearchInteraction();
 		//interactions = researchInteraction;
 		
 	}

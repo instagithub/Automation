@@ -307,6 +307,7 @@ public class StartResearchInteraction {
 	}
 	@When("^Click on Favorites$")
 	public void click_on_Favorites() throws Throwable {
+		Thread.sleep(1000);
 		String Favorites= "//i[@title='Add to Favorites']";
 		PegaWebElement FavoritesIcon = researchInteraction.findElement(By.xpath(Favorites));
 		FavoritesIcon.click();
@@ -570,11 +571,6 @@ public class StartResearchInteraction {
 
 	}
 
-	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
-	public void select_and_serach_for(String searchType, String value) {
-		researchInteraction.selectandSearchResearchType(searchType, value);
-		
-	}
 
 	@Then("^Verify Operator name \"([^\"]*)\"$")
 	public void verify_Operator_name(String username) throws Throwable {
@@ -604,7 +600,7 @@ public class StartResearchInteraction {
 	
 	@When("^Filter the result with \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void filter_the_result_with_and(String searchBox, String searchString) {
-		inboundInteraction.filterwithInitialValues(searchBox, searchString);
+		researchInteraction.filterwithValues(searchBox, searchString);
 
 	}
 	
@@ -616,5 +612,11 @@ public class StartResearchInteraction {
 
 	}
 	
+	
+	@When("^Select the result \"([^\"]*)\" displayed$")
+	public void select_the_result_displayed(String result) {
+	
+		researchInteraction.searchDropDownresult(result);
+	}
 
 }
