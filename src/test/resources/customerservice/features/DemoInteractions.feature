@@ -12,7 +12,7 @@ Feature: Demo Interaction Test cases
     Then Verify all the service process items and other fields
     When Launch "Address Change" service process
     #When select the verification questions for service cases and click on verified
-    #Then verify "Address Change" flow is launched
+    Then verify "Address Change" flow is launched
     Then verify that "Address Change" flow is launched with dialog
     When change the address and other fields and submit
     When check additional account for address change and submit
