@@ -12,8 +12,8 @@ Feature: Start Research test cases
     When Filter with Account number "12457890" Type "Checking" Status "True" and owner "Sara"
     Then verify the result displayed for the "12457890" filter
     When Select the result "12457890" displayed
-    Then verify the title and account details for "12457890"
-    Then verify left nav, header and composite sections for Account with "12457890"
+    #Then verify the title and account details for "12457890"
+    #Then verify left nav, header and composite sections for Account with "12457890"
     When Click on Add Task to launch Service Process
     Then verify "Account" category under AddTask
     Then verify "General" category under AddTask

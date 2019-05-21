@@ -608,7 +608,7 @@ public class StartResearchInteraction {
 	public void filter_with_Account_number_Type_Status_and_owner(String AcNo, String Type, String Status,
 			String OwnerName) {
 
-		inboundInteraction.filterWithAllForAccount(AcNo, Type, Status, OwnerName);
+		researchInteraction.filterWithAllForAccount(AcNo, Type, Status, OwnerName);
 
 	}
 	

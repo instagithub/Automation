@@ -26,7 +26,7 @@ public interface NewInboundInteraction extends Interactions{
 	
 	void filterwithInitialValues(String searchBox, String searchString);
 
-	void filterWithAllForAccount(String AcNo, String Type, String Status, String OwnerName);
+	
 	
 		
 }

@@ -66,24 +66,7 @@ public class PegaNewInboundInteraction extends PegaInteractions implements NewIn
 
 	}
 	
-	@Override
-	public void filterWithAllForAccount(String AcNo, String Type, String Status, String OwnerName) {
-		PegaWebElement accountNumber = findElement(By.xpath("//input[@title='Search account number']"));
-		accountNumber.sendKeys(AcNo);
 
-		PegaWebElement accountType = findElement(By.xpath("//input[@title='Search account type']"));
-		accountType.sendKeys(Type);
-
-		PegaWebElement accountStatus = findElement(By.xpath("//input[@title='Search status']"));
-		accountStatus.sendKeys(Status);
-
-		PegaWebElement accountOwner = findElement(By.xpath("//input[@title='Search owner first name']"));
-		accountOwner.sendKeys(OwnerName);
-
-		PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
-		searchButton.click();
-
-	}
 	
 	
 }
