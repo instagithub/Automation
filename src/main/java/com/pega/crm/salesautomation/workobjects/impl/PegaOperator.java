@@ -172,9 +172,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setTerritory(String str) {
-
-		PegaUtil.autoComplete(pegaDriver, "TerritoryID", str);
-
+		findAutoComplete(By.id("TerritoryID")).setValue(str);
 	}
 
 	@Override

@@ -60,8 +60,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void clickOK() {
 		
-	
-		PegaUtil.clickCreate(pegaDriver);
+		findElement(By.xpath(PegaUtil.CREATE_XPATH)).click();
 		
 
 	}
@@ -258,7 +257,8 @@ public class PegaLeads extends WizardImpl implements Leads
 
 @Override
 	public void clickChangeOwner() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner" );
+	findElement(By.xpath(PegaUtil.ACTION_BUTTON_XPATH)).click();
+	findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Change owner"))).click(); 
 		
 	}
 

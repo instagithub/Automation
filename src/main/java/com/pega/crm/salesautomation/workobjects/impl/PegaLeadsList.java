@@ -21,7 +21,8 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 
 	@Override
 	public Leads createBusinessLead() {
-		PegaUtil.dropdown(pegaDriver, CREATE_LEAD_BTN_XPATH, 2);
+		findElement(By.xpath(CREATE_LEAD_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Business"))).click(); 
 		String frameId = getActiveFrameId(false);
 		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	
@@ -30,7 +31,8 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 	@Override
 	public Leads createIndividualLead() 
 	{
-		PegaUtil.dropdown(pegaDriver, CREATE_LEAD_BTN_XPATH, 1);
+		findElement(By.xpath(CREATE_LEAD_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Individual"))).click(); 
 		String frameId = getActiveFrameId(false);
 		Leads lead = new PegaLeads(frameId, testEnv);
 		return lead;	

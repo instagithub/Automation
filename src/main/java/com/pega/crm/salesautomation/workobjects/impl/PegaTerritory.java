@@ -24,13 +24,8 @@ public class PegaTerritory extends WizardImpl implements Territories
 
 	@Override
 	public void setOwner(String terrOwner) {
-		
-		//if(verifyElement(By.xpath("//a[contains(@name,'crmBusinessTerritoryDisplay')]")))
-			//findElement(By.xpath("//a[contains(@data-click,'crmRemoveOwnerID')]")).click();
 		findElement(By.id("crmSearchOwner")).click();
-		//[@id="crmSearchOwner"]
-			
-		PegaUtil.autoComplete(pegaDriver, TRR_OWNER_ID, terrOwner);
+		findAutoComplete(By.id(TRR_OWNER_ID)).setValue(terrOwner);
 		
 	}
 
