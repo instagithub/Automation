@@ -169,15 +169,12 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public void setOwner(String OwnerName) {
-		
-		PegaUtil.autoComplete(pegaDriver, TERRITORY_OWNER_ID, OwnerName);
-		
+		findAutoComplete(By.id(TERRITORY_OWNER_ID)).setValue(OwnerName);	
 	}
 
 	@Override
 	public void setParentTerritory(String ParentTerritory) {
-		PegaUtil.autoComplete(pegaDriver, PARENT_TERRITORY_ID, ParentTerritory);
-		
+		findAutoComplete(By.id(PARENT_TERRITORY_ID)).setValue(ParentTerritory);
 	}
 
 	@Override

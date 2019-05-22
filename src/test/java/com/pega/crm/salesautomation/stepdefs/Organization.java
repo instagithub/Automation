@@ -198,7 +198,7 @@ public class Organization
 		Assert.assertEquals(OrgEmployeeCount,(organization.getEmployees()));
 		Assert.assertTrue((organization.getRevenue()).contains(OrgRevenue));
 		if(organization.getTarget()== "Yes")
-			Assert.assertTrue(OrgTarget);		
+			Assert.assertTrue(OrgTarget);
 		Assert.assertEquals(parentOrg,organization.getParentOrganization());
 		Assert.assertTrue(organization.verifyOrgNews());
 		
