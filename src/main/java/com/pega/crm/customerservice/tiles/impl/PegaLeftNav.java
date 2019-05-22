@@ -78,7 +78,6 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 		
 		findElement(By.xpath(ORG_LIST_XPATH)).click();
 		String frameId = getActiveFrameId(false);
-		//OrganizationsList list = new OrganizationsListImpl(framElmt, frameId);
 		OrganizationsList list = new PegaOrganizationsList(frameId,testEnv);
 		return list;
 	}
@@ -108,22 +107,23 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 		
 		
 		findElement(By.xpath(OPP_LIST_XPATH)).click();
-		try
-		{
-			
-			findElement(By.xpath(LISTVIEW_XPATH)).click();
-			
-			findElement(By.xpath(OPP_ALL_BUTTON_XPATH)).click();
-		}
-		catch(Exception e)
-		{
-			System.out.println("Oppty page has only list view");
-		}
-		finally{
+		
+		
 			String frameId = getActiveFrameId(false);
 			OpportunityList oppList = new PegaOpportunityList(frameId, testEnv);
+			try
+			{
+				
+				oppList.findElement(By.xpath(LISTVIEW_XPATH)).click();
+				
+				oppList.findElement(By.xpath(OPP_ALL_BUTTON_XPATH)).click();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Oppty page has only list view");
+			}
 			return oppList;
-		}
+		
 		
 	}
 
@@ -181,9 +181,9 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 	@Override
 	public ClosePlans getClosePlans() {
 		findElement(By.xpath(FORECAST_LIST_XPATH)).click();
-		findElement(By.xpath(CLOSEPLANS_LIST_XPATH)).click();
 		String frameId = getActiveFrameId(false);
 		ClosePlans closeplans= new PegaClosePlans(frameId, testEnv);
+		closeplans.findElement(By.xpath(CLOSEPLANS_LIST_XPATH)).click();
 		return closeplans;
 		
 	} 

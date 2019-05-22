@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 import com.pega.ri.WizardImpl;
@@ -35,7 +36,6 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	String OPP_CHANGE_STAGE_XPATH=PegaUtil.getButtonXpath("Change stage");
 	String OPP_AMOUNT_ID="OpportunityAmount";
 	String OPP_CALANDER_XPATH="//span[contains(@id, 'CloseDateSpan')]/span | //img[contains(@data-ctl,'DatePicker')]";
-	//String OPP_NEXTYEAR_="nextYear";
 	String OPP_DAY_XPATH="//*[@data-day='1']";
 	String OPP_NAME_ID="Name";
 	String OPP_TERRITORY_ID="crmTerritorySearch";
@@ -104,6 +104,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	String OPP_NEXT_BEST_ACTIONS_XPATH="//div[@data-node-id='CloseDateAnalysis']";		
 	String OPP_STAGES[]={"Qualification","Analysis","Proposal","Decision","Negotiation"};
 	List<String> OPPSTAGES = new ArrayList<String>(Arrays.asList(OPP_STAGES));
+	String OPP_NEXTYEAR_XPATH="//span[@id='yearSpinner']//button[@class='spin-button spin-up']";
 	
 	
 	@Override
@@ -118,7 +119,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void setDate() 
 	{
-		PegaUtil.setDate(pegaDriver, OPP_CALANDER_XPATH);
+		setDate(OPP_CALANDER_XPATH);
 	}
 
 	@Override
@@ -133,12 +134,12 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void setTerritory(String oppTerritory) {
 		
-		PegaUtil.autoComplete(pegaDriver, OPP_TERRITORY_ID, oppTerritory);
+		findAutoComplete(By.id(OPP_TERRITORY_ID)).setValue(oppTerritory);
 	}
 
 	@Override
 	public void setContact(String oppContact) {
-		PegaUtil.autoComplete(pegaDriver, OPP_CONTACT_ID, oppContact);
+		findAutoComplete(By.id(OPP_CONTACT_ID)).setValue(oppContact);
 		
 	}
 
@@ -159,12 +160,6 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 		if(selectedStage.equals("Select..."))
 		{
 			selectedStage=new StringBuffer(OPPSTAGES.get(0));
-			/*int i=OPPSTAGES.indexOf(oppStage);
-			if(i==4)
-				NewStage=new StringBuffer(OPPSTAGES.get(i-1));
-			else
-				NewStage=new StringBuffer(OPPSTAGES.get(i+1));
-			findSelectBox(By.id(OPP_STAGE_ID)).selectByVisibleText(NewStage.toString());*/
 		}
 		return selectedStage.toString();
 	}
@@ -233,9 +228,8 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void clickSubmitButton() {
-		/*
-		findElement(By.xpath(OPP_SUBMIT_BUTTON_ID)).click();*/
-		PegaUtil.clickSubmit(pegaDriver);
+		findElement(By.xpath(PegaUtil.SUBMIT_XPATH)).scrollIntoView();
+		findElement(By.xpath(PegaUtil.SUBMIT_XPATH)).click();
 	}
 
 	@Override
@@ -278,7 +272,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 		//findElement(By.xpath(OPP_SWITCH_TO_EDIT_MODE_XPATH)).click();
 		
 		findElement(By.id(OPP_CHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
-		PegaUtil.autoComplete(pegaDriver, OPP_CHANGEOWNER_ID, changeOwner);
+		findAutoComplete(By.id(OPP_CHANGEOWNER_ID)).setValue(changeOwner);
 		
 	}
 
@@ -298,14 +292,16 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void clickCloseForBusiness() 
 	{
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Close");
+		findElement(By.xpath(PegaUtil.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Close"))).click(); 
 		
 	}
 
 	@Override
 	public void clickCloseForIndividual() 
 	{
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Close");
+		findElement(By.xpath(PegaUtil.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Close"))).click();
 		
 	}
 
@@ -324,13 +320,16 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public boolean isActionItemValuePresent(String dropDownValue) {
-		return(PegaUtil.isActionItemValuePresent(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, dropDownValue));
+		findElement(By.xpath(PegaUtil.ACTION_BUTTON_XPATH)).click();
+		return verifyElement(By.xpath(PegaUtil.getMenuDropdownXpath(dropDownValue)));
+		
 		
 	}
 
 	@Override
 	public void clickUpdateStage() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change stage");
+		findElement(By.xpath(PegaUtil.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Change stage"))).click();
 	}
 
 	@Override
@@ -375,7 +374,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 
 	@Override
 	public void setDueDate() {
-		PegaUtil.setDate(pegaDriver, OPP_DUEDATE_XPATH);
+		setDate(OPP_DUEDATE_XPATH);
 		
 	}
 
@@ -424,7 +423,7 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 		
 		/*findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(contactName);
 		findElement(By.id(OPP_SEARCH_CONTACT_ID)).sendKeys(Keys.TAB);*/
-		PegaUtil.autoComplete(pegaDriver, OPP_SEARCH_CONTACT_ID, contactName);
+		findAutoComplete(By.id(OPP_SEARCH_CONTACT_ID)).setValue(contactName);
 	}
 
 	@Override
@@ -821,11 +820,9 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 	@Override
 	public void addTeamMember(String operator) {
 		
-		
-		PegaUtil.autoComplete(pegaDriver, OPP_SEARCH_CONTACT_ID, operator);
+		findAutoComplete(By.id(OPP_SEARCH_CONTACT_ID)).setValue(operator);
 		
 		findSelectBox(By.xpath("//select[contains(@id,'TeamMemberRole')]")).selectByVisibleText("Sales Rep");
-		//findElement(By.id("crmSearchTerm")).sendKeys("operator");
 		findElement(By.id("ModalButtonSubmit")).click();
 		
 		
@@ -848,6 +845,13 @@ public class PegaOpportunity extends WizardImpl implements Opportunities {
 			System.out.println("Failed first");
 			return false;
 		}
+	}
+	
+	private void setDate(String Locator) {
+		findElement(By.xpath(Locator)).click();
+		findElement(By.xpath(OPP_NEXTYEAR_XPATH)).click();
+		findElement(By.xpath(OPP_DAY_XPATH)).click();
+		
 	}
 	
 	

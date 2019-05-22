@@ -53,23 +53,13 @@ public  class PegaUtil
 	public static String FAX="040-5698745";
 	public static String SelectAll=Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE);
 	public static String[] s = new String[25];
-	//public static String OPP_NEXTYEAR_XPATH="//span[@id='yearSpinner']//button[contains(@class, 'spin-button spin-down')]";
-	public static String OPP_NEXTYEAR_XPATH="//span[@id='yearSpinner']//button[@class='spin-button spin-up']"; /*changing to class equals* by Raghu*/
 	public static int DATE= (new Date().getDate())+1;
-	public static String OPP_DAY_XPATH="//*[@data-day='1']";
+	
 	public static String DAY_XPATH="//*[@data-day='" + DATE + "']";
 	public static String NEWADDRESS_XPATH="//a[contains(@name,'crmAddressList')]";
 	public static String RECENT_WO_XPATH="//div[@node_name='RecentItem']";
 	public static String REFRESH_XPATH=PegaUtil.getButtonXpath("Refresh") + "|//i[@alt='Refresh']|//i[@title='Refresh']";
 
-	/*public static String ACTIVITY_REFRESH_XPATH = "//i[@title='Refresh' and contains(@name,'Activities')]";
-	public static String TASK_REFRESH_XPATH="//button[contains(@name, 'crmTasks')][text()='Refresh'] |//i[contains(@name, 'crmTasks')][@title='Refresh']";
-	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ PegaUtil.getButtonXpathWithIcon("Refresh");
-*/
-	/*public static String ACTIVITY_REFRESH_XPATH = "//button[contains(@name, 'crmActivitiesList')][text()='Refresh'] | //i[contains(@name, 'crmActivitiesList')][@title='Refresh']";
-	public static String TASK_REFRESH_XPATH="//button[contains(@name, 'crmTasks')][text()='Refresh'] |//i[contains(@name, 'crmTasks')][@title='Refresh']";
-	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ PegaUtil.getButtonXpathWithIcon("Refresh");
-*/
 	public static String ACTIVITY_REFRESH_XPATH = "//button[contains(@name, 'ctivities')][text()='Refresh'] | //i[contains(@name, 'ctivities')][@title='Refresh']|//i[contains(@name, 'ctivities')][contains(@class,'refresh')]";
 
 	public static String TASK_REFRESH_XPATH="//i[@title='Refresh'][contains(@name,'ask')]|//i[contains(@name, 'ask')][contains(@class,'refresh')]";
@@ -77,6 +67,8 @@ public  class PegaUtil
 	public static String OPP_CONTACT_REFRESH_XPATH="//button[contains(@name,'crmOpportunityContactsTab')][text()='Refresh']" +"|"+ PegaUtil.getButtonXpathWithIcon("Refresh")+"|"+"//i[contains(@name, 'contacts')][contains(@class,'refresh')]";
 
 	public static String CALANDER_XPATH="//span[contains(@id, 'CloseDateSpan')]/span | //img[contains(@data-ctl,'DatePicker')]";
+	public static String OPP_NEXTYEAR_XPATH="//span[@id='yearSpinner']//button[@class='spin-button spin-up']";
+	
 	public static void dropdown(PegaWebDriver pegaDriver, String Locator, int index) 
 	{
 		pegaDriver.getActiveFrameId(true);
@@ -185,59 +177,6 @@ public  class PegaUtil
 			
 		}
 		return false;
-	}
-
-	public static void setDate(PegaWebDriver pegaDriver, String Locator) {
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(Locator)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_NEXTYEAR_XPATH)).click();
-		pegaDriver.getActiveFrameId(true);
-		pegaDriver.findElement(By.xpath(OPP_DAY_XPATH)).click();
-		
-	}
-
-	public static void setDate(PegaWebDriver pegaDriver, int Date) {
-		
-		//pegaDriver.findElement(By.xpath(CALANDER_XPATH)).click();
-		//pegaDriver.findElement(By.id(Locator)).click(); /* changed  to find element by id*/
-		pegaDriver.getActiveFrameId(true);
-		//pegaDriver.findElement(By.xpath(OPP_NEXTYEAR_XPATH)).click();
-		//pegaDriver.getActiveFrameId(true);
-		//DATE = Date+1;
-		//pegaDriver.findElement(By.xpath(DAY_XPATH)).click();
-		
-		String frameId = pegaDriver.getActiveFrameId(false);
-		PegaWebElement frameElmt = pegaDriver.findElement(By.id(frameId));
-		pegaDriver.switchTo().frame(frameId);
-		
-		pegaDriver.findElement(By.xpath(CALANDER_XPATH)).click();
-				
-		PegaWebElement wb; 
-		if(pegaDriver.verifyElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='31']")))
-		{
-			wb = pegaDriver.findElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='31']")); 
-			wb .click();
-		}
-			
-		else if(pegaDriver.verifyElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='30']")))
-		{
-			wb = pegaDriver.findElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='30']"));
-			wb.click();
-		}
-		
-		else if(pegaDriver.verifyElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='29']")))
-		{
-			wb = pegaDriver.findElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='29']"));
-			wb.click();
-		}
-		
-		else 
-		{
-			wb = pegaDriver.findElement(By.xpath("//table[@id='Pega_Cal_Cont']//a[@data-day='28']"));
-			wb.click();
-		}
-		
 	}
 
 
@@ -415,6 +354,9 @@ public  class PegaUtil
 	}
 	public static String getButtonXpathWithIcon(String buttonText){
 		return "//i[contains(@title, '"+buttonText+"')]";
+	}
+	public static String getMenuDropdownXpath(String menuItem){
+		return "//*[contains(@class,'menu') and text()='"+menuItem+"']";
 	}
 	public static void clickRefresh(PegaWebDriver pegaDriver)
 	{

@@ -39,7 +39,8 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 	@Override
 	public Opportunities createBusniessOpportunity() {
 	
-		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Business");
+		findElement(By.xpath(CREATE_OPP_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Business"))).click();
 
 		String frameId = getActiveFrameId(false);
 		Opportunities opp = new PegaOpportunity(frameId, testEnv);
@@ -48,7 +49,8 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 
 	@Override
 	public Opportunities createIndividualOpportunity() {
-		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Individual");
+		findElement(By.xpath(CREATE_OPP_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Individual"))).click();
 
 		String frameId = getActiveFrameId(false);
 		Opportunities opp = new PegaOpportunity(frameId, testEnv);

@@ -65,7 +65,7 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
 	@Override
 	public void searchForOrganization(String orgName) {
-		PegaUtil.autoComplete(pegaDriver, ORGNAME_TITLE, orgName);
+		findAutoComplete(By.id(ORGNAME_TITLE)).setValue(orgName);
 	}
 
 	@Override
