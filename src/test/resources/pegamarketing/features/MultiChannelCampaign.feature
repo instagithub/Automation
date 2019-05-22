@@ -5,7 +5,6 @@ Feature: Smoke Test cases
 Scenario: Create Multi channel campaign
     Given A User logs in with Analyst credentials
     When User opens Campaigns Landing Page
-    Then "Campaigns" landing Page should be opened
     When User creates Multi-Channel Campaign
     Then Create a Campaign Page for MultiChannel Campaign should be displayed
     When User edits Multi-Channel Campaign with following data
