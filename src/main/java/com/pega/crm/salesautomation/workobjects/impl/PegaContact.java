@@ -267,8 +267,6 @@ public class PegaContact extends WizardImpl implements Contacts
 
 	@Override
 	public String getC2ARelationShipName() {
-		//pegaDriver.getActiveFrameId(true);
-		// findElement(By.xpath(CONT_C2A_LIST_XPATH)).scrollIntoView();
 		List<WebElement> wb =  findElements(By.xpath(CONT_C2A_LIST_XPATH));
 		System.out.println("Sizeee" + wb.size());
 		for(WebElement w : wb)

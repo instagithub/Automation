@@ -35,8 +35,6 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	public String VERSION = "$Id: PegaLeftNav.java 117333 2018-10-01 09:12:21Z $";
 	
-	private PegaWebDriver pegaDriver = null;
-	private TestEnvironment testEnv = null;
 	String ORG_LIST_XPATH = "//span[text()='Organizations']";
 	String OPR_DASHBOARD="//span[text()='Dashboard']";
 	String OPR_LIST_XPATH = "//span[text()='Operators']";
