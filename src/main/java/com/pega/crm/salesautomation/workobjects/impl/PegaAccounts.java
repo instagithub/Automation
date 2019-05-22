@@ -70,7 +70,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public String WO_NAME=null;
 	String ACC_SUBTABS_XPATH = "//div[@role='tab']//h2";
 	String ACC_PRIMARY_CONTACT_XPATH="//*[text()='Primary contact']/..//div/span";
-	
+	String ACC_EDIT_XPATH=PegaUtil.getButtonXpath("Edit");
 	
 	
 	@Override
@@ -90,7 +90,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	@Override
 	public void setOrganization(String OrganizationName) 
 	{
-		PegaUtil.autoComplete(pegaDriver, ACC_ORG_ID, OrganizationName);
+		findAutoComplete(By.id(ACC_ORG_ID)).setValue(OrganizationName);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public void setPhoneNumber(String PhoneNumber)
 	{
 		  
-		 findElement(By.id(ACC_PHONENUMBER_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(ACC_PHONENUMBER_ID)).clear();
 		 findElement(By.id(ACC_PHONENUMBER_ID)).sendKeys(PhoneNumber);
 	}
 	@Override
@@ -125,7 +125,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	}
 	public void clickEdit()
 	{
-		PegaUtil.clickEdit(pegaDriver);
+		findElement(By.xpath(ACC_EDIT_XPATH)).click();
 	}
 	public void clickSubmit()
 	{
@@ -185,9 +185,8 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	{
 		  
 		  
-		 findElement(By.id(ACC_OWNER_ID)).sendKeys(PegaUtil.SelectAll);
-		  
-		PegaUtil.autoComplete(pegaDriver, ACC_OWNER_ID, ownerName);
+		 findElement(By.id(ACC_OWNER_ID)).clear();
+		 findAutoComplete(By.id(ACC_OWNER_ID)).setValue(ownerName);
 	}
 	
 	public void setReason(String reason)

@@ -44,10 +44,7 @@ public class PegaContact extends WizardImpl implements Contacts
 
 	@Override
 	public void setOrganization(String str) {
-		//  
-		 findElement(By.id(CONT_ORG_ID)).click(false);
-		PegaUtil.autoComplete(pegaDriver, CONT_ORG_ID, str);
-		
+		findAutoComplete(By.id(CONT_ORG_ID)).setValue(str);
 	}
 
 	@Override
@@ -136,9 +133,7 @@ public class PegaContact extends WizardImpl implements Contacts
 
 	@Override
 	public void setTerritory(String str) {
-		  
-		PegaUtil.autoComplete(pegaDriver, CONT_TERRIOTRY_ID, str);
-		
+		findAutoComplete(By.id(CONT_TERRIOTRY_ID)).setValue(str); 
 	}
 	public void setMaritalStatus(String str)
 	{
@@ -158,20 +153,20 @@ public class PegaContact extends WizardImpl implements Contacts
 
 	@Override
 	public void clickCreate() {
-		PegaUtil.clickCreate(pegaDriver);
+		
+		findElement(By.xpath(PegaUtil.CREATE_XPATH)).click();
 		
 	}
 	public void clickEdit()
 	{
 		  
-		PegaUtil.clickEdit(pegaDriver);
+		findElement(By.xpath(PegaUtil.ACC_EDIT_XPATH)).click();
 	}
 	
 		public void clickSubmitButton()
 	{
 		  
-		// findElement(By.id(CONT_RESPONSIBILITY_ID)).scrollIntoView();
-		PegaUtil.clickSubmit(pegaDriver);
+			findElement(By.xpath(PegaUtil.SUBMIT_XPATH)).click();
 	}
 		
 	public String getFullname()
@@ -261,8 +256,8 @@ public class PegaContact extends WizardImpl implements Contacts
 	@Override
 	public void clickOnRelationshipsTab() 
 	{
-		PegaUtil.getSubTab(pegaDriver, "Relationships");
-		PegaUtil.clickRefresh(pegaDriver);						
+		findElement(By.xpath(PegaUtil.SUBTAB_XPATH+"//*[text() = 'Relationships']")).click();	
+		findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 	}
 
 	@Override
