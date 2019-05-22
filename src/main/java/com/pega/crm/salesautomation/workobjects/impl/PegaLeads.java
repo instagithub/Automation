@@ -273,13 +273,7 @@ public class PegaLeads extends WizardImpl implements Leads
 
 	@Override
 	public void setOwner(String LEAD_UPDATEDOWNER) {
-		 
-		/*findElement(By.xpath(LEAD_SWITCH_TO_EDIT_MODE_XPATH)).click();
-		 
-		*/
-		findElement(By.id(LEAD_CHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
-		PegaUtil.autoComplete(pegaDriver, LEAD_CHANGEOWNER_ID, LEAD_UPDATEDOWNER);
-		
+		findAutoComplete(By.id(LEAD_CHANGEOWNER_ID)).setValue(LEAD_UPDATEDOWNER);
 	}
 
 
