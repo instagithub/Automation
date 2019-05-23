@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import com.pega.ri.Wizard;
 
-public interface Accounts extends Wizard{
+public interface Accounts extends WorkObject{
 	
 	
 	

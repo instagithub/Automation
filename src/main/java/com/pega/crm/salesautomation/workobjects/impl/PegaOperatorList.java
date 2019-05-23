@@ -6,11 +6,9 @@ import org.openqa.selenium.Keys;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.OperatorList;
 import com.pega.crm.salesautomation.workobjects.Operators;
-import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
 
 
-public class PegaOperatorList extends WizardImpl implements OperatorList {
+public class PegaOperatorList extends PegaWorkObject implements OperatorList {
 	
 
 

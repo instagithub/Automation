@@ -5,9 +5,8 @@ import org.openqa.selenium.By;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.ContactList;
 import com.pega.crm.salesautomation.workobjects.Contacts;
-import com.pega.ri.WizardImpl;
 
-public class PegaContactList extends WizardImpl implements ContactList {
+public class PegaContactList extends PegaWorkObject implements ContactList {
 
 	public PegaContactList(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.pega.ri.Wizard;
 
-public interface AccountList extends Wizard
+public interface AccountList extends WorkObject
 {
 	Accounts createAccount();
 	Accounts navigateAccount(String accountName);

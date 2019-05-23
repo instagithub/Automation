@@ -8,7 +8,7 @@ import org.openqa.selenium.Keys;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
 
-public interface Contacts extends Wizard
+public interface Contacts extends WorkObject
 {
 
 	

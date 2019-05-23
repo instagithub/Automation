@@ -10,13 +10,12 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.crm.salesautomation.workobjects.Opportunities;
-import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
+import com.pega.crm.salesautomation.workobjects.WorkObject;
 
 
 
 
-public class PegaAccounts extends WizardImpl implements Accounts{
+public class PegaAccounts extends PegaWorkObject implements Accounts{
 	
 	public PegaAccounts(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
@@ -82,9 +81,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	@Override
 	public void setTerritory(String TerritoryName) 
 	{
-		
-		PegaUtil.autoComplete(pegaDriver, ACC_TERRIORTY_ID, TerritoryName);
-		
+		findAutoComplete(By.id(ACC_TERRIORTY_ID)).setValue(TerritoryName);
 	}
 
 	@Override
@@ -117,20 +114,12 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		return accHeader;
 	}
 
-	@Override
-	public void clickCreate() 
-	{
-		PegaUtil.clickCreate(pegaDriver);
-		
-	}
+	
 	public void clickEdit()
 	{
 		findElement(By.xpath(ACC_EDIT_XPATH)).click();
 	}
-	public void clickSubmit()
-	{
-		PegaUtil.clickSubmit(pegaDriver);
-	}
+	
 	@Override
 	public String getAccountName() {
 		  
@@ -156,7 +145,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 
 	@Override
 	public Boolean isCityEnabled() {
-		Boolean bool=  findElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")).isEnabled();
+		Boolean bool=  findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).isEnabled();
 		return bool;
 		
 	}
@@ -168,11 +157,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		return phone;
 	}
 
-	@Override
-	public void clickChangeOwner() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner");
-		
-	}
+	
 
 	@Override
 	public String getChangeOwnerHeader() {
@@ -201,11 +186,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		return owner;
 	}
 
-	@Override
-	public void clickClose() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Close");	
-	}
-
+	
 	@Override
 	public String getCloseOwnerHeader() {
 		  
@@ -218,15 +199,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		 findElement(By.id(ACC_COMMENTS_ID)).sendKeys(comments);
 	}
 
-	@Override
-	public boolean isActionItemValuePresent(String dropDownValue) {
-		return(PegaUtil.isActionItemValuePresent(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, dropDownValue));
-	}
-
-	@Override
-	public void setAddress() {
-		PegaUtil.setAddress(pegaDriver);
-	}
+	
 	
 	public void clickFollow()
 	{
@@ -253,7 +226,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	@Override
 	public Boolean isFollowingListEmpty() 
 	{
-		return(PegaUtil.isListEmpty(pegaDriver));
+		return isListEmpty();
 	}
 
 
@@ -270,7 +243,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public void setEmployees(String employees) {
 		
 		  
-		 findElement(By.id(ACC_EMPLOYEES_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(ACC_EMPLOYEES_ID)).sendKeys(SELECT_ALL);
 		 findElement(By.id(ACC_EMPLOYEES_ID)).sendKeys(employees);
 	}
 
@@ -355,7 +328,6 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 		
 		  
 		String desc;
-		//if( verifyElement(By.xpath(defaultOrg)))
 		desc=  findElement(By.xpath(defaultOrg)).getText().trim();
 		return desc;
 		
@@ -368,68 +340,25 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	}
 
 
-	@Override
-	public Opportunities addOpportunity() {
-		if( verifyElement(By.xpath(ACTION_BUTTON_XPATH))) {
-			PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Add opportunity");
-		} else {
-			  
-			 findElement(By.xpath("//div[@class='header']//h2[contains(text(),'Opportunities')]")).click();
-			  
-			 findElement(By.xpath(ACC_ADD_INDOPPTY)).click();
-			
-		}
-		
-				
-		String frameId =  getActiveFrameId(false);
-		Opportunities newOppty= new PegaOpportunity(frameId, testEnv);
-		return newOppty;
-	}
-
 
 	@Override
 	public void navigateToTab(String tabName) {
 		 findElement(By.xpath("//div[@class='header']//h2[contains(text(),'"+tabName+"')]")).click();
-		
-		
 	}
 
-
-	@Override
-	public void getActivitiesSubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Activities");
-		
-	}
-
-
-	@Override
-	public List<String> getTaskValues(String taskSubject) {
-		findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).scrollIntoView();
-		 findElement(By.xpath(PegaUtil.TASK_REFRESH_XPATH)).click();
-		return(PegaUtil.getRowValues(pegaDriver, ACC_TASK_ROW_IDENTIFIER_XPATH, taskSubject));
-	}
-
-
-	
 	@Override
 	public boolean validateAccOpportunities(String opptyName,
 			String opptyStage, String opptyCloseReason, String opptyOwner,
 			String opptyAmount,String oppCloseDate, String opptyMustWin, String opptyTerritory) {
 		List<WebElement> AccOpptys;
 		AccOpptys =  findElements(By.xpath("//table[contains(@pl_prop_class,'PegaCRM-Work-SFA-Opportunity')]//tr[contains(@oaargs,'UPLUS-SAPLUS-WORK-OPPORTUNITY')]"));
-		//AccOpptys =  findElements(By.xpath("//*[@data-test-id='20150105032822096321935']"));
-		
 		int rows = AccOpptys.size();
 		WebElement RowData;
 		
 		for (int i = 1;i<=rows;i++)
 			{
-			//RowData =  findElement(By.xpath());  findElement(By.xpath("//table[contains(@pl_prop,'Tasks')]//tr[@pl_index='"+(i+1)+"']"));
-			  
-			
 			if(opptyName.equals( findElement(By.xpath("//table[contains(@pl_prop_class,'PegaCRM-Work-SFA-Opportunity')]//tr[@pl_index='"+(i)+"']//a[contains(@data-test-id,'20150105032822096321935')]")).getAttribute("text").trim()))
 				{	
-			    	
 					if(opptyOwner.contains( findElement(By.xpath("//table[contains(@pl_prop_class,'PegaCRM-Work-SFA-Opportunity')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Owner']//div")).getAttribute("text").trim()) && 
 					opptyAmount.contains(( findElement(By.xpath("//table[contains(@pl_prop_class,'PegaCRM-Work-SFA-Opportunity')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Amount']//div")).getAttribute("text").trim()).replaceAll("[^0-9.]","")) &&
 					opptyTerritory.equals( findElement(By.xpath("//table[contains(@pl_prop_class,'PegaCRM-Work-SFA-Opportunity')]//tr[@pl_index='"+(i)+"']//td[@data-attribute-name='Territory']//div")).getAttribute("text").trim()))
@@ -444,11 +373,6 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	@Override
 	public boolean validateAccActivities(String Subject,
 			String CommunicationType, String actDate, String CompletedBy) {
-		
-		
-	
-	  
-		
 		List<WebElement> OrgActivities;
 		OrgActivities =  findElements(By.xpath("//table[contains(@pl_prop,'crmActivities')]/tbody/tr[contains(@class,'Row')]"));
 		int rows = OrgActivities.size();
@@ -459,52 +383,15 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 				RowData =  findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']"));
 				if(Subject.equals( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//a[@title='Click to Open the Related Task']")).getAttribute("text").trim()))
 				{
-					/*System.out.println( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text").trim());
-					System.out.println( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text").trim());
-					System.out.println( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text").trim());
-					System.out.println( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//span//a")).getAttribute("text").trim());
-					System.out.println( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a6']//span")).getAttribute("text").trim());*/
-					
 					if( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Communication type']//div")).getAttribute("text").trim().contains(CommunicationType) &&
 					actDate.equals( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Date']//span")).getAttribute("text").trim()) && 
 					CompletedBy.equals( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@data-attribute-name='Completed by']//span")).getAttribute("text").trim()))
-					//RelatedTo.equals( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//span//a")).getAttribute("text").trim()) &&
-					//RelatedType.equals( findElement(By.xpath("//table[contains(@pl_prop,'crmActivities')]//tr[@pl_index='"+(i+1)+"']//td[@headers='a5']//span")).getAttribute("text").trim())
 					return true;
 									
 				}
 			}
 		return false;
 	
-	}
-
-
-	@Override
-	public void getLeadSubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Leads");
-		//PegaUtil.clickRefresh(pegaDriver,"Leads");
-	}
-
-
-	@Override
-	public List<String> getLeadRowValues(String leadName) {
-		//PegaUtil.clickRefresh(pegaDriver);
-		return (PegaUtil.getRowValues(pegaDriver, LEAD_ROWS_XPATH, leadName));
-	}
-
-
-	@Override
-	public void getSalesTeamSubTab() {	
-		//PegaUtil.getSubTab(pegaDriver, "Sales team");
-		  
-		// findElement(By.xpath(ACC_FOLLOWERS_XPATH)).click();
-		Wizard wizard =  findWizard( getActiveFrameId(false));
-	    wizard.findElement(By.xpath(ACC_FOLLOWERS_XPATH)).scrollIntoView();	
-	}
-	
-	@Override
-	public void refresh() {
-		PegaUtil.refresh(pegaDriver);
 	}
 
 	@Override
@@ -527,18 +414,7 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	}
 
 
-	@Override
-	public void getContactSubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Contacts");
-	}
-
-
-	@Override
-	public List<String> getContactValues(String contactRelationship) {
-		
-		return(PegaUtil.getRowValues(pegaDriver, ACC_CONTACT_ROW_IDENTIFIER_XPATH, contactRelationship));
-	}
-
+	
 
 	@Override
 	public ArrayList<String> getSubTabs() {
@@ -558,5 +434,90 @@ public class PegaAccounts extends WizardImpl implements Accounts{
 	public String getPrimaryContactName() {
 		String primaryContact =  findElement(By.xpath(ACC_PRIMARY_CONTACT_XPATH)).getText();
 		return primaryContact;
+	}
+
+
+	@Override
+	public void clickCreate() {
+		create();
+	}
+
+	@Override
+	public void clickSubmit() {
+		submit();
+		
+	}
+
+	@Override
+	public void clickChangeOwner() {
+		findElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Change owner"))).click();
+	}
+
+	@Override
+	public void clickClose() {
+		close();
+	}
+
+	@Override
+	public Opportunities addOpportunity() {
+		if( verifyElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH))) {
+			findElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH)).click();
+			findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Add opportunity"))).click();
+		} else {
+			  
+			 findElement(By.xpath("//div[@class='header']//h2[contains(text(),'Opportunities')]")).click();
+			  
+			 findElement(By.xpath(ACC_ADD_INDOPPTY)).click();
+			
+		}
+		
+				
+		String frameId =  getActiveFrameId(false);
+		Opportunities newOppty= new PegaOpportunity(frameId, testEnv);
+		return newOppty;
+	}
+
+	@Override
+	public boolean isActionItemValuePresent(String dropDownValue) {
+		return(isActionItemValuePresent(WorkObject.ACTION_BUTTON_XPATH, dropDownValue));
+	}
+
+	@Override
+	public void getActivitiesSubTab() {
+		getSubTab("Activities");
+	}
+
+	@Override
+	public List<String> getTaskValues(String taskSubject) {
+		findElement(By.xpath(TASK_REFRESH_XPATH)).scrollIntoView();
+		 findElement(By.xpath(TASK_REFRESH_XPATH)).click();
+		return(getRowValues(ACC_TASK_ROW_IDENTIFIER_XPATH, taskSubject));
+	
+	}
+
+	@Override
+	public void getLeadSubTab() {
+		getSubTab("Leads");
+	}
+
+	@Override
+	public List<String> getLeadRowValues(String leadName) {
+		return (getRowValues(LEAD_ROWS_XPATH, leadName));
+	}
+
+	@Override
+	public void getSalesTeamSubTab() {
+	    findElement(By.xpath(ACC_FOLLOWERS_XPATH)).scrollIntoView();
+	}
+
+	@Override
+	public void getContactSubTab() {
+		getSubTab("Contacts");
+	}
+
+	@Override
+	public List<String> getContactValues(String contactRelationship) {
+		return(getRowValues(ACC_CONTACT_ROW_IDENTIFIER_XPATH, contactRelationship));
 	}
 	}

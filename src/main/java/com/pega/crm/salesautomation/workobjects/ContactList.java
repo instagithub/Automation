@@ -3,7 +3,7 @@ package com.pega.crm.salesautomation.workobjects;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
 
-public interface ContactList extends Wizard
+public interface ContactList extends WorkObject
 {
 	
 	String CREATE_CONT_BTN_XPATH = PegaUtil.getStrongButtonXPath("Create contact");  

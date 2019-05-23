@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.ri.Wizard;
 
-public interface ClosePlans extends Wizard{
+public interface ClosePlans extends WorkObject{
 	boolean isFilterMenuDisplayed();
 	boolean isApplyButtonDisplayed();
 	boolean isExportButtonDisplayed();

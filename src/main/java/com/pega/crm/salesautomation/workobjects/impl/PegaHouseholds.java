@@ -12,13 +12,12 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Households;
-import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
+import com.pega.crm.salesautomation.workobjects.WorkObject;
 import com.pega.util.XPathUtil;
 
 
 
-public class PegaHouseholds extends WizardImpl implements Households
+public class PegaHouseholds extends PegaWorkObject implements Households
 {
 
 	public PegaHouseholds(String frameId, TestEnvironment testEnv) {
@@ -66,7 +65,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 	public void setPhoneNumber(String PhoneNumber) 
 	{
 		 
-		 findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(SELECT_ALL);
 		 findElement(By.id(HH_PHONENUMBER_ID)).sendKeys(PhoneNumber);
 		
 	}
@@ -75,7 +74,7 @@ public class PegaHouseholds extends WizardImpl implements Households
 	public void setDescription(String Description) {
 		 
 		 findElement(By.id(HH_DESCRIPTION_ID)).click();
-		 findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(PegaUtil.SelectAll);
+		 findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(SELECT_ALL);
 		 findElement(By.id(HH_DESCRIPTION_ID)).sendKeys(Description);
 		
 	}
@@ -116,12 +115,6 @@ public class PegaHouseholds extends WizardImpl implements Households
 		
 	}
 
-	@Override
-	public void clickCreate() {
-		
-		PegaUtil.clickCreate(pegaDriver);
-		
-	}
 
 	@Override
 	public String getHouseholdPageHeader() {
@@ -151,13 +144,6 @@ public class PegaHouseholds extends WizardImpl implements Households
 		 findElement(By.id(HH_FILTERCONTACT_ID)).sendKeys(Contact);
 		 findElement(By.xpath(HH_FILTER_BUTTON_XPATH)).click();
 		
-	}
-
-	@Override
-	public void setHouseholdContact(String Role) {
-		 findElement(By.xpath(HH_FILTER_RESULT_XPATH)).click();
-		 findSelectBox(By.xpath(HH_ROLE_ID)).selectByVisibleText(Role);
-		PegaUtil.clickSubmit(pegaDriver);
 	}
 
 	@Override
@@ -212,18 +198,6 @@ public class PegaHouseholds extends WizardImpl implements Households
 	}
 
 	@Override
-	public void clickEdit() {
-		PegaUtil.clickEdit(pegaDriver);
-		
-	}
-
-	@Override
-	public void clickSubmit() 
-	{
-		PegaUtil.clickSubmit(pegaDriver);
-	}
-
-	@Override
 	public void clickAddOrRemoveMember() {
 		
 	}
@@ -247,14 +221,6 @@ public class PegaHouseholds extends WizardImpl implements Households
 				break;
 			}
 		}
-	}
-@Override
-	public void selectHousehold(String HouseholdName) {
-		
-		 
-		PegaUtil.autoComplete(pegaDriver, "HouseholdToJoinID",HouseholdName);
-		clickSubmit();
-		clickSubmit();
 	}
 
 	@Override
@@ -293,27 +259,9 @@ public class PegaHouseholds extends WizardImpl implements Households
 	}
 
 	@Override
-	public void clickClose() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Close");
-	}
-
-	@Override
 	public void setComments(String Comments) {
 		 
 		 findElement(By.id(HH_CLOSE_COMMENTS_ID)).sendKeys(Comments);
-		
-	}
-	@Override
-	public boolean isActionItemValuePresent(String dropDownValue)
-	{
-		return (PegaUtil.isActionItemValuePresent(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, dropDownValue));
-	}
-
-	@Override
-	public void getMembersSubtab() {
-		PegaUtil.getSubTab(pegaDriver, "Members");
-		Wizard wizard =  findWizard( getActiveFrameId(false));
-		wizard.findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).scrollIntoView();
 		
 	}
 	
@@ -329,6 +277,53 @@ public class PegaHouseholds extends WizardImpl implements Households
 		}
 		System.out.println(s.size());
 		return s;
+	}
+
+	@Override
+	public void clickCreate() {
+		create();
+		
+	}
+
+	@Override
+	public void clickEdit() {
+		edit();
+	}
+
+	@Override
+	public void clickSubmit() {
+		submit();
+	}
+
+	@Override
+	public void setHouseholdContact(String Role) {
+		 findElement(By.xpath(HH_FILTER_RESULT_XPATH)).click();
+		 findSelectBox(By.xpath(HH_ROLE_ID)).selectByVisibleText(Role);
+		 submit();
+	}
+
+	@Override
+	public void selectHousehold(String HouseholdName) {
+		findAutoComplete(By.id("HouseholdToJoinID")).setValue(HouseholdName);
+		clickSubmit();
+		clickSubmit();
+	}
+
+	@Override
+	public void clickClose() {
+		close();
+	}
+
+	@Override
+	public boolean isActionItemValuePresent(String dropDownValue) {
+		return (isActionItemValuePresent(WorkObject.ACTION_BUTTON_XPATH, dropDownValue));
+	}
+
+	@Override
+	public void getMembersSubtab() {
+		getSubTab("Members");
+		findElement(By.xpath(HH_ADDMEMBER_BUTTON_XPATH)).scrollIntoView();
+		
 	}
 
 	

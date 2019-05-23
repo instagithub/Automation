@@ -9,9 +9,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Leads;
 import com.pega.crm.salesautomation.workobjects.LeadsList;
-import com.pega.ri.WizardImpl;
 
-public class PegaLeadsList extends WizardImpl implements LeadsList {
+public class PegaLeadsList extends PegaWorkObject implements LeadsList {
 
 	
 	
@@ -74,7 +73,7 @@ public class PegaLeadsList extends WizardImpl implements LeadsList {
 
 	@Override
 	public String getSectionHeader() {
-		return(PegaUtil.getSectionHeader(pegaDriver).trim());
+		return(getSectionHeader().trim());
 	}
 
 

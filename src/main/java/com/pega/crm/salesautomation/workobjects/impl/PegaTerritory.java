@@ -5,9 +5,9 @@ import org.openqa.selenium.Keys;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Territories;
-import com.pega.ri.WizardImpl;
+import com.pega.crm.salesautomation.workobjects.WorkObject;
 
-public class PegaTerritory extends WizardImpl implements Territories
+public class PegaTerritory extends PegaWorkObject implements Territories
 {
 
 	
@@ -31,44 +31,27 @@ public class PegaTerritory extends WizardImpl implements Territories
 
 	@Override
 	public void setDelegate(String delgName) {
-		PegaUtil.autoComplete(pegaDriver, TRR_DELEGATE_ID, delgName);
+		findAutoComplete(By.id(TRR_DELEGATE_ID)).setValue(delgName);
 		
 	}
 
 	@Override
 	public void setParentTerritory(String parentTerrName) {
-		PegaUtil.autoComplete(pegaDriver, TRR_PARENT_TERRITORY_ID, parentTerrName);
-		
+		findAutoComplete(By.id(TRR_PARENT_TERRITORY_ID)).setValue(parentTerrName);	
 	}
 
 	@Override
 	public void clickSubmit() {
-		
-		//
-		PegaUtil.clickSubmit(pegaDriver);
-		
+		submit();		
 	}
 
 	@Override
 	public void navigateToTerritoryModelbox() {
-		//Set<String> windowId = getWindowHandles();
-		/*for (String window : driver.getWindowHandles()) {
-            if (!window.equals(parent)) {
-                driver.switchTo().window(window);
-                System.out.println("Modal dialog found");
-                break;
-            }*/
-        /*Iterator<String> itererator = windowId.iterator();   
-        String mainWinID = itererator.next();
-        String  newAdwinID = itererator.next();
-        switchTo().window(newAdwinID);
-		*/
 		
 	}
 
 	@Override
 	public String getTerritoryModelboxName() {
-		//navigateToTerritoryModelbox();
 		String title = getTitle();
 		return title;
 	}
@@ -89,7 +72,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 	public String getTerritoryName() 
 	{
 		String name = findElement((TRR_NAME_ID)).getAttribute("Value");
-		//System.out.println(name);
 		return name;
 	}
 
@@ -98,7 +80,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 	{
 		
 		String Owner = findElement((TRR_OWNER_VALUE_XPATH)).getText().trim();
-		//System.out.println(Owner);
 		return Owner;
 	}
 
@@ -121,7 +102,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 	@Override
 	public boolean isSubmitDisplayed() 
 	{
-		//
 		if(findElement(By.id(TRR_SUBMIT_ID)).isDisplayed())
 			return true;
 		else
@@ -178,7 +158,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 
 	@Override
 	public void modifyPerentTerritory(String parentTerrName) {
-		//waitForDocStateReady(2);
 		
 		findElement((TRR_EDIT_PARENT_TERRITORY_XPATH)).click();
 		
@@ -188,21 +167,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 
 	@Override
 	public String getErrorMessageforName() {
-		/*//clickSubmit();
-		try{
-			//
-			//Runtime.getRuntime().exec("V:\\SVNwc\\SFATests\\AutoItScripts\\popup.exe");
-			findElement(By.id(TRR_SUBMIT_ID)).click();
-			Thread.sleep(1000);
-			System.out.println("Getting Popup");
-			
-			
-			//switchTo().alert().accept();
-		}
-		catch(Exception e)
-		{
-			System.out.println("Error!!!!!");
-		}*/
 		
 		findElement((TRR_NAME_ID)).sendKeys(Keys.TAB);
 		
@@ -228,8 +192,6 @@ public class PegaTerritory extends WizardImpl implements Territories
 	@Override
 	public void clickOK() {
 		
-		//
-		//PegaUtil.clickOK(pegaDriver);
 		By TerritorySubmitButton = By.xpath("//*[@data-test-id='20141009024905058525394']");
 		findElement(TerritorySubmitButton).click();
 		
@@ -240,11 +202,5 @@ public class PegaTerritory extends WizardImpl implements Territories
 		
 		
 	}
-	/*@Override
-	public String getTerritoryPageHeader() {
-		
-		String trrHeader=findElement(By.xpath(TRR_TERRITORY_PAGE_HEADER_XPATH)).getText();
-		return trrHeader;
-	}*/
 
 }

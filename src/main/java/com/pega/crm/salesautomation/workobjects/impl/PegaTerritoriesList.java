@@ -9,9 +9,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Territories;
 import com.pega.crm.salesautomation.workobjects.TerritoriesList;
-import com.pega.ri.WizardImpl;
 
-public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
+public class PegaTerritoriesList extends PegaWorkObject implements TerritoriesList {
 
 	public PegaTerritoriesList(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
@@ -38,7 +37,7 @@ public class PegaTerritoriesList extends WizardImpl implements TerritoriesList {
 	{
 		
 		
-		findElement((TRR_FILTER_PLACEHOLDER_XPATH)).sendKeys(PegaUtil.SelectAll);
+		findElement((TRR_FILTER_PLACEHOLDER_XPATH)).sendKeys(SELECT_ALL);
 		findElement((TRR_FILTER_PLACEHOLDER_XPATH)).sendKeys(territoryName);
 		findElement((TRR_FILTERBUTTON_XPATH)).click();
 		

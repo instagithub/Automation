@@ -10,9 +10,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.AccountList;
 import com.pega.crm.salesautomation.workobjects.Accounts;
-import com.pega.ri.WizardImpl;
 
-public class PegaAccountList extends WizardImpl implements AccountList 
+public class PegaAccountList extends PegaWorkObject implements AccountList
 {
 	public PegaAccountList(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
@@ -77,7 +76,7 @@ public class PegaAccountList extends WizardImpl implements AccountList
 
 	@Override
 	public Accounts openFirstAccount() {
-		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(SELECT_ALL);
 		findElement(By.xpath(ACC_FILTER_PLACEHOLDER_XPATH)).sendKeys(Keys.TAB);
 		findElement(By.xpath(BUSINESSTAB_XPATH)).click();
 		String name=findElement(By.xpath(ACC_NAME_XPATH)).getText();

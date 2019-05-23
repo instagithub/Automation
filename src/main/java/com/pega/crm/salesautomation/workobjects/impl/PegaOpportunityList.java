@@ -11,9 +11,8 @@ import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.OpportunityList;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
 
-public class PegaOpportunityList extends WizardImpl implements OpportunityList {
+public class PegaOpportunityList extends PegaWorkObject implements OpportunityList {
 
 
 	public PegaOpportunityList(String frameId, TestEnvironment testEnv) {

@@ -9,10 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
 
 
-public class PegaClosePlans extends WizardImpl implements ClosePlans{
+public class PegaClosePlans extends PegaWorkObject implements ClosePlans{
 
 	public PegaClosePlans(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);

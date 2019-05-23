@@ -10,12 +10,12 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Accounts;
 import com.pega.crm.salesautomation.workobjects.Organizations;
+import com.pega.crm.salesautomation.workobjects.WorkObject;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
 import com.pega.util.XPathUtil;
 
-public class PegaOrganization extends WizardImpl implements Organizations {
+public class PegaOrganization extends PegaWorkObject implements Organizations {
 	
 	
 
@@ -61,7 +61,6 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		findElement(By.xpath("//div[@string_type='field']//button[text()='Actions']")).click();
 		
 		findElement(By.xpath("//li[@title='Assign to a new owner']")).click();
-		//PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner");	
 		
 		String  frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
@@ -71,10 +70,9 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public Organizations changeHierarchy()
 	{
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change hierarchy");	
-		String frameId = getActiveFrameId(false);
-		frameId = getActiveFrameId(false);
-		Organizations Org = new PegaOrganization(frameId, testEnv);
+		findElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Change hierarchy"))).click(); 
+		Organizations Org = new PegaOrganization(getActiveFrameId(false), testEnv);
 	    return Org;
 	}
 	
@@ -87,24 +85,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 		
 		String frameId= getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
-	
-		
-		/*waitForDocStateReady(1);
-		frameId = getActiveFrameId(false);
-		frameElmt = findElement(By.id(frameId));
-		switchTo().frame(frameId);
-		
-		findElement(By.id("crmSearchOwner")).sendKeys(selectAll);
-		findElement(By.id("crmSearchOwner")).sendKeys(owner);
-		waitForDocStateReady(1);
-		findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
-		waitForDocStateReady(1);
-		findElement(By.id("crmSearchOwner")).sendKeys(Keys.DOWN);
-		waitForDocStateReady(1);
-		findElement(By.id("crmSearchOwner")).sendKeys(Keys.ENTER);
-		waitForDocStateReady(2);*/
-		PegaUtil.autoComplete(pegaDriver, "crmSearchOwner",owner);
-		
+		findAutoComplete(By.id("crmSearchOwner")).setValue(owner);
 		findElement(By.id("ChangeReason")).sendKeys("Change Owner Flow");
 		findElement(By.xpath("//button[text()='Submit']")).click();
 		
@@ -117,28 +98,11 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	{
 		String frameId = getActiveFrameId(false);
 		Organizations Org = new PegaOrganization(frameId, testEnv);
-	
-		if(findElement(By.xpath("//a[@title='Switch to edit mode']")).isDisplayed())	
-		findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
-		/*waitForDocStateReady(1);
-		frameId = getActiveFrameId(false);
-		frameElmt = findElement(By.id(frameId));
-		switchTo().frame(frameId);
-		
-
-		
-		findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
-		waitForDocStateReady(1);
-		/*findElement(By.id("crmSearchTerm")).sendKeys(selectAll);
-		findElement(By.id("crmSearchTerm")).sendKeys(newParentOrg);
-		waitForDocStateReady(1);
-		
-		findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
-		waitForDocStateReady(1);
-		findElement(By.id("crmSearchTerm")).sendKeys(Keys.DOWN);
-		waitForDocStateReady(1);
-		findElement(By.id("crmSearchTerm")).sendKeys(Keys.ENTER);*/
-		PegaUtil.autoComplete(pegaDriver, "crmSearchTerm", newParentOrg);		
+		if(findElement(By.xpath("//a[@title='Switch to edit mode']")).isDisplayed())
+		{
+			findElement(By.xpath("//a[@title='Switch to edit mode']")).click();
+		}
+		findAutoComplete(By.id("crmSearchTerm")).setValue(newParentOrg);
 		findElement(By.xpath("//button[text()='Submit']")).click();
 		return Org;	
 	}
@@ -156,13 +120,7 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void setTerritory(String territory) 
 	{
-		
-		/*
-		findElement(By.xpath("//a[contains(@name,'TerritoryID')")).click();
-		
-		findElement(By.id(ORG_TERRIORTY_ID)).clear();
-		*/
-		PegaUtil.autoComplete(pegaDriver, ORG_TERRIORTY_ID, territory);	
+		findAutoComplete(By.id(ORG_TERRIORTY_ID)).setValue(territory);
 	}
 
 	@Override
@@ -315,30 +273,30 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 
 	
 	public void setAddress(){
-		if(verifyElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")))
+		if(verifyElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")))
         {
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")).scrollIntoView();
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")).sendKeys(PegaUtil.CITY);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.STREET_ID+"')]")).sendKeys(PegaUtil.STREET);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.ADDRESSLINE2_ID+"')]")).sendKeys(PegaUtil.ADDRESSLINE2);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.STATE_ID+"')]")).sendKeys(PegaUtil.STATE);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.ZIPCODE_ID+"')]")).sendKeys(PegaUtil.ZIPCODE);
-			findSelectBox(By.xpath("//*[contains(@id,'"+PegaUtil.COUNTRY_ID+"')]")).selectByVisibleText(PegaUtil.COUNTRY);
+			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).scrollIntoView();
+			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).sendKeys(CITY);
+			findElement(By.xpath("//*[contains(@id,'"+STREET_ID+"')]")).sendKeys(STREET);
+			findElement(By.xpath("//*[contains(@id,'"+ADDRESSLINE2_ID+"')]")).sendKeys(ADDRESSLINE2);
+			findElement(By.xpath("//*[contains(@id,'"+STATE_ID+"')]")).sendKeys(STATE);
+			findElement(By.xpath("//*[contains(@id,'"+ZIPCODE_ID+"')]")).sendKeys(ZIPCODE);
+			findSelectBox(By.xpath("//*[contains(@id,'"+COUNTRY_ID+"')]")).selectByVisibleText(COUNTRY);
 		}
 		else 
-		if(verifyElement(By.xpath(PegaUtil.NEWADDRESS_XPATH)))
+		if(verifyElement(By.xpath(NEWADDRESS_XPATH)))
 		{
-			findElement(By.xpath(PegaUtil.NEWADDRESS_XPATH)).scrollIntoView();
+			findElement(By.xpath(NEWADDRESS_XPATH)).scrollIntoView();
 			System.out.println("Clicking on Add Address");
-			findElement(By.xpath(PegaUtil.NEWADDRESS_XPATH)).click();
+			findElement(By.xpath(NEWADDRESS_XPATH)).click();
 			pegaDriver.waitForDocStateReady(1);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")).scrollIntoView();
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.CITY_ID+"')]")).sendKeys(PegaUtil.CITY);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.STREET_ID+"')]")).sendKeys(PegaUtil.STREET);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.ADDRESSLINE2_ID+"')]")).sendKeys(PegaUtil.ADDRESSLINE2);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.STATE_ID+"')]")).sendKeys(PegaUtil.STATE);
-			findElement(By.xpath("//*[contains(@id,'"+PegaUtil.ZIPCODE_ID+"')]")).sendKeys(PegaUtil.ZIPCODE);
-			findSelectBox(By.xpath("//*[contains(@id,'"+PegaUtil.COUNTRY_ID+"')]")).selectByVisibleText(PegaUtil.COUNTRY);
+			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).scrollIntoView();
+			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).sendKeys(CITY);
+			findElement(By.xpath("//*[contains(@id,'"+STREET_ID+"')]")).sendKeys(STREET);
+			findElement(By.xpath("//*[contains(@id,'"+ADDRESSLINE2_ID+"')]")).sendKeys(ADDRESSLINE2);
+			findElement(By.xpath("//*[contains(@id,'"+STATE_ID+"')]")).sendKeys(STATE);
+			findElement(By.xpath("//*[contains(@id,'"+ZIPCODE_ID+"')]")).sendKeys(ZIPCODE);
+			findSelectBox(By.xpath("//*[contains(@id,'"+COUNTRY_ID+"')]")).selectByVisibleText(COUNTRY);
 		}
 		
 	}
@@ -777,31 +735,27 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	}	
 	@Override
 	public void getOpptySubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Opportunities");
+		getSubTab("Opportunities");
 		
 	}																																																   
 	@Override
 	public List<String> getOpptyValues(String opptyName) {
-		//findElement(By.xpath(PegaUtil.REFRESH_XPATH)).scrollIntoView();
-		//findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
 	Wizard wizard = findWizard(getActiveFrameId(false));
 		wizard.findElement(By.xpath(ORG_OPPTY_ROW_IDENTIFIER_XPATH)).scrollIntoView();
-		//wizard.findElement(By.xpath(PegaUtil.REFRESH_XPATH)).click();
 		
-		return(PegaUtil.getRowValues(pegaDriver, ORG_OPPTY_ROW_IDENTIFIER_XPATH, opptyName));
+		return(getRowValues(ORG_OPPTY_ROW_IDENTIFIER_XPATH, opptyName));
 		
 	}
 
 	@Override
 	public void getContactSubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Contacts");
-		//PegaUtil.clickRefresh(pegaDriver,"contact");
+		getSubTab("Contacts");
 	}
 	
 	@Override
 	public void refresh() {
-		PegaUtil.refresh(pegaDriver);
+		refresh();
 	}
  
 	@Override
@@ -814,15 +768,15 @@ public class PegaOrganization extends WizardImpl implements Organizations {
 	@Override
 	public void getLeadSubTab() {
 		
-		PegaUtil.getSubTab(pegaDriver, "Leads");
-		PegaUtil.clickRefresh(pegaDriver,"leads");
+		getSubTab("Leads");
+		clickRefresh("leads");
 		
 	}
 
 	@Override
 	public List<String> getLeadRowValues(String companyName) {
-		PegaUtil.clickRefresh(pegaDriver,"leads");
+		clickRefresh("leads");
 		
-		return (PegaUtil.getRowValues(pegaDriver, LEAD_ROWS_XPATH, companyName));
+		return (getRowValues(LEAD_ROWS_XPATH, companyName));
 	}		  
 }

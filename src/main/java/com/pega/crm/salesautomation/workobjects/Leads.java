@@ -6,7 +6,7 @@ import java.util.List;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
 
-public interface Leads extends Wizard
+public interface Leads extends WorkObject
 {
 	String LEAD_LASTNAME_ID="LastName";
 	String LEAD_INDUSTRY_XPATH="//select[contains(@name,'Industry')]";

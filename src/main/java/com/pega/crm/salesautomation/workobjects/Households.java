@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.ri.Wizard;
 
-public interface Households extends Wizard{
+public interface Households extends WorkObject{
 	
 	
 	void setHouseholdName(String householdName);
