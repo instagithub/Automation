@@ -38,12 +38,10 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public void setIssue(String issueName) {
-		pegaDriver.waitForDocStateReady();
 		findSelectBox(BUSINESS_ISSUE_DROPDOWN).selectByVisibleText(issueName);
 	}
 
 	public void setGroup(String groupName) {
-		pegaDriver.waitForDocStateReady();
 		findElement(By.xpath("//label[text()='" + groupName + "']/preceding-sibling::input[1]")).click();
 	}
 
@@ -66,7 +64,6 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public ConfigurePriorityDialog configurePriority() {
-		pegaDriver.waitForDocStateReady();
 		findElement(CONFIGURE_PRIORITY_BUTTON).click();
 		ConfigurePriorityDialog configObjectiveDialog = new PegaConfigurePriorityDialog(this);
 		return configObjectiveDialog;
@@ -115,10 +112,8 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 
 		public void addPrioritizationOffer() {
-			findElement(PRIORITIZATION_DIVISON).click(false);
-			pegaDriver.waitForDocStateReady(2);
-			findElement(PRIORITIZATION_ADD_BUTTON).click(false);
-			pegaDriver.waitForDocStateReady(2);
+			findElement(PRIORITIZATION_DIVISON).click();
+			findElement(PRIORITIZATION_ADD_BUTTON).click();
 		}
 
 		public boolean isRankedAdded() {
@@ -148,10 +143,8 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		}
 
 		public void addPriority() {
-			findElement(RAWPROPPENSITY_DIV).click(false);
-			pegaDriver.waitForDocStateReady();
-			findElement(RAWPROPPENSITY_DIV).click(false);
-			pegaDriver.waitForDocStateReady(2);
+			findElement(RAWPROPPENSITY_DIV).click();
+			findElement(RAWPROPPENSITY_DIV).click();
 		}
 
 	}
@@ -178,8 +171,6 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 
 	public void selectcategoryLP() {
 		findElement(ALLCATEGORIESLINK).click();
-		// pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
-		pegaDriver.waitForDocStateReady();
 		findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]")).click();
 	}
 
@@ -190,7 +181,6 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		selectcategoryLP();
 		findElement(SEARCHSTRATEGY).sendKeys(strategy1);
 		findElement(VIEW_BTN).click();
-		pegaDriver.waitForDocStateReady();
 		findElement(SEARCHSTRATEGY).clear();
 		findElement(SEARCHSTRATEGY).sendKeys(strategy2);
 		findElement(VIEW_BTN).click();

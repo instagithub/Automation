@@ -289,7 +289,6 @@ public class PegaOrganization extends PegaWorkObject implements Organizations {
 			findElement(By.xpath(NEWADDRESS_XPATH)).scrollIntoView();
 			System.out.println("Clicking on Add Address");
 			findElement(By.xpath(NEWADDRESS_XPATH)).click();
-			pegaDriver.waitForDocStateReady(1);
 			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).scrollIntoView();
 			findElement(By.xpath("//*[contains(@id,'"+CITY_ID+"')]")).sendKeys(CITY);
 			findElement(By.xpath("//*[contains(@id,'"+STREET_ID+"')]")).sendKeys(STREET);
@@ -589,9 +588,6 @@ public class PegaOrganization extends PegaWorkObject implements Organizations {
 		//validate the expected account values 
 		System.out.println("Expected Values are");
 		System.out.println(AccountName + "****   "+ AccountOwner+" ****"+AccountIndustry +"******"+AccOpportunities +"******" +AccountTotAmount +"*******"+AccountStatus);
-	  //  Wizard wizard = findWizard(getActiveFrameId(false));
-		//wizard.findElement(By.xpath("//span[@data-test-id='20150106035042083712546']")).scrollIntoView();
-	    // PegaUtil.clickRefresh(pegaDriver,"Accounts");
 		
 		
 		

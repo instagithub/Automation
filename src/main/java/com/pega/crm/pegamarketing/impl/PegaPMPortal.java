@@ -83,8 +83,7 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public Strategies openStrategies() {
-		pegaDriver.waitForDocStateReady(false);
-		findElement(INTELLIGENCE_MENU).click(false);
+		findElement(INTELLIGENCE_MENU).click();
 		findElement(STRATEGIES_MENU).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		Strategies strategies = new PegaStrategies(frameId, testEnv);
@@ -97,7 +96,6 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		findElement(NEW_ICON).mouseOver();
 		findElement(HOME_ICON).mouseOver(); 
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
-		pegaDriver.waitForDocStateReady();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		return CreateCorrectLandingPageObj(landingPage, frameId);
 	}

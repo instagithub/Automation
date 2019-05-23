@@ -37,37 +37,31 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 	}
 
 	public ConfigureEngagementDialog configureEngagement() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(CONFIGURE_ENGAGEMENT_BUTTON).click();
 		ConfigureEngagementDialog configureEngagementDialog = new PegaConfigureEngagementDialog(this);
 		return configureEngagementDialog;
 	}
 	
 	public ConfigureEngagementCriteriaDialog configureEngagementCriteria() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(CONFIGURE_ENGAGEMENTCRITERIA_LINK).click();
 		return new PegaConfigureEngagementCriteriaDialog(this);
 	}
 	public CampaignConfigureDialog configureEngagementOffers() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(SELECT_OFFERS_LINK).click();
 		return new PegaCampaignConfigureDialog(this);
 	}
 
 	public CampaignConfigureDialog configureOutcomeOptimization() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(CONFIGURE_OUTCOMEOPTIMIZATION_LINK).click();
 		return new PegaCampaignConfigureDialog(this);
 	}
 	
 	public ConfigureTimeframeDialog configureTimeframe() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(CONFIGURE_TIMEFRAME_LINK).click();
 		return new PegaConfigureTimeframeDialog(this);
 	}
 	
 	public ConfigureDetailsDialog configureDetails() {
-		pegaDriver.waitForDocStateReady(2);
 		findElement(CONFIGURE_CAMPAIGNDETAILS_LINK).click();
 		return new PegaConfigureDetailsDialog(this);
 	}

@@ -23,20 +23,6 @@ String OPR_SEARCH_FIELD = "FilterTerm";
 String refreshButton = "//button[@class='pzhc pzbutton' and text()='Refresh']";
 String filterButton = "//button[@class='pzhc pzbutton' and text()='Filter']";
 
-// Operator LIst columns
-
-/* Verify the columns on the Organization list page
-By OPR_NAMECOLUMN = By.xpath("//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Name')]";
-String OPR_TYPECOLUMN = "//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Operator type')]";
-String OPR_PRIMARYTERRITORYCOLUMN = "//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Primary territory')]";
-String OPR_REPORTSTOCOLUMN = "//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Reports to')]";
-String OPR_ISACTIVECOLUMN = "//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Is active')]";
-String OPR_JOBTITLECOLUMN = "//table[@pl_prop_class='Data-Admin-Operator-ID']//th[@role='columnheader']//div[contains(text(),'Job title')]";
-String NO_OPERATORS_XPATH = "//div[text()='No operators']";
-String OPERATOR_NAME_XPATH = "//table[@id='gridLayoutTable']//tr[@pl_index='1']//td[@data-attribute-name='Name']//span";
-*/
-
-
 By OPR_NAMECOLUMN = By.xpath("//*[@data-test-id='201804100347110194172-th-0']//div[contains(text(),'Name')]");
 By OPR_TYPECOLUMN = By.xpath("//*[@data-test-id='201804100347110194172-th-1']//div[contains(text(),'Operator type')]");
 By OPR_PRIMARYTERRITORYCOLUMN = By.xpath("//*[@data-test-id='201804100347110194172-th-2']//div[contains(text(),'Primary territory')]");

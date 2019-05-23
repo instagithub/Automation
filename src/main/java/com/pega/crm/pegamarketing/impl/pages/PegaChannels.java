@@ -7,13 +7,11 @@ import org.openqa.selenium.By;
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.pages.Channels;
-import com.pega.framework.PegaWebDriver;
 import com.pega.framework.WindowImpl;
 import com.pega.framework.elmt.Frame;
 import com.pega.framework.elmt.FrameImpl;
 
 public class PegaChannels extends FrameImpl implements Channels {
-	PegaWebDriver pegaDriver;
 
 	public PegaChannels(String elmtId, TestEnvironment testEnv) {
 		super(elmtId, testEnv);
@@ -46,7 +44,6 @@ public class PegaChannels extends FrameImpl implements Channels {
 	}
 
 	public TestConnectivityResults testConnection(String connectionName) {
-		pegaDriver = testEnv.getPegaDriver();
 		String currentHandle = pegaDriver.getWindowHandle();
 		findElement(By.xpath("//span[text()='" + connectionName + "']/ancestor::tr[1]//a[@title='Test']")).click(false);
 		for (String handle : pegaDriver.getWindowHandles()) {
@@ -62,7 +59,6 @@ public class PegaChannels extends FrameImpl implements Channels {
 				By.xpath("//span[text()='" + accountName + "']/ancestor::tr[1]//i[@title='Delete this SMS Account ']"))
 						.click();
 		findElement(By.xpath("//div[@class='pzbtn-mid' and text()='Delete']")).click();
-		testEnv.getPegaDriver().waitForDocStateReady();
 	}
 
 	public class PegaTestConnectivityResults extends WindowImpl implements TestConnectivityResults {

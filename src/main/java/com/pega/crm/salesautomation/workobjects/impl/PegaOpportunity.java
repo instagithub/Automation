@@ -397,13 +397,6 @@ public class PegaOpportunity extends PegaWorkObject implements Opportunities {
 
 	@Override
 	public void addRow() {
-		//WebDriver driver = (WebDriver)pegaDriver;
-		
-	/*	Actions ac = new Actions(pegaDriver);
-		System.out.println("In Add row" + ac);*/
-		
-		/*ac.moveToElement(findElement(By.xpath(OPP_ADDROW_XPATH))).click();
-		*/
 		PegaWebElement wb=
 				findElement(By.xpath(OPP_ADDROW_XPATH));
 		wb.sendKeys(Keys.ENTER);

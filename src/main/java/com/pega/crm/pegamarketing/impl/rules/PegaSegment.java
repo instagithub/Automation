@@ -91,7 +91,6 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 		private void searchCriteria(String criteria) {
 			frameElmt.findElement(SEARCH_INPUT_BOX).sendKeys(criteria + Keys.TAB);
 			frameElmt.findElement(MAGNIFIER_ICON).click();
-			pegaDriver.waitForDocStateReady();
 			frameElmt.findElement(MAGNIFIER_ICON).click();
 		}
 

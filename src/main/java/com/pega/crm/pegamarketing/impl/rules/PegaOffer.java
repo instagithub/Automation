@@ -46,7 +46,6 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 	}
 
 	public void switchTab(String tabName) {
-		pegaDriver.waitForDocStateReady(3);
 		String elmtXpath = "//*[contains(@aria-label,'" + tabName + "')]//*[contains(text(),'" + tabName + "')]";
 		pegaDriver.handleWaits().waitForElementVisibility(By.xpath(elmtXpath));
 		findElement(By.xpath(elmtXpath)).scrollIntoView();

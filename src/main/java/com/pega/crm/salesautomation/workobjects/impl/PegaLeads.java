@@ -141,8 +141,6 @@ public class PegaLeads extends PegaWorkObject implements Leads
 	@Override
 	public void clickClone()
 	{
-		 
-		//PegaUtil.dropdown(pegaDriver, ACTION_BUTTON_XPATH, "Clone lead");
 
 	}
 

@@ -9,7 +9,6 @@ import com.pega.crm.pegamarketing.explorer.RecordsExplorer;
 import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
 import com.pega.crm.pegamarketing.impl.pages.PegaServiceRestRecords;
 import com.pega.crm.pegamarketing.pages.LandingPage;
-import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 import com.pega.page.TopDocumentImpl;
@@ -18,14 +17,9 @@ import com.pega.page.TopDocumentImpl;
 public class PegaRecordsExplorer extends TopDocumentImpl  implements RecordsExplorer{
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PegaRecordsExplorer.class.getName());
-	
-	private PegaWebDriver pegaDriver = null;
-	private TestEnvironment testEnv = null;
 
 	public PegaRecordsExplorer(String frameId,TestEnvironment testEnv) {
 		super(testEnv);
-		this.testEnv = testEnv;
-		this.pegaDriver = testEnv.getPegaDriver();
 	}
 	public <T extends LandingPage> T openRecord(Class<T> t, String... path) {
 		navigateTo(path);
@@ -43,7 +37,6 @@ public class PegaRecordsExplorer extends TopDocumentImpl  implements RecordsExpl
 		pegaDriver.handleWaits().waitForElementPresence(By.partialLinkText(path[path.length-1]));
 		LOGGER.debug("The xpath is " +path[path.length-1]);
 		frame.findElement(By.partialLinkText(path[path.length-1])).click();
-		pegaDriver.waitForDocStateReady();
 		
 		
 	}
