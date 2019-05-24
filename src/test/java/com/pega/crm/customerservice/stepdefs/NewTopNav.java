@@ -1,7 +1,5 @@
 package com.pega.crm.customerservice.stepdefs;
 
-import org.openqa.selenium.By;
-
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
@@ -14,9 +12,7 @@ import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
-import com.pega.framework.PegaWebElement;
 
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
@@ -31,7 +27,7 @@ public class NewTopNav {
 	private ResearchInteraction researchInteraction;
 	private NewInboundInteraction inboundInteraction;
 	private OutboundPhoneCall outboundPhoneCall;
-	private TopNav topnav;
+	private TopNav topNav;
 	public String[] caseStatus = new String[10];
 	private ApplicationWizard applicationWizard;
 	private Interactions interactions;
@@ -40,27 +36,28 @@ public class NewTopNav {
 	@Inject
 	public NewTopNav(CRMBrowser browser) {
 		this.browser = browser;
-		topnav = browser.getPortal(CSPortal.class).getTopNav();
+		csPortal = browser.getPortal(CSPortal.class);
+		topNav = browser.getPortal(CSPortal.class).getTopNav();
 	}
 
 	@When("^Demo Interaction for Sara Connor is started$")
 	public void demo_Interaction_for_Sara_Connor_is_started() throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		demoInteraction = csPortal.getTopNav().getInteractionType("Demo Pop - CONNOR");
+		
+		demoInteraction = topNav.getInteractionType("Demo Pop - CONNOR");
 		interactions = demoInteraction;
 	}
 
 	@When("^CSR Accpets the Interaction$")
 	public void csr_Accpets_the_Interaction() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		demoInteraction = csPortal.getTopNav().returnInteractionType("Accept");
+		demoInteraction = topNav.returnInteractionType("Accept");
 		interactions = demoInteraction;
 	}
 	
 	@When("^CSR launched the New Phone Interaction$")
 	public void csr_launched_the_New_Phone_Interaction() throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		phoneCall = csPortal.getTopNav().getInteractionType("Phone Call");// c
+		
+		phoneCall = topNav.getInteractionType("Phone Call");// c
 																			// changed
 																			// to
 																			// C
@@ -69,8 +66,8 @@ public class NewTopNav {
 
 	@When("^CSR launches Demo Interaction for \"([^\"]*)\"$")
 	public void csr_launches_Demo_Interaction_for(String demoInteraction) throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		this.demoInteraction = csPortal.getTopNav().getDemoInteractionType(demoInteraction);
+		
+		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
 		interactions = this.demoInteraction;
 
 	}
@@ -78,21 +75,21 @@ public class NewTopNav {
 	
 	@When("^CSR launches Demo Interaction for \"([^\"]*)\" and accepts the call$")
 	public void csr_launches_Demo_Interaction_for_and_accepts_the_call(String demoInteraction) throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		this.demoInteraction = csPortal.getTopNav().getDemoInteractionType(demoInteraction);
+		
+		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
 		interactions = this.demoInteraction;
 	}
 	
 	@When("^User launches demo interaction \"([^\"]*)\"$")
 	public void user_launches_demo_interaction(String demoInteraction) throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		this.demoInteraction = csPortal.getTopNav().getDemoInteractionType(demoInteraction);
+		
+		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
 		interactions = this.demoInteraction;
 	}
 	@When("^User launches demo interaction as manager \"([^\"]*)\"$")
 	public void user_launches_demo_interaction_as_manager(String demoInteraction) throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		this.demoInteraction = csPortal.getTopNav().getDemoInteractionTypeAsManager(demoInteraction);
+		
+		this.demoInteraction = topNav.getDemoInteractionTypeAsManager(demoInteraction);
 		interactions = this.demoInteraction;
 	}
 
@@ -100,23 +97,23 @@ public class NewTopNav {
 
 	@When("^CSR launches Inbound Interaction$")
 	public void csr_launches_Inbound_Interaction() {
-		csPortal = browser.getPortal(CSPortal.class);
-		inboundInteraction = csPortal.getTopNav().startInboundCase();
+		
+		inboundInteraction = topNav.startInboundCase();
 		interactions = inboundInteraction;
 	}
 
 	@When("^User places an outbound phone call$")
 	public void user_places_an_outbound_phone_call() {
-		csPortal = browser.getPortal(CSPortal.class);
-		outboundPhoneCall = csPortal.getTopNav().getInteractionType("Outbound Phone Call");
+		
+		outboundPhoneCall = topNav.getInteractionType("Outbound Phone Call");
 		System.out.println(outboundPhoneCall);
 		interactions = outboundPhoneCall;
 	}
 
 	@Then("^CSR launches Outbound Demo Interaction for \"([^\"]*)\"$")
 	public void csr_launches_Outbound_Demo_Interaction_for(String outboundSimulationText) {
-		csPortal = browser.getPortal(CSPortal.class);
-		outboundPhoneCall = csPortal.getTopNav().getDemoInteractionType(outboundSimulationText);
+		
+		outboundPhoneCall = topNav.getDemoInteractionType(outboundSimulationText);
 		interactions = outboundPhoneCall;
 	}
 	
@@ -125,15 +122,15 @@ public class NewTopNav {
 	@When("^CSR launches \"([^\"]*)\" research interaction \"([^\"]*)\"$")
 	public void csr_launches_research_interaction(String interactionType, String searchText) {
 
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().searchResult(interactionType, searchText);
+		
+		researchInteraction = topNav.searchResult(interactionType, searchText);
 		interactions = researchInteraction;
 	}
 
 	@When("^CSR searches for \"([^\"]*)\" from search portal$")
 	public void csr_searches_for_from_search_portal(String searchString) {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().search(searchString);
+		
+		researchInteraction = topNav.search(searchString);
 		interactions = researchInteraction;
 	}
 
@@ -141,15 +138,15 @@ public class NewTopNav {
 	
 	@Then("^Verify the research object$")
 	public void verify_the_research_object() throws Throwable {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().setResearchInteraction();
+		
+		researchInteraction = topNav.setResearchInteraction();
 		interactions = researchInteraction;
 	}
 	
 	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
 	public void select_and_serach_for(String searchType, String value) {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().selectandSearchResearchType(searchType, value);
+		
+		researchInteraction = topNav.selectandSearchResearchType(searchType, value);
 		interactions = researchInteraction;
 		
 	}
@@ -159,8 +156,8 @@ public class NewTopNav {
 	public void click_on_Favorites()  {
 		
 		
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().ClickFavourite();
+		
+		researchInteraction = topNav.ClickFavourite();
 		interactions = researchInteraction;
 		
 	}
@@ -169,15 +166,15 @@ public class NewTopNav {
 	@When("^Select the Account \"([^\"]*)\" for Initiate a Call displayed$")
 	public void select_the_Account_for_Initiate_a_Call_displayed(String result)  {
 	    // Write code here that turns the phrase above into concrete actions
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().initiateACall(result);
+		
+		researchInteraction = topNav.initiateACall(result);
 		interactions = researchInteraction;
 	}
 
 	@When("^close the research interaction flow$")
 	public void close_the_research_interaction_flow() {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().closeInteraction();
+		
+		researchInteraction = topNav.closeInteraction();
 		interactions = researchInteraction;
 
 	}
@@ -226,8 +223,8 @@ public class NewTopNav {
 	@Then("^Admin check for the dataflow status$")
 	public void admin_check_for_the_dataflow_status() {
 	   
-//		csPortal = browser.getPortal(CSPortal.class);
-//		csPortal.getTopNav().checkDataFlow();
+//		
+//		topNav.checkDataFlow();
 		
 	}
 	
@@ -236,8 +233,8 @@ public class NewTopNav {
 	
 	@When("^switch to Interaction of \"([^\"]*)\"$")
 	public void switch_to_Interaction_of(String interactionItem) {
-		csPortal = browser.getPortal(CSPortal.class);
-		researchInteraction = csPortal.getTopNav().switchInteraction(interactionItem);
+		
+		researchInteraction = topNav.switchInteraction(interactionItem);
 		interactions = researchInteraction;
 	}
 	

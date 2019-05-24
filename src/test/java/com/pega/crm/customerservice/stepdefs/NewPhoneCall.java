@@ -53,11 +53,12 @@ public class NewPhoneCall {
 	public String dropdownCountry = "//select[contains(@name,'CountryCode')]";
 	public String City = "//input[contains(@name,'City')]";
 	public String ZipCode = "//input[contains(@name,'ZipCode')]";
+	private NewTopNav topNavFixture;
 	
 	@Inject
 	public NewPhoneCall(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
+		this.topNavFixture = topNavFixture;
 		phoneInteraction = topNavFixture.getPhoneCall();
-		//demoInteraction = topNavFixture.getDemoInteraction();
 		interaction = topNavFixture.getInteractions();
 		commonMethods = testEnv.getCommonMethods();
 		pegaDriver = testEnv.getPegaDriver();
@@ -67,6 +68,7 @@ public class NewPhoneCall {
 
 	@When("^select result from the result and proceed$")
 	public void select_from_the_result_and_proceed() {
+		interaction = topNavFixture.getInteractions();
 		interaction.selectCustomer();
 	}
 	
