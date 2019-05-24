@@ -71,6 +71,8 @@ public interface TopNav {
 	NewDemoInteraction createNewDemoPop();
 	ResearchInteraction setResearchInteraction();
 	ResearchInteraction selectandSearchResearchType(String searchType, String value);
+	ResearchInteraction ClickFavourite();
+	ResearchInteraction switchInteraction(String interactionItem);
 	
 	
 	

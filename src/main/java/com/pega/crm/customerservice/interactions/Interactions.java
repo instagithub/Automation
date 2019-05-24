@@ -104,7 +104,6 @@ public interface Interactions extends Wizard{
 	void accountSelection(String acctNumber);
 	void stolenCardAcknowledgement();
 	void closeAccount(String reason, String comment);
-	void switchInteraction(String interaction);
 	void contactVerificationWithQuestions();
 	void datePicker();
 	void updatePrimaryAddressInContactProfile();

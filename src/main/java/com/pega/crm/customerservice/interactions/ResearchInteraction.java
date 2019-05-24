@@ -11,9 +11,7 @@ public interface ResearchInteraction extends Interactions{
 	void filterwithValues(String searchBox, String searchString);
 	void searchDropDownresult(String result);
 	void filterWithAllForAccount(String AcNo, String Type, String Status, String OwnerName);
-	
-	
-	
+		
 
 
 }

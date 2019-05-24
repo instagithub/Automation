@@ -340,10 +340,7 @@ public class NewPhoneCall {
 
 	
 
-	@When("^switch to Interaction of \"([^\"]*)\"$")
-	public void switch_to_Interaction_of(String interactionItem) {
-		interaction.switchInteraction(interactionItem);
-	}
+	
 	
 	
 	

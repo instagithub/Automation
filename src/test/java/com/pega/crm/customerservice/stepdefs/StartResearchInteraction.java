@@ -305,13 +305,7 @@ public class StartResearchInteraction {
 
 		}
 	}
-	@When("^Click on Favorites$")
-	public void click_on_Favorites() throws Throwable {
-		Thread.sleep(1000);
-		String Favorites= "//i[@title='Add to Favorites']";
-		PegaWebElement FavoritesIcon = researchInteraction.findElement(By.xpath(Favorites));
-		FavoritesIcon.click();
-	}
+	
 	@When("^Validate Favorites details \"([^\"]*)\" in My Favorites$")
 	public void validate_Favorites_details_in_My_Favorites(String arg1) throws Throwable {
 	

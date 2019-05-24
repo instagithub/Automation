@@ -31,8 +31,7 @@ public class PegaNewDemoInteraction extends PegaInteractions implements NewDemoI
 		PegaWebElement switchToTab = findElement(By.xpath(FinalXPATH));
 		switchToTab.click();
 	}
-	
-	
+
 
 
 }

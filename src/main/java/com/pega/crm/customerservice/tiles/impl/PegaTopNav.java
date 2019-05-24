@@ -283,10 +283,15 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 	}
 
 	@Override
-	public ResearchInteraction search(String name) {
-		searchPortal(name);
-		return null;
-
+	public ResearchInteraction switchInteraction(String interactionItem) {
+		String InteractionTitle = "//*[contains(text(),'#interactionItem#')]/ancestor::span[contains(@class,'tab')]";
+		String finalXPath = new String(InteractionTitle).replace("#interactionItem#", interactionItem);
+		PegaWebElement interactionTitle = findElement(By.xpath(finalXPath));
+		interactionTitle.click();
+		
+		String frameId = getActiveFrameId(false);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
+		return researchInteraction;
 	}
 
 
@@ -328,7 +333,29 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 		return researchInteraction;
 	}
 
+	@Override
+	public ResearchInteraction ClickFavourite() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String Favorites= "//i[@title='Add to Favorites']";
+		PegaWebElement FavoritesIcon = findElement(By.xpath(Favorites));
+		FavoritesIcon.click();
+				
 
+		String frameId = getActiveFrameId(false);
+		ResearchInteraction researchInteraction = new PegaResearchInteraction(frameId, testEnv);
+		return researchInteraction;
+	}
+
+	@Override
+	public ResearchInteraction search(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 

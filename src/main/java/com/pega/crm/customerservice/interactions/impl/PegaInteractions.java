@@ -504,13 +504,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	}
 
 
-	@Override
-	public void switchInteraction(String interactionItem) {
-		String InteractionTitle = "//*[contains(text(),'#interactionItem#')]/ancestor::span[contains(@class,'tab')]";
-		String finalXPath = new String(InteractionTitle).replace("#interactionItem#", interactionItem);
-		PegaWebElement interactionTitle = findElement(By.xpath(finalXPath));
-		interactionTitle.click();
-	}
+	
 
 		
 	@Override

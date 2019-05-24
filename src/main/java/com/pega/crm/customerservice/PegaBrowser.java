@@ -1,29 +1,16 @@
 package com.pega.crm.customerservice;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.impl.PegaCSPortal;
 import com.pega.crm.customerservice.impl.PegaSFAPortal;
-import com.pega.crm.customerservice.interactions.ResearchInteraction;
-import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
-import com.pega.crm.customerservice.tiles.TopNav;
 import com.pega.crm.pegamarketing.impl.PegaDesignerStudio;
 import com.pega.crm.pegamarketing.impl.PegaExpressPortal;
 import com.pega.crm.pegamarketing.impl.PegaPMPortal;
-import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
-import com.pega.framework.elmt.DropDown;
 import com.pega.page.Portal;
 import com.pega.ri.Wizard;
-
-import cucumber.api.java.en.When;
 
 /**
  * @author Chanu

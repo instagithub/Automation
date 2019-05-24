@@ -1,5 +1,7 @@
 package com.pega.crm.customerservice.stepdefs;
 
+import org.openqa.selenium.By;
+
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
@@ -12,6 +14,7 @@ import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
+import com.pega.framework.PegaWebElement;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
@@ -152,6 +155,17 @@ public class NewTopNav {
 	}
 	
 	
+	@When("^Click on Favorites$")
+	public void click_on_Favorites()  {
+		
+		
+		csPortal = browser.getPortal(CSPortal.class);
+		researchInteraction = csPortal.getTopNav().ClickFavourite();
+		interactions = researchInteraction;
+		
+	}
+	
+	
 	@When("^Select the Account \"([^\"]*)\" for Initiate a Call displayed$")
 	public void select_the_Account_for_Initiate_a_Call_displayed(String result)  {
 	    // Write code here that turns the phrase above into concrete actions
@@ -216,6 +230,20 @@ public class NewTopNav {
 //		csPortal.getTopNav().checkDataFlow();
 		
 	}
+	
+	
+	
+	
+	@When("^switch to Interaction of \"([^\"]*)\"$")
+	public void switch_to_Interaction_of(String interactionItem) {
+		csPortal = browser.getPortal(CSPortal.class);
+		researchInteraction = csPortal.getTopNav().switchInteraction(interactionItem);
+		interactions = researchInteraction;
+	}
+	
+	
+	
+		
 	
 	
 
