@@ -17,7 +17,6 @@ public class PegaTreatment extends PegaRuleInstance implements Treatment {
 	}
 	
 	public void writeContent(String string) {
-		pegaDriver.waitForDocStateReady();
 		PegaWebElement frameElement = findElement(TREATMENT_CONTENT_IFRAME);
 		findFrame(frameElement);
 		findElement(TREATMENT_BODY).clear();

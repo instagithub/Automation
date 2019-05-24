@@ -9,10 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.ClosePlans;
 import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
 
 
-public class PegaClosePlans extends WizardImpl implements ClosePlans{
+public class PegaClosePlans extends PegaWorkObject implements ClosePlans{
 
 	public PegaClosePlans(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
@@ -53,7 +52,6 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 		if( verifyElement(By.xpath(ADDNEW_XPATH)))
 			 findElement(By.xpath(ADDNEW_XPATH)).click();
 		WebElement wb= findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor')]")).getWebElement();
-		// pegaDriver.switchTo().frame(wb);
 		 findElement(By.xpath(CLOSEPLAN_COMMETNS)).sendKeys(comments);
 		
 	}
@@ -66,7 +64,7 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
 	@Override
 	public void searchForOrganization(String orgName) {
-		PegaUtil.autoComplete(pegaDriver, ORGNAME_TITLE, orgName);
+		findAutoComplete(By.id(ORGNAME_TITLE)).setValue(orgName);
 	}
 
 	@Override
@@ -77,7 +75,6 @@ public class PegaClosePlans extends WizardImpl implements ClosePlans{
 
 	@Override
 	public List<WebElement> getOrgsFromOpportunities() {
-		 getActiveFrameId(true);
 		List<WebElement> opportunities =  findElements(By.xpath(CLOSEPLAN_OPPORTUNITY_ORG));
 		return (opportunities);
 	}

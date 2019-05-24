@@ -2,7 +2,7 @@ package com.pega.crm.salesautomation.workobjects;
 
 import com.pega.ri.Wizard;
 
-public interface Forecast extends Wizard{
+public interface Forecast extends WorkObject{
 
 	boolean isTerritoryDisplayed();
 	boolean isOverrideLevelDisplayed();

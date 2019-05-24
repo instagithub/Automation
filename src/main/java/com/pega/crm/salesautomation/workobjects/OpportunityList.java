@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.pega.ri.Wizard;
 
-public interface OpportunityList extends Wizard{
+public interface OpportunityList extends WorkObject{
 	
 	
 	

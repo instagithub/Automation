@@ -26,7 +26,6 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
 import com.pega.crm.pegamarketing.rules.Designer;
 import com.pega.crm.pegamarketing.rules.RuleInstance;
-import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.elmt.Frame;
@@ -269,8 +268,7 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
 			findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
-			Designer designer = ObjectsBean.getDesigner();
-			pegaDriver.waitForDocStateReady();
+			Designer designer = new PegaDesigner(frameId, testEnv);
 			return designer;
 		}
 
@@ -302,7 +300,6 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 	// changes for paid media tests
 
 	public void runOutboundScheduleNBADesigner() {
-		pegaDriver.waitForDocStateReady();
 		findElement(OUTBOUND_ACTIONS_LINK).click();
 		findElement(TRIGGER_RUN).click();
 	}

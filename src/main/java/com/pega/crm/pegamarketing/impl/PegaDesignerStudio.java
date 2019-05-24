@@ -34,10 +34,8 @@ public class PegaDesignerStudio extends PegaPMPortal implements DesignerStudio {
 	}
 
 	public void switchTab(Tabs tab) {
-		pegaDriver.waitForDocStateReady(false);
 		Frame frame = findFrame("Developer");
 		frame.findElement(By.xpath("//div[@role='tab']//*[contains(text(),'" + tab.getId() + "')]")).click();
-		pegaDriver.waitForDocStateReady();
 	}
 
 	public void switchToDeveloperFrame() {

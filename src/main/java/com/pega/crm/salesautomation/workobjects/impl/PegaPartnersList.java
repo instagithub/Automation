@@ -5,9 +5,8 @@ import org.openqa.selenium.By;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Partners;
 import com.pega.crm.salesautomation.workobjects.PartnersList;
-import com.pega.ri.WizardImpl;
 
-public class PegaPartnersList extends WizardImpl implements PartnersList
+public class PegaPartnersList extends PegaWorkObject implements PartnersList
 {
 
 	
@@ -56,7 +55,7 @@ public class PegaPartnersList extends WizardImpl implements PartnersList
 	public boolean searchOperator(String OperatorName) 
 	{
 		
-		findElement(By.id(OPR_FILTER_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(OPR_FILTER_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(OPR_FILTER_ID)).sendKeys(OperatorName);
 		findElement(By.xpath(PTR_FILTERBUTTON_XPATH)).click();
 		

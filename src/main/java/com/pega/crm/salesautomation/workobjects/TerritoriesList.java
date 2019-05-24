@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import com.pega.ri.Wizard;
 
-public interface TerritoriesList extends Wizard
+public interface TerritoriesList extends WorkObject
 {
 	By TRR_TERRITORY_PAGE_HEADER_XPATH=By.xpath("//*[@data-test-id='20141121165713062143523']");
 	By CREATE_TERR_BTN_XPATH =By.xpath("//*[@data-test-id='201506190754350230614']");

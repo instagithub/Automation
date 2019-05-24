@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
 
-public interface LeadsList extends Wizard
+public interface LeadsList extends WorkObject
 {
 	String CREATE_LEAD_BTN_XPATH = PegaUtil.getStrongButtonXPath("Create lead");
 	String LEAD_SEARCH_FIELD_ID = "FilterTermForAccount'";

@@ -4,9 +4,8 @@ import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Forecast;
-import com.pega.ri.WizardImpl;
 
-public class PegaForecast extends WizardImpl implements Forecast{
+public class PegaForecast extends PegaWorkObject implements Forecast{
 
 	public PegaForecast(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
@@ -49,9 +48,8 @@ public class PegaForecast extends WizardImpl implements Forecast{
 
 	@Override
 	public void setTerritory(String Territory) {
-		 findElement(By.id(TERRITORY_ID)).sendKeys(PegaUtil.SelectAll);
-		PegaUtil.autoComplete(pegaDriver, TERRITORY_ID, Territory);
-		
+		findElement(By.id(TERRITORY_ID)).sendKeys(SELECT_ALL);
+		findAutoComplete(By.id(TERRITORY_ID)).setValue(Territory);
 	}
 
 	@Override

@@ -23,9 +23,8 @@ public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment 
 		findFrame(frameElement);
 		findElement(EMAIL_TEMPLATE_DIV).click();
 		pegaDriver.switchTo().parentFrame();
-		
+
 	}
-	
 
 	public void addRecipient(String recipient) {
 		findElement(ADD_RECIPIENT_LINK).click();
@@ -53,20 +52,17 @@ public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment 
 
 	@Override
 	public void clickEnterInEditor() {
-		pegaDriver.waitForDocStateReady();
 		PegaWebElement frameElement = findElement(TREATMENT_CONTENT_IFRAME);
 		findFrame((PegaWebElement) frameElement.getWebElement());
-		findElement(TREATMENT_BODY).sendKeys(Keys.RETURN);	
-		
+		findElement(TREATMENT_BODY).sendKeys(Keys.RETURN);
+
 	}
 
 	@Override
 	public ButtonParametersDialog clickInsertButton() {
-		pegaDriver.waitForDocStateReady();
 		findElement(EMAIL_INSERT_BUTTON).click();
 		ButtonParametersDialog buttonParametersDialog = new PegaButtonParametersDialog(this, testEnv);
 		return buttonParametersDialog;
 	}
-
 
 }

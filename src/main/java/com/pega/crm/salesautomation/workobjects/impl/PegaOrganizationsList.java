@@ -8,9 +8,8 @@ import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Organizations;
 import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
 
-public class PegaOrganizationsList extends WizardImpl implements OrganizationsList{
+public class PegaOrganizationsList extends PegaWorkObject implements OrganizationsList{
 	
 	
 		

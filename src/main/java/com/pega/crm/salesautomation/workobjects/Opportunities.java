@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.pega.ri.Wizard;
 
-public interface Opportunities extends Wizard{
+public interface Opportunities extends WorkObject{
 
 	
 	

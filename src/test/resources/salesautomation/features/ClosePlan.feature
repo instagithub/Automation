@@ -8,7 +8,6 @@ Background:
 	
 Scenario: Search by organization
 	Given navigates to "Close plans" List page
- # Given a sales rep is at the Close Plans page
   When the rep searches for "APW Technologies Corp" organization
   Then opportunities related only to "APW Technologies" are shown
 	

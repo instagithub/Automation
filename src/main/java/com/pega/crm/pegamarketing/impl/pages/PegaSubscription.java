@@ -7,12 +7,8 @@ import com.pega.framework.elmt.Frame;
 
 public class PegaSubscription extends PegaLandingPage  implements Subscription{
 	
-	TestEnvironment testEnv;
-	PegaWebDriver pegaDriver;
 	public PegaSubscription(String frameID, TestEnvironment testEnv) {
 			super(frameID, testEnv);
-			this.testEnv = testEnv;
-			pegaDriver = testEnv.getPegaDriver();
 		}
 	@Override
 	public void unsubscribe() {

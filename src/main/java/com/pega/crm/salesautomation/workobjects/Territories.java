@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import com.pega.ri.Wizard;
 
-public interface Territories  extends Wizard
+public interface Territories  extends WorkObject
 {
 	
 	By TRR_NAME_ID=By.xpath("//*[@data-test-id='2014122410590805191288']");

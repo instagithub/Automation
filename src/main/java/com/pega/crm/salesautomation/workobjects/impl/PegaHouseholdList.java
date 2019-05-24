@@ -9,9 +9,8 @@ import org.openqa.selenium.WebElement;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.HouseholdList;
 import com.pega.crm.salesautomation.workobjects.Households;
-import com.pega.ri.WizardImpl;
 
-public class PegaHouseholdList extends WizardImpl implements HouseholdList{
+public class PegaHouseholdList extends PegaWorkObject implements HouseholdList{
 	
 	
 	public PegaHouseholdList(String frameId, TestEnvironment testEnv) {

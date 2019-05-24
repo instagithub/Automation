@@ -16,21 +16,15 @@
 
 package com.pega.crm.pegamarketing.impl.dialog;
 
-import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.dialog.ConfigureDialog;
-import com.pega.framework.PegaWebDriver;
 import com.pega.framework.elmt.Frame;
 
 public class PegaConfigureDialog extends PegaModalDialog implements ConfigureDialog {
-	PegaWebDriver pegaDriver;
-	TestEnvironment testEnv;
 	protected Frame frame;
 
 	public PegaConfigureDialog(Frame aFrame) {
 		super(aFrame);
 		this.frame = aFrame;
-		this.testEnv = frame.getTestEnvironment();
-		pegaDriver = testEnv.getPegaDriver();
 	}
 	public void addRule(String ruleName) {
 		frame.findElement(ADD_BUTTON).click();

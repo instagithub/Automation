@@ -9,9 +9,8 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Partners;
-import com.pega.ri.WizardImpl;
 
-public class PegaPartners extends WizardImpl implements Partners {
+public class PegaPartners extends PegaWorkObject implements Partners {
 	
 	
 	
@@ -57,7 +56,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setWebSite(String WebSite) {
 		
-		findElement(By.id(WEBSITE_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(WEBSITE_ID)).sendKeys(SELECT_ALL);
 	
 		findElement(By.id(WEBSITE_ID)).sendKeys(WebSite);
 		
@@ -66,7 +65,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setPhone(String Phone) {
 		
-		findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PHONE_ID)).sendKeys(SELECT_ALL);
 	
 		findElement(By.id(PHONE_ID)).sendKeys(Phone);
 	}
@@ -74,7 +73,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setPartnerName(String Partner) {
 
-		findElement(By.id(PATNER_NAME_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PATNER_NAME_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(PATNER_NAME_ID)).sendKeys(Partner);
 		
 	}
@@ -82,7 +81,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setPartnerID(String PartnerID) {
 		
-		findElement(By.id(PARTNER_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_ID)).sendKeys(SELECT_ALL);
 		
 		findElement(By.id(PARTNER_ID)).sendKeys(PartnerID);
 	}
@@ -90,17 +89,17 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setPartnerTaxID(String TaxID) {
 		
-		findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_TAXID)).sendKeys(SELECT_ALL);
 		
 		
-		findElement(By.id(PARTNER_TAXID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_TAXID)).sendKeys(SELECT_ALL);
 		findElement(By.id(PARTNER_TAXID)).sendKeys(TaxID);
 	}
 
 	@Override
 	public void setPartnerWorkFax(String WorkFax) {
 		
-		findElement(By.id(PARTNER_WORKFAX)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PARTNER_WORKFAX)).sendKeys(SELECT_ALL);
 		findElement(By.id(PARTNER_WORKFAX)).sendKeys(WorkFax);
 	}
 	
@@ -108,7 +107,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setEmail(String Email)
 	{
-		findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(EMAIL_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(EMAIL_ID)).sendKeys(Email);
 		
 	}
@@ -149,8 +148,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void setTerritory(String TerritoryName)
 	{
-		PegaUtil.autoComplete(pegaDriver, TERRITORY_FIELD_ID, TerritoryName);
-		
+		findAutoComplete(By.id(TERRITORY_FIELD_ID)).setValue(TerritoryName);
 	}
 
 	@Override
@@ -169,15 +167,12 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public void setOwner(String OwnerName) {
-		
-		PegaUtil.autoComplete(pegaDriver, TERRITORY_OWNER_ID, OwnerName);
-		
+		findAutoComplete(By.id(TERRITORY_OWNER_ID)).setValue(OwnerName);	
 	}
 
 	@Override
 	public void setParentTerritory(String ParentTerritory) {
-		PegaUtil.autoComplete(pegaDriver, PARENT_TERRITORY_ID, ParentTerritory);
-		
+		findAutoComplete(By.id(PARENT_TERRITORY_ID)).setValue(ParentTerritory);
 	}
 
 	@Override
@@ -196,7 +191,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public void setAddress() {
-		PegaUtil.setAddress(pegaDriver);
+		setAddress();
 		
 	}
 
@@ -267,7 +262,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void updatePhone(String UpdatedPhone) {
 		
-		findElement(By.id(PHONE_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(PHONE_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(PHONE_ID)).sendKeys(UpdatedPhone);
 		
 	}
@@ -275,7 +270,7 @@ public class PegaPartners extends WizardImpl implements Partners {
 	@Override
 	public void updateEmail(String UpdatedEmail) {
 		//
-		findElement(By.id(EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(EMAIL_ID)).sendKeys(SELECT_ALL);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -306,8 +301,8 @@ public class PegaPartners extends WizardImpl implements Partners {
 
 	@Override
 	public void clickOperatorsSubtab() {
-		PegaUtil.getSubTab(pegaDriver, "Operators");
-		PegaUtil.clickRefresh(pegaDriver);
+		getSubTab("Operators");
+		clickRefresh();
 		
 		
 	}

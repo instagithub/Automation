@@ -3,7 +3,7 @@ package com.pega.crm.salesautomation.workobjects;
 
 import com.pega.ri.Wizard;
 
-public interface OperatorList extends Wizard {
+public interface OperatorList extends WorkObject {
 
 Operators creasteOperator();
 OperatorList searchOperator(String orgName);

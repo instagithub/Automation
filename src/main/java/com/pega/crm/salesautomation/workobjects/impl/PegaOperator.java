@@ -6,10 +6,9 @@ import org.openqa.selenium.Keys;
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Operators;
 import com.pega.framework.PegaWebElement;
-import com.pega.ri.WizardImpl;
 import com.pega.util.XPathUtil;
 
-public class PegaOperator extends WizardImpl implements Operators {
+public class PegaOperator extends PegaWorkObject implements Operators {
 
 	
 
@@ -172,9 +171,7 @@ public class PegaOperator extends WizardImpl implements Operators {
 
 	@Override
 	public void setTerritory(String str) {
-
-		PegaUtil.autoComplete(pegaDriver, "TerritoryID", str);
-
+		findAutoComplete(By.id("TerritoryID")).setValue(str);
 	}
 
 	@Override

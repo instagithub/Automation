@@ -18,14 +18,10 @@ package com.pega.crm.pegamarketing.impl.dialog;
 
 import org.openqa.selenium.By;
 
-import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
-import com.pega.framework.PegaWebDriver;
 import com.pega.framework.elmt.Frame;
 
 public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements ConfigureAudienceDialog {
-	TestEnvironment testEnv;
-	PegaWebDriver pegaDriver;
 	Frame frame;
 
 	public PegaConfigureAudienceDialog(Frame aFrame) {

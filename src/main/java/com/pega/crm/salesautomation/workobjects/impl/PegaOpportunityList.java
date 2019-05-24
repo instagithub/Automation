@@ -11,9 +11,8 @@ import com.pega.crm.salesautomation.workobjects.Opportunities;
 import com.pega.crm.salesautomation.workobjects.OpportunityList;
 import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
 
-public class PegaOpportunityList extends WizardImpl implements OpportunityList {
+public class PegaOpportunityList extends PegaWorkObject implements OpportunityList {
 
 
 	public PegaOpportunityList(String frameId, TestEnvironment testEnv) {
@@ -39,7 +38,8 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 	@Override
 	public Opportunities createBusniessOpportunity() {
 	
-		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Business");
+		findElement(By.xpath(CREATE_OPP_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Business"))).click();
 
 		String frameId = getActiveFrameId(false);
 		Opportunities opp = new PegaOpportunity(frameId, testEnv);
@@ -48,7 +48,8 @@ public class PegaOpportunityList extends WizardImpl implements OpportunityList {
 
 	@Override
 	public Opportunities createIndividualOpportunity() {
-		PegaUtil.dropdown(pegaDriver, CREATE_OPP_BTN_XPATH, "Individual");
+		findElement(By.xpath(CREATE_OPP_BTN_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Individual"))).click();
 
 		String frameId = getActiveFrameId(false);
 		Opportunities opp = new PegaOpportunity(frameId, testEnv);

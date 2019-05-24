@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.salesautomation.workobjects.Leads;
+import com.pega.crm.salesautomation.workobjects.WorkObject;
 import com.pega.ri.Wizard;
-import com.pega.ri.WizardImpl;
 
-public class PegaLeads extends WizardImpl implements Leads
+public class PegaLeads extends PegaWorkObject implements Leads
 {
 	
 	public PegaLeads(String frameId, TestEnvironment testEnv) {
@@ -37,7 +37,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setCompany(String Company) 
 	{
-		findElement(By.id(LEAD_COMPANY_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_COMPANY_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_COMPANY_ID)).sendKeys(Company);
 
 	}
@@ -52,16 +52,13 @@ public class PegaLeads extends WizardImpl implements Leads
 	
 	@Override
 	public void setTerritory(String str) {
-		 
-		PegaUtil.autoComplete(pegaDriver,LEAD_TERRIOTRY_ID, str);
-		
+		findAutoComplete(By.id(LEAD_TERRIOTRY_ID)).setValue(str);
 	}
 
 	@Override
 	public void clickOK() {
 		
-	
-		PegaUtil.clickCreate(pegaDriver);
+		findElement(By.xpath(CREATE_XPATH)).click();
 		
 
 	}
@@ -84,12 +81,12 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void clickEdit() {
 		 
-		PegaUtil.clickEdit(pegaDriver);
+		edit();
 	}
 
 	@Override
 	public void clickSubmit() {
-		PegaUtil.clickSubmit(pegaDriver);
+		submit();
 
 	}
 
@@ -117,7 +114,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	public void closeLead() {
 		findElement(By.xpath(LEAD_CLOSE_XPATH)).click();
 		 
-		findElement(By.xpath(PegaUtil.OPP_NEXTYEAR_XPATH)).click();
+		findElement(By.xpath(OPP_NEXTYEAR_XPATH)).click();
 		 
 		findElement(By.xpath(LEAD_CLOSE_DATE_XPATH)).click();
 
@@ -128,8 +125,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	{
 		 
 		findElement(By.id("CloseComments")).sendKeys("Closed as part of autoamtion");
-		//findElement(By.id("submitButton")).click();
-		PegaUtil.clickSubmit(pegaDriver);
+		submit();
 
 	}
 
@@ -145,15 +141,13 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void clickClone()
 	{
-		 
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Clone lead");
 
 	}
 
 	@Override
 	public void setWorkPhone(String WorkPhone) {
 		 
-		findElement(By.id(LEAD_WORK_PHONE_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_WORK_PHONE_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_WORK_PHONE_ID)).sendKeys(WorkPhone);
 
 	}
@@ -162,7 +156,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setEmail(String Email) {
 		 
-		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(Email);
 
 	}
@@ -170,7 +164,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setLeadFirstName(String FirstName) {
 		 
-		findElement(By.id(LEAD_FIRSTNAME)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_FIRSTNAME)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_FIRSTNAME)).sendKeys(FirstName);
 
 	}
@@ -178,7 +172,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setLeadMobile(String Mobile) {
 		 
-		findElement(By.id(LEAD_MOBILE)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_MOBILE)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_MOBILE)).sendKeys(Mobile);
 
 	}
@@ -186,7 +180,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setLeadDesc(String Desc) {
 		 
-		findElement(By.id(LEAD_DESC)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_DESC)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_DESC)).sendKeys(Desc);
 
 	}
@@ -230,7 +224,7 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void setEmailBusiness(String Email) {
 		 
-		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(PegaUtil.SelectAll);
+		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(SELECT_ALL);
 		findElement(By.id(LEAD_EMAIL_ID)).sendKeys(Email);
 
 		
@@ -246,7 +240,8 @@ public class PegaLeads extends WizardImpl implements Leads
 	@Override
 	public void clickClose() 
 	{
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Close");
+		findElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH)).click();
+		findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Close"))).click();
 	}
 
 
@@ -258,7 +253,8 @@ public class PegaLeads extends WizardImpl implements Leads
 
 @Override
 	public void clickChangeOwner() {
-		PegaUtil.dropdown(pegaDriver, PegaUtil.ACTION_BUTTON_XPATH, "Change owner" );
+	findElement(By.xpath(WorkObject.ACTION_BUTTON_XPATH)).click();
+	findElement(By.xpath(PegaUtil.getMenuDropdownXpath("Change owner"))).click(); 
 		
 	}
 
@@ -273,13 +269,7 @@ public class PegaLeads extends WizardImpl implements Leads
 
 	@Override
 	public void setOwner(String LEAD_UPDATEDOWNER) {
-		 
-		/*findElement(By.xpath(LEAD_SWITCH_TO_EDIT_MODE_XPATH)).click();
-		 
-		*/
-		findElement(By.id(LEAD_CHANGEOWNER_ID)).sendKeys(PegaUtil.SelectAll);
-		PegaUtil.autoComplete(pegaDriver, LEAD_CHANGEOWNER_ID, LEAD_UPDATEDOWNER);
-		
+		findAutoComplete(By.id(LEAD_CHANGEOWNER_ID)).setValue(LEAD_UPDATEDOWNER);
 	}
 
 
@@ -292,7 +282,7 @@ public class PegaLeads extends WizardImpl implements Leads
 
 	@Override
 	public void clickSubmitButton() {
-		PegaUtil.clickSubmit(pegaDriver);
+		submit();
 		
 	}
 
@@ -307,7 +297,7 @@ public class PegaLeads extends WizardImpl implements Leads
 
 	@Override
 	public void getActivitiesSubTab() {
-		PegaUtil.getSubTab(pegaDriver, "Activities");
+		getSubTab("Activities");
 		
 	}
 
@@ -317,7 +307,7 @@ public class PegaLeads extends WizardImpl implements Leads
 		//findElement(By.xpath(LEAD_TASK_REFRESH_XPATH)).scrollIntoView();
 		findElement(By.xpath(LEAD_TASK_REFRESH_XPATH)).click();
 		
-		return(PegaUtil.getRowValues(pegaDriver, LEAD_TASK_ROW_IDENTIFIER_XPATH, LeadName));
+		return(getRowValues(LEAD_TASK_ROW_IDENTIFIER_XPATH, LeadName));
 	}
 
 
@@ -326,16 +316,16 @@ public class PegaLeads extends WizardImpl implements Leads
 	public List<String> getActivityValues(String ActivityName) {
 		
 		//findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).scrollIntoView();
-		findElement(By.xpath(PegaUtil.ACTIVITY_REFRESH_XPATH)).click();
+		findElement(By.xpath(ACTIVITY_REFRESH_XPATH)).click();
 
-		return(PegaUtil.getRowValues(pegaDriver, LEAD_ACTIVITY_ROW_IDENTIFIER_XPATH, ActivityName));
+		return(getRowValues(LEAD_ACTIVITY_ROW_IDENTIFIER_XPATH, ActivityName));
 	}
 
 
 	@Override
 	public void setContact(String ContactName) {
 		
-		PegaUtil.autoComplete(pegaDriver, LEAD_CONTACT_ID, ContactName);
+		findAutoComplete(By.id(LEAD_CONTACT_ID)).setValue(ContactName);
 		
 	}
 

@@ -23,19 +23,16 @@ public class PegaExpressPortal extends PegaPMPortal implements ExpressPortal {
 
 	public void openDataTypesExplorer() {
 		findElement(DATATYPES_EXPLORER_BY).click();
-		pegaDriver.waitForDocStateReady();
 
 	}
 
 	public void openUsersExplorer() {
 		findElement(USERS_EXPLORER_BY).click();
-		pegaDriver.waitForDocStateReady();
 
 	}
 
 	public void openSettingsExplorer() {
-		findElement(SETTINGS_EXPLORER_BY).click(false);
-		pegaDriver.waitForDocStateReady(false);
+		findElement(SETTINGS_EXPLORER_BY).click();
 
 	}
 

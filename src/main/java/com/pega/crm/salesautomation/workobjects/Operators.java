@@ -3,7 +3,7 @@ package com.pega.crm.salesautomation.workobjects;
 
 import com.pega.ri.Wizard;
 
-public interface Operators extends Wizard {
+public interface Operators extends WorkObject {
 	
 	//String OPR_TEMPLATE_CHECKBOX = "//input[@type='checkbox']";
 	//String OPR_DEFAULT_ACCESS_CHECKBOX = "crmIsDefaultOperatorAccess";

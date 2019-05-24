@@ -125,7 +125,6 @@ public class Lead
 				}	
 				
 				lead.setStage(LEAD_STAGE);
-				//lead.setTerritory(LEAD_TERRITORY);
 				lead.clickOK();
 				
 			}

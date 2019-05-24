@@ -6,7 +6,7 @@ import java.util.List;
 import com.pega.ri.Wizard;
 import com.pega.util.XPathUtil;
 
-public interface Partners extends Wizard
+public interface Partners extends WorkObject
 {
 	String WEBSITE_ID="Website";
 	String PHONE_ID="OfficePhone";

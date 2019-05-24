@@ -8,7 +8,7 @@ import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.ri.Wizard;
 
 
-public interface HouseholdList extends Wizard{
+public interface HouseholdList extends WorkObject{
 	String CREATE_HH_BTN_XPATH = PegaUtil.getStrongButtonXPath("Create household");
 	String HH_SEARCH_FIELD_ID = "FilterTermForRelationshipGroup";
 	String HH_FILTER_PLACEHOLDER_XPATH = "//input[@placeholder='Filter households']";

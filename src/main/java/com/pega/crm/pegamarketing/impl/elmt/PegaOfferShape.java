@@ -78,24 +78,20 @@ public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{
 		shape.moveMouseToThis();
 		mouse.releaseLeftButton();
 		
-		testEnv.getPegaDriver().waitForDocStateReady(3);
+		testEnv.getPegaDriver().waitForDocStateReady(3); //An explicit call to wait for doc state ready is needed here as a virtual mouse action is being used instead of using the selenium overloaded click method
 		
-		testEnv.getPegaDriver().findElement(TOOLBAR_PROPERTIES_BTN);
-		testEnv.getPegaDriver().findElement(TOOLBAR_PROPERTIES_BTN).click();
+		offer.findElement(TOOLBAR_PROPERTIES_BTN);
+		offer.findElement(TOOLBAR_PROPERTIES_BTN).click();
 		
 		
-		testEnv.getPegaDriver().waitForDocStateReady(3);
 			PegaWebElement moName = offer.findElement(By.xpath(Offer.MONAME_XPATH));
 			scriptExecutor.sendKeys(moName, connectorName);
-			testEnv.getPegaDriver().waitForDocStateReady(4);
 		offer.findElement(By.xpath(GlobalRepository.SUBMIT_BUTTON_XPATH)).click(true);
 		mouse.moveTo(50, 20);
-		testEnv.getPegaDriver().waitForDocStateReady(2);
-		testEnv.getPegaDriver().switchToActiveFrame(offer.getDOMPointer());
 		By byShapeXpath = By.xpath("//*[*[name()='path']]/following-sibling::*[contains(@style,'visible')]//*[text()='"+connectorName+"']");
-		pegaDriver.handleWaits().waitForElementPresence(byShapeXpath);
+		//pegaDriver.handleWaits().waitForElementPresence(byShapeXpath);
 		offer.findElement(By.xpath(Offer.DIV_PROCESS_FLOW_XPATH)).click();
-		WebElement connElem = driver.findElement(byShapeXpath);
+		WebElement connElem = offer.findElement(byShapeXpath);
 		Connector connObj = new PegaConnector(connElem, offer, connectorName);
 		connObj._setEnvironment(testEnv, byShapeXpath, offer.getFrameDocument(),this.getFramesSet());
 		return connObj;
@@ -106,15 +102,14 @@ public class PegaOfferShape extends PegaWebElementImpl implements OfferShape{
 	}
 
 	public ShapeProperties openProperties() {
-		doDoubleClickWithMouse();
+		doDoubleClickWithMouse(); //An explicit call to wait for doc state ready is needed here as a virtual mouse action is being used instead of using the selenium overloaded click method
 		pegaDriver.waitForDocStateReady(3);
 		return ((PegaOffer)offer).getShapeProperties();
 	}
 
 	public void setDecisionType(String decisionType) {
 		DropDown decision=offer.findSelectBox(By.xpath(Offer.DECISIONTYPE_XPATH));
-		decision.selectByVisibleText(decisionType,false);
-		pegaDriver.waitForDocStateReady();
+		decision.selectByVisibleText(decisionType,true);
 	}
 	
 	public void submit() {

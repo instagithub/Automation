@@ -49,7 +49,7 @@ public class Operator
 	private OperatorList oprResult;
 	private Operators operator, oprDetails;
 	
-	String NewOperatorID = new String("Automation_Rep"+new Random().nextInt(100));
+	String NewOperatorID = new String("Automation_Rep"+new Random().nextInt(1000));
 	String  operatorPassword = "install";
 	String  title = "Automation QA";
 	String  firstName = "Automation";

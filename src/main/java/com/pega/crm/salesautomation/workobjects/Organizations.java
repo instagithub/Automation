@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.pega.ri.Wizard;
 
-public interface Organizations extends Wizard {
+public interface Organizations extends WorkObject {
 
 	String ORG_OPPTY_ROW_IDENTIFIER_XPATH = "//tr[contains(@id, 'OpportunitiesInOrganizationList')]";
 

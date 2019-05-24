@@ -90,8 +90,6 @@ public class Contact
 			cont.setInfluence(CONT_INFLUENCE);
 			cont.setFavorability(CONT_FAVORABILITY);
 			cont.setAddress();
-			String AddressType=cont.getAddressType();
-			Assert.assertEquals(AddressType, "Business Address");
 		}
 		
 		@When("^clicks on Save button$")

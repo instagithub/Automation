@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import com.pega.crm.pegamarketing.elmt.Connector;
-import com.pega.crm.pegamarketing.elmt.Connector.ConnectorProperties;
 import com.pega.crm.pegamarketing.elmt.OfferShape;
 import com.pega.crm.pegamarketing.rules.Offer;
 import com.pega.framework.Mouse;

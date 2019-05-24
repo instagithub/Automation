@@ -16,36 +16,23 @@
 
 package com.pega.crm.pegamarketing.impl.pages;
 
-
-import org.openqa.selenium.WebElement;
-
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.pages.ContextDictionary;
 import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.framework.elmt.FrameImpl;
 
-public class PegaContextDictionaryFrame  extends FrameImpl implements ContextDictionary{
-	
-	
-
-	
+public class PegaContextDictionaryFrame extends FrameImpl implements ContextDictionary {
 
 	public PegaContextDictionaryFrame(String frameID, TestEnvironment testEnv) {
 		super(frameID, testEnv);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void save() {
 		findElement(RuleInstance.SAVE_BUTTON).click();
-		
 	}
 
 	public void close() {
 		findElement(CLOSE_BUTTON).click(false);
-		
-		
 	}
-	
-	
 
 }
