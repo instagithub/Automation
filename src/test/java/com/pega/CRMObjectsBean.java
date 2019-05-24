@@ -44,7 +44,7 @@ public class CRMObjectsBean {
 	public static String getTimestampedValue(String name){
 		String value = objectNames.get(name);
 		if(value != null){
-			return value; 
+			return value;
 		}else{
 			return name;
 		}
@@ -52,6 +52,10 @@ public class CRMObjectsBean {
 
 	public static Map<String, String> getObjectNames() {
 		return objectNames;
+	}
+	
+	public static void putObjectNames(String objectName, String objectValue) {
+		objectNames.put(objectName, objectValue);
 	}
 
 	public static Map<String, Object> getObjectsMap(){

@@ -47,8 +47,8 @@ Feature: Outbound Phone call test cases
   Scenario: Outbound phone call API Simulation Answered
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    Then Verify Operator name "CS CSR"
-    Then User will be navigated to the portal
+    #Then Verify Operator name "CS CSR"
+    #Then User will be navigated to the portal
     Then CSR launches Outbound Demo Interaction for "Outbound Call API Simulation"
     Then capture outbound interaction ID
     When User launches outbound call from "OutboundCall" workbasket

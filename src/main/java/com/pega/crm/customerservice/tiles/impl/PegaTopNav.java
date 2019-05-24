@@ -120,8 +120,10 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 				.findElement(By.xpath("//span[@class='menu-item-title' and contains(text(),'Demo Screen Pops')]"));
 		testEnv.getScriptExecutor().mouseOver(element);
 		findElement(By.xpath("//span[contains(text(),'" + value + "')]")).click();
-		findElement(By.xpath("//button[contains(.,'Accept')]")).click();
-
+		if(!value.equals("Outbound Call API Simulation"))
+		{
+			findElement(By.xpath("//button[contains(.,'Accept')]")).click();
+		}
 		// if(value.contains("Demo Pop")){
 		// return null;
 		// } else {

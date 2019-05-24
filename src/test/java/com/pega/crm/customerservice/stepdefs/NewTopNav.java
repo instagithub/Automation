@@ -1,8 +1,11 @@
 package com.pega.crm.customerservice.stepdefs;
 
+import org.openqa.selenium.By;
+
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
+import com.pega.CRMObjectsBean;
 import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
 import com.pega.crm.customerservice.interactions.Interactions;
@@ -117,7 +120,20 @@ public class NewTopNav {
 		interactions = outboundPhoneCall;
 	}
 	
-	
+	@Then("^capture outbound interaction ID$")
+	public void capture_outbound_interaction_ID() {
+		
+		String outboundInteractionText = csPortal.findElement(By.xpath("//div[contains(@pyclassname,'PegaCA-Work-Outbound')]/descendant::div[contains(@class,'dataLabelWrite')]")).getText();
+		
+		int p=outboundInteractionText.indexOf("OC-");
+		int q=outboundInteractionText.lastIndexOf("is");
+		String caseID = outboundInteractionText.substring(p, q);
+		//caseID = outboundInteractionText.substring(14,19);
+		caseID=caseID.trim();
+		CRMObjectsBean.putObjectNames("CaseID", caseID);
+		csPortal.findElement(By.xpath("//button[contains(@data-click,'closeContainer')]/descendant::div[text()='Close']")).click();
+	    
+	}
 
 	@When("^CSR launches \"([^\"]*)\" research interaction \"([^\"]*)\"$")
 	public void csr_launches_research_interaction(String interactionType, String searchText) {

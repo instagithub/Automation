@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import com.google.inject.Inject;
+import com.pega.CRMObjectsBean;
 import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.CSPortal;
@@ -125,33 +126,16 @@ public class OutboundCall {
 		
 	}
 	
-	
-	@Then("^capture outbound interaction ID$")
-	public void capture_outbound_interaction_ID() {
-		
-		String outboundInteractionText = interaction.findElement(By.xpath("//div[contains(@pyclassname,'PegaCA-Work-Outbound')]/descendant::div[contains(@class,'dataLabelWrite')]")).getText();
-		
-		int p=outboundInteractionText.indexOf("OC-");
-		int q=outboundInteractionText.lastIndexOf("is");
-		caseID=outboundInteractionText.substring(p, q);
-		//caseID = outboundInteractionText.substring(14,19);
-		caseID=caseID.trim();
-		
-		interaction.findElement(By.xpath("//button[contains(@data-click,'closeContainer')]/descendant::div[text()='Close']")).click();
-	    
-	}
-
-
 	@When("^User launches outbound call from \"([^\"]*)\" workbasket$")
 	public void user_launches_outbound_call_from_workbasket(String workbasket) {
 
-		interaction.launchCaseFromWorkbasket(workbasket,caseID.trim());
+		interaction.launchCaseFromWorkbasket(workbasket,CRMObjectsBean.getTimestampedValue("CaseID"));
 		
 	}
 	
 	@Then("^User verifies checkpoints in the interaction launched$")
 	public void user_verifies_checkpoints_in_the_interaction_launched() {
-		Assert.assertTrue("Outbound call ID is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'"+caseID+"')]")));
+		Assert.assertTrue("Outbound call ID is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'"+CRMObjectsBean.getTimestampedValue("CaseID")+"')]")));
 		Assert.assertTrue("Status is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'New')]")));
 		interaction.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr[2]")).click();
 	

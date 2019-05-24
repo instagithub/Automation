@@ -229,7 +229,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 			}
 
 			PegaWebElement submit = findElement(By.xpath("//button[text()='Verified']"));
-			submit.click(false);
+			submit.click();
 			
 		}
 	}
@@ -461,6 +461,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 		PegaWebElement launchCaseID = findElement(By.xpath(finalXpath));
 		launchCaseID.scrollIntoView();
 		launchCaseID.click();
+		//return object here
 
 	}
 
