@@ -83,38 +83,7 @@ public class StartResearchInteraction {
 		
 	}
 
-	@Then("^verify \"([^\"]*)\" category under AddTask$")
-	public void verify_category_under_AddTask(String category) {
-		if(category.equalsIgnoreCase("contact"))
-		{
-			Assert.assertTrue("Modify account Links task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Modify Account Links']")));
-			Assert.assertTrue("Modify Contact to Organization Links task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Modify Contact to Organization Links']")));
-			Assert.assertTrue("Update Contact Profile task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Update Contact Profile']")));
-		}
-		else if(category.equalsIgnoreCase("general"))
-		{
-
-			Assert.assertTrue("Send Correspondence task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Send Correspondence']")));
-			Assert.assertTrue("General service request task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='General Service Request']")));
-			Assert.assertTrue("Open new account task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Open New Account']")));
-			Assert.assertTrue("Add new Organization task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Add New Organization']")));
-			Assert.assertTrue("schedule activity task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Schedule Activity']")));
-		}
-		else if(category.equalsIgnoreCase("account")){
-
-			Assert.assertTrue("Address Change is not present", researchInteraction.verifyElement(By.xpath("//a[contains(@title,'Address Change') and @class='Add_task']")));
-			Assert.assertTrue("Close account task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Close Account']")));
-			Assert.assertTrue("Modify contact links task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Modify Contact Links']")));
-			Assert.assertTrue("Dispute transaction task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Dispute Transaction']")));
-			Assert.assertTrue("Lost or stolen card task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Lost or Stolen Card']")));
-			Assert.assertTrue("Statement copy task is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Statement Copy']")));
-		}
-		else if(category.equalsIgnoreCase("Organization")){
-			Assert.assertTrue("Update Organization Profile is not present", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Update Organization Profile']")));
-			Assert.assertTrue("Modify organization links", researchInteraction.verifyElement(By.xpath("//a[@class='Add_task'][text()='Modify Organization Links']")));
-		}
-
-	}
+	
 
 	@Then("^verify confirm message, case name and status$")
 	public void verify_confirm_message_case_name_and_status() {
@@ -136,24 +105,6 @@ public class StartResearchInteraction {
 
 
 	}
-
-	@Then("^verify left nav, header and composite sections for Account with \"([^\"]*)\"$")
-	public void verify_left_nav_header_and_composite_sections_for_Account_with(String accNum) {
-		Assert.assertTrue("Add Task button is not present",
-				researchInteraction.verifyElement(By.xpath("//button[@title='Add Task']")));
-		Assert.assertTrue("Wrap up button is not present",
-				researchInteraction.verifyElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Close']")));
-		Assert.assertTrue("Overview tab is not present", researchInteraction.verifyElement(By.xpath("//h3[@class='layout-group-item-title'][text()='Overview']")));
-		Assert.assertTrue("Notes tab is not present", researchInteraction.verifyElement(By.xpath("//h3[text()='Notes']")));
-		Assert.assertTrue("Recent service case section is not present",
-				researchInteraction.verifyElement(By.xpath("//h2[text()='Recent cases']")));
-		Assert.assertTrue("Recent Interactions section is not present",
-				researchInteraction.verifyElement(By.xpath("//h2[text()='Recent interactions']")));
-		Assert.assertTrue("Transactions section is not present",
-				researchInteraction.verifyElement(By.xpath("//h2[text()='Transactions']")));
-		Assert.assertTrue("Statements section is not present",
-				researchInteraction.verifyElement(By.xpath("//h2[text()='Statements']")));
-		}
 
 
 	@Then("^verify the empty search results$")
@@ -325,72 +276,6 @@ public class StartResearchInteraction {
 		}
 	}
 
-	
-
-
-	@Then("^verify the title and account details for \"([^\"]*)\"$")
-	public void verify_the_title_and_account_details_for(String account)  {
-	
-		if(account.equalsIgnoreCase("12345000")){
-			Assert.assertTrue("Account number is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'12345000')]")));
-			Assert.assertTrue("Account header is not present",
-					researchInteraction.verifyElement(By.xpath("//span[text()='Account']")));
-			Assert.assertTrue("Owner header is not present",
-					researchInteraction.verifyElement(By.xpath("//label[text()='Owner:']")));
-			Assert.assertTrue("Owner name is not present",
-					researchInteraction.verifyElement(By.xpath("//span/a[text()='Sara Connor']")));
-			Assert.assertTrue("Type header is not present",
-					researchInteraction.verifyElement(By.xpath("//span[text()='Type:']")));
-			Assert.assertTrue("Type header is not present",
-					researchInteraction.verifyElement(By.xpath("//span[text()='Credit Card']")));
-			Assert.assertTrue("Type header is not present",
-					researchInteraction.verifyElement(By.xpath("//img[@src='webwb/addtofavouriteoff_13429280830.svg!!.svg']")));
-		}
-
-		if(account.equalsIgnoreCase("Acme Software")){
-			
-			Assert.assertTrue("Org Name is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Acme Software')]")));
-			Assert.assertTrue("Reason field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Reason')]")));
-			Assert.assertTrue("Status field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Status')]")));
-			Assert.assertTrue("Phone field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Phone')]")));
-			Assert.assertTrue("Email field is not present",researchInteraction.verifyElement(By.xpath("//span[text()='Email']")));
-			Assert.assertTrue("Address field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Address')]")));
-			
-			Assert.assertTrue("Organization type field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Organization type')]")));
-			Assert.assertTrue("Total revenue field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Total revenue')]")));
-			Assert.assertTrue("Industry field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Industry')]")));
-			Assert.assertTrue("Website field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Website')]")));
-			
-			Assert.assertTrue("Twitter Id field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Twitter Id')]")));
-			Assert.assertTrue("Tax ID field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Tax ID')]")));
-			Assert.assertTrue("LinkedinURL field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'LinkedinURL')]")));
-			Assert.assertTrue("Organization Since field is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Organization Since')]")));
-			}
-		if(account.equalsIgnoreCase("Rebecca")){
-			Assert.assertTrue("Org Name is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Rebecca  Biggs')]")));
-			}
-		if(account.equalsIgnoreCase("Connor")){
-			Assert.assertTrue("Connor name is not present",
-					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Sara') and contains(text(),'Connor')]")));
-			
-		}
-		
-	}
 
 
 	@Then("^Verify the left nav header and search results for biggs$")
@@ -564,45 +449,10 @@ public class StartResearchInteraction {
 		
 
 	}
-
-
-	@Then("^Verify Operator name \"([^\"]*)\"$")
-	public void verify_Operator_name(String username) throws Throwable {
-		
-		if (username.equalsIgnoreCase("CA Sys Admin")) {
-			String FinalXpath = "//div[@class='content-item content-field item-1 remove-all-spacing   dataValueWrite flex flex-row ']/i[@title='"
-					+ username + "']";
-			researchInteraction.verifyElement(By.xpath(FinalXpath));
-		} else if (username.equalsIgnoreCase("Dan Percival")) {
-			String FinalXpath = "//div[@class='field-item dataValueWrite']/img[contains(@title,'" + username + "')]";
-			researchInteraction.verifyElement(By.xpath(FinalXpath));
-		} else {
-			String FinalXpath = "//div[@class='field-item dataValueWrite']/span/a[contains(@title,'" + username + "')]";
-			researchInteraction.verifyElement(By.xpath(FinalXpath));
-		}
-		if (username.equalsIgnoreCase("Back office user ")) {
-			String FinalXpath = "//a[text()='" + username + "']";
-			researchInteraction.verifyElement(By.xpath(FinalXpath));
-
-		}
-		if (username.equalsIgnoreCase("Back office manager ")) {
-			String FinalXpath = "//a[text()='" + username + "']";
-			researchInteraction.verifyElement(By.xpath(FinalXpath));
-
-		}
-	}
 	
 	@When("^Filter the result with \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void filter_the_result_with_and(String searchBox, String searchString) {
 		researchInteraction.filterwithValues(searchBox, searchString);
-
-	}
-	
-	@When("^Filter with Account number \"([^\"]*)\" Type \"([^\"]*)\" Status \"([^\"]*)\" and owner \"([^\"]*)\"$")
-	public void filter_with_Account_number_Type_Status_and_owner(String AcNo, String Type, String Status,
-			String OwnerName) {
-
-		researchInteraction.filterWithAllForAccount(AcNo, Type, Status, OwnerName);
 
 	}
 	

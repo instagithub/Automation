@@ -2,11 +2,10 @@
 Feature: Outbound Phone call test cases
 
   # author : Shobha
-   @TC-outbound-disconnect
+  @TC-outbound-disconnect
   Scenario: Outbound phone call with Address Change and Disconnected Number
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    Then User will be navigated to the portal
     When User places an outbound phone call
     Then Verify fields on search screen
     Then Search for customer with lastname "connor" and accNo "12345000"
@@ -15,12 +14,11 @@ Feature: Outbound Phone call test cases
     Then Enter comments for Exit Interaction "Exiting interaction" and Submit
     Then Operator logs of the portal
 
- # author : Shobha
- @TC-dispute-transaction
+  # author : Shobha
+  @TC-dispute-transaction
   Scenario: Outbound phone call answered with DisputeTransaction
     Given a user is on login page of CS Portal
     When User logs in to CS portal as CSR
-    Then User will be navigated to the portal
     When User places an outbound phone call
     Then Verify fields on search screen
     Then Search for customer with lastname "Biggs" and accNo "12345678"
@@ -38,36 +36,5 @@ Feature: Outbound Phone call test cases
     When Confirm the flow
     Then check for completed or cancelled task "Dispute Transaction"
     When launch wrapup to complete outbound interaction
-    Then verify the wrapup dialog
     When complete the wrap up and verify reason "Dispute Transaction"
-    When Operator logs of the portal
-    
-  # author : Shobha
-  @TC-outboundapi
-  Scenario: Outbound phone call API Simulation Answered
-    Given a user is on login page of CS Portal
-    When User logs in to CS portal as CSR
-    #Then Verify Operator name "CS CSR"
-    #Then User will be navigated to the portal
-    Then CSR launches Outbound Demo Interaction for "Outbound Call API Simulation"
-    Then capture outbound interaction ID
-    When User launches outbound call from "OutboundCall" workbasket
-    Then User verifies checkpoints in the interaction launched
-    Then User Launches interaction for "Sara Connor" with Call status "Answered"
-    Then Submit the changes
-    When select the verification questions and click on verified
-    When Click on Add Task to launch Service Process
-    Then Verify all the service process items and other fields
-    When Launch "Address Change" service process
-    When select the verification questions for service cases and click on verified
-    Then verify "Address Change" flow is launched
-    Then verify that "Address Change" flow is launched with dialog
-    When change the address and other fields and submit
-    When check additional account for address change and submit
-    #Then check the dialog in in confirm screen and in progress task in left nav
-    When confirm the changes made
-    Then check for completed or cancelled task "Address Change"
-    When launch wrapup to complete outbound interaction
-    Then verify the wrapup dialog
-    When complete the wrap up and verify reason "Address Change"
     When Operator logs of the portal

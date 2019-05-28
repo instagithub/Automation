@@ -111,54 +111,6 @@ public class OutboundCall {
 	}
 	
 	
-	@Then("^select a category \"([^\"]*)\" with product \"([^\"]*)\" and owner \"([^\"]*)\"$")
-	public void select_a_category_with_product_and_owner(String category, String product, String owner) {
-	   
-		//outboundPhoneCall.selectAProduct(category, product, owner);
-		interaction.selectAProduct(category, product, owner);
-		
-	}
-
-	@When("^submit account details$")
-	public void submit_account_details() {
-	   
-		interaction.enterAccountDetails();
-		
-	}
-	
-	@When("^User launches outbound call from \"([^\"]*)\" workbasket$")
-	public void user_launches_outbound_call_from_workbasket(String workbasket) {
-
-		interaction.launchCaseFromWorkbasket(workbasket,CRMObjectsBean.getTimestampedValue("CaseID"));
-		
-	}
-	
-	@Then("^User verifies checkpoints in the interaction launched$")
-	public void user_verifies_checkpoints_in_the_interaction_launched() {
-		Assert.assertTrue("Outbound call ID is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'"+CRMObjectsBean.getTimestampedValue("CaseID")+"')]")));
-		Assert.assertTrue("Status is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'New')]")));
-		interaction.findElement(By.xpath("//table[contains(@pl_prop,'D_ContactsCommsByAccountNumber')]/descendant::tr[2]")).click();
-	
-		Assert.assertTrue("Customer name is not present", interaction.verifyElement(By.xpath("//span[contains(@class,'work_identifier')][contains(text(),'Sara Connor')]")));
-		Assert.assertTrue("Call reason is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'Initiate')]")));
-		Assert.assertTrue("Dialog is not present", interaction.verifyElement(By.xpath("//span[contains(text(),'Hello, my name is CS CSR.')][contains(text(),'calling on behalf of pega.com about Address Change')]")));
-		
-	}
-
-	@Then("^User Launches interaction for \"([^\"]*)\" with Call status \"([^\"]*)\"$")
-	public void user_Launches_interaction_for_with_Call_status(String contactName, String callStatus) {
-	   
-		outboundPhoneCall.launchOutboundInteractionforFirst(contactName, callStatus);
-	    
-	}
-	
-
-	
-	@Then("^Submit the changes$")
-	public void submit_the_changes() {
-	    outboundPhoneCall.submitChanges();
-	}
-	
 	
 		
 

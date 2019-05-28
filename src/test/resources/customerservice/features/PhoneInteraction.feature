@@ -24,11 +24,7 @@ Feature: Phone Interaction Test cases
     Then Confirm the case details
     When Confirm the flow
     When launch warpup to complete the interaction
-    Then verify the wrapup dialog
     When complete the wrap up
-    Then User will be navigated to the portal
     When search for I- and S- items
     Then verify the status
     When Operator logs of the portal
-
-     

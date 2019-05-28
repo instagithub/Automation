@@ -112,28 +112,7 @@ public class NewTopNav {
 		System.out.println(outboundPhoneCall);
 		interactions = outboundPhoneCall;
 	}
-
-	@Then("^CSR launches Outbound Demo Interaction for \"([^\"]*)\"$")
-	public void csr_launches_Outbound_Demo_Interaction_for(String outboundSimulationText) {
-		
-		outboundPhoneCall = topNav.getDemoInteractionType(outboundSimulationText);
-		interactions = outboundPhoneCall;
-	}
 	
-	@Then("^capture outbound interaction ID$")
-	public void capture_outbound_interaction_ID() {
-		
-		String outboundInteractionText = csPortal.findElement(By.xpath("//div[contains(@pyclassname,'PegaCA-Work-Outbound')]/descendant::div[contains(@class,'dataLabelWrite')]")).getText();
-		
-		int p=outboundInteractionText.indexOf("OC-");
-		int q=outboundInteractionText.lastIndexOf("is");
-		String caseID = outboundInteractionText.substring(p, q);
-		//caseID = outboundInteractionText.substring(14,19);
-		caseID=caseID.trim();
-		CRMObjectsBean.putObjectNames("CaseID", caseID);
-		csPortal.findElement(By.xpath("//button[contains(@data-click,'closeContainer')]/descendant::div[text()='Close']")).click();
-	    
-	}
 
 	@When("^CSR launches \"([^\"]*)\" research interaction \"([^\"]*)\"$")
 	public void csr_launches_research_interaction(String interactionType, String searchText) {
@@ -187,14 +166,6 @@ public class NewTopNav {
 		interactions = researchInteraction;
 	}
 
-	@When("^close the research interaction flow$")
-	public void close_the_research_interaction_flow() {
-		
-		researchInteraction = topNav.closeInteraction();
-		interactions = researchInteraction;
-
-	}
-	
 	
 
 	

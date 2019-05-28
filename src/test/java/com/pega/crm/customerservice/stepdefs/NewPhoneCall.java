@@ -167,23 +167,6 @@ public class NewPhoneCall {
 	}
 
 	
-	@Then("^check the dialog in in confirm screen and in progress task in left nav$")
-	public void check_the_dialog_in_in_confirm_screen_and_in_progress_task_in_left_nav() {
-		
-		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'changes')]")).getText();
-		Assert.assertEquals("Address Change flow dialog is not present or incorrect",
-				"I have made the changes you requested.", dialog);
-		Assert.assertTrue("In Progress Label is not present",interaction.verifyElement(By.xpath("//a[contains(text(),'Address Change')]")));
-	
-		String fullAddress = null;
-		List<WebElement> address = interaction.findElements(
-				By.xpath("//div[@node_name='CANewAddress']//div[@class='field-item dataValueRead']/span"));
-		for (WebElement e : address) {
-			fullAddress = fullAddress + e.getText();
-		}
-		
-
-	}
 	
 	@When("^confirm the changes made$")
 	public void confirm_the_changes_made() {
@@ -794,15 +777,6 @@ public class NewPhoneCall {
 	}
 
 
-	@Then("^verify the wrapup dialog$")
-	public void verify_the_wrapup_dialog() throws Throwable {
-	   
-	}
-
-	@Then("^User will be navigated to the portal$")
-	public void user_will_be_navigated_to_the_portal() throws Throwable {
-	    
-	}
 	
 
 	
