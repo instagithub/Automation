@@ -128,7 +128,6 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 			bot.mousePress(InputEvent.BUTTON1_MASK);
 			bot.mouseRelease(InputEvent.BUTTON1_MASK);
 		} catch (AWTException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -167,10 +166,5 @@ public class PegaApplicationWizard extends WizardImpl implements ApplicationWiza
 		findElement(By.xpath(CS_IMPL_OPERATOR_XPATH)).click(false);
 		findElement(By.xpath("//input[@name='$PRH_$ppyaccessgroups_opid$l$ppyRadioButtonAG'][1]")).click(false);
 		findElement(By.xpath("//button[@title='Save your changes to this record']")).click(false);
-		
-		
-		
-
 	}
-
 }
