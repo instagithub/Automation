@@ -20,13 +20,10 @@ import org.openqa.selenium.By;
 
 import com.pega.crm.pegamarketing.rules.RuleInstance;
 
-
-
-public interface RealTimeContainer extends RuleInstance{
+public interface RealTimeContainer extends RuleInstance {
 	public static final String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	public static final String VERSION = "$Id:$";
-	
-	By DEV_BARNCH_SELECTBOX=By.xpath("//select[@id='pySelectedBranchIdentifier']");
-	
+
+	By DEV_BARNCH_SELECTBOX = By.xpath("//select[@id='pySelectedBranchIdentifier']");
 
 }

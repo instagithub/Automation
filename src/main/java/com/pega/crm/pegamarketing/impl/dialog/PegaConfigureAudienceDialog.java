@@ -31,23 +31,21 @@ public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements 
 
 	public void selectFirstSearchResult() {
 		frame.findElement(FIRST_SEARCH_RESULT).click(false);
-		
+
 	}
-	
+
 	public void addFirstSegment() {
 		frame.findElement(FIRST_ADD_BUTTON).click();
 	}
 
-
 	public void selectFromFirstSearchResult() {
 		frame.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
-		
+
 	}
 
 	public void addSegment(String segmentName) {
-		frame.findElement(By.xpath("//div[@node_name='SimpleMultiselectorCardContent'][.//span[text()='"+segmentName+"']]//button[text()='Add']")).click();
+		frame.findElement(By.xpath("//div[@node_name='SimpleMultiselectorCardContent'][.//span[text()='" + segmentName
+				+ "']]//button[text()='Add']")).click();
 	}
-
-	
 
 }

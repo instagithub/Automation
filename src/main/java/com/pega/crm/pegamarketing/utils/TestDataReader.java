@@ -9,7 +9,7 @@ import com.pega.exceptions.PegaWebDriverException;
 
 public class TestDataReader {
 	private static Properties prop = null;
-	
+
 	public static String getTestDataValue(String key) {
 
 		if (prop == null) {

@@ -3,8 +3,6 @@ package com.pega.crm.salesautomation.workobjects;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pega.ri.Wizard;
-
 public interface Organizations extends WorkObject {
 
 	String ORG_OPPTY_ROW_IDENTIFIER_XPATH = "//tr[contains(@id, 'OpportunitiesInOrganizationList')]";
@@ -85,8 +83,6 @@ public interface Organizations extends WorkObject {
 
 	String getDescription();
 
-	String[] getDomains();
-
 	String[] getAddress(String type);
 
 	public ArrayList<String> verifySubTabs();
@@ -102,7 +98,6 @@ public interface Organizations extends WorkObject {
 	Organizations changeHierarchy();
 
 	Organizations setHierarchy(String newParentOrg);
-
 
 	Accounts AddAccount();
 

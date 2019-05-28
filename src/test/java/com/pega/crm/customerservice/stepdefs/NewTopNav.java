@@ -1,11 +1,8 @@
 package com.pega.crm.customerservice.stepdefs;
 
-import org.openqa.selenium.By;
-
 import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
-import com.pega.CRMObjectsBean;
 import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
 import com.pega.crm.customerservice.interactions.Interactions;
@@ -16,7 +13,6 @@ import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
 
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
@@ -34,7 +30,6 @@ public class NewTopNav {
 	public String[] caseStatus = new String[10];
 	private ApplicationWizard applicationWizard;
 	private Interactions interactions;
-	//private DesignerStudio designerStudio;
 
 	@Inject
 	public NewTopNav(CRMBrowser browser) {
@@ -43,45 +38,39 @@ public class NewTopNav {
 		topNav = browser.getPortal(CSPortal.class).getTopNav();
 	}
 
-
-	
 	@When("^CSR launched the New Phone Interaction$")
 	public void csr_launched_the_New_Phone_Interaction() throws Throwable {
-		
+
 		phoneCall = topNav.getInteractionType("Phone Call");// c
-																			// changed
-																			// to
-																			// C
+															// changed
+															// to
+															// C
 		interactions = phoneCall;
 	}
 
-	
 	@When("^CSR launches Demo Interaction for \"([^\"]*)\" and accepts the call$")
 	public void csr_launches_Demo_Interaction_for_and_accepts_the_call(String demoInteraction) throws Throwable {
-		
+
 		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
 		interactions = this.demoInteraction;
 	}
-	
-
 
 	@When("^User places an outbound phone call$")
 	public void user_places_an_outbound_phone_call() {
-		
+
 		outboundPhoneCall = topNav.getInteractionType("Outbound Phone Call");
 		System.out.println(outboundPhoneCall);
 		interactions = outboundPhoneCall;
 	}
-	
-	
+
 	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
 	public void select_and_serach_for(String searchType, String value) {
-		
+
 		researchInteraction = topNav.selectandSearchResearchType(searchType, value);
 		interactions = researchInteraction;
-		
+
 	}
-	
+
 	public NewDemoInteraction getDemoInteraction() {
 		return demoInteraction;
 	}
@@ -89,8 +78,6 @@ public class NewTopNav {
 	public PhoneCall getPhoneCall() {
 		return phoneCall;
 	}
-
-
 
 	public ResearchInteraction getResearchInteraction() {
 
@@ -100,8 +87,6 @@ public class NewTopNav {
 	public NewInboundInteraction getInboundInteraction() {
 		return inboundInteraction;
 	}
-
-
 
 	public Interactions getInteractions() {
 		return interactions;
@@ -115,17 +100,11 @@ public class NewTopNav {
 
 		return applicationWizard;
 	}
-	
-
 
 	@When("^switch to Interaction of \"([^\"]*)\"$")
 	public void switch_to_Interaction_of(String interactionItem) {
-		
+
 		researchInteraction = topNav.switchInteraction(interactionItem);
 		interactions = researchInteraction;
 	}
 }
-	
-
-	
-

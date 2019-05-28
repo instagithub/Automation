@@ -24,8 +24,10 @@ public class PegaStrategy extends PegaRuleInstance implements Strategy {
 	}
 
 	public boolean isCustomFieldAdded(String name, String value) {
-		boolean isNamePresent = verifyElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"+name+"']"));
-		boolean isValuePresent = value.equals(findElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"+name+"']/ancestor::td[1]/following-sibling::td[1]/div[@class='oflowDivM ']")).getText());
+		boolean isNamePresent = verifyElement(
+				By.xpath("//table[@summary='pyCustomFields']//span[text()='" + name + "']"));
+		boolean isValuePresent = value.equals(findElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"
+				+ name + "']/ancestor::td[1]/following-sibling::td[1]/div[@class='oflowDivM ']")).getText());
 		return isNamePresent && isValuePresent;
 	}
 
@@ -33,9 +35,10 @@ public class PegaStrategy extends PegaRuleInstance implements Strategy {
 		return verifyElement(CHECKOUT_BUTTON);
 	}
 
-	public class PegaAddCustomFieldsDialog extends PegaModalDialog implements AddCustomFieldsDialog{
+	public class PegaAddCustomFieldsDialog extends PegaModalDialog implements AddCustomFieldsDialog {
 		Frame frame;
 		PegaWebDriver pegaDriver;
+
 		public PegaAddCustomFieldsDialog(Frame frame) {
 			super(frame);
 			this.frame = frame;
@@ -43,11 +46,11 @@ public class PegaStrategy extends PegaRuleInstance implements Strategy {
 		}
 
 		public void setNameAndValue(String name, String value) {
-			frame.findElement(By.id("pyCustomFieldName")).sendKeys(name+Keys.TAB);
+			frame.findElement(By.id("pyCustomFieldName")).sendKeys(name + Keys.TAB);
 			pegaDriver.waitForDocStateReady();
-			frame.findElement(By.id("pyCustomFieldValue")).sendKeys(value+Keys.TAB);
+			frame.findElement(By.id("pyCustomFieldValue")).sendKeys(value + Keys.TAB);
 		}
-		
+
 	}
-	
+
 }

@@ -17,6 +17,6 @@ public interface PropositionFilter extends RuleInstance {
 			return criteriaType;
 		}
 	}
-	
+
 	void setDefaultCriteria(DefaultCriteria criteria);
 }

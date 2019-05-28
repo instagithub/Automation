@@ -1,52 +1,40 @@
 package com.pega.crm.customerservice.interactions.impl;
 
-import java.awt.AWTException;
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.NewInboundInteraction;
-import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
-import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
 
-import cucumber.api.java.en.When;
+public class PegaNewInboundInteraction extends PegaInteractions implements NewInboundInteraction {
 
-public class PegaNewInboundInteraction extends PegaInteractions implements NewInboundInteraction{
-	
 	public PegaNewInboundInteraction(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
 	}
 
 	public String frameId = null;
 	public Wizard newWizard = null;
-	
-	
 
-	
 	public void filterwithInitialValues(String searchBox, String searchString) {
-				
-		if(searchBox.equalsIgnoreCase("first name")||searchBox.equalsIgnoreCase("organization name")){
-			
+
+		if (searchBox.equalsIgnoreCase("first name") || searchBox.equalsIgnoreCase("organization name")) {
+
 			PegaWebElement searchtype = findElement(By.xpath(FIRST_NAME_SEARCH_BOX_XPATH));
 			searchtype.sendKeys(searchString);
 		}
-		
-		else{
+
+		else {
 			String initialXPath = "//input[@title='Search #Issue#']";
 			String finalXPath = new String(initialXPath).replace("#Issue#", searchBox);
 
 			PegaWebElement searchtype = findElement(By.xpath(finalXPath));
 			searchtype.sendKeys(searchString);
 		}
-		
+
 		if (searchString.equalsIgnoreCase("123450000")) {
 			PegaWebElement searchButton = findElement(By.xpath(RESEARCH_SEARCH_XPATH));
 			searchButton.click();
@@ -65,8 +53,5 @@ public class PegaNewInboundInteraction extends PegaInteractions implements NewIn
 		}
 
 	}
-	
 
-	
-	
 }

@@ -58,17 +58,16 @@ public class BasicMultiChannelglue {
 				"Create  a Campaign page is not displayed");
 	}
 
-/*	@When("^User edits Multi-Channel Campaign with following data$")
-	public void user_edits_Multi_Channel_Campaign_with_following_data(DataTable table) {
-		campaign = ObjectsBean.getCampaign();
-		List<String> dataList = table.raw().get(1);
-		String campaignName = ObjectsBean.putTimeStampedValue(dataList.get(0));
-		campaign.setRuleName(campaignName);
-		campaign.setIssue(dataList.get(2));
-		campaign.setGroup(dataList.get(3));
-		campaign.setBudget(dataList.get(1));
-	}*/
-	
+	/*
+	 * @When("^User edits Multi-Channel Campaign with following data$") public void
+	 * user_edits_Multi_Channel_Campaign_with_following_data(DataTable table) {
+	 * campaign = ObjectsBean.getCampaign(); List<String> dataList =
+	 * table.raw().get(1); String campaignName =
+	 * ObjectsBean.putTimeStampedValue(dataList.get(0));
+	 * campaign.setRuleName(campaignName); campaign.setIssue(dataList.get(2));
+	 * campaign.setGroup(dataList.get(3)); campaign.setBudget(dataList.get(1)); }
+	 */
+
 	@When("^User edits Multi-Channel Campaign with following data$")
 	public void user_edits_Multi_Channel_Campaign_with_following_data(DataTable table) {
 		campaign = ObjectsBean.getCampaign();

@@ -22,20 +22,14 @@ public class EmailTreatmentglue {
 		emailTreatment.setRuleName(ObjectsBean.putTimeStampedValue(treatmentName));
 	}
 
-	/*@When("^selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group for Email Treatment$")
-	public void selects_as_Issue_and_as_Group(String issue, String group) {
-		emailTreatment.setIssue(issue);
-		emailTreatment.setGroup(group);
-	}*/
-
 	@When("^selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group for Email Treatment$")
 	public void selects_as_Issue_and_as_Group(String issue, String group) {
-	issue = TestDataReader.getTestDataValue(issue);		
-	emailTreatment.setIssue(issue);
-	group = TestDataReader.getTestDataValue(group);
-	emailTreatment.setGroup(group);
+		issue = TestDataReader.getTestDataValue(issue);
+		emailTreatment.setIssue(issue);
+		group = TestDataReader.getTestDataValue(group);
+		emailTreatment.setGroup(group);
 	}
-	
+
 	@When("^Creates and opens the Email Treatment$")
 	public void clicks_on_Create_and_Open_button_in_Treatment_Page() {
 		emailTreatment.createAndOpen();
@@ -68,7 +62,6 @@ public class EmailTreatmentglue {
 		emailTreatment.writeContent(content);
 	}
 
-
 	@When("^Saves the Treatment$")
 	public void saves_the_Treatment() {
 		emailTreatment.save();
@@ -83,5 +76,5 @@ public class EmailTreatmentglue {
 	public void clicks_on_Enter_in_Email_Editor() {
 		emailTreatment.clickEnterInEditor();
 	}
-	
+
 }

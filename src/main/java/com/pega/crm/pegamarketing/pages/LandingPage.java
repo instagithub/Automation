@@ -42,12 +42,14 @@ public interface LandingPage extends Frame {
 	 * this method refreshes the current landing page
 	 */
 	void refresh();
+
 	/**
-	 * clicks on edit button on  current landing page
+	 * clicks on edit button on current landing page
 	 */
 	void edit();
+
 	/**
-	 *  clicks on save button on  current landing page
+	 * clicks on save button on current landing page
 	 */
 	void save();
 

@@ -11,10 +11,12 @@ public interface ConfigureAudienceDialog extends ConfigureDialog {
 	 * This is used to add first segment from the dialog
 	 */
 	void addFirstSegment();
+
 	/**
 	 * selects the first item from the search result
 	 */
 	void selectFirstSearchResult();
+
 	/**
 	 * selects the first item from the search result
 	 */
@@ -22,8 +24,9 @@ public interface ConfigureAudienceDialog extends ConfigureDialog {
 
 	/**
 	 * to add the segment with the below name
+	 * 
 	 * @param segmentName
 	 */
 	void addSegment(String segmentName);
-	
+
 }

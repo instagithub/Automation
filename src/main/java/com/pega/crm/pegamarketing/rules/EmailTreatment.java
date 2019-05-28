@@ -77,14 +77,17 @@ public interface EmailTreatment extends Treatment {
 	 * this method clicks on Send Test Message button
 	 */
 	void sendTestMessage();
+
 	/**
 	 * this clicks on enter in email editor
 	 */
 	void clickEnterInEditor();
+
 	/**
 	 * this clicks on insert button property
-	 * @return 
+	 * 
+	 * @return
 	 */
 	ButtonParametersDialog clickInsertButton();
-	
+
 }

@@ -41,11 +41,12 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		ConfigureEngagementDialog configureEngagementDialog = new PegaConfigureEngagementDialog(this);
 		return configureEngagementDialog;
 	}
-	
+
 	public ConfigureEngagementCriteriaDialog configureEngagementCriteria() {
 		findElement(CONFIGURE_ENGAGEMENTCRITERIA_LINK).click();
 		return new PegaConfigureEngagementCriteriaDialog(this);
 	}
+
 	public CampaignConfigureDialog configureEngagementOffers() {
 		findElement(SELECT_OFFERS_LINK).click();
 		return new PegaCampaignConfigureDialog(this);
@@ -55,28 +56,28 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		findElement(CONFIGURE_OUTCOMEOPTIMIZATION_LINK).click();
 		return new PegaCampaignConfigureDialog(this);
 	}
-	
+
 	public ConfigureTimeframeDialog configureTimeframe() {
 		findElement(CONFIGURE_TIMEFRAME_LINK).click();
 		return new PegaConfigureTimeframeDialog(this);
 	}
-	
+
 	public ConfigureDetailsDialog configureDetails() {
 		findElement(CONFIGURE_CAMPAIGNDETAILS_LINK).click();
 		return new PegaConfigureDetailsDialog(this);
 	}
-	
+
 	public ConfigureCardDialog addOffer() {
 		findElement(ADD_OFFER_LABEL).click();
 		ConfigureCardDialog configureCardDialog = new PegaConfigureCardDialog(this);
 		return configureCardDialog;
 	}
-	
+
 	public void validateCampaign() {
 		findElement(ACTIONS_BUTTON).click();
 		findElement(VALIDATE_CAMPAIGN_BUTTON).click();
 	}
-	
+
 	public void runCampaign() {
 		if (verifyElement(RuleInstance.RUN_BUTTON)) {
 			findElement(RuleInstance.RUN_BUTTON).click();
@@ -120,7 +121,7 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		pegaDriver.waitForDocStateReady(30);
 		pegaDriver.handleWaits().sleep(30);
 	}
-	
+
 	public class PegaCampaignConfigureDialog extends PegaModalDialog implements CampaignConfigureDialog {
 		PegaWebDriver pegaDriver;
 		TestEnvironment testEnv;
@@ -212,38 +213,47 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		public void checkCampaignSchedule() {
 			frame.findElement(CAMAPIGN_SCHEDULE_CHECKBOX).check();
 		}
+
 		@Override
 		public void clickonrefreshaudience() {
-			
+
 			frame.findElement(REFRESH_AUDIENCE_CHECKBOX).check();
-			
+
 		}
 
 	}
-	
+
 	/**
-	 * This class supports the modal dialog for configuring the Engagement Criteria on a Self-optimizing campaign.
+	 * This class supports the modal dialog for configuring the Engagement Criteria
+	 * on a Self-optimizing campaign.
 	 */
 	public class PegaConfigureEngagementCriteriaDialog extends PegaModalDialog
 			implements ConfigureEngagementCriteriaDialog {
-		
+
 		public PegaConfigureEngagementCriteriaDialog(Frame aElmt) {
 			super(aElmt);
 		}
-		
+
 		/**
-		 * Enters the audience size as an integer into the Engagement Criteria dialog for a Self-optimizing Campaign.
-		 * @param audienceSize Size of the audience for the Campaign, as an integer.
- 		 */
+		 * Enters the audience size as an integer into the Engagement Criteria dialog
+		 * for a Self-optimizing Campaign.
+		 * 
+		 * @param audienceSize
+		 *            Size of the audience for the Campaign, as an integer.
+		 */
 		public void enterAudienceSize(Integer audienceSize) {
 			pegaDriver.handleWaits().waitForElementVisibility(AUDIENCE_SIZE_INPUT);
 			findElement(AUDIENCE_SIZE_INPUT).sendKeys(Integer.toString(audienceSize));
 		}
-		
+
 		/**
-		 * Enters the control group size as a decimal into the Engagement Criteria dialog for a Self-optimizing Campaign.
-		 * @param controlGroupSize Size of the control group in decimal, as a percentage of the Campaign audience.
- 		 */
+		 * Enters the control group size as a decimal into the Engagement Criteria
+		 * dialog for a Self-optimizing Campaign.
+		 * 
+		 * @param controlGroupSize
+		 *            Size of the control group in decimal, as a percentage of the
+		 *            Campaign audience.
+		 */
 		public void enterControlGroupSize(Double controlGroupSize) {
 			pegaDriver.handleWaits().waitForElementVisibility(CONTROLGROUP_SIZE_INPUT);
 			findElement(CONTROLGROUP_SIZE_INPUT).clear();
@@ -252,71 +262,83 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 	}
 
 	/**
-	 * This class supports the modal dialog for configuring the Timeframe on a Self-optimizing campaign.
+	 * This class supports the modal dialog for configuring the Timeframe on a
+	 * Self-optimizing campaign.
 	 */
-	public class PegaConfigureTimeframeDialog extends PegaModalDialog
-			implements ConfigureTimeframeDialog {
+	public class PegaConfigureTimeframeDialog extends PegaModalDialog implements ConfigureTimeframeDialog {
 
 		public PegaConfigureTimeframeDialog(Frame aElmt) {
 			super(aElmt);
 		}
 
 		/**
-		 * Enters a date into the Timeframe dialog for a Self-optimizing Campaign. This date can be used as either the start or end date.
-		 * @param date The start or end date for the Campaign. Defaulted to start date, drop-down must be changed to make it an end date.
+		 * Enters a date into the Timeframe dialog for a Self-optimizing Campaign. This
+		 * date can be used as either the start or end date.
+		 * 
+		 * @param date
+		 *            The start or end date for the Campaign. Defaulted to start date,
+		 *            drop-down must be changed to make it an end date.
 		 */
 		public void enterTimeframeDate(String date) {
 			pegaDriver.handleWaits().waitForElementVisibility(TIMEFRAME_DATE_INPUT);
-			findElement(TIMEFRAME_DATE_INPUT).sendKeys(date+Keys.TAB);
+			findElement(TIMEFRAME_DATE_INPUT).sendKeys(date + Keys.TAB);
 			findElement(CONFIGURETIMEFRAME_HEADER).click();
 		}
 	}
 
 	/**
-	 * This class supports the modal dialog for configuring the details on a Self-optimizing campaign. This includes the required Name field as well as
+	 * This class supports the modal dialog for configuring the details on a
+	 * Self-optimizing campaign. This includes the required Name field as well as
 	 * key code, financial information, and goals.
 	 */
-	public class PegaConfigureDetailsDialog extends PegaModalDialog
-			implements ConfigureDetailsDialog {
+	public class PegaConfigureDetailsDialog extends PegaModalDialog implements ConfigureDetailsDialog {
 
 		public PegaConfigureDetailsDialog(Frame aElmt) {
 			super(aElmt);
 		}
 
 		/**
-		 * Enters a name into the Campaign Details dialog for a Self-optimizing Campaign. This is a required field for Campaigns.
-		 * @param campaignName The name, as a string, for the Campaign.
+		 * Enters a name into the Campaign Details dialog for a Self-optimizing
+		 * Campaign. This is a required field for Campaigns.
+		 * 
+		 * @param campaignName
+		 *            The name, as a string, for the Campaign.
 		 */
 		public void enterCampaignName(String campaignName) {
 			pegaDriver.handleWaits().waitForElementVisibility(CAMPAIGN_NAME_INPUT);
-			findElement(CAMPAIGN_NAME_INPUT).sendKeys(campaignName+Keys.TAB);
+			findElement(CAMPAIGN_NAME_INPUT).sendKeys(campaignName + Keys.TAB);
 		}
-		
+
 		/**
-		 * Enters a key code into the Campaign Details dialog for a Self-optimizing Campaign. This field may return a warning for Campaigns if not set.
-		 * @param campaignKeycode The key code, as a string, for the Campaign.
+		 * Enters a key code into the Campaign Details dialog for a Self-optimizing
+		 * Campaign. This field may return a warning for Campaigns if not set.
+		 * 
+		 * @param campaignKeycode
+		 *            The key code, as a string, for the Campaign.
 		 */
 		public void enterCampaignKeycode(String campaignKeycode) {
 			pegaDriver.handleWaits().waitForElementVisibility(CAMPAIGN_KEYCODE_INPUT);
-			findElement(CAMPAIGN_KEYCODE_INPUT).sendKeys(campaignKeycode+Keys.TAB);
+			findElement(CAMPAIGN_KEYCODE_INPUT).sendKeys(campaignKeycode + Keys.TAB);
 		}
 	}
 
 	@Override
 	public String getthenameofcampaign() {
-	String reqString = findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();;
+		String reqString = findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
+		;
 		return reqString;
 	}
-	public void selectcategoryLP(){
+
+	public void selectcategoryLP() {
 		findElement(ALLCATEGORIESLINK).click();
 		pegaDriver.waitForDocStateReady();
-	    findElement(By.xpath("//*[@aria-label='Filter Categories']//*[text()='Sales']")).click();
+		findElement(By.xpath("//*[@aria-label='Filter Categories']//*[text()='Sales']")).click();
 	}
 
 	@Override
 	public void searchcampaigns(String campaignName, String campaignName1) {
 		System.out.println("The campaign names are as below:");
-		System.out.println(campaignName+campaignName1);
+		System.out.println(campaignName + campaignName1);
 		pegaDriver.handleWaits().waitForElementPresence(SEARCHCAMPAIGN);
 		selectcategoryLP();
 		findElement(SEARCHCAMPAIGN).sendKeys(campaignName);
@@ -324,13 +346,13 @@ public class PegaCampaign extends PegaRuleInstance implements Campaign {
 		findElement(SEARCHCAMPAIGN).clear();
 		findElement(SEARCHCAMPAIGN).sendKeys(campaignName1);
 		findElement(VIEW_BTN).click();
-		
+
 	}
 
 	@Override
 	public void setCampaignRuleName(String campaignName) {
 		pegaDriver.handleWaits().waitForElementVisibility(RULE_NAME_TEXT_BOX_CAMP);
 		findElement(RULE_NAME_TEXT_BOX_CAMP).sendKeys(campaignName + Keys.TAB);
-			
+
 	}
 }

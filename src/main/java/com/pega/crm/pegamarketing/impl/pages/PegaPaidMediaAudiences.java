@@ -4,7 +4,7 @@ import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.pages.PaidMediaAudiences;
 
 public class PegaPaidMediaAudiences extends PegaLandingPage implements PaidMediaAudiences {
-	
+
 	public PegaPaidMediaAudiences(String frameID, TestEnvironment testEnv) {
 		super(frameID, testEnv);
 	}
@@ -14,7 +14,7 @@ public class PegaPaidMediaAudiences extends PegaLandingPage implements PaidMedia
 		findElement(SEARCH_INPUT_BOX).sendKeys(audienceName);
 		findElement(VIEW_BUTTON_LINK).click();
 	}
-	
+
 	public String verifyPaidAudiencePg() {
 		pegaDriver.waitForDocStateReady();
 		findElement(PAIDMEDIA_AUDIENCES_PATH);

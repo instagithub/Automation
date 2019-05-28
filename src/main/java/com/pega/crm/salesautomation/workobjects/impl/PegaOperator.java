@@ -10,8 +10,6 @@ import com.pega.util.XPathUtil;
 
 public class PegaOperator extends PegaWorkObject implements Operators {
 
-	
-
 	By OPR_TEMPLATE_CHECKBOX = By.xpath("//*[@data-test-id='2015061908552707501789-Label']");
 	By OPR_DEFAULT_ACCESS_CHECKBOX = By.xpath("//*[@data-test-id='2015061908551804351701603-Label']");
 	public String OPR_NEXT_BUTTON = XPathUtil.getButtonPzBtnMidXPath("Next >>");
@@ -38,8 +36,6 @@ public class PegaOperator extends PegaWorkObject implements Operators {
 	public PegaOperator(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
 	}
-
-	
 
 	@Override
 	public void setOperatorID(String str) {
@@ -108,15 +104,6 @@ public class PegaOperator extends PegaWorkObject implements Operators {
 	}
 
 	@Override
-	public void setFullName(String str) {
-		String frameId = getActiveFrameId(false);
-		Operators Opr = new PegaOperator(frameId, testEnv);
-		// Opr.findElement(OPR_FULL_NAME).click();
-		// Opr.findElement(OPR_FULL_NAME).sendKeys(str);
-
-	}
-
-	@Override
 	public void setPostition(String str) {
 		String frameId = getActiveFrameId(false);
 		Operators Opr = new PegaOperator(frameId, testEnv);
@@ -165,8 +152,8 @@ public class PegaOperator extends PegaWorkObject implements Operators {
 
 	@Override
 	public void setOperatorType(String str) {
-		 
-		 findSelectBox(By.id("pyAccessGroup")).selectByVisibleText(str);
+
+		findSelectBox(By.id("pyAccessGroup")).selectByVisibleText(str);
 	}
 
 	@Override
@@ -184,190 +171,168 @@ public class PegaOperator extends PegaWorkObject implements Operators {
 	@Override
 	public String getOperatorId() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyUserIdentifier']/following-sibling::Div/span"))
+		return findElement(By.xpath("//label[@for='pyUserIdentifier']/following-sibling::Div/span"))
 				.getAttribute("text");
 	}
 
 	@Override
 	public String getTitle() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyTitle']/following-sibling::Div/span"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyTitle']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getFirstName() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyFirstName']/following-sibling::Div/span"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyFirstName']/following-sibling::Div/span")).getAttribute("text");
 
 	}
 
 	@Override
 	public String getLastName() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyLastName']/following-sibling::Div/span"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyLastName']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getFullName() {
 
-		 
-		return  findElement(By.xpath("//*[text()='Full Name']/../../div/span")).getAttribute("text");
+		return findElement(By.xpath("//*[text()='Full Name']/../../div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getPostition() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyPosition']/following-sibling::Div/span"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyPosition']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getPhone() {
-		 
-		return  findElement(By.xpath("//label[@for='pyTelephone']/following-sibling::Div/span"))
-				.getAttribute("text");
+
+		return findElement(By.xpath("//label[@for='pyTelephone']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getEmail() {
 
-		 
-		return  findElement(By.xpath("//label[@for='pyEmailAddress']/following-sibling::Div/span"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyEmailAddress']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getTimeZone() {
 
-		 return  findElement(By.xpath("//label[@for='pyDefaultTimeZone']/following-sibling::Div"))
-				.getAttribute("text");
+		return findElement(By.xpath("//label[@for='pyDefaultTimeZone']/following-sibling::Div")).getAttribute("text");
 	}
 
 	@Override
 	public String getReportsTo() {
-		 
-		return  findElement(By.xpath("//label[@for='pyReportTo']/following-sibling::Div"))
-				.getAttribute("text");
+
+		return findElement(By.xpath("//label[@for='pyReportTo']/following-sibling::Div")).getAttribute("text");
 	}
 
 	@Override
 	public String getOperatorType() {
-		
-		 
-		return  findElement(By.xpath("//label[@for='pyAccessGroup']/following-sibling::Div/span"))
-				.getAttribute("text");
+
+		return findElement(By.xpath("//label[@for='pyAccessGroup']/following-sibling::Div/span")).getAttribute("text");
 	}
 
 	@Override
 	public String getTerritory() {
 
-		
-		 
-		return  findElement(By.xpath("//label[contains(text(),'Territory')]/following-sibling::Div"))
+		return findElement(By.xpath("//label[contains(text(),'Territory')]/following-sibling::Div"))
 				.getAttribute("text");
 
 	}
 
 	@Override
 	public void defaultSalesRepAccess() {
-		 
 
 		// Verify for Organization Read Permissions at Territory and Child level
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID1']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID1']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
 
 		// Verify for Account Read Permission at territory and Child level
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID2']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID2']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
 
 		// Verify for Contact Read, update and Create permissions at territory and child
 		// levels
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID3']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Lead Read, update and Create permissions at territory and child
 		// levels
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID4']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Opportunity Read, update and Create permissions at territory and
 		// child levels
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID5']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 		// Verify for Task Read, update and Create permissions at territory and child
 		// levels
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a2']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a3']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a4']//img[@alt='Checked']"));
 
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a6']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a7']//img[@alt='Checked']"));
-		 verifyElement(By
+		verifyElement(By
 				.xpath("//div[@id='PEGA_GRID6']//table[@class='gridTable ']//td[@headers='a8']//img[@alt='Checked']"));
 
 	}
 
 	@Override
-	public void navigateToAccessAndPermissionsTab() {	 
-		 findElement(By.xpath("//div[@role='tab']/h3[contains(text(),'Access & Permissions')]")).click();
+	public void navigateToAccessAndPermissionsTab() {
+		findElement(By.xpath("//div[@role='tab']/h3[contains(text(),'Access & Permissions')]")).click();
 	}
 
 	public boolean verifyOprNewHarness() {
 
-		
-		 
-		return  verifyElement(OPR_TEMPLATE_CHECKBOX);
+		return verifyElement(OPR_TEMPLATE_CHECKBOX);
 	}
 
 	@Override
@@ -396,8 +361,7 @@ public class PegaOperator extends PegaWorkObject implements Operators {
 		findElement(By.xpath(OPR_NEXT_BUTTON_XPATH)).click();
 
 		if (verifyElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']")))
-			findElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']"))
-					.click();
+			findElement(By.xpath("//button[@title='Complete this assignment']//div[text()='Finish']")).click();
 
 	}
 

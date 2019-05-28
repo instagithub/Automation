@@ -1,11 +1,11 @@
 package com.pega.crm.pegamarketing.stepdefs;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
 import com.pega.CRMTestEnvironment;
-import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.DesignerStudio;
 import com.pega.crm.pegamarketing.pages.Segments;
 import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;

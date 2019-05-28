@@ -37,7 +37,7 @@ public class Campaignglue {
 	TestEnvironment testEnv;
 	CRMBrowser browser;
 	Campaign campaign;
-	String Campaign1,Campaign2;
+	String Campaign1, Campaign2;
 	private ConfigureAudienceDialog configureAudienceDialog;
 
 	@Inject
@@ -58,24 +58,24 @@ public class Campaignglue {
 		campaign = ObjectsBean.getCampaign();
 		campaign.editCampaign();
 	}
-	
+
 	@Then("^User saves the name of the Campaign$")
 	public void user_saves_the_name_of_the_Campaign() {
-		if(this.Campaign1==null){
+		if (this.Campaign1 == null) {
 
-			this.Campaign1	=	campaign.getthenameofcampaign();
-				ObjectsBean.setCampaignName(Campaign1); 
-			}else{
-				this.Campaign2 =	campaign.getthenameofcampaign();
-				ObjectsBean.setCampaignName1(Campaign2);
-			}	 
+			this.Campaign1 = campaign.getthenameofcampaign();
+			ObjectsBean.setCampaignName(Campaign1);
+		} else {
+			this.Campaign2 = campaign.getthenameofcampaign();
+			ObjectsBean.setCampaignName1(Campaign2);
+		}
 	}
 
 	@Then("^user clicks on close button in Campaign$")
-	public void user_clicks_on_close_button_in_Campaign(){
-	   campaign.close();
+	public void user_clicks_on_close_button_in_Campaign() {
+		campaign.close();
 	}
-    
+
 	@Then("^Save button should be Enabled for the Campaign$")
 	public void save_button_should_be_Enabled_for_theCampaign() {
 		Assert.assertTrue(campaign.findElement(Campaign.SAVE_BUTTON).isEnabled(), "save button is not enabled");
@@ -105,13 +105,12 @@ public class Campaignglue {
 		configureAudienceDialog.search(segmentName);
 		ObjectsBean.setConfigureAudienceDiaolg(configureAudienceDialog);
 	}
-	
+
 	@When("^User searches and adds the Segment \"([^\"]*)\" in the Search for Audience$")
-	public void user_searches_and_adds_the_Segment_in_the_Search_for_Audience(String segmentName){
+	public void user_searches_and_adds_the_Segment_in_the_Search_for_Audience(String segmentName) {
 		configureAudienceDialog = ObjectsBean.getConfigureAudienceDialog();
 		configureAudienceDialog.search(segmentName);
 	}
-
 
 	@When("^User applies the Segment for campaign$")
 	public void user_applies_the_Segment_for_campaign() {
@@ -145,7 +144,7 @@ public class Campaignglue {
 
 	@When("^User logs out of the application$")
 	public void user_logs_out_of_the_application() throws Throwable {
-	    testEnv.getBrowser().logout();
+		testEnv.getBrowser().logout();
 	}
-	
+
 }

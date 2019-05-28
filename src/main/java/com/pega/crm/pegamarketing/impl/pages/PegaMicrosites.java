@@ -11,7 +11,7 @@ import com.pega.crm.pegamarketing.pages.Subscription;
 public class PegaMicrosites extends PegaLandingPage implements Microsites {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PegaMicrosites.class.getName());
-	
+
 	private String uRLPort;
 
 	public PegaMicrosites(String frameID, TestEnvironment testEnv) {
@@ -25,11 +25,11 @@ public class PegaMicrosites extends PegaLandingPage implements Microsites {
 		uRLPort = t1.getConfiguration().getURL();
 		uRLPort = uRLPort.replace("/prweb", "");
 		micrositeURL = micrositeURL.replace("*****", uRLPort);
-		LOGGER.debug("*** URL Is: " +micrositeURL);
+		LOGGER.debug("*** URL Is: " + micrositeURL);
 		pegaDriver.get(micrositeURL);
 		pegaDriver.handleWaits().waitTillTitleContains("Subscription");
 		pegaDriver.waitForDocStateReady(4);
-			return new PegaSubscription(micrositeURL, t1);
-		}
+		return new PegaSubscription(micrositeURL, t1);
+	}
 
 }

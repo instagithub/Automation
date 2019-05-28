@@ -15,7 +15,7 @@ public class PegaTreatment extends PegaRuleInstance implements Treatment {
 	public void setKeyCode(String keyCode) {
 		findElement(KEY_CODE_TEXT_BOX).sendKeys(keyCode + Keys.TAB);
 	}
-	
+
 	public void writeContent(String string) {
 		PegaWebElement frameElement = findElement(TREATMENT_CONTENT_IFRAME);
 		findFrame(frameElement);
@@ -24,4 +24,3 @@ public class PegaTreatment extends PegaRuleInstance implements Treatment {
 		pegaDriver.switchTo().parentFrame();
 	}
 }
-

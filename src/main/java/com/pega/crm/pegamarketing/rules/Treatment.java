@@ -9,7 +9,7 @@ public interface Treatment extends RuleInstance {
 	By TREATMENT_BODY = By.xpath("//body[contains(@title,'This is a rich text editor control')]");
 
 	/**
-	 * this method writes the given text into the Email/SMS body 
+	 * this method writes the given text into the Email/SMS body
 	 * 
 	 * @param content
 	 *            text to be written

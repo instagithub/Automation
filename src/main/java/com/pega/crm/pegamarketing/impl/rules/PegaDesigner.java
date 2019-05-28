@@ -37,7 +37,6 @@ public class PegaDesigner extends PegaLandingPage implements Designer {
 	}
 
 	public ConfigureBussinessIssuesDialog editBussinessIssue() {
-		// findElement(CONFIGURE_BUSSINESS_ISSUES_LINK).click();
 		ConfigureBussinessIssuesDialog confgBussinessIssue = new PegaConfigureBussinessIssuesDialog(this);
 		System.out.println("Config issue dialog is : " + confgBussinessIssue);
 		return confgBussinessIssue;

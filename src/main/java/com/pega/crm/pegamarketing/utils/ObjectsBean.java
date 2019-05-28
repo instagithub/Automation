@@ -57,7 +57,7 @@ public class ObjectsBean {
 
 	private static Segments segments;
 	static Eligibilities eligibilities;
-	static String Strategy1,Strategy2,Campaign1,Campaign2;
+	static String Strategy1, Strategy2, Campaign1, Campaign2;
 	private static ConfigurePriorityDialog configurePriorityDialog;
 	private static ImageCatalog ic;
 	private static HashMap<String, String> timeStamps = new HashMap<>();
@@ -101,7 +101,7 @@ public class ObjectsBean {
 	private static PaidMediaAudiences paidMediaAudiences;
 	private static ImageLibrary imageLibrary;
 	private static ImageCatalogDialog imgCatalog;
-	
+
 	public static ConfigureEngagementCriteriaDialog configureEngagementCriteriaDialog;
 	public static CampaignConfigureDialog cardSelectorDialog;
 	public static ConfigureTimeframeDialog configureTimeframeDialog;
@@ -122,6 +122,7 @@ public class ObjectsBean {
 	public static String getStrategyName() {
 		return ObjectsBean.Strategy1;
 	}
+
 	public static void setStrategyName1(String Strategy2) {
 		ObjectsBean.Strategy2 = Strategy2;
 	}
@@ -129,6 +130,7 @@ public class ObjectsBean {
 	public static String getStrategyName1() {
 		return ObjectsBean.Strategy2;
 	}
+
 	public static void setImageCatalog(ImageCatalog ic) {
 		ObjectsBean.ic = ic;
 	}
@@ -298,14 +300,15 @@ public class ObjectsBean {
 		return configureEngagementDialog;
 	}
 
-	public static void setConfigureEngagementCriteriaDialog(ConfigureEngagementCriteriaDialog configureEngagementCriteriaDialog) {
+	public static void setConfigureEngagementCriteriaDialog(
+			ConfigureEngagementCriteriaDialog configureEngagementCriteriaDialog) {
 		ObjectsBean.configureEngagementCriteriaDialog = configureEngagementCriteriaDialog;
 	}
 
 	public static ConfigureEngagementCriteriaDialog getConfigureEngagementCriteriaDialog() {
 		return configureEngagementCriteriaDialog;
 	}
-	
+
 	public static void setCardSelectorDialog(CampaignConfigureDialog cardSelectorDialog) {
 		ObjectsBean.cardSelectorDialog = cardSelectorDialog;
 	}
@@ -313,7 +316,7 @@ public class ObjectsBean {
 	public static CampaignConfigureDialog getCardSelectorDialog() {
 		return cardSelectorDialog;
 	}
-	
+
 	public static void setConfigureTimeframeDialog(ConfigureTimeframeDialog configureTimeframeDialog) {
 		ObjectsBean.configureTimeframeDialog = configureTimeframeDialog;
 	}
@@ -321,7 +324,7 @@ public class ObjectsBean {
 	public static ConfigureTimeframeDialog getConfigureTimeframeDialog() {
 		return configureTimeframeDialog;
 	}
-	
+
 	public static void setConfigureDetailsDialog(ConfigureDetailsDialog configureDetailsDialog) {
 		ObjectsBean.configureDetailsDialog = configureDetailsDialog;
 	}
@@ -329,7 +332,7 @@ public class ObjectsBean {
 	public static ConfigureDetailsDialog getConfigureDetailsDialog() {
 		return configureDetailsDialog;
 	}
-	
+
 	public static void setStrategies(Strategies strategies) {
 		ObjectsBean.strategy = strategies;
 	}
@@ -508,49 +511,48 @@ public class ObjectsBean {
 		// TODO Auto-generated method stub
 		return pegapaidmedia;
 	}
-	
+
 	public static void setPaidMediaAudiences(PaidMediaAudiences paidMediaAudiences) {
 		ObjectsBean.paidMediaAudiences = paidMediaAudiences;
 	}
-	
-	public static PaidMediaAudiences getPaidMediaAudiences(){
+
+	public static PaidMediaAudiences getPaidMediaAudiences() {
 		return ObjectsBean.paidMediaAudiences;
 	}
-	
 
 	public static void setImageLibrary(ImageLibrary imageLibrary) {
 		ObjectsBean.imageLibrary = imageLibrary;
 	}
-	
-	public static ImageLibrary getImageLibrary(){
+
+	public static ImageLibrary getImageLibrary() {
 		return ObjectsBean.imageLibrary;
 	}
 
 	public static void setImageCatalogDialog(ImageCatalogDialog imgCatalog) {
 		ObjectsBean.imgCatalog = imgCatalog;
 	}
-	
-	public static ImageCatalogDialog getImageCatalogDialog(){
+
+	public static ImageCatalogDialog getImageCatalogDialog() {
 		return ObjectsBean.imgCatalog;
 	}
 
 	public static void setCampaignName(String Campaign1) {
 		ObjectsBean.Campaign1 = Campaign1;
-		
+
 	}
 
 	public static void setCampaignName1(String Campaign2) {
 		ObjectsBean.Campaign2 = Campaign2;
-		
+
 	}
 
 	public static String getCampaignName() {
-		
+
 		return Campaign1;
 	}
 
 	public static String getCampaignName1() {
-		
+
 		return Campaign2;
 	}
 }

@@ -21,23 +21,27 @@ import org.openqa.selenium.By;
 import com.pega.crm.pegamarketing.utils.GlobalRepository;
 
 public interface ModalDialog {
-	
+
 	By APPLY_BUTTON = By.xpath("//button[text()='Apply' and @class='Strong pzhc pzbutton']");
-	By CLOSE_BUTTON=By.xpath("//i[contains(@data-click,'closeContainer')]");
+	By CLOSE_BUTTON = By.xpath("//i[contains(@data-click,'closeContainer')]");
 	By SUBMIT_BUTTON = By.xpath(GlobalRepository.SUBMIT_BUTTON_XPATH);
 	By CANCEL_BUTTON = By.id("ModalButtonCancel");
+
 	/**
 	 * This method will apply the changes in the modal dialog
 	 */
 	void apply();
+
 	/**
 	 * This method will submit the changes in the modal dialog
 	 */
 	void submit();
+
 	/**
 	 * This method will cancel the changes in the modal dialog
 	 */
 	void cancel();
+
 	/**
 	 * This method closes the modal dialog
 	 */

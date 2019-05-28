@@ -172,8 +172,7 @@ public class CommonMethods {
 		verifyResult(text, callerName);
 
 		/*
-		 * boolean result =
-		 * pegaDriver.findElement(By.id("timerIcon")).isDisplayed();
+		 * boolean result = pegaDriver.findElement(By.id("timerIcon")).isDisplayed();
 		 * System.out.println("Value for the Result is : : : :"+result);
 		 * verifyResult(result,true);
 		 */
@@ -205,14 +204,10 @@ public class CommonMethods {
 		return textValue;
 	}
 
-
-
 	public String getCurrentTime() {
 		return (new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()));
 	}
 
-	
-	
 	public boolean verifyElementIsVisible(By locator, PegaWebDriver pegaWebDriver) {
 		WebDriverWait driverWait = new WebDriverWait(pegaWebDriver, 10);
 		boolean status = true;
@@ -227,21 +222,18 @@ public class CommonMethods {
 		}
 		return status;
 	}
-	
+
 	public boolean verifyVisibilityOfElement(By locator, PegaWebDriver pegaDriver) {
 		System.out.println("Inside the visibility Method");
 		boolean status;
 		status = verifyElementIsVisible(locator, pegaDriver);
 		return status;
 	}
-	
-	
-	public void waitUntillElementClickble(By locator,int time){
+
+	public void waitUntillElementClickble(By locator, int time) {
 		WebDriverWait wait = new WebDriverWait(pegaDriver, time);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-	
-	
 
 	/*
 	 * @sendTextToElement
@@ -267,8 +259,8 @@ public class CommonMethods {
 	 * 
 	 * @parameter : it will take one parameter of type By
 	 * 
-	 * @functionality :it clears the text present in text box that matched by
-	 * given parameter value.
+	 * @functionality :it clears the text present in text box that matched by given
+	 * parameter value.
 	 * 
 	 */
 
@@ -366,6 +358,5 @@ public class CommonMethods {
 			checkbox.click();
 		}
 	}
-
 
 }

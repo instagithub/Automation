@@ -26,15 +26,16 @@ public class PegaConfigureDialog extends PegaModalDialog implements ConfigureDia
 		super(aFrame);
 		this.frame = aFrame;
 	}
+
 	public void addRule(String ruleName) {
 		frame.findElement(ADD_BUTTON).click();
 	}
 
-	
 	public void search(String searchText) {
 		frame.findElement(SEARCH_INPUT).sendKeys(searchText);
 		frame.findElement(SEARCH_ICON).click();
 	}
+
 	public boolean isSegmentAdded() {
 		boolean isRemoveFound = frame.verifyElement(REMOVE_BUTTON);
 		boolean isDeleteButtonFound = frame.verifyElement(DELETE_ICON);

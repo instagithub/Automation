@@ -14,16 +14,12 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.elmt.PegaConnector;
 import com.pega.crm.pegamarketing.impl.elmt.PegaOfferShape;
 import com.pega.crm.pegamarketing.rules.Offer;
-import com.pega.crm.pegamarketing.rules.Offer.SendEmailShapeProperties;
-import com.pega.crm.pegamarketing.rules.Offer.SendSMSShapeProperties;
-import com.pega.crm.pegamarketing.rules.Offer.Shape;
-import com.pega.crm.pegamarketing.rules.Offer.ShapeProperties;
 import com.pega.crm.pegamarketing.utils.GlobalRepository;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaOffer extends PegaRuleInstance implements Offer {
-	
+
 	public static final By START_CONNECTOR = By.xpath("//*[contains(@style,'visible')]/*[@d][2]");
 
 	public PegaOffer(String frameID, TestEnvironment testEnv) {
@@ -91,7 +87,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 
 			shapeTextElmt = this.findElement(By.xpath(draggedShapeLocator));
 			shapeTextElmt.doDoubleClickWithMouse();
-			//actions.doubleClick(shapeTextElmt.getWebElement()).build().perform();
+			// actions.doubleClick(shapeTextElmt.getWebElement()).build().perform();
 			pegaDriver.waitForDocStateReady(3);
 			PegaWebElement moName = this.findElement(By.xpath(MONAME_XPATH));
 			scriptExecutor.sendKeys(moName, shapeName);
@@ -104,7 +100,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		}
 		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, shapeName);
-		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return flowShapeObj;
 	}
 
@@ -139,7 +135,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		testEnv.getPegaDriver().waitForDocStateReady(2);
 		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, shapeName);
-		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return flowShapeObj;
 	}
 
@@ -147,7 +143,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		By byShapeXpath = By.xpath("//*[@id='shapeLabel']//*[text()='Start']");
 		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "Start");
-		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return flowShapeObj;
 	}
 
@@ -156,7 +152,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		testEnv.getPegaDriver().waitForDocStateReady(2);
 		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "End");
-		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return flowShapeObj;
 	}
 
@@ -165,7 +161,7 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		testEnv.getPegaDriver().waitForDocStateReady(2);
 		WebElement shapeElmt = findElement(byShapeXpath).getWebElement();
 		OfferShape flowShapeObj = new PegaOfferShape(shapeElmt, this, "End");
-		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		flowShapeObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return flowShapeObj;
 	}
 
@@ -208,23 +204,23 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 			save();
 		}
 	}
-	
+
 	public Connector findConnector(String connName) {
 		By byShapeXpath = By
 				.xpath("//*[name()='path']/../following-sibling::*[name()='g']//*[text()='" + connName + "']");
 		WebElement connElem = findElement(byShapeXpath).getWebElement();
 		Connector connObj = new PegaConnector(connElem, this, connName);
-		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return connObj;
 	}
 
 	public Connector findConnector(By byShapeXpath) {
 		WebElement connElem = findElement(byShapeXpath).getWebElement();
 		Connector connObj = new PegaConnector(connElem, this);
-		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(),this.getFramesSet());
+		connObj._setEnvironment(testEnv, byShapeXpath, getFrameDocument(), this.getFramesSet());
 		return connObj;
 	}
-	
+
 	protected class PegaShapeProperties extends PegaModalDialog implements ShapeProperties {
 		public PegaShapeProperties(Frame frame) {
 			super(frame);
@@ -321,15 +317,12 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 
 	@Override
 	public void setDirection(String direction) {
-		if(direction.trim().equalsIgnoreCase("outbound"))
-		{
+		if (direction.trim().equalsIgnoreCase("outbound")) {
 			findElement(DIRECTION_OUTBOUND).click();
-		}
-		else if(direction.trim().equalsIgnoreCase("inbound"))
-		{
+		} else if (direction.trim().equalsIgnoreCase("inbound")) {
 			findElement(DIRECTION_INBOUND).click();
 		}
-		
+
 	}
 
 	@Override
@@ -341,20 +334,20 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 	public void testOffer() {
 		findElement(TEST_OFFER).click();
 	}
-	
+
 	@Override
 	public void clickDetails() {
 		findElement(DETAILS_TAB).click();
-		//pegaDriver.waitForDocStateReady();
-		
+		// pegaDriver.waitForDocStateReady();
+
 	}
 
 	@Override
 	public ImageCatalogDialog clickImageURLCog() {
 		findElement(IMAGE_URL_COG).click();
-		ImageCatalogDialog imageCatalogDialog = new PegaImageCatalogDialog(this,testEnv);
+		ImageCatalogDialog imageCatalogDialog = new PegaImageCatalogDialog(this, testEnv);
 		return imageCatalogDialog;
-		
+
 	}
 
 }

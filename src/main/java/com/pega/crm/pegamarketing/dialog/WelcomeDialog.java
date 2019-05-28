@@ -18,7 +18,8 @@ package com.pega.crm.pegamarketing.dialog;
 
 import org.openqa.selenium.By;
 
-public interface WelcomeDialog extends ModalDialog{
+public interface WelcomeDialog extends ModalDialog {
 
-	By SHOW_THIS_DIALOG_ON_STARTUP_CHKBOX=By.xpath("//label[text()='Show this dialog on startup']/preceding-sibling::input[1]");
+	By SHOW_THIS_DIALOG_ON_STARTUP_CHKBOX = By
+			.xpath("//label[text()='Show this dialog on startup']/preceding-sibling::input[1]");
 }

@@ -1,16 +1,6 @@
 package com.pega;
 
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriverException;
-//import com.pega.sfa.workobjects.TerritoriesList;
-//import com.pega.sfa.workobjects.PegaUtil;
-import org.openqa.selenium.WebElement;
 
 import com.google.inject.Inject;
 import com.pega.crm.customerservice.CSPortal;
@@ -35,10 +25,7 @@ import com.pega.crm.salesautomation.workobjects.TerritoriesList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
-import com.pega.framework.elmt.DropDown;
-import com.pega.util.HTTPUtil;
 
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -88,7 +75,6 @@ public class CRMBrowser extends PegaBrowser {
 		configuration = testEnv.getConfiguration();
 	}
 
-
 	public PMPortal getPMPortal() {
 		return pegaMarketingPortal;
 	}
@@ -100,7 +86,6 @@ public class CRMBrowser extends PegaBrowser {
 	public PegaExpressPortal getExpressPortal() {
 		return pegaExpressPortal;
 	}
-
 
 	@Given("^A User logs in with Analyst credentials$")
 	public void a_User_logs_in_with_Analyst_credentials() {
@@ -119,10 +104,11 @@ public class CRMBrowser extends PegaBrowser {
 		super.login(configuration.getCredential("BO_USER_ID"), configuration.getCredential("BO_USER_PASSWORD"));
 		csPortal = getPortal(CSPortal.class);
 		pegaDriver = testEnv.getPegaDriver();
-		//researchInteraction = csPortal.getTopNav().setResearchInteraction();
-		//interactions = researchInteraction;
-		
+		// researchInteraction = csPortal.getTopNav().setResearchInteraction();
+		// interactions = researchInteraction;
+
 	}
+
 	@When("^User logs in to CS portal as CSR$")
 	public void user_logs_in_to_CS_portal_as_CSR() throws Throwable {
 		super.login(configuration.getCredential("CACSR_USER_ID"), configuration.getCredential("CACSR_USER_PASSWORD"));
@@ -137,36 +123,31 @@ public class CRMBrowser extends PegaBrowser {
 		pegaDriver = testEnv.getPegaDriver();
 	}
 
-
-
-
 	// SA Methods
 
 	@Given("^User logs in to SA Application as salesmanager$")
 	public void user_logs_in_to_SA_Application_as_salesmanager() throws Throwable {
-	open();							   													   		
+		open();
 		login(configuration.getCredential("SALESMANAGER_ID"), configuration.getCredential("SALESMANAGER_PASSWORD"));
 	}
-	
+
 	@Given("^User logs in to SA Application as salesops$")
 	public void user_logs_in_to_SA_Application_as_salesops() throws Throwable {
 		open();
 		login(configuration.getCredential("SALESOPS_ID"), configuration.getCredential("SALESOPS_PASSWORD"));
-	
-	}
 
+	}
 
 	@Given("^User logs in to SA Application as salesrep$")
 	public void user_logs_in_to_SA_Application_as_salesrep() throws Throwable {
 		open();
 		login(configuration.getCredential("SALESREP_ID"), configuration.getCredential("SALESREP_PASSWORD"));
-	
+
 	}
 
 	@Given("^navigates to \"([^\"]*)\" List page$")
 	public void navigates_to_page(String LeftNavItem) {
 		sfaPortal = getPortal(SFAPortal.class);
-		String CAMPAIGN_Exists;
 
 		switch (LeftNavItem) {
 		case "Organizations": {
@@ -222,7 +203,6 @@ public class CRMBrowser extends PegaBrowser {
 		}
 	}
 
-
 	@Then("^Goto \"([^\"]*)\" tab$")
 	public void goto_tab(String tabName) {
 		pegaDriver.switchTo().defaultContent();
@@ -232,13 +212,12 @@ public class CRMBrowser extends PegaBrowser {
 		PegaWebElement tabElement = pegaDriver.findElement(By.xpath(finalXPath));
 		tabElement.click();
 	}
-	
-	
+
 	@Then("^Operator logs of the social portal$")
 	public void operator_logs_of_the_social_portal() throws Throwable {
 		socialportallogout();
 	}
-	
+
 	@When("^Operator logs of the portal$")
 	public void csr_logout_of_the_portal() {
 		logout();

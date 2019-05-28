@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.rules.PropositionFilter;
-import com.pega.crm.pegamarketing.rules.PropositionFilter.DefaultCriteria;
 import com.pega.framework.PegaWebElement;
 
 public class PegaPropositionFilter extends PegaRuleInstance implements PropositionFilter {
@@ -14,10 +13,8 @@ public class PegaPropositionFilter extends PegaRuleInstance implements Propositi
 	}
 
 	public void setDefaultCriteria(DefaultCriteria criteria) {
-		PegaWebElement radio = findElement(By.xpath(
-				"//span/label[text()='"+criteria.getCriteria()+"']"));
+		PegaWebElement radio = findElement(By.xpath("//span/label[text()='" + criteria.getCriteria() + "']"));
 		testEnv.getScriptExecutor().click(radio);
 	}
-
 
 }

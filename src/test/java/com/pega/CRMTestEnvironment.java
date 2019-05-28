@@ -41,7 +41,7 @@ public class CRMTestEnvironment extends TestBase {
 
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	String VERSION = "$Id: MyTestEnvironment.java 187193 2018-04-13 01:45:11Z SachinVellanki $";
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(CRMTestEnvironment.class.getName());
 	Browser browser;
 	TestEnvironmentImpl testsdd;
@@ -53,7 +53,7 @@ public class CRMTestEnvironment extends TestBase {
 	private boolean alwaysSaveVideo = false;
 	private boolean isDebugMode = false;
 	private CommonMethods commonMethods;
-	
+
 	@Override
 	@Inject
 	public Browser getBrowser() {
@@ -70,7 +70,7 @@ public class CRMTestEnvironment extends TestBase {
 	}
 
 	protected void setUp(Scenario scenario, String browserName) {
-		//initializeStatus();
+		// initializeStatus();
 		startRecording(scenario);
 		configureBrowser();
 		commonMethods = new CommonMethods(getPegaDriver());
@@ -85,14 +85,13 @@ public class CRMTestEnvironment extends TestBase {
 		tearDown(scenario, performLogout, alwaysSaveVideo);
 	}
 
-	protected void tearDown(Scenario scenario, boolean performLogout,
-			boolean saveVideoForPassedScenario) {
+	protected void tearDown(Scenario scenario, boolean performLogout, boolean saveVideoForPassedScenario) {
 		try {
 			isDebugMode = getConfiguration().isDebugMode();
 			captureScreenshot(scenario);
 
 			if (!isDebugMode) {
-				if (performLogout  && !scenario.isFailed()) {
+				if (performLogout && !scenario.isFailed()) {
 					browser.switchToWindow(1);
 					logout();
 				}
@@ -101,8 +100,10 @@ public class CRMTestEnvironment extends TestBase {
 			killDrivers();
 			captureVideo(scenario, saveVideoForPassedScenario);
 		} finally {
-			/*updateWithCurrentStatus("['" + total + "', " + passed + ", "
-					+ failed + ", " + (total - passed - failed) + "]");*/
+			/*
+			 * updateWithCurrentStatus("['" + total + "', " + passed + ", " + failed + ", "
+			 * + (total - passed - failed) + "]");
+			 */
 		}
 	}
 
@@ -116,8 +117,7 @@ public class CRMTestEnvironment extends TestBase {
 			} catch (Exception e) {
 				LOGGER.debug("Unable to read execution.properties file", true);
 			}
-			updateWithCurrentStatus("['" + total + "', " + passed + ", "
-					+ failed + ", " + total + "]");
+			updateWithCurrentStatus("['" + total + "', " + passed + ", " + failed + ", " + total + "]");
 		}
 	}
 
@@ -126,8 +126,7 @@ public class CRMTestEnvironment extends TestBase {
 			String reportsDir = System.getProperty("testReportsDir");
 			try {
 				String videoFileName = System.getenv("tags");
-				videoFilePath = reportsDir
-						+ System.getProperty("file.separator") + videoFileName
+				videoFilePath = reportsDir + System.getProperty("file.separator") + videoFileName
 						+ GlobalConstants.VIDEO_FILE_FORMAT;
 				RecorderUtil.startRecording(reportsDir, videoFileName);
 				LOGGER.debug("Video recording started...", true);
@@ -138,14 +137,11 @@ public class CRMTestEnvironment extends TestBase {
 		}
 	}
 
-	/*private void configureBrowser() {
-		browser = getBrowser();
-		browser.open();
-		configuration = getConfiguration();
-		isBrowserInitiailized = true;
-		alwaysSaveVideo = configuration.isSaveVideoAlways();
-	}
-*/
+	/*
+	 * private void configureBrowser() { browser = getBrowser(); browser.open();
+	 * configuration = getConfiguration(); isBrowserInitiailized = true;
+	 * alwaysSaveVideo = configuration.isSaveVideoAlways(); }
+	 */
 	protected void stopRecording() throws Exception {
 		if (System.getenv("JENKINS_URL") != null) {
 			RecorderUtil.stopRecording();
@@ -160,8 +156,7 @@ public class CRMTestEnvironment extends TestBase {
 					f.delete();
 				}
 			} catch (Exception e) {
-				LOGGER.debug("Unable to delete video file: " + videoFilePath,
-						mx4j.log.Logger.ERROR, true);
+				LOGGER.debug("Unable to delete video file: " + videoFilePath, mx4j.log.Logger.ERROR, true);
 			}
 		}
 	}
@@ -179,8 +174,7 @@ public class CRMTestEnvironment extends TestBase {
 			sc.close();
 
 			template = template.replaceFirst("\\['\\d+',[\\d,\\s]*\\]", result);
-			BufferedWriter writer = new BufferedWriter(new FileWriter(new File(
-					filePath)));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filePath)));
 			writer.write(template);
 			writer.close();
 		} catch (IOException e) {
@@ -189,19 +183,15 @@ public class CRMTestEnvironment extends TestBase {
 		}
 	}
 
-	/*private void captureScreenshot(Scenario scenario) {
-		if (System.getenv("JENKINS_URL") != null) {
-			if (scenario.isFailed()) {
-				try {
-					final byte[] screenshot = ((TakesScreenshot)getPegaDriver().getDriver()).getScreenshotAs(OutputType.BYTES);
-					scenario.embed(screenshot, "image/png");
-				} catch (Exception e) {
-					scenario.write("Unable to take screenshot<br/>");
-				}
-			}
-		}
-	}*/
-	
+	/*
+	 * private void captureScreenshot(Scenario scenario) { if
+	 * (System.getenv("JENKINS_URL") != null) { if (scenario.isFailed()) { try {
+	 * final byte[] screenshot =
+	 * ((TakesScreenshot)getPegaDriver().getDriver()).getScreenshotAs(OutputType.
+	 * BYTES); scenario.embed(screenshot, "image/png"); } catch (Exception e) {
+	 * scenario.write("Unable to take screenshot<br/>"); } } } }
+	 */
+
 	private void captureScreenshot(Scenario scenario) {
 		if (scenario.isFailed()) {
 			try {
@@ -209,7 +199,7 @@ public class CRMTestEnvironment extends TestBase {
 						.getScreenshotAs(OutputType.BYTES);
 				scenario.embed(screenshot, "image/png");
 				File temp = ((TakesScreenshot) getPegaDriver().getDriver()).getScreenshotAs(OutputType.FILE);
-				File dest = new File("target/"+scenario.getName()+".png");
+				File dest = new File("target/" + scenario.getName() + ".png");
 				FileUtils.copyFile(temp, dest);
 				Reporter.addScreenCaptureFromPath(dest.getAbsolutePath());
 			} catch (Exception e) {
@@ -217,75 +207,58 @@ public class CRMTestEnvironment extends TestBase {
 			}
 		}
 	}
-	
-	private void terminateSession(){
-		try{
+
+	private void terminateSession() {
+		try {
 			if (!isDebugMode) {
 				terminate();
 				LOGGER.debug("Browser terminated...", true);
 			}
-		}catch(Exception e){
-			LOGGER.debug("BROWSER_TERMINATE_FAILED::"+e.getMessage(),true);
+		} catch (Exception e) {
+			LOGGER.debug("BROWSER_TERMINATE_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
-	private void killDrivers(){
+
+	private void killDrivers() {
 		try {
 			Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
 			getPegaDriver().handleWaits().sleep(5);
 			LOGGER.debug("Driver processes killed...", true);
 		} catch (IOException e) {
-			LOGGER.debug("TASK_KILL_FAILED::"+e.getMessage(),true);
+			LOGGER.debug("TASK_KILL_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
-	/*private void captureVideo(Scenario scenario, boolean saveVideoForPassedScenario){
-		try{
-			stopRecording();
-			if(System.getenv("JENKINS_URL") != null){
-				if (scenario.isFailed()) {
-					try{
-						String url = null;
-						String tags = getTCIDTag(scenario.getSourceTagNames().toString());
-						if(tags != null){
-							tags = tags.trim();
-						}
-						if(tags != null && tags.endsWith("-")){
-							tags = tags.substring(0, tags.lastIndexOf('-'));
-						}
-						if(tags != null && tags.endsWith(",")){
-							tags = tags.substring(0, tags.lastIndexOf(','));
-						}
-						if(System.getenv("job.name") != null){
-							String buildId = System.getenv("workspace.path");
-							buildId = buildId.substring(buildId.lastIndexOf('-')+1);
-							url = System.getenv("JENKINS_URL") + "job/" + System.getenv("job.name") 
-									+ "/ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" 
-									+ buildId +  "- " + System.getenv("team.name") + "/" + tags + "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT;  
-						}else{
-							url = System.getenv("JOB_URL") +"ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" + System.getenv("BUILD_ID") + "- " + System.getenv("team.name") + "/" + tags + "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT;
-						}
-						url.replace(" ", "%20");
-						scenario.write("<a target='_blank' href='"+url+"'>Execution Video</a> (This video will be available for 3 days only)");
-					}catch(Exception e){
-						scenario.write("ERROR: Unable to add video link");
-					}
-					failed++;
-				}else{
-					passed++;
-					if(!saveVideoForPassedScenario && System.getenv("save.all.videos")==null){
-						deleteVideoFile();
-					}
-				}
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-			Reporter.log("ERROR: Unable to capture video: "+e.getMessage(), true);
-			scenario.write("ERROR: Unable to capture video");
-		}
-	}*/
-	
-	private String getTCIDTag(String tags){
+
+	/*
+	 * private void captureVideo(Scenario scenario, boolean
+	 * saveVideoForPassedScenario){ try{ stopRecording();
+	 * if(System.getenv("JENKINS_URL") != null){ if (scenario.isFailed()) { try{
+	 * String url = null; String tags =
+	 * getTCIDTag(scenario.getSourceTagNames().toString()); if(tags != null){ tags =
+	 * tags.trim(); } if(tags != null && tags.endsWith("-")){ tags =
+	 * tags.substring(0, tags.lastIndexOf('-')); } if(tags != null &&
+	 * tags.endsWith(",")){ tags = tags.substring(0, tags.lastIndexOf(',')); }
+	 * if(System.getenv("job.name") != null){ String buildId =
+	 * System.getenv("workspace.path"); buildId =
+	 * buildId.substring(buildId.lastIndexOf('-')+1); url =
+	 * System.getenv("JENKINS_URL") + "job/" + System.getenv("job.name") + "/ws/" +
+	 * GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" + buildId + "- " +
+	 * System.getenv("team.name") + "/" + tags + "/" + tags +
+	 * GlobalConstants.VIDEO_FILE_FORMAT; }else{ url = System.getenv("JOB_URL")
+	 * +"ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" +
+	 * System.getenv("BUILD_ID") + "- " + System.getenv("team.name") + "/" + tags +
+	 * "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT; } url.replace(" ", "%20");
+	 * scenario.write("<a target='_blank' href='"
+	 * +url+"'>Execution Video</a> (This video will be available for 3 days only)");
+	 * }catch(Exception e){ scenario.write("ERROR: Unable to add video link"); }
+	 * failed++; }else{ passed++; if(!saveVideoForPassedScenario &&
+	 * System.getenv("save.all.videos")==null){ deleteVideoFile(); } } }
+	 * }catch(Exception e){ e.printStackTrace();
+	 * Reporter.log("ERROR: Unable to capture video: "+e.getMessage(), true);
+	 * scenario.write("ERROR: Unable to capture video"); } }
+	 */
+
+	private String getTCIDTag(String tags) {
 		int i = tags.indexOf("@TC");
 		int j = tags.lastIndexOf("@TC");
 		Pattern p;
@@ -296,53 +269,48 @@ public class CRMTestEnvironment extends TestBase {
 			p = Pattern.compile("@TC-\\d+");
 		}
 		m = p.matcher(tags);
-		if(m.find()){
+		if (m.find()) {
 			return m.group();
-		}else{
+		} else {
 			return null;
 		}
 	}
-	
-	private void logout(){
+
+	private void logout() {
 		try {
 			if (isBrowserInitiailized) {
 				browser.logout();
 				browser.close();
 				LOGGER.debug("Log out successful...", true);
 			}
-		} catch(Exception e){
-			LOGGER.debug("LOGOUT_FAILED::"+e.getMessage(),true);
+		} catch (Exception e) {
+			LOGGER.debug("LOGOUT_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
+
 	private void importUIKits(Collection<String> collection) {
-		
+
 		String applications = getConfiguration().getApplicationsForTag(collection);
-		if(applications!=null){
-			String[] allApps=applications.split(",");
-			for(String application:allApps)
-			{
+		if (applications != null) {
+			String[] allApps = applications.split(",");
+			for (String application : allApps) {
 				String appName = application.split(":")[0];
 				String appVersion = application.split(":")[1];
-				HTTPUtil.addUIKitToApplication(this,appName, appVersion);
+				HTTPUtil.addUIKitToApplication(this, appName, appVersion);
 			}
 		}
 	}
-	
-	
-	public CommonMethods getCommonMethods(){
+
+	public CommonMethods getCommonMethods() {
 		return commonMethods;
 	}
-	
-	/*@Before("@traceFiddler")
-    public void setupFiddler(Scenario scenario) throws IOException{
-           FiddlerUtils.runFiddler(scenario);
-    }
-	
-    @After("@traceFiddler")
-    public void tearDownFiddler(Scenario scenario) throws IOException, InterruptedException{
-           FiddlerUtils.stopFiddler(scenario);     
-    } */
-	
-	
+
+	/*
+	 * @Before("@traceFiddler") public void setupFiddler(Scenario scenario) throws
+	 * IOException{ FiddlerUtils.runFiddler(scenario); }
+	 * 
+	 * @After("@traceFiddler") public void tearDownFiddler(Scenario scenario) throws
+	 * IOException, InterruptedException{ FiddlerUtils.stopFiddler(scenario); }
+	 */
+
 }

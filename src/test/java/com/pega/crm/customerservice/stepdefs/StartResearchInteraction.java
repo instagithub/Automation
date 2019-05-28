@@ -2,23 +2,19 @@ package com.pega.crm.customerservice.stepdefs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 import com.google.inject.Inject;
 import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.interactions.Interactions;
-import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.interactions.impl.PegaNewInboundInteraction;
 import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.ri.Wizard;
 
 import cucumber.api.java.en.Then;
@@ -50,46 +46,43 @@ public class StartResearchInteraction {
 
 	}
 
-
-
 	@Then("^verify the result displayed for the \"([^\"]*)\" filter$")
 	public void verify_the_result_displayed_for_the_filter(String filter) {
-		
-		if(filter.equalsIgnoreCase("12345000")){
+
+		if (filter.equalsIgnoreCase("12345000")) {
 			Assert.assertTrue("12345000 is not present",
 					researchInteraction.verifyElement(By.xpath("//span/a[contains(text(),'1234500078963456')]")));
 
 		}
 
-		if(filter.equalsIgnoreCase("Acme Software")){
+		if (filter.equalsIgnoreCase("Acme Software")) {
 			Assert.assertTrue("Acme Software is not present",
 					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Acme Software')]")));
-			Assert.assertTrue("Industry is not present",
-					researchInteraction.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'MEDIA')]")));
-			Assert.assertTrue("Country is not present",
-					researchInteraction.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'USA')]")));
-			Assert.assertTrue("City is not present",
-					researchInteraction.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'Boston')]")));
-			Assert.assertTrue("State is not present",
-					researchInteraction.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'MA')]")));
+			Assert.assertTrue("Industry is not present", researchInteraction
+					.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'MEDIA')]")));
+			Assert.assertTrue("Country is not present", researchInteraction
+					.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'USA')]")));
+			Assert.assertTrue("City is not present", researchInteraction
+					.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'Boston')]")));
+			Assert.assertTrue("State is not present", researchInteraction
+					.verifyElement(By.xpath("//div[@class='oflowDivM ']/span[contains(text(),'MA')]")));
 		}
 
-
-		if(filter.equalsIgnoreCase("Rebecca")){
+		if (filter.equalsIgnoreCase("Rebecca")) {
 			Assert.assertTrue("Rebecca is not present",
 					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Rebecca')]")));
 
 		}
 
-		if(filter.equalsIgnoreCase("Credit Card Fees & Charges")){
-			Assert.assertTrue("Credit Card Fees & Charges title is not present",
-					researchInteraction.verifyElement(By.xpath("//span/a[contains(text(),'Credit card fees & charges')]")));
+		if (filter.equalsIgnoreCase("Credit Card Fees & Charges")) {
+			Assert.assertTrue("Credit Card Fees & Charges title is not present", researchInteraction
+					.verifyElement(By.xpath("//span/a[contains(text(),'Credit card fees & charges')]")));
 
 		}
-		
-		if(filter.equalsIgnoreCase("Understanding Foreign Transaction Fees")){
-			Assert.assertTrue("Understanding Foreign Transaction Fees title is not present",
-					researchInteraction.verifyElement(By.xpath("//span/a[contains(text(),'Understanding Foreign Transaction Fees')]")));
+
+		if (filter.equalsIgnoreCase("Understanding Foreign Transaction Fees")) {
+			Assert.assertTrue("Understanding Foreign Transaction Fees title is not present", researchInteraction
+					.verifyElement(By.xpath("//span/a[contains(text(),'Understanding Foreign Transaction Fees')]")));
 			Assert.assertTrue("Authored title is not present",
 					researchInteraction.verifyElement(By.xpath("//span[contains(text(),'Authored')]")));
 
@@ -103,35 +96,43 @@ public class StartResearchInteraction {
 		Assert.assertTrue("Search button is not present",
 				researchInteraction.verifyElement(By.xpath("//button[@title='Clear']")));
 
-		//check for the results displayed
+		// check for the results displayed
 
 		Assert.assertTrue("Rebecca is not present",
 				researchInteraction.verifyElement(By.xpath("//span[text()='Rebecca']")));
-		//Assert.assertTrue("Jo Anne is not present",researchInteraction.verifyElement(By.xpath("//span[text()='Jo Anne']")));
+		// Assert.assertTrue("Jo Anne is not
+		// present",researchInteraction.verifyElement(By.xpath("//span[text()='Jo
+		// Anne']")));
 
-		//Verify the search types displayed
+		// Verify the search types displayed
 
-		Assert.assertTrue("First name header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='First name']")));
-		Assert.assertTrue("Last name header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='Last name']")));
-		//Assert.assertTrue("Organization header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='Organization']")));
-		Assert.assertTrue("SSN header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='SSN']")));
-		//Assert.assertTrue("Phone header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='Phone number']")));
-		Assert.assertTrue("Email header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='Email']")));
-		Assert.assertTrue("City header is not present",researchInteraction.verifyElement(By.xpath("//label[text()='City']")));
-		
+		Assert.assertTrue("First name header is not present",
+				researchInteraction.verifyElement(By.xpath("//label[text()='First name']")));
+		Assert.assertTrue("Last name header is not present",
+				researchInteraction.verifyElement(By.xpath("//label[text()='Last name']")));
+		// Assert.assertTrue("Organization header is not
+		// present",researchInteraction.verifyElement(By.xpath("//label[text()='Organization']")));
+		Assert.assertTrue("SSN header is not present",
+				researchInteraction.verifyElement(By.xpath("//label[text()='SSN']")));
+		// Assert.assertTrue("Phone header is not
+		// present",researchInteraction.verifyElement(By.xpath("//label[text()='Phone
+		// number']")));
+		Assert.assertTrue("Email header is not present",
+				researchInteraction.verifyElement(By.xpath("//label[text()='Email']")));
+		Assert.assertTrue("City header is not present",
+				researchInteraction.verifyElement(By.xpath("//label[text()='City']")));
 
 	}
-	
+
 	@When("^Filter the result with \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void filter_the_result_with_and(String searchBox, String searchString) {
 		researchInteraction.filterwithValues(searchBox, searchString);
 
 	}
-	
-	
+
 	@When("^Select the result \"([^\"]*)\" displayed$")
 	public void select_the_result_displayed(String result) {
-	
+
 		researchInteraction.searchDropDownresult(result);
 	}
 

@@ -47,7 +47,6 @@ public class PegaProspectImport extends PegaRuleInstance implements ProspectImpo
 		return status;
 	}
 
-
 	public boolean verifyIfFullNamePresent(String FullName) {
 		boolean IsFullNamePresent = false;
 		if (verifyElement(By.xpath(

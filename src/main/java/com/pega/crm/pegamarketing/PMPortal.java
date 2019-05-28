@@ -21,17 +21,17 @@ public interface PMPortal extends Portal {
 	By INTELLIGENCE_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Intelligence"));
 	By STRATEGIES_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Strategies"));
 	By PROSPECT_LISTS_SUBMENU = By.xpath(PMXPathUtil.getMenuItemXPath("Prospect Lists"));
-    By HOME_ICON = By.xpath("//*[@class='menu-item-icon-imageclass nbam-pi nbam-pi-home'][@role='presentation']");
+	By HOME_ICON = By.xpath("//*[@class='menu-item-icon-imageclass nbam-pi nbam-pi-home'][@role='presentation']");
 	By NEW_ICON = By.xpath("//span[@class='menu-item-icon-imageclass pi pi-plus']");
 	By REPORTS_ICON = By.xpath("//*[contains(@class,'report') and @title='Reports']");
 	By REPORT_BROWSER_SUBMENU = By.xpath(PMXPathUtil.getMenuItemXPath("Report Browser"));
-	
-    public enum LandingPageType {
+
+	public enum LandingPageType {
 		SEGMENTS("Segments"), TREATMENTS("Treatments"), STRATEGIES("Strategies"), OFFERS("Offers"), CAMPAIGNS(
-				"Campaigns"), DESIGNER(
-						"Designer"), ELIGIBILITIES("Eligibilities"), REALTIMEARTIFACTS("Real-Time Artifacts"), 
-		DATAFLOWS("Data Flows"), SUMMARIES("Summaries"),DATA_MANAGEMENT("Data Management"),
-		MICROSITES("Microsites"),PAIDMEDIAAUDIENCES("Paid Media Audiences"),IMAGELIBRARY("Image Library");
+				"Campaigns"), DESIGNER("Designer"), ELIGIBILITIES("Eligibilities"), REALTIMEARTIFACTS(
+						"Real-Time Artifacts"), DATAFLOWS("Data Flows"), SUMMARIES("Summaries"), DATA_MANAGEMENT(
+								"Data Management"), MICROSITES("Microsites"), PAIDMEDIAAUDIENCES(
+										"Paid Media Audiences"), IMAGELIBRARY("Image Library");
 		private String pageName;
 
 		LandingPageType(String pageName) {
@@ -58,25 +58,35 @@ public interface PMPortal extends Portal {
 	 * @param menuName
 	 */
 	void expandMenuItems(String menuName);
+
 	/**
-	 * This is for selecting Menu from Configuration from top right of the PM portal page
-	 * @param menuName e.g. Segmentation,Analytics
+	 * This is for selecting Menu from Configuration from top right of the PM portal
+	 * page
+	 * 
+	 * @param menuName
+	 *            e.g. Segmentation,Analytics
 	 */
 	void selectConfigurationMenu(String menuName);
+
 	/**
-	 *  This will select Prspect lists from Segmentation menu
+	 * This will select Prspect lists from Segmentation menu
+	 * 
 	 * @return Prospect Lists page
 	 */
 	ProspectLists selectProspectLists();
+
 	/**
 	 * This will select Report Browser from Reports Menu
+	 * 
 	 * @return Recent reports page
 	 */
 	RecentReports selectReportBrowser();
+
 	/**
 	 * This will select Reports menu from left panel
 	 */
 	void selectReports();
+
 	/**
 	 * closes the Welcome Dialog
 	 */

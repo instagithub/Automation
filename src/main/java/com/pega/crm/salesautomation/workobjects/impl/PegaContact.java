@@ -225,7 +225,7 @@ public class PegaContact extends PegaWorkObject implements Contacts
 	public String getC2ARelationShipName() {
 		List<WebElement> wb =  findElements(By.xpath(CONT_C2A_LIST_XPATH));
 		System.out.println("Sizeee" + wb.size());
-		for(WebElement w : wb)
+		for(int i=0;i<wb.size();i++)
 		{
 			String RelationType =  findElement(By.xpath(CONT_C2A_RELATIONSHIP_XPATH)).getText().trim();
 			System.out.println("Relationship type is" + RelationType);

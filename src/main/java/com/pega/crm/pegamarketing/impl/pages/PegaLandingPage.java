@@ -40,7 +40,7 @@ public class PegaLandingPage extends FrameImpl implements LandingPage {
 	@Override
 	public void edit() {
 		findElement(RuleInstance.EDIT_BUTTON).click();
-		
+
 	}
 
 	public void save() {

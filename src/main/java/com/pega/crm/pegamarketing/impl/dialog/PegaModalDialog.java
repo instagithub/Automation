@@ -19,14 +19,13 @@ package com.pega.crm.pegamarketing.impl.dialog;
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.dialog.ModalDialog;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaModalDialog implements ModalDialog {
 	protected PegaWebDriver pegaDriver;
 	protected TestEnvironment testEnv;
 	protected Frame frame;
-	
+
 	public PegaModalDialog(Frame frame) {
 		this.frame = frame;
 		this.testEnv = frame.getTestEnvironment();
@@ -41,13 +40,15 @@ public class PegaModalDialog implements ModalDialog {
 		frame.findElement(CLOSE_BUTTON).click();
 
 	}
+
 	public void submit() {
 		frame.findElement(SUBMIT_BUTTON).click();
-		
+
 	}
+
 	public void cancel() {
 		frame.findElement(CANCEL_BUTTON);
-		
+
 	}
 
 }

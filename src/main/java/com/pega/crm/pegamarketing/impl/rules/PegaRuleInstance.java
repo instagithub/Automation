@@ -46,7 +46,7 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 
 	public void setGroup(String group) {
 		pegaDriver.handleWaits().waitForElementVisibility(GROUP_SELECT_BOX);
-		findSelectBox(GROUP_SELECT_BOX).selectByVisibleText(group,true);
+		findSelectBox(GROUP_SELECT_BOX).selectByVisibleText(group, true);
 	}
 
 	public void setBudget(String aBudget) {
@@ -61,7 +61,7 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 
 	public void selectDevBranch(String devBranch) {
 		if (verifyElement(DEV_BRANCH_SELECT_BOX)) {
-			findSelectBox(DEV_BRANCH_SELECT_BOX).selectByVisibleText(devBranch,true);
+			findSelectBox(DEV_BRANCH_SELECT_BOX).selectByVisibleText(devBranch, true);
 		}
 	}
 
@@ -76,10 +76,9 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 	}
 
 	public void create() {
-	findElement(CREATE_BUTTON).click();
+		findElement(CREATE_BUTTON).click();
 	}
 
-	
 	public void run() {
 		PegaWebElement actions = findElement(ACTION_BUTTON);
 		pegaDriver.handleWaits().waitForElementVisibility(ACTION_BUTTON);
@@ -90,22 +89,21 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 		pegaDriver.handleWaits().waitForElementClickable(RUN_LINK);
 		runLink.click(false);
 		pegaDriver.waitForDocStateReady(3);
-		
+
 	}
 
 	public void edit() {
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(EDIT_BUTTON);
 		findElement(EDIT_BUTTON).click();
-		
-	}
 
+	}
 
 	public CategoriesDialog clickoncategory() {
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(CATEGORY_LINK);
 		findElement(CATEGORY_LINK).click();
 		return new PegaCategoriesDialog(this);
-		
+
 	}
 }

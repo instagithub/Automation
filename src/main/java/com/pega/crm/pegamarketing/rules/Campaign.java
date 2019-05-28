@@ -38,7 +38,8 @@ public interface Campaign extends RuleInstance {
 	By CONFIGURE_TIMEFRAME_LINK = By.xpath("//a[@data-test-id='20180613150751025236810']");
 	By CONFIGURE_CAMPAIGNDETAILS_LINK = By.xpath("//a[@data-test-id='20180613150937071239122']");
 	By SELECT_OFFERS_LINK = By.xpath("//a[text()='Select offers']");
-	By OFFERS_SELECTED_LINK = By.xpath("//a[@data-test-id='20180521145746073021783' and contains(text(), 'offers selected')]");
+	By OFFERS_SELECTED_LINK = By
+			.xpath("//a[@data-test-id='20180521145746073021783' and contains(text(), 'offers selected')]");
 	By OPTIMIZED_CAMPAIGN_AUDIENCE_LABEL = By.xpath("//div[text()='Audience size']");
 	By OPTIMIZED_CAMPAIGN_OUTCOME_LABEL = By.xpath("//span[@data-test-id='2018052210291800557701']");
 	By OPTIMIZED_CAMPAIGN_STARTDATE_LABEL = By.xpath("//span[@data-test-id='20180521170600085927747']");
@@ -60,14 +61,15 @@ public interface Campaign extends RuleInstance {
 	By ADD_FLOW_LABEL = By.xpath("//*[text()='Add Flow']");
 	By RUN_NOW_RADIO_BTN = By.xpath("//label[contains(@class,'radioLabel') and text()='Run now']");
 	By STATUS_HEADER_RUNNING = By.xpath("//div[@node_name='CampaignStatusIndicator'][.//*[text()='Running']]");
-	By SUBMIT_FOR_EXECUTION_BUTTON =By.xpath(PMXPathUtil.getMenuItemXPath("Submit for Execution"));
+	By SUBMIT_FOR_EXECUTION_BUTTON = By.xpath(PMXPathUtil.getMenuItemXPath("Submit for Execution"));
 	By VALIDATE_CAMPAIGN_BUTTON = By.xpath(PMXPathUtil.getMenuItemXPath("Validate"));
 	By VALIDATION_NO_ERRORS_EXECUTION_LINK = By.xpath("//a[@data-test-id='2017121117230206955829']");
-    By SEARCHCAMPAIGN = By.xpath("//input[@data-test-id='201411141635100877648']");
-    By VIEW_BTN = By.xpath("//*[@type='button'][contains(text(),'View')]");
-	By ALLCATEGORIESLINK =By.xpath("//a[contains(text(),'All categories')]");
+	By SEARCHCAMPAIGN = By.xpath("//input[@data-test-id='201411141635100877648']");
+	By VIEW_BTN = By.xpath("//*[@type='button'][contains(text(),'View')]");
+	By ALLCATEGORIESLINK = By.xpath("//a[contains(text(),'All categories')]");
 	By CONFIGURETIMEFRAME_HEADER = By.xpath("//span[@id='modaldialog_hd_title'][contains(.,'Configure Time')]");
-    /**
+
+	/**
 	 * it is used to edit campaign
 	 */
 
@@ -86,34 +88,38 @@ public interface Campaign extends RuleInstance {
 	 * @return returns Configure Engagement Dialog
 	 */
 	ConfigureEngagementDialog configureEngagement();
-	
+
 	/**
 	 * this will open Configure Engagement Criteria Dialog
 	 * 
 	 * @return returns Configure Engagement Criteria Dialog
 	 */
 	ConfigureEngagementCriteriaDialog configureEngagementCriteria();
-	
+
 	/**
 	 * this will open Configure Offers Dialog for Engagement Criteria
+	 * 
 	 * @return returns Configure Offers Dialog
 	 */
 	CampaignConfigureDialog configureEngagementOffers();
 
 	/**
 	 * this will open Configure Outcome Optimization Dialog
+	 * 
 	 * @return returns Configure Outcome Optimization Dialog
 	 */
 	CampaignConfigureDialog configureOutcomeOptimization();
 
 	/**
 	 * this will open Configure Timeframe Dialog
+	 * 
 	 * @return returns Configure Timeframe Dialog
 	 */
 	ConfigureTimeframeDialog configureTimeframe();
 
 	/**
 	 * this will open Configure Details Dialog
+	 * 
 	 * @return returns Configure Details Dialog
 	 */
 	ConfigureDetailsDialog configureDetails();
@@ -122,7 +128,7 @@ public interface Campaign extends RuleInstance {
 	 * This will validate campaign
 	 */
 	void validateCampaign();
-	
+
 	/**
 	 * This will run campaign
 	 */
@@ -154,14 +160,17 @@ public interface Campaign extends RuleInstance {
 	ConfigureMarketingStrategyDialog configureMarketingStrategy();
 
 	/**
-	 * Opens ConfigureAudienceDialog from EmailOutbound campaign
-	 * after clicking on add Segment link
+	 * Opens ConfigureAudienceDialog from EmailOutbound campaign after clicking on
+	 * add Segment link
+	 * 
 	 * @return ConfigureAudience modal dialog
 	 */
 	ConfigureAudienceDialog addSegment();
+
 	/**
-	 * Opens ConfigureCardDialog from EmailOutbound campaign
-	 * after clicking on add Offer link
+	 * Opens ConfigureCardDialog from EmailOutbound campaign after clicking on add
+	 * Offer link
+	 * 
 	 * @return ConfigureCard modal Dialog
 	 */
 	ConfigureCardDialog addOffer();
@@ -181,8 +190,7 @@ public interface Campaign extends RuleInstance {
 		By ISSUE_GROUP_DETAILS_TEXT = By.xpath("//span[(@class='strong')]");
 
 		/**
-		 * this method adds given rule (like segment,strategy,etc) from search
-		 * results
+		 * this method adds given rule (like segment,strategy,etc) from search results
 		 * 
 		 * @param ruleName(like
 		 *            segment,strategy,etc)
@@ -201,8 +209,7 @@ public interface Campaign extends RuleInstance {
 		/**
 		 * this will verify whether segment is added successfully
 		 * 
-		 * @return it will return true if remove button and delete button is
-		 *         present
+		 * @return it will return true if remove button and delete button is present
 		 */
 		boolean isSegmentAdded();
 	}
@@ -212,8 +219,7 @@ public interface Campaign extends RuleInstance {
 		By FIRST_SEARCH_RESULT_LABEL = By.xpath("//span[@class='guidedprogram_card_header_description']");
 
 		/**
-		 * This selects first item from available search results for Outbound
-		 * campaign
+		 * This selects first item from available search results for Outbound campaign
 		 */
 		void selectFromFirstSearchResult();
 
@@ -235,8 +241,8 @@ public interface Campaign extends RuleInstance {
 		void selectFirstSearchResult();
 
 		/**
-		 * This will select first search result from listed search results for
-		 * outbound campaign
+		 * This will select first search result from listed search results for outbound
+		 * campaign
 		 */
 		void selectFromFirstSearchResult();
 	}
@@ -251,7 +257,8 @@ public interface Campaign extends RuleInstance {
 	}
 
 	public interface ConfigureEngagementDialog extends CampaignConfigureDialog {
-		static By CAMAPIGN_SCHEDULE_CHECKBOX = By.xpath("//input[contains(@name,'EnableScheduling')][@type='checkbox']");
+		static By CAMAPIGN_SCHEDULE_CHECKBOX = By
+				.xpath("//input[contains(@name,'EnableScheduling')][@type='checkbox']");
 		static By CAMPAIGN_SCHEDULE_LABEL = By.xpath("//label[@for='EnableScheduling']");
 		static By REAL_TIME_EVENTS_CHECKBOX = By.xpath("//input[@id='EnableEvents']");
 		static By REAL_TIME_EVENTS_LABEL = By.xpath("//label[@for='EnableEvents']");
@@ -260,68 +267,88 @@ public interface Campaign extends RuleInstance {
 		static By START_ON_TIME_TEXT = PegaBy.testId("201508141643030248152902-Label");
 		static By ONE_TIME_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='O']");
 		static By RECURRING_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='R']");
-		static By REFRESH_AUDIENCE_CHECKBOX = By.xpath("//input[contains(@name,'RefreshStartingPopulation')][@type='checkbox']");
+		static By REFRESH_AUDIENCE_CHECKBOX = By
+				.xpath("//input[contains(@name,'RefreshStartingPopulation')][@type='checkbox']");
 		static By WRITE_CAMPAIGN_CHECKBOX = By.xpath("//input[contains(@name,'DirectDBTemplate')][@type='checkbox']");
-        
+
 		/**
 		 * to check Campaign schedule checkbox
 		 */
 		void checkCampaignSchedule();
-		
+
 		void clickonrefreshaudience();
 	}
-	
-	
+
 	/**
-	 * This class supports the modal dialog for configuring the Engagement Criteria on a Self-optimizing campaign.
+	 * This class supports the modal dialog for configuring the Engagement Criteria
+	 * on a Self-optimizing campaign.
 	 */
 	public interface ConfigureEngagementCriteriaDialog extends ModalDialog {
 		static By AUDIENCE_SIZE_INPUT = By.xpath("//input[@id='AudienceSize']");
 		static By CONTROLGROUP_SIZE_INPUT = By.xpath("//input[@id='ControlGroupSize']");
-		
+
 		/**
-		 * Enters the audience size as an integer into the Engagement Criteria dialog for a Self-optimizing Campaign.
-		 * @param audienceSize Size of the audience for the Campaign, as an integer.
+		 * Enters the audience size as an integer into the Engagement Criteria dialog
+		 * for a Self-optimizing Campaign.
+		 * 
+		 * @param audienceSize
+		 *            Size of the audience for the Campaign, as an integer.
 		 */
 		void enterAudienceSize(Integer audienceSize);
-		
+
 		/**
-		 * Enters the control group size as a decimal into the Engagement Criteria dialog for a Self-optimizing Campaign.
-		 * @param controlGroupSize Size of the control group in decimal, as a percentage of the Campaign audience.
+		 * Enters the control group size as a decimal into the Engagement Criteria
+		 * dialog for a Self-optimizing Campaign.
+		 * 
+		 * @param controlGroupSize
+		 *            Size of the control group in decimal, as a percentage of the
+		 *            Campaign audience.
 		 */
 		void enterControlGroupSize(Double controlGroupSize);
 	}
-	
+
 	/**
-	 * This class supports the modal dialog for configuring the Timeframe on a Self-optimizing campaign.
+	 * This class supports the modal dialog for configuring the Timeframe on a
+	 * Self-optimizing campaign.
 	 */
-	public interface ConfigureTimeframeDialog extends ModalDialog{
+	public interface ConfigureTimeframeDialog extends ModalDialog {
 		static By TIMEFRAME_DATE_INPUT = By.xpath("//input[@data-test-id='20180521142116010439637']");
 
 		/**
-		 * Enters a date into the Timeframe dialog for a Self-optimizing Campaign. This date can be used as either the start or end date.
-		 * @param date The start or end date for the Campaign. Defaulted to start date, drop-down must be changed to make it an end date.
+		 * Enters a date into the Timeframe dialog for a Self-optimizing Campaign. This
+		 * date can be used as either the start or end date.
+		 * 
+		 * @param date
+		 *            The start or end date for the Campaign. Defaulted to start date,
+		 *            drop-down must be changed to make it an end date.
 		 */
 		void enterTimeframeDate(String date);
 	}
-	
+
 	/**
-	 * This class supports the modal dialog for configuring the details on a Self-optimizing campaign. This includes the required Name field as well as
+	 * This class supports the modal dialog for configuring the details on a
+	 * Self-optimizing campaign. This includes the required Name field as well as
 	 * key code, financial information, and goals.
 	 */
-	public interface ConfigureDetailsDialog extends ModalDialog{
+	public interface ConfigureDetailsDialog extends ModalDialog {
 		static By CAMPAIGN_NAME_INPUT = By.xpath("//input[@data-test-id='201505151039200042663255']");
 		static By CAMPAIGN_KEYCODE_INPUT = By.xpath("//input[@data-test-id='201505151039200050677743']");
-		
+
 		/**
-		 * Enters a name into the Campaign Details dialog for a Self-optimizing Campaign. This is a required field for Campaigns.
-		 * @param campaignName The name, as a string, for the Campaign.
+		 * Enters a name into the Campaign Details dialog for a Self-optimizing
+		 * Campaign. This is a required field for Campaigns.
+		 * 
+		 * @param campaignName
+		 *            The name, as a string, for the Campaign.
 		 */
 		void enterCampaignName(String campaignName);
-		
+
 		/**
-		 * Enters a key code into the Campaign Details dialog for a Self-optimizing Campaign. This field may return a warning for Campaigns if not set.
-		 * @param campaignKeycode The key code, as a string, for the Campaign.
+		 * Enters a key code into the Campaign Details dialog for a Self-optimizing
+		 * Campaign. This field may return a warning for Campaigns if not set.
+		 * 
+		 * @param campaignKeycode
+		 *            The key code, as a string, for the Campaign.
 		 */
 		void enterCampaignKeycode(String campaignKeycode);
 	}

@@ -2,12 +2,10 @@ package com.pega.crm.pegamarketing.impl.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.impl.rules.PegaSegment;
 import com.pega.crm.pegamarketing.pages.Segments;
-import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
 import com.pega.crm.pegamarketing.rules.Segment;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.FrameImpl;
@@ -21,7 +19,6 @@ public class PegaSegments extends PegaLandingPage implements Segments {
 	PegaWebElement elmt = null;
 
 	public class ImageCatalogImpl extends FrameImpl implements ImageCatalog {
-
 
 		public ImageCatalogImpl(String frameID, TestEnvironment testEnv) {
 			super(frameID, testEnv);
@@ -50,8 +47,7 @@ public class PegaSegments extends PegaLandingPage implements Segments {
 	}
 
 	public Segment openSegmentRule(String segName) {
-		findElement(Segments.SEARCH_INPUT_BOX)
-				.sendKeys(segName + Keys.TAB);
+		findElement(Segments.SEARCH_INPUT_BOX).sendKeys(segName + Keys.TAB);
 		findElement(Segments.VIEW_BTN).click();
 		findElement(By.linkText(segName)).click();
 		String frameId = pegaDriver.getActiveFrameId(true);

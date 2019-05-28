@@ -47,9 +47,10 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		if (className.contains("CSPortal")) {
 			portal = type.cast(new PegaCSPortal(testEnv));
 		}
-		/*if (className.contains("DesignerStudio")) {
-			portal = type.cast(new DesignerStudioImpl(testEnv));
-		}*/
+		/*
+		 * if (className.contains("DesignerStudio")) { portal = type.cast(new
+		 * DesignerStudioImpl(testEnv)); }
+		 */
 		if (className.contains("SFAPortal")) {
 			portal = type.cast(new PegaSFAPortal(testEnv));
 		}
@@ -78,7 +79,7 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		pegaDriver.findElement(By.xpath(CS_SOCIAL_OPERATORID_XPATH)).click(false);
 		pegaDriver.findElement(By.xpath(CS_SOCIAL_IMPL_LOGOFF_XPATH)).click(false);
 	}
-	
+
 	@Override
 	public void logout() {
 		pegaDriver.waitForDocStateReady(2);
@@ -92,7 +93,7 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		// list.get(list.size() - 1).click();
 		try {
 			// pegaDriver.waitForDocStateReady(1);
-			
+
 			pegaDriver.handleWaits().waitForAlert();
 			pegaDriver.switchTo().alert().accept();
 			pegaDriver.waitForDocStateReady();
@@ -103,6 +104,5 @@ public class PegaBrowser extends com.pega.BrowserImpl {
 		// pegaDriver.handleWaits().waitForElementVisibility(By.id(CS_IMPL_LOGIN_ID));
 
 	}
-	
-}
 
+}

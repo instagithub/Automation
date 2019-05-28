@@ -23,16 +23,17 @@ public class DesignerStudioglue {
 	@Inject
 	DesignerStudioglue(CRMBrowser browser) {
 		this.browser = browser;
-		designerStudio=browser.getDesignerStudio();
+		designerStudio = browser.getDesignerStudio();
 	}
-	
+
 	@When("^Opens the Records Explorer$")
-	public void opens_the_Records_Explorer(){
-		recordsExplorer= designerStudio.getRecordsExplorer();
+	public void opens_the_Records_Explorer() {
+		recordsExplorer = designerStudio.getRecordsExplorer();
 	}
+
 	@When("^Opens \"([^\"]*)\" records page after expanding \"([^\"]*)\"$")
 	public void opens_records_page_after_expanding(String pageTobeOpened, String navPage1) {
-		serviceRestRecords = recordsExplorer.openRecord(ServiceRestRecords.class, navPage1,pageTobeOpened);
+		serviceRestRecords = recordsExplorer.openRecord(ServiceRestRecords.class, navPage1, pageTobeOpened);
 		ObjectsBean.setServiceRestRecords(serviceRestRecords);
 	}
 
@@ -41,5 +42,5 @@ public class DesignerStudioglue {
 		pmPortal = designerStudio.launchPegaMarketingPortal();
 		ObjectsBean.setPMPortal(pmPortal);
 	}
-	
+
 }
