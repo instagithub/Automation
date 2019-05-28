@@ -13,7 +13,6 @@ import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
 import com.pega.crm.customerservice.interactions.impl.PegaNewInboundInteraction;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.ri.Wizard;
 
@@ -28,7 +27,6 @@ public class StartResearchInteraction {
 	private ResearchInteraction researchInteraction;
 	private Interactions interaction;
 	private PegaNewInboundInteraction inboundInteraction;
-	private CommonMethods commonMethods;
 	private PegaWebDriver pegaDriver;
 	TestEnvironment testEnv;
 	private CSPortal csPortal;
@@ -41,7 +39,6 @@ public class StartResearchInteraction {
 	public StartResearchInteraction(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		researchInteraction = topNavFixture.getResearchInteraction();
 		interaction = topNavFixture.getInteractions();
-		commonMethods = testEnv.getCommonMethods();
 		pegaDriver = testEnv.getPegaDriver();
 
 	}

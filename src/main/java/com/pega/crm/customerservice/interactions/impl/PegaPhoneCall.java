@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.PhoneCall;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.ri.Wizard;
@@ -16,12 +15,10 @@ public class PegaPhoneCall extends PegaInteractions implements PhoneCall {
 
 	public PegaPhoneCall(String frameId, TestEnvironment testEnv) {
 		super(frameId, testEnv);
-		commonMethods = new CommonMethods(pegaDriver);
 	}
 
 	public String frameId = null;
 	public Wizard newWizard = null;
-	public CommonMethods commonMethods = null;
 	public static String timeStamp = "";
 
 	@Override

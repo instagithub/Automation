@@ -14,7 +14,6 @@ import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.tiles.impl.PegaTopNav;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.ri.Wizard;
 
@@ -29,7 +28,6 @@ public class OutboundCall {
 	private PhoneCall phoneInteraction;
 	private OutboundPhoneCall outboundPhoneCall;
 	private Interactions interaction;
-	private CommonMethods commonMethods;
 	private PegaWebDriver pegaDriver;
 	TestEnvironment testEnv;
 	private CSPortal csPortal;
@@ -44,7 +42,6 @@ public class OutboundCall {
 	public OutboundCall(NewTopNav topNavFixture, CRMTestEnvironment testEnv) {
 		outboundPhoneCall = topNavFixture.getOutboundPhoneCall();
 		interaction = topNavFixture.getInteractions();
-		commonMethods = testEnv.getCommonMethods();
 		pegaDriver = testEnv.getPegaDriver();
 	}
 

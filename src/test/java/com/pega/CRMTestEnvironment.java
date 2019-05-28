@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.pega.config.test.TestBase;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
 import com.pega.util.RecorderUtil;
@@ -52,7 +51,6 @@ public class CRMTestEnvironment extends TestBase {
 	private boolean isBrowserInitiailized = false;
 	private boolean alwaysSaveVideo = false;
 	private boolean isDebugMode = false;
-	private CommonMethods commonMethods;
 
 	@Override
 	@Inject
@@ -73,7 +71,6 @@ public class CRMTestEnvironment extends TestBase {
 		// initializeStatus();
 		startRecording(scenario);
 		configureBrowser();
-		commonMethods = new CommonMethods(getPegaDriver());
 	}
 
 	@After
@@ -300,17 +297,5 @@ public class CRMTestEnvironment extends TestBase {
 			}
 		}
 	}
-
-	public CommonMethods getCommonMethods() {
-		return commonMethods;
-	}
-
-	/*
-	 * @Before("@traceFiddler") public void setupFiddler(Scenario scenario) throws
-	 * IOException{ FiddlerUtils.runFiddler(scenario); }
-	 * 
-	 * @After("@traceFiddler") public void tearDownFiddler(Scenario scenario) throws
-	 * IOException, InterruptedException{ FiddlerUtils.stopFiddler(scenario); }
-	 */
 
 }

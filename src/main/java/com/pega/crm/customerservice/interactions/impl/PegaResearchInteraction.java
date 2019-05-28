@@ -47,19 +47,6 @@ public class PegaResearchInteraction extends PegaInteractions implements Researc
 
 	}
 
-	/*
-	 * @Override public void selectandSearchResearchType(String searchType, String
-	 * value) { DropDown selectType =
-	 * findSelectBox(By.xpath(TopNav.SELECT_DATA_SOURCE_XPATH));
-	 * selectType.selectByValue(searchType);
-	 * 
-	 * findElement(By.xpath(TopNav.SEARCH_BOX_XPATH)).sendKeys(Keys.CLEAR);
-	 * findElement(By.xpath(TopNav.SEARCH_BOX_XPATH)).sendKeys(value);
-	 * findElement(By.xpath(TopNav.SEARCH_ITEM_XPATH)).click();
-	 * 
-	 * }
-	 */
-
 	@Override
 	public void filterwithValues(String searchBox, String searchString) {
 
@@ -102,12 +89,9 @@ public class PegaResearchInteraction extends PegaInteractions implements Researc
 			PegaWebElement selectAccount = findElement(By.xpath("//span/a[contains(text(),'" + result + "')]"));
 			selectAccount.click();
 		} else {
-			// PegaWebElement selectAccount =
-			// findElement(By.xpath("//span[contains(text(),'"+result+"')]/../../../td[8]/div/span/button"));
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			PegaWebElement selectAccount = findElement(By.xpath("//span[contains(text(),'" + result

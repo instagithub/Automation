@@ -18,7 +18,6 @@ import com.pega.crm.customerservice.interactions.impl.PegaOutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.page.TopDocumentImpl;
@@ -27,7 +26,6 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 
 	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	public String VERSION = "$Id: PegaTopNav.java 117333 2018-10-01 09:12:21Z JayaPrakash $";
-	public CommonMethods commonMethods = null;
 	public static String AppName = null;
 
 	public static List<List<String>> myvariables = null;

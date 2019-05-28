@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import com.pega.Browser;
 import com.pega.CRMBrowser;
 import com.pega.crm.customerservice.CSPortal;
-import com.pega.crm.customerservice.designerstudio.ApplicationWizard;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.NewDemoInteraction;
 import com.pega.crm.customerservice.interactions.NewInboundInteraction;
@@ -28,7 +27,6 @@ public class NewTopNav {
 	private OutboundPhoneCall outboundPhoneCall;
 	private TopNav topNav;
 	public String[] caseStatus = new String[10];
-	private ApplicationWizard applicationWizard;
 	private Interactions interactions;
 
 	@Inject
@@ -94,11 +92,6 @@ public class NewTopNav {
 
 	public OutboundPhoneCall getOutboundPhoneCall() {
 		return outboundPhoneCall;
-	}
-
-	public ApplicationWizard getApplicationWizard() {
-
-		return applicationWizard;
 	}
 
 	@When("^switch to Interaction of \"([^\"]*)\"$")

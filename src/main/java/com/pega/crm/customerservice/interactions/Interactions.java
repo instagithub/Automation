@@ -1,7 +1,5 @@
 package com.pega.crm.customerservice.interactions;
 
-import java.util.Set;
-
 import com.pega.ri.Wizard;
 
 public interface Interactions extends Wizard {
@@ -76,17 +74,7 @@ public interface Interactions extends Wizard {
 
 	void addTask();
 
-	void selectReasonForDispute();
-
 	void confirmDisputeDetails();
-
-	String checkCaseStatus(String caseId);
-
-	Wizard switchToFrame();
-
-	void contactVerificationWithTwoQuestions();
-
-	Set<String> clickCompositeLink(String headerName);
 
 	void selectReasonForDispute(String reason);
 
@@ -114,39 +102,14 @@ public interface Interactions extends Wizard {
 
 	void confirmFlow();
 
-	void selectAProduct(String category, String product, String owner);
-
-	void enterAccountDetails();
-
-	void launchCaseFromWorkbasket(String workBasket, String caseID);
 
 	void launchServiceProcess(String serviceProcess);
 
 	void accountSelection(String acctNumber);
 
-	void stolenCardAcknowledgement();
-
-	void closeAccount(String reason, String comment);
-
-	void contactVerificationWithQuestions();
-
-	void datePicker();
-
-	void updatePrimaryAddressInContactProfile();
 
 	void userSwitchToTab(String tab);
 
-	void selectSingleserviceprocess(String serviceProcess);
-
-	void verifyRecentCases();
-
-	void closeInteraction();
-
-	void verifytheStatusForTheCase(String Status);
-
-	void selectCaseFromCasesWidget();
-
-	void selectSubCaseFromTasks(String subCase);
 
 	void CaptureCallReasonAndPlaceCall(String reason, String status);
 
@@ -154,6 +117,5 @@ public interface Interactions extends Wizard {
 
 	void contactVerificationQuesforServiceCases();
 
-	String getCaseDetails();
 
 }

@@ -16,7 +16,6 @@ import com.pega.crm.customerservice.CSPortal;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
-import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
@@ -33,7 +32,6 @@ public class NewPhoneCall {
 	private PhoneCall phoneInteraction;
 	private Interactions interaction;
 	private ResearchInteraction researchInteraction;
-	private CommonMethods commonMethods;
 	private PegaWebDriver pegaDriver;
 	TestEnvironment testEnv;
 	private CSPortal csPortal;
@@ -56,7 +54,6 @@ public class NewPhoneCall {
 		this.topNavFixture = topNavFixture;
 		phoneInteraction = topNavFixture.getPhoneCall();
 		interaction = topNavFixture.getInteractions();
-		commonMethods = testEnv.getCommonMethods();
 		pegaDriver = testEnv.getPegaDriver();
 		researchInteraction = topNavFixture.getResearchInteraction();
 	}

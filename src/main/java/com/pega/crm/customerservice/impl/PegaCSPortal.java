@@ -2,12 +2,9 @@ package com.pega.crm.customerservice.impl;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.CSPortal;
-import com.pega.crm.customerservice.tiles.LeftNav;
 import com.pega.crm.customerservice.tiles.TopNav;
 import com.pega.crm.customerservice.tiles.impl.PegaTopNav;
-import com.pega.framework.PegaWebDriver;
 import com.pega.page.PortalImpl;
-import com.pega.ri.Wizard;
 
 public class PegaCSPortal extends PortalImpl implements CSPortal {
 
@@ -15,10 +12,6 @@ public class PegaCSPortal extends PortalImpl implements CSPortal {
 	public String VERSION = "$Id: CSPortal.java 117333 2018-10-04 09:12:21Z JayaPrakash $";
 
 	private TopNav topNav = null;
-	private LeftNav leftNav = null;
-	public String frameId = null;
-	public Wizard newWizard = null;
-	public PegaWebDriver pegaDriver = null;
 
 	public static String expectedText, actualText;
 	// XPATHs for elements
@@ -37,7 +30,6 @@ public class PegaCSPortal extends PortalImpl implements CSPortal {
 
 	public PegaCSPortal(TestEnvironment testEnv) {
 		super(testEnv);
-		// this.testEnv�=testEnv;
 	}
 
 	@Override
@@ -47,11 +39,4 @@ public class PegaCSPortal extends PortalImpl implements CSPortal {
 		}
 		return topNav;
 	}
-
-	@Override
-	public LeftNav getLeftNav() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -29,16 +29,6 @@ public interface PhoneCall extends Interactions {
 	String SEARCH_XPATH = "//h6[@class='layout-group-item-title' and contains(text(),'Search')]";
 	String GENERAL_ASSISTANCE_XPATH = "//h6[@class='layout-group-item-title' and contains(text(),'General assistance')]";
 
-	void accountSelection(String accountNum);
-
-	void launchServiceProcess(String serviceProcess);
-
-	void confirmAddressChange();
-
-	String verifyCompletedTask(String serviceProcess);
-
-	void closeAccount(String reason, String comment);
-
 	void searchByEmail(String email);
 
 	void scheduleActivity(String type, String account, String topic, String assign, String operator);
