@@ -24,7 +24,6 @@ Feature: Outbound Phone call test cases
     Then Search for customer with lastname "Biggs" and accNo "12345678"
     Then select result from the result and proceed
     Then Select reason "DisputeTransaction" and Outbound call status "Answered" and Submit
-    #Then select the verification questions and submit for biggs
     When select the verification questions and click on verified
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields

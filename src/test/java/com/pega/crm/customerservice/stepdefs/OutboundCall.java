@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import com.google.inject.Inject;
-import com.pega.CRMObjectsBean;
 import com.pega.CRMTestEnvironment;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.CSPortal;
@@ -109,20 +108,4 @@ public class OutboundCall {
 	    
 		interaction.selectReasonForDispute(reason);
 	}
-	
-	
-	
-		
-
-	@Then("^verify the error message displayed for the reason  box$")
-	public void verify_the_error_message_displayed_for_the_reason_box() throws Throwable {
-		Assert.assertTrue("Select a reason for outbound call is not present", interaction.verifyElement(By.xpath("//label[contains(text(),'Select a reason for outbound call')]")));
-		Assert.assertTrue("Outbound call status is not present", interaction.verifyElement(By.xpath("//label[contains(text(),'Outbound call status')]")));
-		
-	}
-
-
-	
-
-
 }

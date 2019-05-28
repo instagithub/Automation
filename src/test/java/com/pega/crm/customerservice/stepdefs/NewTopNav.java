@@ -43,19 +43,7 @@ public class NewTopNav {
 		topNav = browser.getPortal(CSPortal.class).getTopNav();
 	}
 
-	@When("^Demo Interaction for Sara Connor is started$")
-	public void demo_Interaction_for_Sara_Connor_is_started() throws Throwable {
-		
-		demoInteraction = topNav.getInteractionType("Demo Pop - CONNOR");
-		interactions = demoInteraction;
-	}
 
-	@When("^CSR Accpets the Interaction$")
-	public void csr_Accpets_the_Interaction() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		demoInteraction = topNav.returnInteractionType("Accept");
-		interactions = demoInteraction;
-	}
 	
 	@When("^CSR launched the New Phone Interaction$")
 	public void csr_launched_the_New_Phone_Interaction() throws Throwable {
@@ -67,14 +55,6 @@ public class NewTopNav {
 		interactions = phoneCall;
 	}
 
-	@When("^CSR launches Demo Interaction for \"([^\"]*)\"$")
-	public void csr_launches_Demo_Interaction_for(String demoInteraction) throws Throwable {
-		
-		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
-		interactions = this.demoInteraction;
-
-	}
-	
 	
 	@When("^CSR launches Demo Interaction for \"([^\"]*)\" and accepts the call$")
 	public void csr_launches_Demo_Interaction_for_and_accepts_the_call(String demoInteraction) throws Throwable {
@@ -83,27 +63,7 @@ public class NewTopNav {
 		interactions = this.demoInteraction;
 	}
 	
-	@When("^User launches demo interaction \"([^\"]*)\"$")
-	public void user_launches_demo_interaction(String demoInteraction) throws Throwable {
-		
-		this.demoInteraction = topNav.getDemoInteractionType(demoInteraction);
-		interactions = this.demoInteraction;
-	}
-	@When("^User launches demo interaction as manager \"([^\"]*)\"$")
-	public void user_launches_demo_interaction_as_manager(String demoInteraction) throws Throwable {
-		
-		this.demoInteraction = topNav.getDemoInteractionTypeAsManager(demoInteraction);
-		interactions = this.demoInteraction;
-	}
 
-	
-
-	@When("^CSR launches Inbound Interaction$")
-	public void csr_launches_Inbound_Interaction() {
-		
-		inboundInteraction = topNav.startInboundCase();
-		interactions = inboundInteraction;
-	}
 
 	@When("^User places an outbound phone call$")
 	public void user_places_an_outbound_phone_call() {
@@ -113,30 +73,6 @@ public class NewTopNav {
 		interactions = outboundPhoneCall;
 	}
 	
-
-	@When("^CSR launches \"([^\"]*)\" research interaction \"([^\"]*)\"$")
-	public void csr_launches_research_interaction(String interactionType, String searchText) {
-
-		
-		researchInteraction = topNav.searchResult(interactionType, searchText);
-		interactions = researchInteraction;
-	}
-
-	@When("^CSR searches for \"([^\"]*)\" from search portal$")
-	public void csr_searches_for_from_search_portal(String searchString) {
-		
-		researchInteraction = topNav.search(searchString);
-		interactions = researchInteraction;
-	}
-
-
-	
-	@Then("^Verify the research object$")
-	public void verify_the_research_object() throws Throwable {
-		
-		researchInteraction = topNav.setResearchInteraction();
-		interactions = researchInteraction;
-	}
 	
 	@When("^Select \"([^\"]*)\" and serach for \"([^\"]*)\"$")
 	public void select_and_serach_for(String searchType, String value) {
@@ -145,29 +81,6 @@ public class NewTopNav {
 		interactions = researchInteraction;
 		
 	}
-	
-	
-	@When("^Click on Favorites$")
-	public void click_on_Favorites()  {
-		
-		
-		
-		researchInteraction = topNav.ClickFavourite();
-		interactions = researchInteraction;
-		
-	}
-	
-	
-	@When("^Select the Account \"([^\"]*)\" for Initiate a Call displayed$")
-	public void select_the_Account_for_Initiate_a_Call_displayed(String result)  {
-	    // Write code here that turns the phrase above into concrete actions
-		
-		researchInteraction = topNav.initiateACall(result);
-		interactions = researchInteraction;
-	}
-
-	
-
 	
 	public NewDemoInteraction getDemoInteraction() {
 		return demoInteraction;
@@ -205,32 +118,12 @@ public class NewTopNav {
 	
 
 
-	
-		
-	@Then("^Admin check for the dataflow status$")
-	public void admin_check_for_the_dataflow_status() {
-	   
-//		
-//		topNav.checkDataFlow();
-		
-	}
-	
-	
-	
-	
 	@When("^switch to Interaction of \"([^\"]*)\"$")
 	public void switch_to_Interaction_of(String interactionItem) {
 		
 		researchInteraction = topNav.switchInteraction(interactionItem);
 		interactions = researchInteraction;
 	}
-	
-	
-	
-		
-	
-	
-
 }
 	
 

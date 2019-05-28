@@ -1,8 +1,5 @@
 package com.pega.crm.customerservice.stepdefs;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-
 import com.google.inject.Inject;
 import com.pega.CRMTestEnvironment;
 import com.pega.crm.customerservice.interactions.Interactions;
@@ -11,8 +8,6 @@ import com.pega.crm.customerservice.utils.CommonMethods;
 import com.pega.framework.PegaWebDriver;
 import com.pega.ri.Wizard;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
@@ -33,35 +28,4 @@ public class DemoInteraction {
 		pegaDriver = testEnv.getPegaDriver();
 	}
 
-	@Then("^verify the toaster pop values for connor$")
-	public void verify_the_toaster_pop_values_for_connor() throws Throwable {
-		Assert.assertTrue("Incoming call icon not present",
-				demoInteraction.verifyElement(By.xpath("//i[@class='cursordefault  icons cti-status pcti-phone cti-status-smart']")));
-		Assert.assertTrue("Incoming call text not present",
-				demoInteraction.verifyElement(By.xpath("//div[text()='Incoming call...']")));
-		Assert.assertTrue("Sara name text not present", demoInteraction.verifyElement(By.xpath("//span[text()='Sara']")));
-		Assert.assertTrue("Connor name text not present",
-				demoInteraction.verifyElement(By.xpath("//span[text()='Connor']")));
-		Assert.assertTrue("phone num text not present",
-				demoInteraction.verifyElement(By.xpath("//span[text()='617-374-9637']")));
-		Assert.assertTrue("Decline button not visible",
-				demoInteraction.verifyElement(By.xpath("//button[@title='Decline the call']")));
-
-	}
-		
-		
-	@When("^CSR accepts the demo call$")
-	public void csr_accepts_the_demo_call() {
-	    demoInteraction.acceptCall();
-		
-	}
-
-	
-	@When("^user navigates to \"([^\"]*)\" tab$")
-	public void user_navigates_to_tab(String tabname) {
-
-		demoInteraction.switchToTab(tabname);
-
-	}
-	
 }

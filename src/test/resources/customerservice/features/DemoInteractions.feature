@@ -18,9 +18,6 @@ Feature: Demo Interaction Test cases
     When confirm the changes made
     Then check for completed or cancelled task "Address Change"
     When launch warpup to complete the interaction
-    When complete the wrap up
-    When search for I- and S- items
-    Then verify the status
     When Operator logs of the portal
 
   # author : Prakash

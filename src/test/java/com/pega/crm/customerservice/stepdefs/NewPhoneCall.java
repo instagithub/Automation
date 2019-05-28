@@ -73,11 +73,6 @@ public class NewPhoneCall {
 	}
 	
 	
-	@When("^select the verification questions and submit$")
-	public void select_the_verification_questions_and_submit() {
-		interaction.contactVerificationWithQuestions();
-	}
-	
 	@When("^select the verification questions and click on verified$")
 	public void select_the_verification_questions_and_click_on_verified() throws Throwable {
 		interaction.contactVerificationQuestions();
@@ -91,20 +86,6 @@ public class NewPhoneCall {
 	}
 	
 
-	@Then("^select the verification questions and submit for biggs$")
-	public void select_the_verification_questions_and_submit_for_biggs() {
-		interaction.contactVerificationWithTwoQuestions();
-	}
-	
-
-	@When("^select \"([^\"]*)\" account number and submit$")
-	public void select_account_number_and_submit(String accountNumber) {
-		interaction.accountSelection(accountNumber);
-
-	}
-
-
-	
 	@When("^Click on Add Task to launch Service Process$")
 	public void click_on_Add_Task_to_launch_Service_Process() {
 		interaction.addTask();
@@ -189,17 +170,7 @@ public class NewPhoneCall {
 	   interaction.launchWrapup();
 	
 	}
-
 	
-	@Then("^Get the case ID from History and Attachments link$")
-	public void get_the_case_ID_from_History_and_Attachments_link() throws Throwable {
-		
-		CaseID=interaction.getCaseDetails();
-				
-	}
-
-
-
 	@When("^complete the wrap up$")
 	public void complete_the_wrap_up() {
 	   
@@ -219,29 +190,8 @@ public class NewPhoneCall {
 	    CRMObjectsBean.getObjectsMap().put("caseids", caseId);
 	}
 	
-	
-	@When("^search for I- and S- items$")
-	public void search_for_I_and_S_items() {
-		
-		
-	   
-		/*for(int i=0; i<caseId.size(); i++){
-			caseStatus[i] = phoneInteraction.checkCaseStatus(caseId.get(i));
-		}
-	    System.out.println(caseStatus);*/
-	}
-
-	@Then("^verify the status$")
-	public void verify_the_status() {
-	    
-	    
-	}
-
-	
 	@Then("^verifiy left nav, header, composites, dialogs and other sections$")
 	public void verifiy_left_nav_header_composites_dialogs_and_other_sections() {
-		
-		//pegaDriver.handleWaits().waitForElementVisibility(By.xpath(PhoneCall.PHONE_XPATH));
 		
 		Assert.assertTrue("phone field is not present",interaction.verifyElement(By.xpath(PhoneCall.PHONE_XPATH)));
 		Assert.assertTrue("Email Field is not present",interaction.verifyElement(By.xpath("//span[text()='Email']")));
@@ -254,8 +204,6 @@ public class NewPhoneCall {
 		Assert.assertTrue("Reason field is not present",interaction.verifyElement(By.xpath(PhoneCall.REASON_XPATH)));
 		Assert.assertTrue("NPS field is not present",interaction.verifyElement(By.xpath(PhoneCall.NPS_XPATH)));
 		
-	
-
 		Assert.assertTrue("Add Task button is not present",interaction.verifyElement(By.xpath("//button[contains(@title,'Add')]")));
 		Assert.assertTrue("Wrap up button is not present",interaction.verifyElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Wrap Up']")));
 		Assert.assertTrue("Summary tab is not present", interaction.verifyElement(By.xpath("//h3[text()='Overview']")));
@@ -265,14 +213,10 @@ public class NewPhoneCall {
 
 	}
 	
-	@Then("^check for \"([^\"]*)\" account displayed$")
-	public void check_for_account_displayed(String accountNumber) throws Throwable {
-		
-		Assert.assertTrue(accountNumber+" account is not present",
-				interaction.verifyElement(By.xpath("//span[contains(text(),'"+accountNumber+"')]/ancestor::tr[1]")));
-	   
+	@When("^select \"([^\"]*)\" account number and submit$")
+	public void select_account_number_and_submit(String accountNumber) {
+		interaction.accountSelection(accountNumber);
 	}
-
 	
 	
 	@Then("^verify \"([^\"]*)\" flow is launched$")
@@ -321,21 +265,6 @@ public class NewPhoneCall {
 				interaction.verifyElement(By.xpath("//div[text()='Task']")));
 	}
 	
-
-
-	
-
-	
-	
-	
-	
-
-	@When("^Click on \"([^\"]*)\" service process$")
-	public void click_on_service_process(String serviceProcess) {
-		interaction.selectSingleserviceprocess(serviceProcess);
-	    
-	}
-
 
 
 	@Then("^verify that \"([^\"]*)\" flow is launched with dialog$")
@@ -592,101 +521,8 @@ public class NewPhoneCall {
 		interaction.userSwitchToTab(tab);
 	}
 
-	@Then("^verify Close Account dialog, header and question for connor$")
-	public void verify_Close_Account_dialog_header_and_question_for_connor() throws Throwable {
-		Assert.assertTrue("Close Account flow header is not present",
-				interaction.verifyElement(By.xpath("//label[contains(text(),'Close an account')]")));
-		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(text(),'hear')]")).getText();
-		
-		Assert.assertEquals("Close account flow dialog is not present or incorrect",
-				"I'm sorry to hear you'd like to close this account, Ms. Connor.  May I ask the reason?", dialog);
-		Assert.assertTrue("Flow action header message is not present", interaction
-				.verifyElement(By.xpath("//div[text()='Enter the reason for closing the account 1234500078963456']"))); 
-	}
 
-	@When("^close the account with reason \"([^\"]*)\" and comments \"([^\"]*)\"$")
-	public void close_the_account_with_reason_and_comments(String reason, String comment){
-		interaction.closeAccount(reason, comment);
-	}
 
-	@Then("^verify the dialog, status and changes$")
-	public void verify_the_dialog_status_and_changes() throws Throwable {
-		String dialog = interaction.findElement(By.xpath("//div[@id='DialogContent' and contains(.,'request')]")).getText();
-		
-		Assert.assertEquals("Close Account flow dialog is not present or incorrect",
-				"I've completed entering your request.", dialog);
-		Assert.assertTrue("Close Account  is not present",
-				interaction.verifyElement(By.xpath("//span[text()='Close Account']")));
-
-		Assert.assertTrue("Serive case status is not present",
-				interaction.verifyElement(By.xpath("//span[text()='Open']")));
-	}
-
-	@Then("^Verify the Status of \"([^\"]*)\" is \"([^\"]*)\"$")
-	public void verify_the_Status_of_is(String subCase, String Status) throws Throwable {
-			
-		
-		if(subCase.equalsIgnoreCase("Pick Up Card At Branch")||subCase.equalsIgnoreCase("Resolve work")||subCase.equalsIgnoreCase("Dispute Transaction")
-				||subCase.equalsIgnoreCase("Complete scheduled appointment")||subCase.equalsIgnoreCase("Process dispute")||subCase.equalsIgnoreCase("Resolve complaint or compliment")){
-			Assert.assertTrue(" Enter new account address field is not present",
-					interaction.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]")));
-			
-			
-			}
-			
-		else{
-			Assert.assertTrue(" Enter new account address field is not present",
-					interaction.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]")));
-			
-		}	
-		
-		if(Status.equalsIgnoreCase("Open")){
-			Assert.assertTrue(" Completed field is not present",
-					interaction.verifyElement(By.xpath("//a[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
-			
-		}
-		else if (Status.equalsIgnoreCase("Completed")){
-			Assert.assertTrue(" Completed field is not present",
-					interaction.verifyElement(By.xpath("//div[contains(text(),'"+subCase+"')]/ancestor::td[1]/following-sibling::td[3]/descendant::a[contains(text(),'"+Status+"')]")));
-			
-		}
-	}
-
-	@Then("^verify the above interaction is displayed under recent cases widget$")
-	public void verify_the_above_interaction_is_displayed_under_recent_cases_widget() throws Throwable {
-		 interaction.verifyRecentCases();
-	}
-
-	@Then("^Veriy \"([^\"]*)\" status is displayed for the case$")
-	public void veriy_status_is_displayed_for_the_case(String Status) throws Throwable {
-		interaction.verifytheStatusForTheCase(Status);
-	}
-
-	@When("^Select the above created Case$")
-	public void select_the_above_created_Case() throws Throwable {
-		interaction.selectCaseFromCasesWidget();
-	}
-
-	@Then("^Verify \"([^\"]*)\" subcase is displayed$")
-	public void verify_subcase_is_displayed(String subCase) throws Throwable {
-		
-		Assert.assertTrue(" Sub case field is not present",
-				interaction.verifyElement(By.xpath("//div[contains(@class,'dataValueRead')]/a[contains(text(),'"+subCase+"')]")));
-	}
-
-	@When("^Select \"([^\"]*)\" sub case$")
-	public void select_sub_case(String arg1) throws Throwable {
-		interaction.selectSubCaseFromTasks(arg1);
-	}
-
-	@Then("^Verify the header and other deatis in close account page$")
-	public void verify_the_header_and_other_deatis_in_close_account_page() throws Throwable {
-		
-							
-			Assert.assertTrue("Close Account header is not present",interaction.verifyElement(By.xpath("//label[contains(text(),'Close Account')]")));
-			Assert.assertTrue("Reason header is not present",interaction.verifyElement(By.xpath("//div[text()='Reason']")));
-			Assert.assertTrue("Comments header is not present",interaction.verifyElement(By.xpath("//div[text()='Comments']")));
-	}
 
 	@When("^Select \"([^\"]*)\" statement  and submit$")
 	public void select_statement_and_submit(String transaction) throws Throwable {
@@ -744,16 +580,6 @@ public class NewPhoneCall {
 	@When("^Select a dispute \"([^\"]*)\" and submit$")
 	public void select_a_dispute_and_submit(String reason) throws Throwable {
 		interaction.selectReasonForDispute(reason);
-	}
-
-	@Then("^Verify the confirm screen and inprogress task$")
-	public void verify_the_confirm_screen_and_inprogress_task() throws Throwable {
-		
-
-		Assert.assertTrue("Dispute Transaction field is not present",interaction.verifyElement(By.xpath("//a[contains(@title,'Dispute Transaction')]")));
-		Assert.assertTrue("Dispute Transaction flow action dialog is not present",interaction.verifyElement(By.xpath("//div[text()='Claim(s) successfully created, please confirm!']")));
-
-		Assert.assertTrue("Dispute Transaction flow action dialog is not present",interaction.verifyElement(By.xpath("//span[text()='Dispute Transaction']")));
 	}
 
 	@Then("^Verify the \"([^\"]*)\" status displayed$")
