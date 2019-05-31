@@ -84,7 +84,7 @@ public class CRMTestEnvironment extends TestBase {
 
 	protected void tearDown(Scenario scenario, boolean performLogout, boolean saveVideoForPassedScenario) {
 		try {
-			isDebugMode = getConfiguration().isDebugMode();
+			isDebugMode = getConfiguration().getSUTConfig().isDebugMode();
 			captureScreenshot(scenario);
 
 			if (!isDebugMode) {

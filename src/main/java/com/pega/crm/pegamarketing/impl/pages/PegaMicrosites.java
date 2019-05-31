@@ -22,7 +22,7 @@ public class PegaMicrosites extends PegaLandingPage implements Microsites {
 	public Subscription launchMicrositeURL(String micrositeURL) {
 		TestEnvironment t1 = new TestEnvironmentImpl();
 		pegaDriver = t1.getPegaDriver();
-		uRLPort = t1.getConfiguration().getURL();
+		uRLPort = t1.getConfiguration().getSUTConfig().getURL();
 		uRLPort = uRLPort.replace("/prweb", "");
 		micrositeURL = micrositeURL.replace("*****", uRLPort);
 		LOGGER.debug("*** URL Is: " + micrositeURL);
