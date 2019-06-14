@@ -1,38 +1,38 @@
 package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
+import com.pega.crm.pegamarketing.impl.rules.PegaRuleInstance;
 import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers;
-import com.pega.crm.pegamarketing.pages.UnsubscribedCustomers.SubscriptionReportDrillDown;
-import com.pega.framework.PegaWebDriver;
 
-public class PegaUnsubscribedCustomers implements UnsubscribedCustomers {
-	TestEnvironment testEnv;
+public class PegaUnsubscribedCustomers extends PegaRuleInstance implements UnsubscribedCustomers {
 	String frameID;
-	PegaWebDriver pegaDriver;
+
 	public PegaUnsubscribedCustomers(String frameID, TestEnvironment testEnv) {
-	this.frameID = frameID;
-	this.testEnv = testEnv;
-	pegaDriver= testEnv.getPegaDriver();
+		super(frameID, testEnv);
+		this.frameID = frameID;
 	}
+
 	@Override
 	public void refreshReports() {
-		pegaDriver.findElement(REFRESH_BUTTON).click();
-		pegaDriver.waitForDocStateReady();
+		findElement(REFRESH_BUTTON).click();
 	}
+
 	@Override
 	public SubscriptionReportDrillDown drillDownNotIntrestedReport() {
-		pegaDriver.findElement(NOT_INTRESTED_COUNT).click();
+		findElement(NOT_INTRESTED_COUNT).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
-		SubscriptionReportDrillDown subscriptionDrillDown =  new PegaSubscriptionReportDrillDown(frameId, testEnv);
+		SubscriptionReportDrillDown subscriptionDrillDown = new PegaSubscriptionReportDrillDown(frameId, testEnv);
 		return subscriptionDrillDown;
 	}
-	public class PegaSubscriptionReportDrillDown implements SubscriptionReportDrillDown{
+
+	public class PegaSubscriptionReportDrillDown implements SubscriptionReportDrillDown {
 		String frameID;
 		TestEnvironment testEnv;
+
 		public PegaSubscriptionReportDrillDown(String frameID, TestEnvironment testEnv) {
 			this.frameID = frameID;
 			this.testEnv = testEnv;
 		}
-				
+
 	}
 }

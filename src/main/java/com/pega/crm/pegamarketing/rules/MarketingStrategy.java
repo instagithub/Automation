@@ -11,12 +11,12 @@ import com.pega.crm.pegamarketing.pages.Strategy;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 
 public interface MarketingStrategy extends RuleInstance {
-	By STRATEGY_NAME_INPUT = By.xpath("//input[@data-test-id='2016111816494007041082699']");
+	By STRATEGY_NAME_INPUT = By.xpath("//*[@name='$PpyDisplayHarness$pComponent$pComponents$l1$ppyLabel']");
 	By CONFIGUE_OBJECTIVE_BUTTON = By.xpath("//a[contains(@data-click,'ConfigureStrategyBuilderObjective')]");
 	By CONFIGUE_AUDIENCE_DRIVER_BUTTON = By.xpath("//a[contains(@data-click,'LaunchAudienceCardSelector')]");
 	By ERROR_MESSAGE = By.xpath("//span[@id='ERRORMESSAGES_ALL']");
-	By DESCRIPTION_INPUT = By.xpath("//input[@data-test-id='20151130101537089747559']");
-	By BUSINESS_ISSUE_DROPDOWN = By.xpath("//*[@data-test-id='20150219170431021835250']");//  id("IssueClass");
+	By DESCRIPTION_INPUT = By.xpath("//*[@name='$PpyDisplayHarness$pComponent$pComponents$l1$ppyDescription']");
+	By BUSINESS_ISSUE_DROPDOWN = By.xpath("//*[@name='$PpyDisplayHarness$pComponent$pComponents$l1$pIssueClass']");// id("IssueClass");
 	By CONFIGURE_PRIORITY_BUTTON = By.xpath("//a[contains(@data-click,'ConfigurePriorityCalculation')]");
 	By PRIORITIZATION_DROPDOWN = By.xpath("//select[contains(@name,'PrioritizationType')]");
 	By PROPERTY_NAME_INPUT = By.xpath("//input[contains(@name,'PropertyName')]");
@@ -26,7 +26,7 @@ public interface MarketingStrategy extends RuleInstance {
 	By OPEN_CANVAS_BUTTON = By.xpath(PMXPathUtil.getMenuItemXPath("Open canvas"));
 	By SEARCHSTRATEGY = By.xpath("//*[@data-test-id='20160202134136053752179']");
 	By VIEW_BTN = By.xpath("//*[@type='button'][contains(text(),'View')]");
-	By ALLCATEGORIESLINK =By.xpath("//a[contains(text(),'All categories')]");
+	By ALLCATEGORIESLINK = By.xpath("//a[contains(text(),'All categories')]");
 
 	/**
 	 * It will open configure priority dialog
@@ -71,6 +71,7 @@ public interface MarketingStrategy extends RuleInstance {
 	 * @param issueName
 	 */
 	void setIssue(String issueName);
+
 	/**
 	 * It is used to check the group checkbox with the name specifiedr
 	 * 

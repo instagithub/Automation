@@ -19,66 +19,54 @@ import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
-public class Partner
-{
+public class Partner {
 
-	private SFAPortal sfaPortal =null;
+	private SFAPortal sfaPortal = null;
 	private TestEnvironment testEnv;
 	private CRMBrowser browser;
 	private PegaWebDriver pegaDriver;
-	public static String Subject=null;
-	
+	public static String Subject = null;
+
 	@Inject
-	public Partner(CRMTestEnvironment testEnv, CRMBrowser browser){
+	public Partner(CRMTestEnvironment testEnv, CRMBrowser browser) {
 		this.testEnv = testEnv;
 		this.browser = browser;
-		pegaDriver=testEnv.getPegaDriver();
+		pegaDriver = testEnv.getPegaDriver();
 		sfaPortal = browser.getPortal(SFAPortal.class);
-		
-		this.partList= browser.parList;
+
+		this.partList = browser.parList;
 	}
-	
-	
-	
-	
-	
+
 	/*
 	 * 
 	 * Partners creation
 	 * 
 	 */
-	
-	
+
 	private Scenario scenario;
-	//public SFAPortal sfaPortal =null;
-	//private TestEnvironment testEnv;
-	//private MyBrowser browser;
-	//private PegaWebDriver pegaDriver;
 	PartnersList partList;
 	PartnersList partnerslist;
 	Partners part;
-	
-	String PARTNER_NAME="Automation Partner";
-	String PARTNER_NAME_CLOSE="First Alert";
-	String PARTNER_PHONE="8995994999";
-	String PARTNER_WEBSITE="www.partner1.com";
-	String TERRITORY_NAME= new String("Automation_Partner_Territory"+new Random().nextInt(100));
 
-	String TERRITORY_OWNER="Terry Mason";
-	String PARENT_TERRITORY="Global";
-	String PARTNER_TYPE="Agency";
-	String PARTNER_EMAIL="partner.pega@gmail.com";
-	String PARTNER_UPDATED_EMAIL= "updatedpartner.pega@gmail.com";
-	String PARTNER_UPDATED_PHONE="9874561230";
-	
+	String PARTNER_NAME = "Automation Partner" + Math.random();
+	String PARTNER_NAME_CLOSE = "First Alert";
+	String PARTNER_PHONE = "8995994999";
+	String PARTNER_WEBSITE = "www.partner1.com";
+	String TERRITORY_NAME = new String("Automation_Partner_Territory" + new Random().nextInt(10000));
+
+	String TERRITORY_OWNER = "Terry Mason";
+	String PARENT_TERRITORY = "Global";
+	String PARTNER_TYPE = "Agency";
+	String PARTNER_EMAIL = "partner.pega@gmail.com";
+	String PARTNER_UPDATED_EMAIL = "updatedpartner.pega@gmail.com";
+	String PARTNER_UPDATED_PHONE = "9874561230";
+
 	String PartnerID = "Partner120";
 	String PartnerTaxID = "PartnerTax120";
 	String PartnerFax = "67890";
-	
-	
+
 	@When("^User clicks on Create Partner and enters all the madatory data$")
-	public void user_clicks_on_Create_Partner_and_enters_all_the_madatory_data() 
-	{
+	public void user_clicks_on_Create_Partner_and_enters_all_the_madatory_data() {
 		partList = sfaPortal.getLeftNav().getPartnersList();
 		part = partList.createPartner();
 		part.setWebSite(PARTNER_WEBSITE);
@@ -96,27 +84,22 @@ public class Partner
 		part.setPartnerTaxID(PartnerTaxID);
 		part.setPartnerWorkFax(PartnerFax);
 	}
-	
+
 	@When("^clicks on OK button$")
-	public void clicks_on_OK_button() 
-	{
-		part.SubmitPartner();		
+	public void clicks_on_OK_button() {
+		part.SubmitPartner();
 	}
-	
+
 	@Then("^Partner should be created$")
-	public void partner_should_be_created()
-	{
+	public void partner_should_be_created() {
 		Assert.assertEquals(part.getWebSite().trim(), PARTNER_WEBSITE);
 		Assert.assertEquals(part.getPartnerID().trim(), PartnerID);
 		Assert.assertEquals(part.getPhone().trim(), PARTNER_PHONE);
-		Assert.assertEquals(part.getPartnerName().trim(),PARTNER_NAME);
-		Assert.assertEquals(part.getPartnerWorkFax().trim(),PartnerFax);
+		Assert.assertEquals(part.getPartnerName().trim(), PARTNER_NAME);
+		Assert.assertEquals(part.getPartnerWorkFax().trim(), PartnerFax);
 		Assert.assertEquals(part.getEmail().trim(), PARTNER_EMAIL);
-		Assert.assertEquals(part.getPartnerTaxID().trim(),PartnerTaxID);
+		Assert.assertEquals(part.getPartnerTaxID().trim(), PartnerTaxID);
 		Assert.assertEquals(part.getPartnerType().trim(), PARTNER_TYPE);
 	}
-	
-	
-	
 
 }

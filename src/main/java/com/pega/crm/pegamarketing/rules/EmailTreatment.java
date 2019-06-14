@@ -18,7 +18,7 @@ public interface EmailTreatment extends Treatment {
 	By PAGES_AND_CLASSES_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Pages & Classes"));
 	By SECURITY_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Security"));
 	By HISTORY_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("History"));
-	By SUBJECT_AUTOCOMPLETE = By.id("Subject");
+	By SUBJECT_AUTOCOMPLETE = By.xpath("//*[contains(@name,'Subject')]");
 	By EDIT_MODE_BUTTON = By.xpath(PMXPathUtil.getButtonPzhcBtnXPath("Edit mode"));
 	By PICK_EMAIL_TEMPLATE_BUTTON = By.xpath(PMXPathUtil.getButtonPzhcBtnXPath("Pick email template"));
 	By LOAD_TEMPLATE_FROM_FILE_BUTTON = By.xpath(PMXPathUtil.getButtonPzhcBtnXPath("Load template from file"));
@@ -77,14 +77,17 @@ public interface EmailTreatment extends Treatment {
 	 * this method clicks on Send Test Message button
 	 */
 	void sendTestMessage();
+
 	/**
 	 * this clicks on enter in email editor
 	 */
 	void clickEnterInEditor();
+
 	/**
 	 * this clicks on insert button property
-	 * @return 
+	 * 
+	 * @return
 	 */
 	ButtonParametersDialog clickInsertButton();
-	
+
 }

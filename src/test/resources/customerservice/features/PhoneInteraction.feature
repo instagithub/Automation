@@ -11,7 +11,6 @@ Feature: Phone Interaction Test cases
     Then verify the contact displayed
     When select result from the result and proceed
     When select the verification questions and click on verified
-    Then check for "223000018" account displayed
     Then Verify the dialog, FA header, message displayed
     When select "223000018" account number and submit
     Then verifiy left nav, header, composites, dialogs and other sections
@@ -24,11 +23,5 @@ Feature: Phone Interaction Test cases
     Then Confirm the case details
     When Confirm the flow
     When launch warpup to complete the interaction
-    Then verify the wrapup dialog
     When complete the wrap up
-    Then User will be navigated to the portal
-    When search for I- and S- items
-    Then verify the status
     When Operator logs of the portal
-
-     

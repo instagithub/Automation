@@ -7,17 +7,19 @@ import com.pega.crm.pegamarketing.dialog.ModalDialog;
 import com.pega.crm.pegamarketing.elmt.Connector;
 import com.pega.crm.pegamarketing.elmt.OfferShape;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
+import com.pega.crm.pegamarketing.utils.PegaBy;
 
 public interface Offer extends RuleInstance {
 
-	By DIAGRAM_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Diagram"));
-	By DETAILS_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Details"));
-	By TESTOFFER_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("Test Offer"));
-	By HISTORY_TAB = By.xpath(PMXPathUtil.getRuleTabXpath("History"));
+	By FLOW_TAB = PegaBy.ruleTab("Flow");
+	By DETAILS_TAB = PegaBy.ruleTab("Details");
+	By TESTOFFER_TAB = PegaBy.ruleTab("Test Offer");
+	By HISTORY_TAB = PegaBy.ruleTab("History");
+	By ELIGIBILITY_TAB = PegaBy.ruleTab("Eligibility");
 	String DIV_PROCESS_FLOW_XPATH = "//div[@id='pmviewer_graph']";
 
 	String MONAME_XPATH = "//div[@id='modalOverlay' and @style='display: block;']"
-			+ "//input[@id='pyMOName' and not(@title='Select Ticket')]";
+			+ "//input[contains(@name,'MOName') and not(@title='Select Ticket')]";
 	String DECISIONTYPE_XPATH = "//div[@id='modalOverlay' and @style='display: block;']"
 			+ "//select[@id='pyDecisionClass']";
 
@@ -28,12 +30,14 @@ public interface Offer extends RuleInstance {
 	By DIRECTION_OUTBOUND = By.xpath("//label[text()='Outbound']");
 	By REFRESH_TRACK_RESULTS = By.xpath("//button[text()='Refresh']");
 	By TEST_OFFER = By.xpath(PMXPathUtil.getButtonPzBtnMidXPath("Test Offer"));
-	//By TEST_OFFER = By.xpath("//div[@data-context='pyNewResults' and not(contains(@style,'none'))]//button[text()='Test Offer']");
-	By OFFER_RESULT_SUCCESS = By.xpath("//div[@node_name='OfferTestResultsGridSection']//tr[contains(@id,'OfferTestResults')]//label[text()='Success!']");
-	By OFFER_RESULT_NON_SUCCESS = By.xpath("//div[@node_name='OfferTestResultsGridSection']//tr[contains(@id,'OfferTestResults')]//label[not(contains(text(),'Success!'))]");
-	By OFFER_STARTED_SUCCESSFULLY_MESSAGE = By.xpath("//div[@node_name='OfferTestRunStatus']//*[text()='Offer test started successfully']");
+	By OFFER_RESULT_SUCCESS = By.xpath(
+			"//div[@node_name='OfferTestResultsGridSection']//tr[contains(@id,'OfferTestResults')]//label[text()='Success!']");
+	By OFFER_RESULT_NON_SUCCESS = By.xpath(
+			"//div[@node_name='OfferTestResultsGridSection']//tr[contains(@id,'OfferTestResults')]//label[not(contains(text(),'Success!'))]");
+	By OFFER_STARTED_SUCCESSFULLY_MESSAGE = By
+			.xpath("//div[@node_name='OfferTestRunStatus']//*[text()='Offer test started successfully']");
 	By IMAGE_URL_COG = By.xpath("//*[@title='View folder contents']");
-	
+
 	public enum Shape {
 		SEND_EMAIL("Send Email"), SEND_SMS("Send SMS"), SEND_GENERIC("Send Generic"), SEND_MULTI(
 				"Send Multi"), SEND_PASSBOOK("Send Passbook"), END("End"), PUSH_NOTOFICATION(
@@ -159,10 +163,6 @@ public interface Offer extends RuleInstance {
 	 * @author Bala
 	 */
 	Connector findConnector(By byShapeXpath);
-	
-	
-	
-	
 
 	public interface ShapeProperties extends ModalDialog {
 		By TREATMENT_NAME = By.id("Treatment_Name");
@@ -190,10 +190,11 @@ public interface Offer extends RuleInstance {
 		By EMAIL_ACCOUNT_INPUT = By.id("EmailAccount");
 
 		/**
-		 * this method sets the given EmailAccount account in Send Email shape properties
+		 * this method sets the given EmailAccount account in Send Email shape
+		 * properties
 		 * 
 		 * @param emailAccount
-		 * 			email account to be added
+		 *            email account to be added
 		 */
 		void setEmailAccount(String emailAccount);
 
@@ -213,42 +214,46 @@ public interface Offer extends RuleInstance {
 		 */
 		void setSMSAccount(String SMSAccount);
 	}
-	
+
 	/**
 	 * sets the seedlist text input on test offer tab
+	 * 
 	 * @param seedlist
 	 */
 	void setSeedList(String seedlist);
-	
+
 	/**
 	 * selects the given starting point on test offer tab
+	 * 
 	 * @param startingPoint
 	 */
 	void selectStartingPoint(String startingPoint);
-	
+
 	/**
 	 * selects the given channel on test offer tab
+	 * 
 	 * @param channel
 	 */
 	void selectChannel(String channel);
-	
+
 	/**
 	 * sets the provided direction Inbound/Outbound
+	 * 
 	 * @param direction
 	 */
 	void setDirection(String direction);
-	
+
 	/**
 	 * Refreshes the track results by hitting the refresh button
 	 */
 	void refreshTrackResults();
-	
+
 	/**
 	 * Tests the offer by clicking Test Offer button
 	 */
 	void testOffer();
-	
+
 	void clickDetails();
 
-	ImageCatalogDialog clickImageURLCog();	
+	ImageCatalogDialog clickImageURLCog();
 }

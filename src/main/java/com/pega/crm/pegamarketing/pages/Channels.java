@@ -10,8 +10,10 @@ import com.pega.framework.elmt.Frame;
 public interface Channels extends Frame {
 	By ADD_CONNECTION_BTN = By.xpath(PMXPathUtil.getDataTestIdXPath("2014110508473501265753"));
 	By lnkPaidMedia = By.xpath("//*[@data-repeat-id='LGLayoutGroupChannelSettingsS1']//h3[text()='Paid Media']");
+
 	/**
 	 * It opens the Add Outbound SMS Connection dialog
+	 * 
 	 * @return
 	 */
 	AddOutboundSMSConnection addConnection();
@@ -28,6 +30,7 @@ public interface Channels extends Frame {
 
 		/**
 		 * It fills the connections details in the Add Outbound SMS Connection dialog
+		 * 
 		 * @param accountName
 		 * @param hostAddress
 		 * @param port
@@ -39,13 +42,12 @@ public interface Channels extends Frame {
 		public void addConnectionSetup(String accountName, String hostAddress, String port, String userId,
 				String password, String testNumber, String senderNumber);
 	}
-	
-	public interface PaidMediaSetting{
+
+	public interface PaidMediaSetting {
 		/** The lnk channel. */
 		By lnkChannel = By.xpath("//span/a[text()='Channels']");
 
 		/** The lnk paid media. */
-		
 
 		/** The btn linked in tab. */
 		By btnLinkedInTab = By.xpath("(//*[@id='RULE_KEY']/div[2]//span[text()='LinkedIn Ads'])[3]");
@@ -85,21 +87,22 @@ public interface Channels extends Frame {
 
 		/** The txt google client customer ID. */
 		By txtGoogleClientCustomerID = By.xpath("//*[@id='ClientCustomerID']");
-		
+
 		/** The app id add icon for adwords. */
 		By lnkAddAppID = By.xpath("//a[contains(text(),'Add app ID')]");
-		
+
 		/** The device id add icon for adwords. */
 		By lnkAddDeviceID = By.xpath("//a[contains(text(),'Add device')]");
-		
+
 		/** The textbox for adwords app id. */
 		By txtAppID = By.xpath("//*[contains(@name,'pAppIDList')]");
-		
+
 		/** The textbox for adwords device id. */
 		By txtDeviceID = By.xpath("//*[contains(@name,'pDeviceIDList')]");
 
 		/** The btn facebook ads tab. */
-		By btnFacebookAdsTab = By.xpath("(//span[@data-test-id='20180210004443074811317' and text()='Facebook Ads'])[3]");
+		By btnFacebookAdsTab = By
+				.xpath("(//span[@data-test-id='20180210004443074811317' and text()='Facebook Ads'])[3]");
 
 		/** The btn facebook ads destination. */
 		By btnAdsDestination = By.xpath("(//button[text()='Add destination'])[4]");
@@ -154,7 +157,8 @@ public interface Channels extends Frame {
 
 		/** The btn destination. */
 		// Paid Settings tab
-		By btnDestination = By.xpath("//div[text()='Destination']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
+		By btnDestination = By
+				.xpath("//div[text()='Destination']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
 
 		/** The btn account ID. */
 		By btnAccountID = By.xpath("//div[text()='Account ID']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
@@ -164,10 +168,12 @@ public interface Channels extends Frame {
 				.xpath("//div[text()='Destination key']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
 
 		/** The btn last updated. */
-		By btnLastUpdated = By.xpath("//div[text()='Last updated']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
+		By btnLastUpdated = By
+				.xpath("//div[text()='Last updated']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
 
 		/** The btn updated by. */
-		By btnUpdatedBy = By.xpath("//div[text()='Updated  By']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
+		By btnUpdatedBy = By
+				.xpath("//div[text()='Updated  By']//ancestor::*[@pl_prop_class='Data-PaidMedia-Facebook']");
 
 		/** The btn google ads tab. */
 		// Google settings tab
@@ -190,7 +196,6 @@ public interface Channels extends Frame {
 
 		// adobe settings tab
 		By btnAdobeAdsTab = By.xpath("(//*[@id='RULE_KEY']/div[2]//span[text()='Adobe Audience Manager'])[3]");
-
 
 		/** The txt adobe setting pop up header. */
 		By txtAdobeSettingPopUpHeader = By.xpath("//*[@id='modaldialog_hd_title']");
@@ -335,8 +340,9 @@ public interface Channels extends Frame {
 		 * Enter connection details on linked in paid settings.
 		 *
 		 */
-		public void enterConnectionDetailsOnLinkedInPaidSettings(String linkedInDestinationName, String linkedInDescription,
-				String accountIdLinkedIn, String accessToken, String sourcePlatform, String emailLinkedIn);
+		public void enterConnectionDetailsOnLinkedInPaidSettings(String linkedInDestinationName,
+				String linkedInDescription, String accountIdLinkedIn, String accessToken, String sourcePlatform,
+				String emailLinkedIn);
 
 		/**
 		 * Verify FB paid setting popup header text.
@@ -370,33 +376,33 @@ public interface Channels extends Frame {
 		 * Enter connection details on FB paid settings.
 		 * 
 		 */
-		public void enterConnectionDetailsOnFBPaidSettings(String destName, String desc, String accountId, String appToken,
-				String phone, String email);
+		public void enterConnectionDetailsOnFBPaidSettings(String destName, String desc, String accountId,
+				String appToken, String phone, String email);
 
 		/**
 		 * Enter connection details on ad words paid settings.
 		 */
 		public void enterConnectionDetailsOnAdWordsPaidSettings(String destNameAdWords, String descAdWords,
-				String clientidAdWords, String clientsecretAdWords, String devtokenAdWords, String emailAdWords, String phoneAdwords,
-				String refreshtokenAdWords, String customeridAdWords);
-		
+				String clientidAdWords, String clientsecretAdWords, String devtokenAdWords, String emailAdWords,
+				String phoneAdwords, String refreshtokenAdWords, String customeridAdWords);
+
 		/**
-		 * Click on Add App ID to enter the App id for device configuration 
+		 * Click on Add App ID to enter the App id for device configuration
 		 */
 		public void clickAppId();
-		
+
 		/**
-		 * Enter the App ID to for device configuration 
+		 * Enter the App ID to for device configuration
 		 */
 		public void addAppId(String appId);
-		
+
 		/**
-		 * Click on Add Device ID to enter the Device id for device configuration 
+		 * Click on Add Device ID to enter the Device id for device configuration
 		 */
 		public void clickDeviceId();
-		
+
 		/**
-		 * Enter the Device ID to for device configuration 
+		 * Enter the Device ID to for device configuration
 		 */
 		public void addDeviceId(String deviceId);
 
@@ -406,8 +412,8 @@ public interface Channels extends Frame {
 		 */
 		public void enterConnectionDetailsOnAdobePaidSettings(String destNameAdobe, String descAdobe, String dPIdAdobe,
 				String dataSourceIdAdobe, String apiUserNameAdobe, String apiPasswordAdobe, String apiClientIdAdobe,
-				String apiSecretKeyAdobe, String syncIdAdobe, String s3bucketname, String s3AccessKey, String s3SecretKey,
-				String s3Region, String s3Folder);
+				String apiSecretKeyAdobe, String syncIdAdobe, String s3bucketname, String s3AccessKey,
+				String s3SecretKey, String s3Region, String s3Folder);
 
 		/**
 		 * Enter connection details on web paid settings.
@@ -416,16 +422,21 @@ public interface Channels extends Frame {
 		public void enterConnectionDetailsOnWebPaidSettings(String webDestinationName, String webDescription);
 
 	}
-	
+
 	PaidMediaSetting openPaidMedia();
+
 	/**
 	 * It opens the TestConnectivityResults window
-	 * @param connectionName - Name of the connection to be tested
+	 * 
+	 * @param connectionName
+	 *            - Name of the connection to be tested
 	 * @return
 	 */
 	public TestConnectivityResults testConnection(String connectionName);
+
 	/**
 	 * this is to delete the connection
+	 * 
 	 * @param accountName
 	 */
 	public void deleteSMSAccount(String accountName);
@@ -437,20 +448,25 @@ public interface Channels extends Frame {
 
 		/**
 		 * It returns the Account Name
+		 * 
 		 * @return
 		 */
 		public String getAccountName();
+
 		/**
 		 * It returns overall result
+		 * 
 		 * @return
 		 */
 		public String getOverallResult();
+
 		/**
 		 * It returns the Description of the result
+		 * 
 		 * @return
 		 */
 		public String getResultDescription();
-		
+
 		/**
 		 * It closes the window
 		 */

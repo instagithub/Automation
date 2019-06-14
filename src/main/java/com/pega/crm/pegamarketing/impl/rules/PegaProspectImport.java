@@ -35,9 +35,7 @@ public class PegaProspectImport extends PegaRuleInstance implements ProspectImpo
 	}
 
 	public void openProspectData() {
-		findElement(PROSPECT_DATA_LINK).click(false);
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.switchToActiveFrame();
+		findElement(PROSPECT_DATA_LINK).click();
 	}
 
 	@Override
@@ -48,7 +46,6 @@ public class PegaProspectImport extends PegaRuleInstance implements ProspectImpo
 		status = verifyIfFullNamePresent("SaleemAbdelsayed");
 		return status;
 	}
-
 
 	public boolean verifyIfFullNamePresent(String FullName) {
 		boolean IsFullNamePresent = false;

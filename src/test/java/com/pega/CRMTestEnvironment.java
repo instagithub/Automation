@@ -11,22 +11,23 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.Reporter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.pega.config.test.TestBase1S1D;
-import com.pega.crm.customerservice.utils.CommonMethods;
+import com.pega.config.test.TestBase;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
 import com.pega.util.RecorderUtil;
+import com.vimalselvam.cucumber.listener.Reporter;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.runtime.java.guice.ScenarioScoped;
-import mx4j.log.Logger;
 
 /**
  * 
@@ -35,11 +36,12 @@ import mx4j.log.Logger;
  *
  */
 @ScenarioScoped
-public class CRMTestEnvironment extends TestBase1S1D {
+public class CRMTestEnvironment extends TestBase {
 
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	String VERSION = "$Id: MyTestEnvironment.java 187193 2018-04-13 01:45:11Z SachinVellanki $";
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(CRMTestEnvironment.class.getName());
 	Browser browser;
 	TestEnvironmentImpl testsdd;
 	private static int passed = 0;
@@ -49,8 +51,7 @@ public class CRMTestEnvironment extends TestBase1S1D {
 	private boolean isBrowserInitiailized = false;
 	private boolean alwaysSaveVideo = false;
 	private boolean isDebugMode = false;
-	private CommonMethods commonMethods;
-	
+
 	@Override
 	@Inject
 	public Browser getBrowser() {
@@ -67,10 +68,9 @@ public class CRMTestEnvironment extends TestBase1S1D {
 	}
 
 	protected void setUp(Scenario scenario, String browserName) {
-		//initializeStatus();
+		// initializeStatus();
 		startRecording(scenario);
 		configureBrowser();
-		commonMethods = new CommonMethods(getPegaDriver());
 	}
 
 	@After
@@ -82,14 +82,13 @@ public class CRMTestEnvironment extends TestBase1S1D {
 		tearDown(scenario, performLogout, alwaysSaveVideo);
 	}
 
-	protected void tearDown(Scenario scenario, boolean performLogout,
-			boolean saveVideoForPassedScenario) {
+	protected void tearDown(Scenario scenario, boolean performLogout, boolean saveVideoForPassedScenario) {
 		try {
-			isDebugMode = getConfiguration().isDebugMode();
+			isDebugMode = getConfiguration().getSUTConfig().isDebugMode();
 			captureScreenshot(scenario);
 
 			if (!isDebugMode) {
-				if (performLogout  && !scenario.isFailed()) {
+				if (performLogout && !scenario.isFailed()) {
 					browser.switchToWindow(1);
 					logout();
 				}
@@ -98,8 +97,10 @@ public class CRMTestEnvironment extends TestBase1S1D {
 			killDrivers();
 			captureVideo(scenario, saveVideoForPassedScenario);
 		} finally {
-			/*updateWithCurrentStatus("['" + total + "', " + passed + ", "
-					+ failed + ", " + (total - passed - failed) + "]");*/
+			/*
+			 * updateWithCurrentStatus("['" + total + "', " + passed + ", " + failed + ", "
+			 * + (total - passed - failed) + "]");
+			 */
 		}
 	}
 
@@ -111,10 +112,9 @@ public class CRMTestEnvironment extends TestBase1S1D {
 				p.load(new FileInputStream(f));
 				total = Integer.parseInt(p.getProperty("tests.total"));
 			} catch (Exception e) {
-				Reporter.log("Unable to read execution.properties file", true);
+				LOGGER.debug("Unable to read execution.properties file", true);
 			}
-			updateWithCurrentStatus("['" + total + "', " + passed + ", "
-					+ failed + ", " + total + "]");
+			updateWithCurrentStatus("['" + total + "', " + passed + ", " + failed + ", " + total + "]");
 		}
 	}
 
@@ -123,26 +123,22 @@ public class CRMTestEnvironment extends TestBase1S1D {
 			String reportsDir = System.getProperty("testReportsDir");
 			try {
 				String videoFileName = System.getenv("tags");
-				videoFilePath = reportsDir
-						+ System.getProperty("file.separator") + videoFileName
+				videoFilePath = reportsDir + System.getProperty("file.separator") + videoFileName
 						+ GlobalConstants.VIDEO_FILE_FORMAT;
 				RecorderUtil.startRecording(reportsDir, videoFileName);
-				Reporter.log("Video recording started...", true);
+				LOGGER.debug("Video recording started...", true);
 			} catch (Exception e) {
 				e.printStackTrace();
-				Reporter.log("Recording could not be started", true);
+				LOGGER.debug("Recording could not be started", true);
 			}
 		}
 	}
 
-	/*private void configureBrowser() {
-		browser = getBrowser();
-		browser.open();
-		configuration = getConfiguration();
-		isBrowserInitiailized = true;
-		alwaysSaveVideo = configuration.isSaveVideoAlways();
-	}
-*/
+	/*
+	 * private void configureBrowser() { browser = getBrowser(); browser.open();
+	 * configuration = getConfiguration(); isBrowserInitiailized = true;
+	 * alwaysSaveVideo = configuration.isSaveVideoAlways(); }
+	 */
 	protected void stopRecording() throws Exception {
 		if (System.getenv("JENKINS_URL") != null) {
 			RecorderUtil.stopRecording();
@@ -157,8 +153,7 @@ public class CRMTestEnvironment extends TestBase1S1D {
 					f.delete();
 				}
 			} catch (Exception e) {
-				Reporter.log("Unable to delete video file: " + videoFilePath,
-						Logger.ERROR, true);
+				LOGGER.debug("Unable to delete video file: " + videoFilePath, mx4j.log.Logger.ERROR, true);
 			}
 		}
 	}
@@ -176,97 +171,91 @@ public class CRMTestEnvironment extends TestBase1S1D {
 			sc.close();
 
 			template = template.replaceFirst("\\['\\d+',[\\d,\\s]*\\]", result);
-			BufferedWriter writer = new BufferedWriter(new FileWriter(new File(
-					filePath)));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filePath)));
 			writer.write(template);
 			writer.close();
 		} catch (IOException e) {
-			Reporter.log("Error updating status", true);
+			LOGGER.debug("Error updating status", true);
 			e.printStackTrace();
 		}
 	}
 
+	/*
+	 * private void captureScreenshot(Scenario scenario) { if
+	 * (System.getenv("JENKINS_URL") != null) { if (scenario.isFailed()) { try {
+	 * final byte[] screenshot =
+	 * ((TakesScreenshot)getPegaDriver().getDriver()).getScreenshotAs(OutputType.
+	 * BYTES); scenario.embed(screenshot, "image/png"); } catch (Exception e) {
+	 * scenario.write("Unable to take screenshot<br/>"); } } } }
+	 */
+
 	private void captureScreenshot(Scenario scenario) {
-		if (System.getenv("JENKINS_URL") != null) {
-			if (scenario.isFailed()) {
-				try {
-					final byte[] screenshot = ((TakesScreenshot)getPegaDriver().getDriver()).getScreenshotAs(OutputType.BYTES);
-					scenario.embed(screenshot, "image/png");
-				} catch (Exception e) {
-					scenario.write("Unable to take screenshot<br/>");
-				}
+		if (scenario.isFailed()) {
+			try {
+				final byte[] screenshot = ((TakesScreenshot) getPegaDriver().getDriver())
+						.getScreenshotAs(OutputType.BYTES);
+				scenario.embed(screenshot, "image/png");
+				File temp = ((TakesScreenshot) getPegaDriver().getDriver()).getScreenshotAs(OutputType.FILE);
+				File dest = new File("target/" + scenario.getName() + ".png");
+				FileUtils.copyFile(temp, dest);
+				Reporter.addScreenCaptureFromPath(dest.getAbsolutePath());
+			} catch (Exception e) {
+				scenario.write("Unable to take screenshot<br/>");
 			}
 		}
 	}
-	
-	private void terminateSession(){
-		try{
+
+	private void terminateSession() {
+		try {
 			if (!isDebugMode) {
 				terminate();
-				Reporter.log("Browser terminated...", true);
+				LOGGER.debug("Browser terminated...", true);
 			}
-		}catch(Exception e){
-			Reporter.log("BROWSER_TERMINATE_FAILED::"+e.getMessage(),true);
+		} catch (Exception e) {
+			LOGGER.debug("BROWSER_TERMINATE_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
-	private void killDrivers(){
+
+	private void killDrivers() {
 		try {
 			Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
 			getPegaDriver().handleWaits().sleep(5);
-			Reporter.log("Driver processes killed...", true);
+			LOGGER.debug("Driver processes killed...", true);
 		} catch (IOException e) {
-			Reporter.log("TASK_KILL_FAILED::"+e.getMessage(),true);
+			LOGGER.debug("TASK_KILL_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
-	/*private void captureVideo(Scenario scenario, boolean saveVideoForPassedScenario){
-		try{
-			stopRecording();
-			if(System.getenv("JENKINS_URL") != null){
-				if (scenario.isFailed()) {
-					try{
-						String url = null;
-						String tags = getTCIDTag(scenario.getSourceTagNames().toString());
-						if(tags != null){
-							tags = tags.trim();
-						}
-						if(tags != null && tags.endsWith("-")){
-							tags = tags.substring(0, tags.lastIndexOf('-'));
-						}
-						if(tags != null && tags.endsWith(",")){
-							tags = tags.substring(0, tags.lastIndexOf(','));
-						}
-						if(System.getenv("job.name") != null){
-							String buildId = System.getenv("workspace.path");
-							buildId = buildId.substring(buildId.lastIndexOf('-')+1);
-							url = System.getenv("JENKINS_URL") + "job/" + System.getenv("job.name") 
-									+ "/ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" 
-									+ buildId +  "- " + System.getenv("team.name") + "/" + tags + "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT;  
-						}else{
-							url = System.getenv("JOB_URL") +"ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" + System.getenv("BUILD_ID") + "- " + System.getenv("team.name") + "/" + tags + "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT;
-						}
-						url.replace(" ", "%20");
-						scenario.write("<a target='_blank' href='"+url+"'>Execution Video</a> (This video will be available for 3 days only)");
-					}catch(Exception e){
-						scenario.write("ERROR: Unable to add video link");
-					}
-					failed++;
-				}else{
-					passed++;
-					if(!saveVideoForPassedScenario && System.getenv("save.all.videos")==null){
-						deleteVideoFile();
-					}
-				}
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-			Reporter.log("ERROR: Unable to capture video: "+e.getMessage(), true);
-			scenario.write("ERROR: Unable to capture video");
-		}
-	}*/
-	
-	private String getTCIDTag(String tags){
+
+	/*
+	 * private void captureVideo(Scenario scenario, boolean
+	 * saveVideoForPassedScenario){ try{ stopRecording();
+	 * if(System.getenv("JENKINS_URL") != null){ if (scenario.isFailed()) { try{
+	 * String url = null; String tags =
+	 * getTCIDTag(scenario.getSourceTagNames().toString()); if(tags != null){ tags =
+	 * tags.trim(); } if(tags != null && tags.endsWith("-")){ tags =
+	 * tags.substring(0, tags.lastIndexOf('-')); } if(tags != null &&
+	 * tags.endsWith(",")){ tags = tags.substring(0, tags.lastIndexOf(',')); }
+	 * if(System.getenv("job.name") != null){ String buildId =
+	 * System.getenv("workspace.path"); buildId =
+	 * buildId.substring(buildId.lastIndexOf('-')+1); url =
+	 * System.getenv("JENKINS_URL") + "job/" + System.getenv("job.name") + "/ws/" +
+	 * GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" + buildId + "- " +
+	 * System.getenv("team.name") + "/" + tags + "/" + tags +
+	 * GlobalConstants.VIDEO_FILE_FORMAT; }else{ url = System.getenv("JOB_URL")
+	 * +"ws/" + GlobalConstants.ARCHIVED_REPORTS_FOLDER_NAME + "/%23" +
+	 * System.getenv("BUILD_ID") + "- " + System.getenv("team.name") + "/" + tags +
+	 * "/" + tags + GlobalConstants.VIDEO_FILE_FORMAT; } url.replace(" ", "%20");
+	 * scenario.write("<a target='_blank' href='"
+	 * +url+"'>Execution Video</a> (This video will be available for 3 days only)");
+	 * }catch(Exception e){ scenario.write("ERROR: Unable to add video link"); }
+	 * failed++; }else{ passed++; if(!saveVideoForPassedScenario &&
+	 * System.getenv("save.all.videos")==null){ deleteVideoFile(); } } }
+	 * }catch(Exception e){ e.printStackTrace();
+	 * Reporter.log("ERROR: Unable to capture video: "+e.getMessage(), true);
+	 * scenario.write("ERROR: Unable to capture video"); } }
+	 */
+
+	private String getTCIDTag(String tags) {
 		int i = tags.indexOf("@TC");
 		int j = tags.lastIndexOf("@TC");
 		Pattern p;
@@ -277,53 +266,36 @@ public class CRMTestEnvironment extends TestBase1S1D {
 			p = Pattern.compile("@TC-\\d+");
 		}
 		m = p.matcher(tags);
-		if(m.find()){
+		if (m.find()) {
 			return m.group();
-		}else{
+		} else {
 			return null;
 		}
 	}
-	
-	private void logout(){
+
+	private void logout() {
 		try {
 			if (isBrowserInitiailized) {
 				browser.logout();
 				browser.close();
-				Reporter.log("Log out successful...", true);
+				LOGGER.debug("Log out successful...", true);
 			}
-		} catch(Exception e){
-			Reporter.log("LOGOUT_FAILED::"+e.getMessage(),true);
+		} catch (Exception e) {
+			LOGGER.debug("LOGOUT_FAILED::" + e.getMessage(), true);
 		}
 	}
-	
+
 	private void importUIKits(Collection<String> collection) {
-		
+
 		String applications = getConfiguration().getApplicationsForTag(collection);
-		if(applications!=null){
-			String[] allApps=applications.split(",");
-			for(String application:allApps)
-			{
+		if (applications != null) {
+			String[] allApps = applications.split(",");
+			for (String application : allApps) {
 				String appName = application.split(":")[0];
 				String appVersion = application.split(":")[1];
-				HTTPUtil.addUIKitToApplication(this,appName, appVersion);
+				HTTPUtil.addUIKitToApplication(this, appName, appVersion);
 			}
 		}
 	}
-	
-	
-	public CommonMethods getCommonMethods(){
-		return commonMethods;
-	}
-	
-	/*@Before("@traceFiddler")
-    public void setupFiddler(Scenario scenario) throws IOException{
-           FiddlerUtils.runFiddler(scenario);
-    }
-	
-    @After("@traceFiddler")
-    public void tearDownFiddler(Scenario scenario) throws IOException, InterruptedException{
-           FiddlerUtils.stopFiddler(scenario);     
-    } */
-	
-	
+
 }

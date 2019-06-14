@@ -7,9 +7,7 @@ import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.rules.PegaRuleInstance;
 import com.pega.crm.pegamarketing.pages.Strategy;
-import com.pega.crm.pegamarketing.pages.Strategy.AddCustomFieldsDialog;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaStrategy extends PegaRuleInstance implements Strategy {
@@ -26,8 +24,10 @@ public class PegaStrategy extends PegaRuleInstance implements Strategy {
 	}
 
 	public boolean isCustomFieldAdded(String name, String value) {
-		boolean isNamePresent = verifyElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"+name+"']"));
-		boolean isValuePresent = value.equals(findElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"+name+"']/ancestor::td[1]/following-sibling::td[1]/div[@class='oflowDivM ']")).getText());
+		boolean isNamePresent = verifyElement(
+				By.xpath("//table[@summary='pyCustomFields']//span[text()='" + name + "']"));
+		boolean isValuePresent = value.equals(findElement(By.xpath("//table[@summary='pyCustomFields']//span[text()='"
+				+ name + "']/ancestor::td[1]/following-sibling::td[1]/div[@class='oflowDivM ']")).getText());
 		return isNamePresent && isValuePresent;
 	}
 
@@ -35,21 +35,22 @@ public class PegaStrategy extends PegaRuleInstance implements Strategy {
 		return verifyElement(CHECKOUT_BUTTON);
 	}
 
-	public class PegaAddCustomFieldsDialog extends PegaModalDialog implements AddCustomFieldsDialog{
-		PegaWebElement elmt;
+	public class PegaAddCustomFieldsDialog extends PegaModalDialog implements AddCustomFieldsDialog {
+		Frame frame;
 		PegaWebDriver pegaDriver;
-		public PegaAddCustomFieldsDialog(Frame elmt) {
-			super(elmt);
-			this.elmt = elmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+
+		public PegaAddCustomFieldsDialog(Frame frame) {
+			super(frame);
+			this.frame = frame;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void setNameAndValue(String name, String value) {
-			elmt.findElement(By.id("pyCustomFieldName")).sendKeys(name+Keys.TAB);
+			frame.findElement(By.id("pyCustomFieldName")).sendKeys(name + Keys.TAB);
 			pegaDriver.waitForDocStateReady();
-			elmt.findElement(By.id("pyCustomFieldValue")).sendKeys(value+Keys.TAB);
+			frame.findElement(By.id("pyCustomFieldValue")).sendKeys(value + Keys.TAB);
 		}
-		
+
 	}
-	
+
 }

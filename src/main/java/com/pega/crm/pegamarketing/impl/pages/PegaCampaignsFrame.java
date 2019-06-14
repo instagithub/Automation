@@ -50,5 +50,5 @@ public class PegaCampaignsFrame extends PegaLandingPage implements CampaignsFram
 		Campaign campaign = new PegaCampaign(frameId, testEnv);
 		return campaign;
 	}
-	
+
 }

@@ -13,7 +13,7 @@ public class PegaDataFlows extends PegaLandingPage implements DataFlows {
 
 	@Override
 	public void checkIncludeSysDataFlows() {
-	findElement(INCLUDE_DATA_FLOWS_CHECKBOX).check();
+		findElement(INCLUDE_DATA_FLOWS_CHECKBOX).check();
 	}
 
 	@Override
@@ -23,8 +23,8 @@ public class PegaDataFlows extends PegaLandingPage implements DataFlows {
 
 	@Override
 	public void searchDataFlows(String dataFlow) {
-	findElement(SEARCH_TEXTBOX).sendKeys(dataFlow +Keys.ENTER);
-	pegaDriver.waitForDocStateReady(4);
+		findElement(SEARCH_TEXTBOX).sendKeys(dataFlow + Keys.ENTER);
+		pegaDriver.waitForDocStateReady(4);
 	}
 
 }

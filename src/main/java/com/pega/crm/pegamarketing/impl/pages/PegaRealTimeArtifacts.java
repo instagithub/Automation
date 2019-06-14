@@ -29,41 +29,30 @@ public class PegaRealTimeArtifacts extends PegaLandingPage implements RealTimeAr
 		super(frameID, testEnv);
 	}
 
-
 	public RealTimeContainer createContainer() {
 		findElement(CONTAINER_TAB_CREATE_LINK).click();
 		findElement(CONTAINER_OPT_LINK).click();
-		pegaDriver.switchTo().defaultContent();
 		String activeFrameID = pegaDriver.getActiveFrameId(true);
 		RealTimeContainer realTimeContainer = new PegaRealTimeContainer(activeFrameID, testEnv);
 		return realTimeContainer;
 
 	}
+
 	public Geofence ClickImport() {
 		findElement(GEOFENCE_IMPORT_BTN).click();
-		pegaDriver.switchTo().defaultContent();
 		String activeFrameID = pegaDriver.getActiveFrameId(true);
 		Geofence geofence = new PegaGeofence(activeFrameID, testEnv);
 		return geofence;
 
 	}
-	
-	public void  VerifyImportDisabled() {
-	boolean isimportenabled =	findElement(GEOFENCE_IMPORT_BTN).isEnabled();
-	Assert.assertFalse(isimportenabled, "The import is disabled");
-	
-	//	Assert.assertTrue(isimportenabled, "The import is enabled");
-		pegaDriver.switchTo().defaultContent();
-		//String activeFrameID = pegaDriver.getActiveFrameId(true);
-		//Geofence geofence = new PegaGeofence(activeFrameID, testEnv);
-		//return geofence;
 
+	public void VerifyImportDisabled() {
+		boolean isimportenabled = findElement(GEOFENCE_IMPORT_BTN).isEnabled();
+		Assert.assertFalse(isimportenabled, "The import is disabled");
 	}
-	
-	
+
 	public Geofence VerifyImport() {
 		findElement(GEOFENCE_IMPORT_LBL).click();
-		pegaDriver.switchTo().defaultContent();
 		String activeFrameID = pegaDriver.getActiveFrameId(true);
 		Geofence geofence = new PegaGeofence(activeFrameID, testEnv);
 		return geofence;

@@ -22,7 +22,9 @@ public interface Segments extends LandingPage {
 
 	/**
 	 * this method will opens the given segment
-	 * @param segName segment name to be opened
+	 * 
+	 * @param segName
+	 *            segment name to be opened
 	 * @return
 	 */
 	Segment openSegmentRule(String segName);

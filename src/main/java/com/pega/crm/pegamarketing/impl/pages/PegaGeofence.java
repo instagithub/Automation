@@ -10,5 +10,3 @@ public class PegaGeofence extends PegaRuleInstance implements Geofence {
 		super(frameID, testEnv);
 	}
 }
-
-

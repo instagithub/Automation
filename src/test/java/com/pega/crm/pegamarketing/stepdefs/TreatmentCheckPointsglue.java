@@ -20,7 +20,6 @@ public class TreatmentCheckPointsglue {
 		Treatments treatments = ObjectsBean.getTreatments();
 		Assert.assertTrue(treatments.verifyElement(Treatments.ISSUE_GROUP_DIV),
 				"Issue / Group field is not available..!!");
-		Assert.assertTrue(treatments.verifyElement(Treatments.SEARCH_INPUT_BOX), "Search field is not available..!!");
 		Assert.assertTrue(treatments.verifyElement(Treatments.VIEW_BUTTON), "View button is not available..!!");
 		Assert.assertTrue(treatments.verifyElement(Treatments.CREATE_BUTTON), "Create button is not available..!!");
 		Assert.assertTrue(treatments.verifyElement(Treatments.HELP_BUTTON), "Help button is not available..!!");

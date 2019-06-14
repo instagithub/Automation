@@ -93,7 +93,7 @@ public class PMPortalglue {
 		Offers offers = (Offers) pmPortal.openLandingPage(LandingPageType.OFFERS);
 		ObjectsBean.setOffers(offers);
 	}
-	
+
 	@When("^Marketer expands Intelligence and navigates to Strategies$")
 	public void marketer_expands_and_navigates_to_Strategies() {
 		pmPortal.expandMenuItems("Intelligence");

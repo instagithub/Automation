@@ -50,7 +50,8 @@ public interface DesignerStudio extends PMPortal {
 	 * @param tab : tab name to which you want to switch
 	 */
 	void switchTab(Tabs tab);
-	/** 
+
+	/**
 	 * takes the control to the Deleopers frame
 	 */
 	void switchToDeveloperFrame();

@@ -25,236 +25,233 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaConfigureDialog;
 import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.pages.PegaLandingPage;
 import com.pega.crm.pegamarketing.rules.Designer;
-import com.pega.crm.pegamarketing.rules.Designer.AddTargetingDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureActionRelevanceDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureAudienceDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureBussinessIssuesDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureContainersDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureEligibilitiesDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureMethodDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureMetricsDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureOffersDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigureOutboundScheduleDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigurePaidMediaDialog;
-import com.pega.crm.pegamarketing.rules.Designer.ConfigurePrioritizationDialog;
 import com.pega.crm.pegamarketing.rules.RuleInstance;
-import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.crm.pegamarketing.utils.PMXPathUtil;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
+public class PegaDesigner extends PegaLandingPage implements Designer {
 
-public class PegaDesigner extends PegaLandingPage implements Designer  {
-		
 	public PegaDesigner(String frameID, TestEnvironment testEnv) {
 		super(frameID, testEnv);
 	}
+
 	public ConfigureBussinessIssuesDialog editBussinessIssue() {
-		//findElement(CONFIGURE_BUSSINESS_ISSUES_LINK).click();
 		ConfigureBussinessIssuesDialog confgBussinessIssue = new PegaConfigureBussinessIssuesDialog(this);
-		System.out.println("Config issue dialog is : " +confgBussinessIssue);
+		System.out.println("Config issue dialog is : " + confgBussinessIssue);
 		return confgBussinessIssue;
 	}
+
 	public void verifyBussinessIssueCreated(String aBussinessIssue) {
-		Assert.assertTrue("Bussiness Issue " +aBussinessIssue+ "is not been created successfully",
-				verifyElement(By.xpath("//span[text()='"+aBussinessIssue+"']")));
-		
+		Assert.assertTrue("Bussiness Issue " + aBussinessIssue + "is not been created successfully",
+				verifyElement(By.xpath("//span[text()='" + aBussinessIssue + "']")));
+
 	}
+
 	public void verifyGroupCreated(String aGroupNameCreated) {
-		Assert.assertTrue("Bussiness Issue " +aGroupNameCreated+ "is not been created successfully",
-				verifyElement(By.xpath("//span[text()='"+aGroupNameCreated+"']")));
-		
+		Assert.assertTrue("Bussiness Issue " + aGroupNameCreated + "is not been created successfully",
+				verifyElement(By.xpath("//span[text()='" + aGroupNameCreated + "']")));
+
 	}
+
 	public ConfigureBussinessIssuesDialog editGroupConfiguration(String issueName) {
-		findElement(By.xpath("//div[@data-node-id='NBAModelNode'][.//span[text()='"+issueName+"']]//a[text()='Configure Groups']")).click();
+		findElement(By.xpath("//div[@data-node-id='NBAModelNode'][.//span[text()='" + issueName
+				+ "']]//a[text()='Configure Groups']")).click();
 		ConfigureBussinessIssuesDialog confgBussinessIssue = new PegaConfigureBussinessIssuesDialog(this);
 		return confgBussinessIssue;
 	}
-	
+
 	public ConfigureMetricsDialog configureMetrics() {
 		findElement(CONFIGURE_METRICS_LINK).click();
 		ConfigureMetricsDialog configureMetricsDialog = new PegaConfigureMetricsDialog(this);
 		return configureMetricsDialog;
 	}
-	
+
 	public ConfigureMethodDialog configureMethod() {
 		findElement(CONFIGURE_METHOD_LINK).click();
 		ConfigureMethodDialog configureMetricsDialog = new PegaConfigureMethodDialog(this);
 		return configureMetricsDialog;
 	}
-	
+
 	public ConfigureActionRelevanceDialog configureActionRelevance() {
 		findElement(CONFIGURE_ACTION_RELEVANCE_LINK).click();
 		ConfigureActionRelevanceDialog configureActionRelevanceDialog = new PegaConfigureActionRelevanceDialog(this);
 		return configureActionRelevanceDialog;
-		
+
 	}
-	
+
 	public AddTargetingDialog addTargetingApproach() {
 		findElement(TARGETING_APPROACH_LINK).click();
 		AddTargetingDialog addTargetingDialog = new PegaAddTargetingDialog(this);
 		return addTargetingDialog;
 	}
+
 	public ConfigureOffersDialog configureOffers() {
 		findElement(CONFIGURE_OFFER_LINK).click();
 		ConfigureOffersDialog configureOffersDialog = new PegaConfigureOffersDialog(this);
 		return configureOffersDialog;
 	}
-	
+
 	public ConfigureEligibilitiesDialog configureEligibilities() {
 		findElement(CONFIGURE_ELIGIBILITIES_LINK).click();
 		ConfigureEligibilitiesDialog configureEligibilitiesDialog = new PegaConfigureEligibilitiesDialog(this);
 		return configureEligibilitiesDialog;
 	}
+
 	public ConfigurePrioritizationDialog configurePrioritization() {
 		findElement(CONFIGURE_PRIORITIZATION_LINK).click();
 		ConfigurePrioritizationDialog configurePrioritizationDialog = new PegaConfigurePrioritizationDialog(this);
 		return configurePrioritizationDialog;
 	}
-	
-	
-	
+
 	public ConfigureContainersDialog configureContainers() {
 		findElement(CONFIGURE_CONTAINERS_LINK).click();
 		ConfigureContainersDialog configureContainersDialog = new PegaConfigureContainersDialog(this);
 		return configureContainersDialog;
 	}
+
 	public void selectTargetingApproach(String textTobeSelected) {
 		findSelectBox(TARGETING_APPROACH_SELECTBOX).selectByVisibleText(textTobeSelected);
-		
+
 	}
-	
+
 	public ConfigureOutboundScheduleDialog configureOutboundScheduleDialog() {
 		findElement(CONFIGURE_OUTBOUND_SCHEDULE_LINK).click();
-		ConfigureOutboundScheduleDialog configureOutboundScheduleDialog  = new PegaConfigureOutboundScheduleDialog(this);
+		ConfigureOutboundScheduleDialog configureOutboundScheduleDialog = new PegaConfigureOutboundScheduleDialog(this);
 		return configureOutboundScheduleDialog;
 	}
-	
+
 	public ConfigureAudienceDialog configureAudience() {
 		findElement(CONFIGURE_AUDIENCE_LINK).click();
-		ConfigureAudienceDialog configureAudienceDialog  = new PegaConfigureAudienceDialog(this);
+		ConfigureAudienceDialog configureAudienceDialog = new PegaConfigureAudienceDialog(this);
 		return configureAudienceDialog;
 	}
-	
+
 	public void selectGroup(String groupName) {
-		findElement(By.xpath("//div[@node_name='NBAModelNodeWithAction']//span[contains(text(),'"+groupName+"')]")).click();
+		findElement(By.xpath("//div[@node_name='NBAModelNodeWithAction']//span[contains(text(),'" + groupName + "')]"))
+				.click();
 	}
 
-
-	public class PegaConfigureMetricsDialog extends PegaConfigureDialog implements ConfigureMetricsDialog  {
+	public class PegaConfigureMetricsDialog extends PegaConfigureDialog implements ConfigureMetricsDialog {
 
 		public PegaConfigureMetricsDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
 
 	}
-	public class PegaConfigureMethodDialog extends PegaConfigureDialog implements ConfigureMethodDialog  {
+
+	public class PegaConfigureMethodDialog extends PegaConfigureDialog implements ConfigureMethodDialog {
 
 		public PegaConfigureMethodDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
-		
+
 	}
-	public class PegaConfigureActionRelevanceDialog extends PegaConfigureDialog implements ConfigureActionRelevanceDialog  {
+
+	public class PegaConfigureActionRelevanceDialog extends PegaConfigureDialog
+			implements ConfigureActionRelevanceDialog {
 
 		public PegaConfigureActionRelevanceDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
+
 	}
-	public class PegaConfigureOffersDialog extends PegaConfigureDialog implements ConfigureOffersDialog  {
+
+	public class PegaConfigureOffersDialog extends PegaConfigureDialog implements ConfigureOffersDialog {
 
 		public PegaConfigureOffersDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
+
 	}
-	public class PegaConfigureEligibilitiesDialog extends PegaConfigureDialog implements ConfigureEligibilitiesDialog  {
+
+	public class PegaConfigureEligibilitiesDialog extends PegaConfigureDialog implements ConfigureEligibilitiesDialog {
 
 		public PegaConfigureEligibilitiesDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
+
 	}
-	public class PegaConfigurePrioritizationDialog extends PegaConfigureDialog implements ConfigurePrioritizationDialog  {
+
+	public class PegaConfigurePrioritizationDialog extends PegaConfigureDialog
+			implements ConfigurePrioritizationDialog {
 
 		public PegaConfigurePrioritizationDialog(Frame aElmt) {
 			super(aElmt);
-			
-		}
-		
-	}
-	public class PegaAddTargetingDialog  extends PegaModalDialog  implements AddTargetingDialog {
 
-		PegaWebElement elmt;
+		}
+
+	}
+
+	public class PegaAddTargetingDialog extends PegaModalDialog implements AddTargetingDialog {
+
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaAddTargetingDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void checkAudienceDriven() {
-			elmt.findElement(AUDIENCE_DRIVEN_RADIO).click();
+			frame.findElement(AUDIENCE_DRIVEN_RADIO).click();
 		}
 
-		
 		public void checkAnalystDriven() {
-			elmt.findElement(ANALYTICS_DRIVEN_RADIO).click();
-			
+			frame.findElement(ANALYTICS_DRIVEN_RADIO).click();
+
 		}
 	}
-		
 
-	
-	public class PegaConfigureContainersDialog extends PegaConfigureDialog implements ConfigureContainersDialog  {
+	public class PegaConfigureContainersDialog extends PegaConfigureDialog implements ConfigureContainersDialog {
 
 		public PegaConfigureContainersDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
+
 	}
-	public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements ConfigureAudienceDialog  {
+
+	public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements ConfigureAudienceDialog {
 
 		public PegaConfigureAudienceDialog(Frame aElmt) {
 			super(aElmt);
-			
+
 		}
-		
+
 	}
-	
-	public class PegaConfigureOutboundScheduleDialog extends PegaModalDialog implements ConfigureOutboundScheduleDialog  {
-		PegaWebElement elmt;
+
+	public class PegaConfigureOutboundScheduleDialog extends PegaModalDialog
+			implements ConfigureOutboundScheduleDialog {
+		Frame frame;
 		PegaWebDriver pegaDriver;
+
 		public PegaConfigureOutboundScheduleDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
-		
+
 		public void selectOccurences(String occurence) {
-			elmt.findElement(By.xpath(PMXPathUtil.getRadioLabelXPath(occurence))).check();
-			
+			frame.findElement(By.xpath(PMXPathUtil.getRadioLabelXPath(occurence))).check();
+
 		}
 
 		public void selectEndOfSchedule(String end) {
-			elmt.findElement(By.xpath(PMXPathUtil.getRadioLabelXPath(end))).check();
-			
+			frame.findElement(By.xpath(PMXPathUtil.getRadioLabelXPath(end))).check();
+
 		}
-		
+
 	}
-	
+
 	public class PegaConfigureBussinessIssuesDialog extends PegaModalDialog implements ConfigureBussinessIssuesDialog {
-		protected PegaWebElement currentElementWizard;
+		protected Frame currentElementWizard;
 		protected PegaWebDriver pegaDriver = null;
 		private TestEnvironment testEnv;
 
@@ -265,63 +262,58 @@ public class PegaDesigner extends PegaLandingPage implements Designer  {
 		}
 
 		public Designer createBussinessIssue(String aBussinessIssuename) {
-			pegaDriver.findElement(CREATE_LINK).click(false);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aBussinessIssuename);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
-			pegaDriver.findElement(APPLY_BUTTTON).click();
+			findElement(CREATE_LINK).click(false);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aBussinessIssuename);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
+			findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
-			Designer designer = ObjectsBean.getDesigner();
-			designer._setEnvironment(testEnv, frameId);
-			pegaDriver.waitForDocStateReady();
+			Designer designer = new PegaDesigner(frameId, testEnv);
 			return designer;
 		}
 
 		public Designer createGroup(String aGroupName) {
-			pegaDriver.findElement(CREATE_LINK).click();
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).clear();
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aGroupName);
-			pegaDriver.findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
-			pegaDriver.findElement(APPLY_BUTTTON).click();
+			findElement(CREATE_LINK).click();
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).clear();
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(aGroupName);
+			findElement(CREATE_BUSSINESS_ISSUE_INPUT).sendKeys(Keys.TAB);
+			findElement(APPLY_BUTTTON).click();
 			String frameId = pegaDriver.getActiveFrameId(true);
 			Designer designer = new PegaDesigner(frameId, testEnv);
 			return designer;
 		}
 
 	}
+
 	@Override
 	public void editBussinessHierarchy() {
-	if (verifyElement(EDIT_BUTTON)) {
-			findElement(RuleInstance.EDIT_BUTTON).click();	
+		if (verifyElement(EDIT_BUTTON)) {
+			findElement(RuleInstance.EDIT_BUTTON).click();
+		}
+
+		if (verifyElement(EDIT_BUTTON)) {
+			findElement(RuleInstance.EDIT_BUTTON).click();
+		}
+
 	}
-	
-	//findElement(CONFIGURE_BUSSINESS_HIERARCHY_ICON).click();
-	if (verifyElement(EDIT_BUTTON)) {
-		findElement(RuleInstance.EDIT_BUTTON).click();	
+
+	// changes for paid media tests
+
+	public void runOutboundScheduleNBADesigner() {
+		findElement(OUTBOUND_ACTIONS_LINK).click();
+		findElement(TRIGGER_RUN).click();
 	}
-		
-	}
-	
-	//changes for paid media tests
-	
-	public void runOutboundScheduleNBADesigner(){
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(OUTBOUND_ACTIONS_LINK).click();
-		pegaDriver.switchToActiveFrame();
-		pegaDriver.findElement(TRIGGER_RUN).click();
-	}
-	
+
 	public class PegaConfigurePaidMediaDialog extends PegaConfigureDialog implements ConfigurePaidMediaDialog {
-		
+
 		public PegaConfigurePaidMediaDialog(Frame aElmt) {
 			super(aElmt);
 		}
 	}
-	
+
 	public ConfigurePaidMediaDialog configurePaidMediaDialog() {
 		findElement(CONFIGURE_PAIDMEDIA_DESTINATIONS_LINK).click();
-		ConfigurePaidMediaDialog configurePaidMediaDialog  = new PegaConfigurePaidMediaDialog(this);
+		ConfigurePaidMediaDialog configurePaidMediaDialog = new PegaConfigurePaidMediaDialog(this);
 		return configurePaidMediaDialog;
 	}
-	
 
 }

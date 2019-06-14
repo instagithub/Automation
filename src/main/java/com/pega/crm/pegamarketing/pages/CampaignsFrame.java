@@ -20,9 +20,8 @@ import org.openqa.selenium.By;
 
 import com.pega.crm.pegamarketing.rules.Campaign;
 
-
 public interface CampaignsFrame extends LandingPage {
- 
+
 	By LANDING_PAGE_HEADER = By.xpath("//span[@class='workarea_header_titles']");
 	By CREATE_MULTI_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Create Multi-Channel Campaign']");
 	By CRATE_OUTBOUND_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Create Outbound Campaign']");
@@ -30,20 +29,23 @@ public interface CampaignsFrame extends LandingPage {
 
 	/**
 	 * opens Campaign page while creating a MultiChannelCampaign
+	 * 
 	 * @return Campaign page
 	 */
 	Campaign createMultiChannelCampaign();
 
 	/**
 	 * opens Campaign page while creating a OutBoundCampaign
+	 * 
 	 * @return Campaign page
 	 */
 	Campaign createOutBoundCampaign();
 
 	/**
 	 * opens Campaign page while creating a Self-Optimizing Campaign
+	 * 
 	 * @return Campaign page
 	 */
 	Campaign createSelfOptimizingCampaign();
-	
+
 }

@@ -14,6 +14,7 @@ public interface Strategy extends RuleInstance {
 
 	/**
 	 * It is used to add a custom field in the history
+	 * 
 	 * @param name
 	 * @param value
 	 */
@@ -21,6 +22,7 @@ public interface Strategy extends RuleInstance {
 
 	/**
 	 * It is used to check if a custom field is added
+	 * 
 	 * @param name
 	 * @param value
 	 * @return
@@ -29,13 +31,15 @@ public interface Strategy extends RuleInstance {
 
 	/**
 	 * It is used to check that strategy has been checked in
+	 * 
 	 * @return
 	 */
 	boolean isCheckedIn();
-	
-	public interface AddCustomFieldsDialog extends ModalDialog{
+
+	public interface AddCustomFieldsDialog extends ModalDialog {
 		/**
 		 * It is used to set name and value in the custom field
+		 * 
 		 * @param name
 		 * @param value
 		 */

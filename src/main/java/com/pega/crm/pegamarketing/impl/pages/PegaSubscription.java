@@ -2,27 +2,23 @@ package com.pega.crm.pegamarketing.impl.pages;
 
 import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.pages.Subscription;
-import com.pega.framework.PegaWebDriver;
+import com.pega.framework.elmt.Frame;
 
-public class PegaSubscription implements Subscription {
-	TestEnvironment testEnv;
-	PegaWebDriver pegaDriver;
-	public PegaSubscription(TestEnvironment testEnv) {
-			this.testEnv = testEnv;
-			pegaDriver = testEnv.getPegaDriver();
-		}
+public class PegaSubscription extends PegaLandingPage implements Subscription {
+
+	public PegaSubscription(String frameID, TestEnvironment testEnv) {
+		super(frameID, testEnv);
+	}
+
 	@Override
 	public void unsubscribe() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchTo().frame("MarketingMicrositeIfr");
+		Frame frame = pegaDriver.findFrame("MarketingMicrositeIfr");
 		pegaDriver.handleWaits().sleep(10);
-		//pegaDriver.waitForDocStateReady(2);
-		pegaDriver.findElement(NOT_INTRESTED_RADIO_BUTTON).click(false);
-		pegaDriver.findElement(UNSUBSCRIBE_BUTTON).click();
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.switchTo().frame("MarketingMicrositeIfr");
+		frame.findElement(NOT_INTRESTED_RADIO_BUTTON).click();
+		frame.findElement(UNSUBSCRIBE_BUTTON).click();
+		pegaDriver.findFrame("MarketingMicrositeIfr");
 	}
+
 	@Override
 	public void closeSubscription() {
 		pegaDriver.close();

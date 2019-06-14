@@ -37,5 +37,5 @@ public class Segmentsglue {
 		Assert.assertTrue(segment.verifyElement(RuleInstance.SAVEAS_BTN),
 				" Segment rule is not saved successfully..!!");
 	}
-	
+
 }

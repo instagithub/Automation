@@ -13,10 +13,10 @@ public class PegaProspectLists extends PegaLandingPage implements ProspectLists 
 
 	@Override
 	public ProspectImport createNewPrspectImport() {
-	findElement(NEW_BUTTON_XPATH).click();
-	String frameId = pegaDriver.getActiveFrameId(true);
-	ProspectImport prospectImport = new PegaProspectImport(frameId, testEnv);
-	return prospectImport;
+		findElement(NEW_BUTTON_XPATH).click();
+		String frameId = pegaDriver.getActiveFrameId(true);
+		ProspectImport prospectImport = new PegaProspectImport(frameId, testEnv);
+		return prospectImport;
 	}
 
 }

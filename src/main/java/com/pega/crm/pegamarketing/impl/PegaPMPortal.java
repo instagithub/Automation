@@ -45,53 +45,46 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void expandAudiences() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(AUDIENCES_MENU).click();
+		findElement(AUDIENCES_MENU).click();
 	}
 
 	public Segments openSegments() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(SEGMENTS_MENU).click();
+		findElement(SEGMENTS_MENU).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		Segments segments = new PegaSegments(frameId, testEnv);
 		return segments;
 	}
 
 	public void expandMenuItems(String menuName) {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(NEW_ICON).mouseOver();
-		pegaDriver.findElement(HOME_ICON).mouseOver();
-		pegaDriver.findElement(By.xpath(PMXPathUtil.getMenuItemXPath(menuName))).click();
+		findElement(NEW_ICON).mouseOver();
+		findElement(HOME_ICON).mouseOver();
+		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(menuName))).click();
 	}
 
 	public Designer openDesigner() {
-		pegaDriver.findElement(DESIGNER_MENU_ITEM).click();
+		findElement(DESIGNER_MENU_ITEM).click();
 		String frameId1 = pegaDriver.getActiveFrameId(true);
 		Designer designer = new PegaDesigner(frameId1, testEnv);
-		designer._setEnvironment(testEnv, frameId1);
 		return designer;
 	}
 
 	public void expandContent() {
-		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(CONTENT_MENU).click();
+		findElement(CONTENT_MENU).click();
 
 	}
 
 	public RealTimeArtifacts OpenRealTimeArtifacts() {
 
-		pegaDriver.findElement(REALTIME_ARTIFACTS).click();
+		findElement(REALTIME_ARTIFACTS).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		RealTimeArtifacts realTimeArtifacts = new PegaRealTimeArtifacts(frameId, testEnv);
-		realTimeArtifacts._setEnvironment(testEnv, frameId);
 		return realTimeArtifacts;
 
 	}
 
 	public Strategies openStrategies() {
-		pegaDriver.waitForDocStateReady(false);
-		pegaDriver.findElement(INTELLIGENCE_MENU).click(false);
-		pegaDriver.findElement(STRATEGIES_MENU).click();
+		findElement(INTELLIGENCE_MENU).click();
+		findElement(STRATEGIES_MENU).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		Strategies strategies = new PegaStrategies(frameId, testEnv);
 		return strategies;
@@ -99,10 +92,9 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 
 	public LandingPage openLandingPage(LandingPageType landingPage) {
 		pegaDriver.switchTo().defaultContent();
-		pegaDriver.findElement(NEW_ICON).mouseOver();
-		pegaDriver.findElement(HOME_ICON).mouseOver();
-		pegaDriver.findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
-		pegaDriver.waitForDocStateReady();
+		findElement(NEW_ICON).mouseOver();
+		findElement(HOME_ICON).mouseOver();
+		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		return CreateCorrectLandingPageObj(landingPage, frameId);
 	}
@@ -159,31 +151,30 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 	}
 
 	public void selectConfigurationMenu(String menuName) {
-		pegaDriver.findElement(CONFIGURATION_MENU_XPATH).click(false);
-		pegaDriver.findElement(By.xpath("//span[@class='menu-item-title' and text()='" + menuName + "']")).mouseOver();
+		findElement(CONFIGURATION_MENU_XPATH).click(false);
+		findElement(By.xpath("//span[@class='menu-item-title' and text()='" + menuName + "']")).mouseOver();
 	}
 
 	public ProspectLists selectProspectLists() {
-		pegaDriver.findElement(PROSPECT_LISTS_SUBMENU).click();
+		findElement(PROSPECT_LISTS_SUBMENU).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		ProspectLists prospectLists = new PegaProspectLists(frameId, testEnv);
 		return prospectLists;
 	}
 
 	public RecentReports selectReportBrowser() {
-		pegaDriver.findElement(REPORT_BROWSER_SUBMENU).click();
+		findElement(REPORT_BROWSER_SUBMENU).click();
 		String frameId1 = pegaDriver.getActiveFrameId(true);
 		RecentReports recentReports = new PegaRecentReports(frameId1, testEnv);
 		return recentReports;
 	}
 
 	public void selectReports() {
-		pegaDriver.findElement(REPORTS_ICON).click(false);
+		findElement(REPORTS_ICON).click(false);
 
 	}
 
 	public void closeWelcomeDialog() {
-		pegaDriver.switchTo().defaultContent();
 		findElement(ModalDialog.CLOSE_BUTTON).click();
 	}
 }

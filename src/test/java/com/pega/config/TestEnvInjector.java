@@ -17,7 +17,5 @@ public class TestEnvInjector extends AbstractModule {
         //bind the service to implementation class
         bind(TestEnvironment.class).to(CRMTestEnvironment.class);
         bind(Browser.class).to(CRMBrowser.class);
-        //bind(DesignerStudio.class).to(DesignerStudioImpl.class);
-        //bind(CaseExplorer.class).to(CaseExplorerImpl.class);
     }
 }

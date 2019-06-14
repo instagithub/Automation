@@ -14,7 +14,4 @@ Background:
     Then verify that Organization New harness is displayed
     When SalesOps enters the data and submits
     Then verify that Organization Wo is created
-   	Given navigates to "Organizations" List page
-    Then SaleOps search for the Organization
-    When SaleOps Opens the Organization WO1
-    Then SaleOps validates the Organization work object details     
+   	 

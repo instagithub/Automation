@@ -1,11 +1,11 @@
 package com.pega.crm.pegamarketing.stepdefs;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.google.inject.Inject;
 import com.pega.CRMBrowser;
 import com.pega.CRMTestEnvironment;
-import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.DesignerStudio;
 import com.pega.crm.pegamarketing.pages.Segments;
 import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
@@ -53,8 +53,6 @@ public class SegmentCheckPointsglue {
 		Assert.assertTrue(segment.verifyElement(Segment.CRITERIA_RADIO_BUTTON), "Criteria type is not present..!!");
 		Assert.assertTrue(segment.verifyElement(Segment.LIST_RADIO_BUTTON), "List type is not present..!!");
 
-		Assert.assertTrue(segment.verifyElement(Segment.ANALYSIS_PROJECT_SELECT_BOX),
-				"Analysis Project dropdown is not present..!!");
 	}
 
 	@Then("^Analysis Project dropdown should disappear$")

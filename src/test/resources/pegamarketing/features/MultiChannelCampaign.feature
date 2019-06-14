@@ -5,7 +5,6 @@ Feature: Smoke Test cases
 Scenario: Create Multi channel campaign
     Given A User logs in with Analyst credentials
     When User opens Campaigns Landing Page
-    Then "Campaigns" landing Page should be opened
     When User creates Multi-Channel Campaign
     Then Create a Campaign Page for MultiChannel Campaign should be displayed
     When User edits Multi-Channel Campaign with following data
@@ -17,20 +16,20 @@ Scenario: Create Multi channel campaign
     Then Save button should be Enabled for the Campaign
     When User configures Marketing Strategy
     Then Configure Marketing Strategy PopUp should be displayed
-    When User searches for the Strategy "TestAutoStrategy81" in the Search for Marketing Startegy
-    Then Strategy Search Results for "TestAutoStrategy81" should be displayed
-    When User selects and adds strategy "TestAutoStrategy81" from displayed search results
+    When User searches for the Strategy "DemoStrategy130435" in the Search for Marketing Startegy
+    Then Strategy Search Results for "DemoStrategy130435" should be displayed
+    When User selects and adds strategy "DemoStrategy130435" from displayed search results
     Then Strategy Details for the strategy should be displayed
     When User applies Strategy for Campaign
-    Then Marketing Strategy Section should have the Strategy "TestAutoStrategy81" Added
+    Then Marketing Strategy Section should have the Strategy "DemoStrategy130435" Added
     When User configures Audience
     Then Configure Audience PopUp should be displayed
-    When User searches and adds the Segment "TestAutoSegment" in the Search for Audience
-    Then Audience Search Results for segment "TestAutoSegment" should be displayed
-    When User selects and adds Segment "TestAutoSegment" from Audience Search Results
+    When User searches and adds the Segment "TestSegment115636" in the Search for Audience
+    Then Audience Search Results for segment "TestSegment115636" should be displayed
+    When User selects and adds Segment "TestSegment115636" from Audience Search Results
     Then Audience Details should be displayed
     When User applies the Segment for campaign
-    Then Audience Section should have the Segment "TestAutoSegment" Added
+    Then Audience Section should have the Segment "TestSegment115636" Added
     When User configures Engagement
     Then Configure Engagement PopUp should be displayed
     When User checks Campaign Schedule

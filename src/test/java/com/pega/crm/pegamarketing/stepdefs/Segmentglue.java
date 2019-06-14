@@ -17,7 +17,6 @@ public class Segmentglue {
 
 	private Segment segment;
 
-
 	@Then("^Segment rule should be created$")
 	public void segment_rule_should_be_created() {
 		segment = ObjectsBean.getSegment();
@@ -78,16 +77,6 @@ public class Segmentglue {
 		segment.run();
 	}
 
-	/*@When("^User enters \"([^\"]*)\" as segment name and selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group$")
-	public void user_enters_as_segment_name_and_selects_as_Issue_and_as_Group(String segName, String issue,
-			String group) {
-		segment = ObjectsBean.getSegment();
-		segName = ObjectsBean.putTimeStampedValue(segName);
-		segment.setRuleName(segName);
-		segment.setIssue(issue);
-		segment.setGroup(group);
-	}*/
-
 	@When("^User enters \"([^\"]*)\" as segment name and selects \"([^\"]*)\" as Issue and \"([^\"]*)\" as Group$")
 	public void user_enters_as_segment_name_and_selects_as_Issue_and_as_Group(String segName, String issue,
 			String group) {
@@ -99,7 +88,7 @@ public class Segmentglue {
 		group = TestDataReader.getTestDataValue(group);
 		segment.setGroup(group);
 	}
-	
+
 	@When("^Creates and opens the segment$")
 	public void clicks_on_Create_and_Open_button() {
 		segment.createAndOpen();

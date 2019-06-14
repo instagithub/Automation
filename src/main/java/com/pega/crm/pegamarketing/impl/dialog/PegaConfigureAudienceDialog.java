@@ -18,41 +18,34 @@ package com.pega.crm.pegamarketing.impl.dialog;
 
 import org.openqa.selenium.By;
 
-import com.pega.TestEnvironment;
 import com.pega.crm.pegamarketing.dialog.ConfigureAudienceDialog;
-import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaConfigureAudienceDialog extends PegaConfigureDialog implements ConfigureAudienceDialog {
-	TestEnvironment testEnv;
-	PegaWebDriver pegaDriver;
-	PegaWebElement elmt;
+	Frame frame;
 
-	public PegaConfigureAudienceDialog(Frame aElmt) {
-		super(aElmt);
-		elmt = aElmt;
+	public PegaConfigureAudienceDialog(Frame aFrame) {
+		super(aFrame);
+		frame = aFrame;
 	}
 
 	public void selectFirstSearchResult() {
-		elmt.findElement(FIRST_SEARCH_RESULT).click(false);
-		
-	}
-	
-	public void addFirstSegment() {
-		elmt.findElement(FIRST_ADD_BUTTON).click();
+		frame.findElement(FIRST_SEARCH_RESULT).click(false);
+
 	}
 
+	public void addFirstSegment() {
+		frame.findElement(FIRST_ADD_BUTTON).click();
+	}
 
 	public void selectFromFirstSearchResult() {
-		elmt.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
-		
+		frame.findElement(FIRST_SEARCH_RESULT_LABEL).click(false);
+
 	}
 
 	public void addSegment(String segmentName) {
-		elmt.findElement(By.xpath("//div[@node_name='SimpleMultiselectorCardContent'][.//span[text()='"+segmentName+"']]//button[text()='Add']")).click();
+		frame.findElement(By.xpath("//div[@node_name='SimpleMultiselectorCardContent'][.//span[text()='" + segmentName
+				+ "']]//button[text()='Add']")).click();
 	}
-
-	
 
 }

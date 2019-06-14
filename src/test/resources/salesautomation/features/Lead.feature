@@ -11,7 +11,6 @@ Background:
     When users clicks on Create LeadButton and selects "<Leadtype>"
     When Enters all the mandatory Lead data for "<Leadtype>"
     Then "<Leadtype>" Lead should be created with "<LeadName>"
-    Then verify the lead WO subtabs
 
     Examples: 
       | Leadtype   |  | LeadName                   |
@@ -27,4 +26,4 @@ Background:
 
     Examples: 
       | Leadtype   |  | LeadName     |
-      | Business   |  | Sarah Connor |
+      | Business   |  | Sara Connor |

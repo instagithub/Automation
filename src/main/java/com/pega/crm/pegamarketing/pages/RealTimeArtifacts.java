@@ -19,20 +19,24 @@ package com.pega.crm.pegamarketing.pages;
 import org.openqa.selenium.By;
 
 public interface RealTimeArtifacts extends LandingPage {
-	By REALTIMEARTIFACTS_HEADER=By.xpath("//span[@class='workarea_header_titles' and contains(text(),'Real-Time Artifacts')]");
-	By CONTAINER_TAB_CREATE_LINK=By.xpath("//button[text()='Create']");
+	By REALTIMEARTIFACTS_HEADER = By
+			.xpath("//span[@class='workarea_header_titles' and contains(text(),'Real-Time Artifacts')]");
+	By CONTAINER_TAB_CREATE_LINK = By.xpath("//button[text()='Create']");
 	By CONTAINER_OPT_LINK = By.xpath("//span[contains(text(),'Create container')]");
 	By GEOFENCE_IMPORT_BTN = By.xpath("//button[text()='Import']");
 	By GEOFENCE_IMPORT_LBL = By.xpath("//h2[text()='Import']");
-	
-	
+
 	/**
 	 * creates a container
+	 * 
 	 * @return RealTimeContainer page
 	 */
 	RealTimeContainer createContainer();
+
 	Geofence ClickImport();
+
 	Geofence VerifyImport();
+
 	void VerifyImportDisabled();
-	
+
 }

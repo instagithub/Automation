@@ -30,7 +30,7 @@ public class RelevanceStrategyglue {
 	Strategy strategy;
 	String name;
 	String value;
-    String Strategy1,Strategy2;
+	String Strategy1, Strategy2;
 
 	@Inject
 	public RelevanceStrategyglue(CRMBrowser browser) {
@@ -60,12 +60,12 @@ public class RelevanceStrategyglue {
 		objectiveDialog.apply();
 	}
 
-	/*@Then("^User selects Business Issue as \"([^\"]*)\"$")
-	public void user_selects_Business_Issue_as(String issueName) {
-		marketingStrategy = ObjectsBean.getStrategy();
-		marketingStrategy.setIssue(issueName);
-	}*/
-	
+	/*
+	 * @Then("^User selects Business Issue as \"([^\"]*)\"$") public void
+	 * user_selects_Business_Issue_as(String issueName) { marketingStrategy =
+	 * ObjectsBean.getStrategy(); marketingStrategy.setIssue(issueName); }
+	 */
+
 	@Then("^User selects Business Issue as \"([^\"]*)\"$")
 	public void user_selects_Business_Issue_as(String issueName) {
 		marketingStrategy = ObjectsBean.getStrategy();
@@ -73,11 +73,12 @@ public class RelevanceStrategyglue {
 		marketingStrategy.setIssue(issueName);
 	}
 
-	/*@Then("^User selects Group as \"([^\"]*)\"$")
-	public void user_selects_Group_as(String groupName) {
-		marketingStrategy.setGroup(groupName);
-	}*/
-	
+	/*
+	 * @Then("^User selects Group as \"([^\"]*)\"$") public void
+	 * user_selects_Group_as(String groupName) {
+	 * marketingStrategy.setGroup(groupName); }
+	 */
+
 	@Then("^User selects Group as \"([^\"]*)\"$")
 	public void user_selects_Group_as(String groupName) {
 		groupName = TestDataReader.getTestDataValue(groupName);
@@ -118,5 +119,5 @@ public class RelevanceStrategyglue {
 	public void user_saves_the_strategy() {
 		marketingStrategy.save();
 	}
-	
+
 }

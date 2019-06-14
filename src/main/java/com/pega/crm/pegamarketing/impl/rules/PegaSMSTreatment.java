@@ -8,5 +8,5 @@ public class PegaSMSTreatment extends PegaTreatment implements SMSTreatment {
 	public PegaSMSTreatment(String frameID, TestEnvironment testEnv) {
 		super(frameID, testEnv);
 	}
-	
+
 }

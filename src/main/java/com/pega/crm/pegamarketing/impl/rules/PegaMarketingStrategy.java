@@ -13,12 +13,8 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.impl.pages.PegaStrategy;
 import com.pega.crm.pegamarketing.pages.Strategy;
 import com.pega.crm.pegamarketing.rules.MarketingStrategy;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.AddTargetingDialog;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigureObjectiveDialog;
-import com.pega.crm.pegamarketing.rules.MarketingStrategy.ConfigurePriorityDialog;
 import com.pega.crm.pegamarketing.utils.ObjectsBean;
 import com.pega.framework.PegaWebDriver;
-import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
 public class PegaMarketingStrategy extends PegaRuleInstance implements MarketingStrategy {
@@ -42,12 +38,10 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public void setIssue(String issueName) {
-		pegaDriver.waitForDocStateReady();
 		findSelectBox(BUSINESS_ISSUE_DROPDOWN).selectByVisibleText(issueName);
 	}
 
 	public void setGroup(String groupName) {
-		pegaDriver.waitForDocStateReady();
 		findElement(By.xpath("//label[text()='" + groupName + "']/preceding-sibling::input[1]")).click();
 	}
 
@@ -70,7 +64,6 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public ConfigurePriorityDialog configurePriority() {
-		pegaDriver.waitForDocStateReady();
 		findElement(CONFIGURE_PRIORITY_BUTTON).click();
 		ConfigurePriorityDialog configObjectiveDialog = new PegaConfigurePriorityDialog(this);
 		return configObjectiveDialog;
@@ -98,95 +91,87 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 	}
 
 	public class PegaConfigureObjectiveDialog extends PegaConfigureDialog implements ConfigureObjectiveDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaConfigureObjectiveDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void addRankedObjective() {
-			pegaDriver.findElement(RANKED_ADD_BUTTON).click();
+			findElement(RANKED_ADD_BUTTON).click();
 		}
 
 		public MarketingStrategy applyPrioritizationOffer() {
-			pegaDriver.findElement(APPLY_BUTTON).click(false);
+			findElement(APPLY_BUTTON).click(false);
 			String frameId = pegaDriver.getActiveFrameId(true);
 			MarketingStrategy strategy = new PegaMarketingStrategy(frameId, testEnv);
 			return strategy;
 		}
 
 		public void addPrioritizationOffer() {
-			pegaDriver.findElement(PRIORITIZATION_DIVISON).click(false);
-			pegaDriver.waitForDocStateReady(2);
-			pegaDriver.findElement(PRIORITIZATION_ADD_BUTTON).click(false);
-			pegaDriver.waitForDocStateReady(2);
+			findElement(PRIORITIZATION_DIVISON).click();
+			findElement(PRIORITIZATION_ADD_BUTTON).click();
 		}
 
 		public boolean isRankedAdded() {
-			pegaDriver.switchToActiveFrame();
-			boolean isRemoveFound = pegaDriver.verifyElement(RANKED_REMOVE_BUTTON);
-			boolean isRankedObjectiveFound = pegaDriver.verifyElement(RANKED_ADDED_LABEL);
-			boolean isDeleteButtonFound = pegaDriver.verifyElement(DELETE_ICON);
+			boolean isRemoveFound = verifyElement(RANKED_REMOVE_BUTTON);
+			boolean isRankedObjectiveFound = verifyElement(RANKED_ADDED_LABEL);
+			boolean isDeleteButtonFound = verifyElement(DELETE_ICON);
 			return isRemoveFound && isRankedObjectiveFound && isDeleteButtonFound;
 		}
 
 	}
 
 	public class PegaConfigurePriorityDialog extends PegaConfigureDialog implements ConfigurePriorityDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaConfigurePriorityDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public MarketingStrategy applyPriority() {
-			pegaDriver.findElement(APPLY_BUTTON).click(false);
+			findElement(APPLY_BUTTON).click(false);
 			String frameId = pegaDriver.getActiveFrameId(true);
 			MarketingStrategy strategy = new PegaMarketingStrategy(frameId, testEnv);
 			return strategy;
 		}
 
 		public void addPriority() {
-			pegaDriver.findElement(RAWPROPPENSITY_DIV).click(false);
-			pegaDriver.waitForDocStateReady();
-			pegaDriver.findElement(RAWPROPPENSITY_ADD).click(false);
-			pegaDriver.waitForDocStateReady(2);
+			findElement(RAWPROPPENSITY_DIV).click();
+			findElement(RAWPROPPENSITY_DIV).click();
 		}
 
 	}
 
 	public class PegaAddTargetingDialog extends PegaModalDialog implements AddTargetingDialog {
-		PegaWebElement elmt;
+		Frame frame;
 		PegaWebDriver pegaDriver;
 
 		public PegaAddTargetingDialog(Frame aElmt) {
 			super(aElmt);
-			this.elmt = aElmt;
-			pegaDriver = elmt.getTestEnvironment().getPegaDriver();
+			this.frame = aElmt;
+			pegaDriver = frame.getTestEnvironment().getPegaDriver();
 		}
 
 		public void checkAudienceDriven() {
-			elmt.findElement(AUDIENCE_DRIVEN_RADIO).click();
+			frame.findElement(AUDIENCE_DRIVEN_RADIO).click();
 		}
 	}
 
 	public String getthenameofstrategy() {
-		String reqstring = pegaDriver.findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
+		String reqstring = findElement(By.xpath("//*[@data-test-id='2015051516314605466788']")).getText();
 		return reqstring;
 	}
 
 	public void selectcategoryLP() {
-		pegaDriver.findElement(ALLCATEGORIESLINK).click();
-		// pegaDriver.handleWaits().waitForElementPresence(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"));
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]"))
-				.click();
+		findElement(ALLCATEGORIESLINK).click();
+		findElement(By.xpath("//div[contains(@datasource,'MKTFilter')]//span[contains(text(),'Sales')]")).click();
 	}
 
 	public void searchstrategies(String strategy1, String strategy2) {
@@ -194,13 +179,11 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 		System.out.println(strategy1 + strategy2);
 		pegaDriver.handleWaits().waitForElementPresence(SEARCHSTRATEGY);
 		selectcategoryLP();
-		// pegaDriver.findElement(SEARCHSTRATEGY).click();
-		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy1);
-		pegaDriver.findElement(VIEW_BTN).click();
-		pegaDriver.waitForDocStateReady();
-		pegaDriver.findElement(SEARCHSTRATEGY).clear();
-		pegaDriver.findElement(SEARCHSTRATEGY).sendKeys(strategy2);
-		pegaDriver.findElement(VIEW_BTN).click();
+		findElement(SEARCHSTRATEGY).sendKeys(strategy1);
+		findElement(VIEW_BTN).click();
+		findElement(SEARCHSTRATEGY).clear();
+		findElement(SEARCHSTRATEGY).sendKeys(strategy2);
+		findElement(VIEW_BTN).click();
 
 	}
 

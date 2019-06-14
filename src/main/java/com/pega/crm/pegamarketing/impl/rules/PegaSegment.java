@@ -9,9 +9,6 @@ import com.pega.crm.pegamarketing.impl.dialog.PegaModalDialog;
 import com.pega.crm.pegamarketing.pages.Segments.ImageCatalog;
 import com.pega.crm.pegamarketing.rules.RuleInstance;
 import com.pega.crm.pegamarketing.rules.Segment;
-import com.pega.crm.pegamarketing.rules.Segment.AddCriteriaDialog;
-import com.pega.crm.pegamarketing.rules.Segment.SelectItemsDialog;
-import com.pega.crm.pegamarketing.rules.Segment.UploadFileDialog;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.Frame;
 
@@ -22,38 +19,38 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 	}
 
 	public class PegaUploadFileDialog extends PegaModalDialog implements UploadFileDialog {
-		PegaWebElement elmt;
+		Frame frame;
 
-		public PegaUploadFileDialog(Frame elmt) {
-			super(elmt);
-			this.elmt = elmt;
+		public PegaUploadFileDialog(Frame frame) {
+			super(frame);
+			this.frame = frame;
 		}
 
 		@Override
 		public void chooseFile(String fileName) {
 			String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "Data"
 					+ System.getProperty("file.separator") + fileName;
-			elmt.findElement(CHOOSE_FILE_TEXTBOX).sendKeys(filePath + Keys.TAB);
+			frame.findElement(CHOOSE_FILE_TEXTBOX).sendKeys(filePath + Keys.TAB);
 		}
 
 		@Override
 		public void setPurpose(String purpose) {
-			elmt.findSelectBox(PURPOSE_SELECTBOX).selectByVisibleText(purpose);
+			frame.findSelectBox(PURPOSE_SELECTBOX).selectByVisibleText(purpose);
 		}
 
 		@Override
 		public void next() {
-			elmt.findElement(NEXT_BUTTON).click();
+			frame.findElement(NEXT_BUTTON).click();
 		}
 
 		@Override
 		public void startValidation() {
-			elmt.findElement(START_VALIDATION_BUTTON).click();
+			frame.findElement(START_VALIDATION_BUTTON).click();
 		}
 
 		@Override
 		public void continueImport() {
-			PegaWebElement button = elmt.findElement(CONTINUE_IMPORT_BUTTON);
+			PegaWebElement button = frame.findElement(CONTINUE_IMPORT_BUTTON);
 			pegaDriver.handleWaits().waitForElementClickable(CONTINUE_IMPORT_BUTTON);
 			button.click();
 		}
@@ -61,19 +58,19 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 		@Override
 		public void finish() {
 			pegaDriver.handleWaits().waitForElementClickable(FINISH_BUTTON);
-			elmt.findElement(FINISH_BUTTON).click();
+			frame.findElement(FINISH_BUTTON).click();
 		}
 
 		@Override
 		public String getValidRows() {
 			pegaDriver.handleWaits().waitForElementClickable(CONTINUE_IMPORT_BUTTON);
-			return elmt.findElement(VALID_ROWS_SPAN).getText();
+			return frame.findElement(VALID_ROWS_SPAN).getText();
 		}
 	}
 
 	public class PegaAddCriteriaDialog extends PegaModalDialog implements AddCriteriaDialog {
 
-		private PegaWebElement frameElmt;
+		private Frame frameElmt;
 
 		public PegaAddCriteriaDialog(Frame frameElmt) {
 			super(frameElmt);
@@ -94,7 +91,6 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 		private void searchCriteria(String criteria) {
 			frameElmt.findElement(SEARCH_INPUT_BOX).sendKeys(criteria + Keys.TAB);
 			frameElmt.findElement(MAGNIFIER_ICON).click();
-			pegaDriver.waitForDocStateReady();
 			frameElmt.findElement(MAGNIFIER_ICON).click();
 		}
 
@@ -115,7 +111,7 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 	}
 
 	public class PegaSelectItemsDialog extends PegaModalDialog implements SelectItemsDialog {
-		private PegaWebElement frameElmt;
+		private Frame frameElmt;
 
 		public PegaSelectItemsDialog(Frame frameElmt) {
 			super(frameElmt);
@@ -191,7 +187,7 @@ public class PegaSegment extends PegaRuleInstance implements Segment {
 
 	public void waitForRun() {
 		while (verifyElement(STOP_LINK)) {
-			pegaDriver.handleWaits().sleep(8);
+			pegaDriver.handleWaits().sleep(10);
 
 		}
 		pegaDriver.handleWaits().waitForElementNotPresence(STOP_LINK);

@@ -17,9 +17,9 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 	}
 
 	public void save() {
-		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(SAVE_BUTTON);
 		findElement(SAVE_BUTTON).click();
+
 	}
 
 	public void switchTab(String tab) {
@@ -40,16 +40,13 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 	}
 
 	public void setIssue(String issue) {
-		pegaDriver.waitForDocStateReady(3);
 		pegaDriver.handleWaits().waitForElementVisibility(ISSUE_SELECT_BOX);
-		findSelectBox(ISSUE_SELECT_BOX).selectByVisibleText(issue);
-		pegaDriver.waitForDocStateReady();
+		findSelectBox(ISSUE_SELECT_BOX).selectByVisibleText(issue, true);
 	}
 
 	public void setGroup(String group) {
 		pegaDriver.handleWaits().waitForElementVisibility(GROUP_SELECT_BOX);
-		findSelectBox(GROUP_SELECT_BOX).selectByVisibleText(group);
-		pegaDriver.waitForDocStateReady();
+		findSelectBox(GROUP_SELECT_BOX).selectByVisibleText(group, true);
 	}
 
 	public void setBudget(String aBudget) {
@@ -64,8 +61,7 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 
 	public void selectDevBranch(String devBranch) {
 		if (verifyElement(DEV_BRANCH_SELECT_BOX)) {
-			findSelectBox(DEV_BRANCH_SELECT_BOX).selectByVisibleText(devBranch);
-			pegaDriver.waitForDocStateReady();
+			findSelectBox(DEV_BRANCH_SELECT_BOX).selectByVisibleText(devBranch, true);
 		}
 	}
 
@@ -76,17 +72,13 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 	}
 
 	public void close() {
-		findElement(CLOSE_ICON).click(false);
-		pegaDriver.waitForDocStateReady(2);
-		pegaDriver.switchToActiveFrame();
+		findElement(CLOSE_ICON).click();
 	}
 
 	public void create() {
-	findElement(CREATE_BUTTON).click(false);
-	pegaDriver.waitForDocStateReady(2);
+		findElement(CREATE_BUTTON).click();
 	}
 
-	
 	public void run() {
 		PegaWebElement actions = findElement(ACTION_BUTTON);
 		pegaDriver.handleWaits().waitForElementVisibility(ACTION_BUTTON);
@@ -97,22 +89,21 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 		pegaDriver.handleWaits().waitForElementClickable(RUN_LINK);
 		runLink.click(false);
 		pegaDriver.waitForDocStateReady(3);
-		
+
 	}
 
 	public void edit() {
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(EDIT_BUTTON);
 		findElement(EDIT_BUTTON).click();
-		
-	}
 
+	}
 
 	public CategoriesDialog clickoncategory() {
 		pegaDriver.waitForDocStateReady();
 		pegaDriver.handleWaits().waitForElementVisibility(CATEGORY_LINK);
 		findElement(CATEGORY_LINK).click();
 		return new PegaCategoriesDialog(this);
-		
+
 	}
 }

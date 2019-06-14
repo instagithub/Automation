@@ -31,19 +31,20 @@ public class ExpressPortalglue {
 	private PegaExpressPortal pegaExpressPortal;
 	private ContextDictionary contextDictionaryFrame;
 	private DesignerStudio designerStudio;
+
 	@Inject
 	public ExpressPortalglue(CRMBrowser browser) {
 		pegaExpressPortal = browser.getExpressPortal();
 	}
-	
+
 	@When("^User opens setting from Express Portal$")
-	public void user_opens_setting_from_Express_Portal()  {
-		pegaExpressPortal.openSettingsExplorer(); 
+	public void user_opens_setting_from_Express_Portal() {
+		pegaExpressPortal.openSettingsExplorer();
 	}
-	
+
 	@When("^Opens Context Dictionary from Settings in Express Portal$")
-	public void opens_Context_Dictionary_from_Settings_in_Express_Portal()  {
-		contextDictionaryFrame=pegaExpressPortal.openContextDictionary();
+	public void opens_Context_Dictionary_from_Settings_in_Express_Portal() {
+		contextDictionaryFrame = pegaExpressPortal.openContextDictionary();
 		ObjectsBean.setContextDictionaryFrame(contextDictionaryFrame);
 	}
 
