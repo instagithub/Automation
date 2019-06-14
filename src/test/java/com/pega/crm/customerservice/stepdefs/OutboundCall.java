@@ -64,7 +64,6 @@ public class OutboundCall {
 		Assert.assertTrue("Search text is not present", interaction.verifyElement(By.xpath(PhoneCall.SEARCH_XPATH)));
 		Assert.assertTrue("General assistance text is not present",
 				interaction.verifyElement(By.xpath(PhoneCall.GENERAL_ASSISTANCE_XPATH)));
-
 	}
 
 	@Then("^Search for customer with lastname \"([^\"]*)\" and accNo \"([^\"]*)\"$")
