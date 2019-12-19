@@ -13,6 +13,7 @@ public class PegaOffers extends PegaLandingPage implements Offers {
 
 	public Offer create() {
 		findElement(CREATE_BUTTON).click();
+      	pegaDriver.handleWaits().sleep(5);
 		findElement(CREATE_OFFER).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		Offer offer = new PegaOffer(frameId, testEnv);
