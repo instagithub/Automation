@@ -3,7 +3,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
-@CucumberOptions(dryRun = true, plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:target/extentReport.html"})
+@CucumberOptions(plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:target/extentReport.html"})
 public class RunCukesTest extends AbstractTestNGCucumberTests{
 	
 	String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
