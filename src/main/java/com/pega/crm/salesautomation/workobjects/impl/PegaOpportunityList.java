@@ -22,7 +22,7 @@ public class PegaOpportunityList extends PegaWorkObject implements OpportunityLi
 	String OPP_SEARCH_FIELD_ID = "FilterTermForOpportunity";
 	String OPP_FILTER_PLACEHOLDER_XPATH = "//input[@placeholder='Filter opportunity']";
 	String OPP_FILTERBUTTON_XPATH = PegaUtil.getButtonXpath("Filter");
-	String OPP_NAME_XPATH = "//table[@id='gridLayoutTable']//tr[@aria-rowindex='1']//a[1]";
+	String OPP_NAME_XPATH = "//table[@id='gridLayoutTable']//td[@aria-describedby='Name']//a[1]";
 	String OPP_ALL_BUTTON_XPATH = PegaUtil.getSegmentedButtonXPath("All");
 	String OPP_INDIVIDUAL_BUTTON_XPATH = PegaUtil.getSegmentedButtonXPath("Individual");
 	String OPP_BUSINESS_BUTTON_XPATH = PegaUtil.getSegmentedButtonXPath("Business");
