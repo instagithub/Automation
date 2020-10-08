@@ -21,7 +21,7 @@ public class PegaAccountList extends PegaWorkObject implements AccountList {
 	String ACC_SEARCH_FIELD_ID = "FilterTermForAccount'";
 	String ACC_FILTER_PLACEHOLDER_XPATH = "//input[@placeholder='Filter accounts']";
 	String ACC_FILTERBUTTON_XPATH = PegaUtil.getButtonXpath("Filter");
-	String ACC_NAME_XPATH = "//table[@id='gridLayoutTable']//tr[@aria-rowindex='1']//a[1]";
+	String ACC_NAME_XPATH = "//table[@id='gridLayoutTable']//td[@aria-describedby='Name']//a[1]";
 	StringBuffer ACC_NAME = new StringBuffer("Automation_Account");
 	String NO_ACCOUNTS_XPATH = "//tr[@id='Grid_NoResults']";
 	String ACC_ALL_BUTTON_XPATH = PegaUtil.getSegmentedButtonXPath("All");
