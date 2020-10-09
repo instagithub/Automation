@@ -57,7 +57,7 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 
 	public void expandMenuItems(String menuName) {
 		findElement(NEW_ICON).mouseOver();
-		findElement(HOME_ICON).mouseOver();
+		//findElement(HOME_ICON).mouseOver();
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(menuName))).click();
 	}
 
