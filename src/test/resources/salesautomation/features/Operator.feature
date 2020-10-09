@@ -1,4 +1,4 @@
-@operator @smoke @smoke-sales-automation
+@operator @smoke 
 Feature: Sales Automation Operator feature
 Test covering the creation of Operator in Sales Automation 
 
