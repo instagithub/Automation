@@ -21,6 +21,7 @@ import com.google.inject.Inject;
 import com.pega.config.test.TestBase;
 import com.pega.util.GlobalConstants;
 import com.pega.util.HTTPUtil;
+import com.pega.util.PRPCSessionUtil;
 import com.pega.util.RecorderUtil;
 import com.vimalselvam.cucumber.listener.Reporter;
 
@@ -293,7 +294,7 @@ public class CRMTestEnvironment extends TestBase {
 			for (String application : allApps) {
 				String appName = application.split(":")[0];
 				String appVersion = application.split(":")[1];
-				HTTPUtil.addUIKitToApplication(this, appName, appVersion);
+				PRPCSessionUtil.addUIKitToApplication(this, appName, appVersion);
 			}
 		}
 	}

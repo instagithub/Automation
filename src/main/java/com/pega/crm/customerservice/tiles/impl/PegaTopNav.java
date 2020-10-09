@@ -64,11 +64,11 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 	public NewInboundInteraction startInboundCase() {
 		// navigate().refresh();
 		findElement(By.xpath("//a[text()='New']")).click();
-		handleWaits().sleep(3);
+		waitHandler.sleep(3);
 		// findElement(By.xpath("//li[@title='Launch New Inbound
 		// Correspondence']")).click();
 		findElement(By.xpath("//span[text()='Inbound correspondence']")).click();
-		handleWaits().sleep(3);
+		waitHandler.sleep(3);
 		String frameId = getActiveFrameId(false);
 		NewInboundInteraction newInboundInteraction = new PegaNewInboundInteraction(frameId, testEnv);
 		return newInboundInteraction;
@@ -95,7 +95,7 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 		System.out.println("Inside the Interaction Type Method");
 		System.out.println("value for the driver is: : : :" + pegaDriver);
 
-		handleWaits().waitForElementVisibility(By.xpath("//a[@data-test-id='2014100609491604293426']"));
+		waitHandler.waitForElementVisibility(By.xpath("//a[@data-test-id='2014100609491604293426']"));
 
 		findElement(By.xpath("//a[@data-test-id='2014100609491604293426']")).click();
 		PegaWebElement element = pegaDriver
@@ -118,22 +118,22 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 		findElement(By.xpath("//i[@title='CS Manager']")).click();
 
 		findElement(By.xpath("//span[contains(text(),'Switch portal')]")).mouseOver();
-		handleWaits().waitForElementVisibility(By.xpath("//span[contains(text(),'Interaction Portal')]"));
+		waitHandler.waitForElementVisibility(By.xpath("//span[contains(text(),'Interaction Portal')]"));
 		findElement(By.xpath("//span[contains(text(),'Interaction Portal')]")).click(false);
-		// handleWaits().waitForAlert();
+		// waitHandler.waitForAlert();
 		// switchTo().alert().accept();
 		try {
-			handleWaits().waitForAlert();
+			waitHandler.waitForAlert();
 			pegaDriver.switchTo().alert().accept();
-			handleWaits().waitForAlert();
+			waitHandler.waitForAlert();
 			pegaDriver.switchTo().alert().accept();
-			handleWaits().waitForAlert();
+			waitHandler.waitForAlert();
 			pegaDriver.switchTo().alert().accept();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		handleWaits().waitForElementVisibility(By.xpath("//a[@data-test-id='2014100609491604293426']"));
+		waitHandler.waitForElementVisibility(By.xpath("//a[@data-test-id='2014100609491604293426']"));
 		findElement(By.xpath("//a[@data-test-id='2014100609491604293426']")).click();
 		findElement(By.xpath("//span[@class='menu-item-title' and contains(text(),'Demo Screen Pops')]")).mouseOver();
 		findElement(By.xpath("//span[contains(text(),'" + value + "')]")).click();
