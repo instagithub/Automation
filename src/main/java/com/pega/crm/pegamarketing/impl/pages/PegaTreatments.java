@@ -15,10 +15,14 @@ public class PegaTreatments extends PegaLandingPage implements Treatments {
 
 	public void create() {
 		findElement(CREATE_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
 	}
 
 	public EmailTreatment createEmailTreatment() {
-		findElement(CREATE_EMAIL_SPAN).click();
+		
+		findElement(CREATE_EMAIL).mouseOver();
+        findElement(CREATE_INTERNAL_EMAIL).click();
+        //findElement(CREATE_EMAIL_SPAN).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		EmailTreatment email = new PegaEmailTreatment(frameId, testEnv);
 		return email;

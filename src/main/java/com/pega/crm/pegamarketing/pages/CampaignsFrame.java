@@ -23,7 +23,8 @@ import com.pega.crm.pegamarketing.rules.Campaign;
 public interface CampaignsFrame extends LandingPage {
 
 	By LANDING_PAGE_HEADER = By.xpath("//span[@class='workarea_header_titles']");
-	By CREATE_MULTI_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Create Multi-Channel Campaign']");
+	//By CREATE_MULTI_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Create Multi-Channel Campaign']");
+	By CREATE_MULTI_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Multi-Channel Campaign']");
 	By CRATE_OUTBOUND_CHANNEL_CAMPAIGN = By.xpath("//span[text()='Create Outbound Campaign']");
 	By CREATE_SELF_OPTIMIZING_CAMPAIGN = By.xpath("//span[text()='Create Self-Optimizing Campaign']");
 

@@ -13,9 +13,11 @@ public interface Offer extends RuleInstance {
 
 	By FLOW_TAB = PegaBy.ruleTab("Flow");
 	By DETAILS_TAB = PegaBy.ruleTab("Details");
-	By TESTOFFER_TAB = PegaBy.ruleTab("Test Offer");
+	//By TESTOFFER_TAB = PegaBy.ruleTab("Test Offer");
+	By TESTOFFER_TAB = PegaBy.ruleTab("Test");
 	By HISTORY_TAB = PegaBy.ruleTab("History");
-	By ELIGIBILITY_TAB = PegaBy.ruleTab("Eligibility");
+	//By ELIGIBILITY_TAB = PegaBy.ruleTab("Eligibility");
+	By ELIGIBILITY_TAB = PegaBy.ruleTab("Engagement policy");
 	String DIV_PROCESS_FLOW_XPATH = "//div[@id='pmviewer_graph']";
 
 	String MONAME_XPATH = "//div[@id='modalOverlay' and @style='display: block;']"
@@ -166,6 +168,7 @@ public interface Offer extends RuleInstance {
 
 	public interface ShapeProperties extends ModalDialog {
 		By TREATMENT_NAME = By.id("Treatment_Name");
+		By SPECIFY_TREATMENT_RADIO = By.xpath("//label[text()='Specify Treatment']");
 
 		/**
 		 * this method sets the given name to the current shape
@@ -181,11 +184,13 @@ public interface Offer extends RuleInstance {
 		 * @param treatmentName
 		 *            treatment name to given
 		 */
+		void specifyTreatment();
 		void setTreatmentName(String treatmentName);
 	}
 
 	public interface SendEmailShapeProperties extends ShapeProperties {
-		By ICON_EXPAND_EMAIL_ACCOUNT = By.xpath("//div[@title='Disclose Email Account']/i");
+		//By ICON_EXPAND_EMAIL_ACCOUNT = By.xpath("//div[@title='Disclose Email Account']/i");
+		By ICON_EXPAND_EMAIL_ACCOUNT = By.xpath("//div[@title='Disclose Email account']");
 		By SPECIFY_EMAIL_ACCOUNT_RD_BTN = By.xpath("//label[text()='Specify Email Account']");
 		By EMAIL_ACCOUNT_INPUT = By.id("EmailAccount");
 

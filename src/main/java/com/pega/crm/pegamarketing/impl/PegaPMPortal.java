@@ -89,15 +89,30 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		Strategies strategies = new PegaStrategies(frameId, testEnv);
 		return strategies;
 	}
-
-	public LandingPage openLandingPage(LandingPageType landingPage) {
+//old
+	/*public LandingPage openLandingPage(LandingPageType landingPage) {
 		pegaDriver.switchTo().defaultContent();
 		findElement(NEW_ICON).mouseOver();
 		//findElement(HOME_ICON).mouseOver();
 		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
 		String frameId = pegaDriver.getActiveFrameId(true);
 		return CreateCorrectLandingPageObj(landingPage, frameId);
+	}*/
+	
+//NEW CODE BELOW Changed for Actions
+	public LandingPage openLandingPage(LandingPageType landingPage) {
+		pegaDriver.switchTo().defaultContent();
+		findElement(NEW_ICON).mouseOver();
+		findElement(By.xpath(PMXPathUtil.getMenuItemXPath(landingPage.getLandingPageName()))).click();
+		//pegaDriver.waitForDocStateReady(5);
+		String frameId = pegaDriver.getActiveFrameId(true);
+
+		//Segment segment = new PegaSegment(frameId, this.testEnv);
+		//ObjectsBean.setSegment(segment);
+
+		return CreateCorrectLandingPageObj(landingPage, frameId);
 	}
+	
 
 	private LandingPage CreateCorrectLandingPageObj(LandingPageType landingPage, String activeFrameID) {
 		LandingPage landingPageObj = null;
@@ -105,7 +120,7 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 		case SEGMENTS:
 			landingPageObj = new PegaSegments(activeFrameID, testEnv);
 			break;
-		case OFFERS:
+		case ACTIONS:
 			landingPageObj = new PegaOffers(activeFrameID, testEnv);
 			break;
 		case TREATMENTS:
@@ -176,5 +191,10 @@ public class PegaPMPortal extends PortalImpl implements PMPortal {
 
 	public void closeWelcomeDialog() {
 		findElement(ModalDialog.CLOSE_BUTTON).click();
+	}
+	@Override
+	public void expandCampaigns() {
+		pegaDriver.switchTo().defaultContent();
+		pegaDriver.findElement(CAMPAIGNS_MENU).click();
 	}
 }

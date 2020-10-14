@@ -59,6 +59,7 @@ public class PMPortalglue {
 
 	@When("^User opens Campaigns Landing Page$")
 	public void user_opens_Campaigns_Landing_Page() {
+		pmPortal.expandCampaigns();
 		campaigns = (CampaignsFrame) pmPortal.openLandingPage(LandingPageType.CAMPAIGNS);
 		ObjectsBean.setCampaigns(campaigns);
 	}
@@ -90,7 +91,7 @@ public class PMPortalglue {
 
 	@When("^Opens Offers landing page$")
 	public void opens_Offers_landing_page() {
-		Offers offers = (Offers) pmPortal.openLandingPage(LandingPageType.OFFERS);
+		Offers offers = (Offers) pmPortal.openLandingPage(LandingPageType.ACTIONS);
 		ObjectsBean.setOffers(offers);
 	}
 

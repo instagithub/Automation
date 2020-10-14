@@ -85,6 +85,7 @@ public class Offerglue {
 
 	@When("^sets the treatment as \"([^\"]*)\"$")
 	public void sets_the_treatment_as(String treatmentName) throws Throwable {
+		sendEmailShapeProps.specifyTreatment();
 		sendEmailShapeProps.setTreatmentName(treatmentName);
 	}
 

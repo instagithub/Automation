@@ -43,10 +43,22 @@ public class PegaRuleInstance extends FrameImpl implements RuleInstance {
 		pegaDriver.handleWaits().waitForElementVisibility(ISSUE_SELECT_BOX);
 		findSelectBox(ISSUE_SELECT_BOX).selectByVisibleText(issue, true);
 	}
+	
+	
+	public void setCampIssue (String issue) {
+		pegaDriver.handleWaits().waitForElementVisibility(CAMP_ISSUE_SELECT_BOX);
+		findSelectBox(CAMP_ISSUE_SELECT_BOX).selectByVisibleText(issue, true);
+	}
 
 	public void setGroup(String group) {
 		pegaDriver.handleWaits().waitForElementVisibility(GROUP_SELECT_BOX);
 		findSelectBox(GROUP_SELECT_BOX).selectByVisibleText(group, true);
+	}
+	
+	
+	public void setCampGroup(String group) {
+		pegaDriver.handleWaits().waitForElementVisibility(CAMP_GROUP_SELECT_BOX);
+		findSelectBox(CAMP_GROUP_SELECT_BOX).selectByVisibleText(group, true);
 	}
 
 	public void setBudget(String aBudget) {

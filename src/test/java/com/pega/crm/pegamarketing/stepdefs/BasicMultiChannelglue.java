@@ -75,9 +75,11 @@ public class BasicMultiChannelglue {
 		String campaignName = ObjectsBean.putTimeStampedValue(dataList.get(0));
 		campaign.setCampaignRuleName(campaignName);
 		String issueName = TestDataReader.getTestDataValue(dataList.get(2));
-		campaign.setIssue(issueName);
+		//campaign.setIssue(issueName);
+		campaign.setCampIssue(issueName);
 		String groupName = TestDataReader.getTestDataValue(dataList.get(3));
-		campaign.setGroup(groupName);
+		//campaign.setGroup(groupName);
+		campaign.setCampGroup(groupName);
 		campaign.setBudget(dataList.get(1));
 	}
 

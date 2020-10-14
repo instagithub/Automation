@@ -102,6 +102,7 @@ public class PegaMarketingStrategy extends PegaRuleInstance implements Marketing
 
 		public void addRankedObjective() {
 			findElement(RANKED_ADD_BUTTON).click();
+			pegaDriver.handleWaits().sleep(15);
 		}
 
 		public MarketingStrategy applyPrioritizationOffer() {

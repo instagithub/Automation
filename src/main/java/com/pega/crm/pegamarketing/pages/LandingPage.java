@@ -23,7 +23,8 @@ import com.pega.util.XPathUtil;
 
 public interface LandingPage extends Frame {
 	By CREATE_BUTTON = By.xpath("//button[@class='Simple pzhc pzbutton' and contains(text(),'Create')]");
-	By CREATE_OFFER = By.xpath("//*[@data-test-id='201802050902450494528']");
+	//By CREATE_OFFER = By.xpath("//*[@data-test-id='201802050902450494528']");
+	By CREATE_OFFER = By.xpath("//span[text()='Action' and @class='menu-item-title']");
 	By HELP_BUTTON = By.xpath("//button[@class='Simple pzhc pzbutton' and contains(text(),'Help')]");
 	By VIEW_BUTTON = By.xpath(XPathUtil.getButtonPzhcBtnXPath("View"));
 	By LANDING_PAGE_HEADER = By.xpath("//span[@class='workarea_header_titles']");

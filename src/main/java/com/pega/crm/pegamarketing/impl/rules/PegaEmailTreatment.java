@@ -20,7 +20,9 @@ public class PegaEmailTreatment extends PegaTreatment implements EmailTreatment 
 
 	public void openEmailEditor() {
 		PegaWebElement frameElement = findElement(EMAIL_TEMPLATE_IFRAME);
-		findFrame(frameElement);
+		//findFrame(frameElement);
+		//Commented above line, added below line
+		pegaDriver.switchTo().frame(frameElement.getWebElement());
 		findElement(EMAIL_TEMPLATE_DIV).click();
 		pegaDriver.switchTo().parentFrame();
 

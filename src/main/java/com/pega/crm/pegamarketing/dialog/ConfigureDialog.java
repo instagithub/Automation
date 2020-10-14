@@ -7,7 +7,8 @@ import com.pega.crm.pegamarketing.utils.PegaBy;
 
 public interface ConfigureDialog extends ModalDialog {
 
-	By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
+	//By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
+	By SEARCH_INPUT = By.xpath("//span[(@data-control-mode='input')]//*[contains(@name,'$PD_MKTMultiSelectCardSelector')]");
 	By SEARCH_ICON = By.xpath("//*[contains(@class,'pi-search')]");
 	By DIALOG_HEADER = By.xpath("//span[contains(@id,'modaldialog_hd')]");
 	By ADD_BUTTON = By.xpath("//button[text()='Add']");

@@ -20,11 +20,17 @@ public interface RuleInstance extends Frame {
 	static By EDIT_BUTTON = By.xpath("//button[contains(@class,'pzhc pzbutton') and contains(text(),'Edit')]");
 	static By CHECKOUT_BUTTON = By.xpath(PMXPathUtil.getButtonStrongPzhcPzBtnXPath("Check out"));
 	static By RULE_NAME_TEXT_BOX = By.xpath("//*[@data-test-id='2015010604214205349799']|//*[@id='5b93b09c']");
-	static By RULE_NAME_TEXT_BOX_CAMP = PegaBy.testId("201505151039200042663255");
+	//static By RULE_NAME_TEXT_BOX_CAMP = PegaBy.testId("201505151039200042663255");
+	static By RULE_NAME_TEXT_BOX_CAMP = By.xpath("//*[@data-test-id='201505151039200042663255']|//*[@id='c74f0970']");
+	//static By RULE_NAME_TEXT_BOX_CAMP = By.xpath("//*[@id='c74f0970']");
 	static By ISSUE_SELECT_BOX = By.xpath(
 			"//select[@id='IssueClass']|//select[@id='Issue']|//select[@id='pyIssue']|//select[@data-test-id='201505151039200044666168']");
+	static By CAMP_ISSUE_SELECT_BOX = By.xpath("//select[@id='852acd15']");
 	static By GROUP_SELECT_BOX = By.xpath(
 			"//select[@id='GroupClass']|//select[@id='Group']|//select[@id='pyGroup']|//select[@data-test-id='201505151039200045667317']");
+	
+	static By CAMP_GROUP_SELECT_BOX = By.xpath("//select[@id='f4975ea9']");
+	
 	static By CUTOMER_RADIO_BUTTON = By.id("c255bd03Customer");
 	static By PROSPECT_RADIO_BUTTON = By.id("c255bd03Prospect");
 	static By CRITERIA_RADIO_BUTTON = By.xpath("//*[@value='Criteria-based']");
@@ -33,7 +39,9 @@ public interface RuleInstance extends Frame {
 	static By DEV_BRANCH_SELECT_BOX = By.id("pySelectedBranchIdentifier");
 	static By CREATE_AND_OPEN_SELECT_BOX = By.xpath(XPathUtil.getButtonPzBtnMidXPath("Create and open"));
 	static By SUBMIT_BUTTON = By.xpath(XPathUtil.getButtonStrongPzhcPzBtnXPath("Submit"));
-	static By BUDGET_INPUT_BOX = By.xpath("//input[@id='Budget']|//input[@data-test-id='201505151410370306333761']");
+	//static By BUDGET_INPUT_BOX = By.xpath("//input[@id='Budget']|//input[@data-test-id='201505151410370306333761']");
+	static By BUDGET_INPUT_BOX = By.xpath("//input[@id='a4d1341d']");
+	
 	static By CREATE_BUTTON = By.xpath(PMXPathUtil.getButtonStrongPzhcPzBtnXPath("Create"));
 	static By ACTION_BUTTON = By
 			.xpath(PMXPathUtil.getButtonpzButtonXpath("Actions") + "|" + PMXPathUtil.getButtonPzBtnMidXPath("Actions"));
@@ -85,6 +93,7 @@ public interface RuleInstance extends Frame {
 	 *            issue to be set in Rule
 	 */
 	void setIssue(String issue);
+	void setCampIssue(String issue);
 
 	/**
 	 * this method sets the given group in Rule configuration
@@ -93,6 +102,7 @@ public interface RuleInstance extends Frame {
 	 *            group to be set in Rule
 	 */
 	void setGroup(String group);
+	void setCampGroup(String group);
 
 	/**
 	 * It is to set the rule name

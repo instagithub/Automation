@@ -225,11 +225,21 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 		public PegaShapeProperties(Frame frame) {
 			super(frame);
 		}
+		
+		
+		public void specifyTreatment() {
+			findElement(SPECIFY_TREATMENT_RADIO).check();
+			pegaDriver.handleWaits().sleep(3);
+					}
+
 
 		public void setTreatmentName(String treatmentName) {
 			PegaWebElement treatmentNameElmt = findElement(SendEmailShapeProperties.TREATMENT_NAME);
 			treatmentNameElmt.clear();
 			treatmentNameElmt.sendKeys(treatmentName + Keys.TAB);
+			//treatmentNameElmt.sendKeys(treatmentName);
+			pegaDriver.handleWaits().sleep(10);
+			
 		}
 
 		public void setShapeName(String shapeName) {
@@ -255,6 +265,9 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 			PegaWebElement emailAccountElmt = findElement(SendEmailShapeProperties.EMAIL_ACCOUNT_INPUT);
 			emailAccountElmt.clear();
 			emailAccountElmt.sendKeys(emailAccount + Keys.TAB);
+			//emailAccountElmt.sendKeys(emailAccount);
+			
+			pegaDriver.handleWaits().sleep(10);
 		}
 	}
 

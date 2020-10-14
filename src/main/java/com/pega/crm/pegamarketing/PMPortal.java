@@ -16,7 +16,8 @@ public interface PMPortal extends Portal {
 	By PEGA_MARKETING_TITLE_TEXT = By.xpath("//div[text()='Marketing']");
 	By DESIGNER_MENU_ITEM = By.xpath(PMXPathUtil.getMenuItemXPath("Designer"));
 	By CONFIGURATION_MENU_XPATH = By.xpath("//*[contains(@class,'configuration') and @title='Configuration']");
-	By CAMPAIGNS_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Campaigns"));
+	//By CAMPAIGNS_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Campaigns"));
+	By CAMPAIGNS_MENU = By.xpath("//*[@title='Campaigns']");
 	By REALTIME_ARTIFACTS = By.xpath(PMXPathUtil.getMenuItemXPath("Real-Time Artifacts"));
 	By INTELLIGENCE_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Intelligence"));
 	By STRATEGIES_MENU = By.xpath(PMXPathUtil.getMenuItemXPath("Strategies"));
@@ -31,7 +32,7 @@ public interface PMPortal extends Portal {
 				"Campaigns"), DESIGNER("Designer"), ELIGIBILITIES("Eligibilities"), REALTIMEARTIFACTS(
 						"Real-Time Artifacts"), DATAFLOWS("Data Flows"), SUMMARIES("Summaries"), DATA_MANAGEMENT(
 								"Data Management"), MICROSITES("Microsites"), PAIDMEDIAAUDIENCES(
-										"Paid Media Audiences"), IMAGELIBRARY("Image Library");
+										"Paid Media Audiences"), IMAGELIBRARY("Image Library"), ACTIONS("Actions");
 		private String pageName;
 
 		LandingPageType(String pageName) {
@@ -91,5 +92,7 @@ public interface PMPortal extends Portal {
 	 * closes the Welcome Dialog
 	 */
 	public void closeWelcomeDialog();
+
+	void expandCampaigns();
 
 }

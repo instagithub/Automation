@@ -112,8 +112,9 @@ public interface MarketingStrategy extends RuleInstance {
 				"//div[@node_name='SimpleSelectorCardContent'][.//span[@class='mktcard_secondary_info' and text()='RANKED']]//button[text()='Add']");
 		By RANKED_REMOVE_BUTTON = By.xpath(
 				"//div[@node_name='SimpleSelectorCardContent'][.//span[@class='mktcard_secondary_info' and text()='RANKED']]//button[text()='Remove']");
-		By RANKED_ADDED_LABEL = By.xpath(
-				"//tr[contains(@id,'ComponentOverview_RANKED')]//a[text()='Offer targeting using Audiences and AI']");
+		//By RANKED_ADDED_LABEL = By.xpath("//tr[contains(@id,'ComponentOverview_RANKED')]//a[text()='Offer targeting using Audiences and AI']");
+		
+		By RANKED_ADDED_LABEL = By.xpath("//tr[contains(@id,'ComponentOverview_RANKED')]//a[text()='Action targeting using Audiences and AI']");
 		By PRIORITIZATION_DIVISON = By
 				.xpath("//span[contains(text(),'PRIORITIZATION') and @class='mktcard_secondary_info']");
 

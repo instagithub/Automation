@@ -16,7 +16,7 @@ Feature: Smoke Test cases
     When User switches to "Options and Schedule" tab in segment
     Then All fields headings such as Data Options, Sampled Segment Options and etc should be present
     When User switches to "Design" tab in segment
-    When Adds a group and criteria as "SegmentCriteria" and value as "M"
+    When Adds a group and criteria as "SegmentCriteria" and value as "Auto"
     When User saves the segment rule
     Then Segment rule should be saved succesfully
     When User runs the Segment

@@ -24,6 +24,7 @@ import com.pega.crm.pegamarketing.utils.PegaBy;
 
 public interface Campaign extends RuleInstance {
 
+	//By CREATE_CAMPAIGN_LANDING_PAGE_HEADER = By.xpath("//span[text()='Create a campaign']");
 	By CREATE_CAMPAIGN_LANDING_PAGE_HEADER = By.xpath("//span[text()='Create a campaign']");
 	By NAME_INPUT_BOX = By.xpath("//input[@id='pyLabel']");
 
@@ -177,7 +178,8 @@ public interface Campaign extends RuleInstance {
 
 	public interface CampaignConfigureDialog extends ModalDialog {
 
-		By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
+		//By SEARCH_INPUT = PegaBy.testId("201411141635100877648");
+		By SEARCH_INPUT = By.xpath("//span[(@data-control-mode='input')]//*[contains(@name,'$PD_MKTMultiSelectCardSelector')]"); 
 		By SEARCH_ICON = By.xpath("//*[contains(@class,'pi-search')]");
 		By DIALOG_HEADER = By.xpath("//span[@id='modaldialog_hd_title']");
 		By ADD_BUTTON = By.xpath("//button[text()='Add']");
@@ -264,7 +266,8 @@ public interface Campaign extends RuleInstance {
 		static By REAL_TIME_EVENTS_LABEL = By.xpath("//label[@for='EnableEvents']");
 		static By REAL_TIME_CONTAINERS_CHECKBOX = By.xpath("//input[@id='EnableContainers']");
 		static By REAL_TIME_CONTAINERS_LABEL = By.xpath("//label[@for='EnableContainers']");
-		static By START_ON_TIME_TEXT = PegaBy.testId("201508141643030248152902-Label");
+		//static By START_ON_TIME_TEXT = PegaBy.testId("201508141643030248152902-Label");
+		static By START_ON_TIME_TEXT = By.xpath("//input[@id='979f6eb1']");
 		static By ONE_TIME_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='O']");
 		static By RECURRING_RADIO_BUTTON = By.xpath("//input[contains(@name,'MAFrequency')][@value='R']");
 		static By REFRESH_AUDIENCE_CHECKBOX = By
