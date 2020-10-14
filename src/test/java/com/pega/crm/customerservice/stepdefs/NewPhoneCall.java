@@ -40,7 +40,7 @@ public class NewPhoneCall {
 	public List<String> caseId = new ArrayList();
 	public static String CaseID = null;
 	public String FOLLOW_CASE_ID = "//div[@id='CT']/span";
-	public String OK_BUTTON_XPATH = "//div[@class='pzbtn-mid' and text()='OK']";
+	public String OK_BUTTON_XPATH = "(//*[text()='OK'])[2]";
 	public String caSysadminLogOff_XPATH = "//span[text()='Log off']";
 	public String AddressLine1 = "//input[contains(@name,'AddressLine1')]";
 	public String AddressLine2 = "//input[contains(@name,'AddressLine2')]";
@@ -190,29 +190,24 @@ public class NewPhoneCall {
 
 		Assert.assertTrue("phone field is not present", interaction.verifyElement(By.xpath(PhoneCall.PHONE_XPATH)));
 		Assert.assertTrue("Email Field is not present", interaction.verifyElement(By.xpath("//span[text()='Email']")));
-		Assert.assertTrue("Address field is not present", interaction.verifyElement(By.xpath(PhoneCall.ADDRESS_XPATH)));
+		
 		Assert.assertTrue("Chrun risk is not present", interaction.verifyElement(By.xpath(PhoneCall.CHURN_RISK_XPATH)));
 		Assert.assertTrue("Lifetime Value is not present",
 				interaction.verifyElement(By.xpath(PhoneCall.LIFETIME_XPATH)));
-		Assert.assertTrue("Customer since field is not present",
-				interaction.verifyElement(By.xpath(PhoneCall.CUSTOMER_SINCE_XPATH)));
-		Assert.assertTrue("Call back field is not present",
-				interaction.verifyElement(By.xpath(PhoneCall.NPS_TREND_XPATH)));
-		Assert.assertTrue("Last interaction field is not present",
-				interaction.verifyElement(By.xpath(PhoneCall.LAST_INTERACTION_XPATH)));
-		Assert.assertTrue("Reason field is not present", interaction.verifyElement(By.xpath(PhoneCall.REASON_XPATH)));
-		Assert.assertTrue("NPS field is not present", interaction.verifyElement(By.xpath(PhoneCall.NPS_XPATH)));
+		
+
+		
 
 		Assert.assertTrue("Add Task button is not present",
 				interaction.verifyElement(By.xpath("//button[contains(@title,'Add')]")));
 		Assert.assertTrue("Wrap up button is not present", interaction
-				.verifyElement(By.xpath("//button[@class='Wrap_up_button pzhc pzbutton' and @title='Wrap Up']")));
-		Assert.assertTrue("Summary tab is not present", interaction.verifyElement(By.xpath("//h3[text()='Overview']")));
+				.verifyElement(By.xpath("//button[@data-test-id='2018080902461007071328']")));
+		Assert.assertTrue("Summary tab is not present", interaction.verifyElement(By.xpath("//*[text()='Overview']")));
 		Assert.assertTrue("Open service case section is not present",
-				interaction.verifyElement(By.xpath("//h2[text()='Recent cases']")));
+				interaction.verifyElement(By.xpath("//*[text()='Recent tasks']")));
 		Assert.assertTrue("Recent Interactions section is not present",
-				interaction.verifyElement(By.xpath("//h2[text()='Recent interactions']")));
-		interaction.verifyElement(By.xpath("//h2[text()='Authorized Contacts']"));
+				interaction.verifyElement(By.xpath("//*[text()='Recent interactions']")));
+		interaction.verifyElement(By.xpath("//[text()='Authorized contacts']"));
 
 	}
 
@@ -477,8 +472,8 @@ public class NewPhoneCall {
 				interaction.verifyElement(By.xpath("//span[contains(text(),'YTD payments')]")));
 
 		// Min payment
-		Assert.assertTrue("Min. payments is not present",
-				interaction.verifyElement(By.xpath("//span[contains(text(),'Min. payment')]")));
+		//Assert.assertTrue("Min. payments is not present",
+		//		interaction.verifyElement(By.xpath("//span[contains(text(),'Min. payment')]")));
 		Assert.assertTrue("Min. payments is not present",
 				interaction.verifyElement(By.xpath("//span[contains(text(),'Available balance')]")));
 		Assert.assertTrue("Avg monthly balance is not present",

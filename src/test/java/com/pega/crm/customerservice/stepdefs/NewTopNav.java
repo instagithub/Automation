@@ -39,7 +39,7 @@ public class NewTopNav {
 	@When("^CSR launched the New Phone Interaction$")
 	public void csr_launched_the_New_Phone_Interaction() throws Throwable {
 
-		phoneCall = topNav.getInteractionType("Phone Call");// c
+		phoneCall = topNav.getInteractionType("Phone call");// c
 															// changed
 															// to
 															// C

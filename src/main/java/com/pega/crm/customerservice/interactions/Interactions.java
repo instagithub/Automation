@@ -4,12 +4,12 @@ import com.pega.ri.Wizard;
 
 public interface Interactions extends Wizard {
 	String PHONECALL_RESULT_SEARCH_XPATH = "//button[@title='Search']";
-	String ADD_TASK_XPATH = "//button[@title='Add Task']";
-	String ADDRESS_CHANGE_XPATH = "//a[contains(@title,'Address Change' )  and  @class='Add_task']";
+	String ADD_TASK_XPATH = "//*[@data-test-id='2014111401004903823658']";
+	String ADDRESS_CHANGE_XPATH = "//a[contains(@title,'Address change' )  and  @class='Add_task']";
 	String STATEMENT_COPY_XPATH = "//a[contains(text(),'Statement Copy') and @class='Add_task']";
 	String SERVICECASE_SUBMIT_XPATH = "//button[contains(.,'Submit')]";// div[contains(text(),'Submit')]
 	String SERVICECASE_CONFIRM_XPATH = "//button[text()='Confirm']";
-	String WRAP_UP_XPATH = "//button[@class='Wrap_up_button pzhc pzbutton' and @title='Wrap Up']";
+	String WRAP_UP_XPATH = "//*[@data-test-id='2018080902461007071328']";
 	String OUTBOUND_REASON_XPATH = "//select[@data-test-id='20180725055154001963']";
 	String OUTBOUND_STATUS_XPATH = "//label[contains(text(),'#status#')]";
 	String LAST_NAME_XPATH = "//input[@data-test-id='2015052601072500441291']";
