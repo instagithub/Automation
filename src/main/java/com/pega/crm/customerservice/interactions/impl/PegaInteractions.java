@@ -316,7 +316,7 @@ public abstract class PegaInteractions extends WizardImpl implements Interaction
 	@Override
 	public void userSwitchToTab(String tab) {
 
-		String Tab_XPATH = "//h3[@class='layout-group-item-title'][text()='#sericecase#']";
+		String Tab_XPATH = "//h2[text()='#sericecase#']";
 		String final_Tab_XPath = new String(Tab_XPATH).replace("#sericecase#", tab);
 
 		PegaWebElement overview = findElement(By.xpath(final_Tab_XPath));

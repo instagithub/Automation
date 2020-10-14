@@ -10,13 +10,13 @@ Feature: Demo Interaction Test cases
     Then verifiy left nav, header, composites, dialogs and other sections
     When Click on Add Task to launch Service Process
     Then Verify all the service process items and other fields
-    When Launch "Address Change" service process
-    Then verify "Address Change" flow is launched
-    Then verify that "Address Change" flow is launched with dialog
-    When change the address and other fields and submit
-    When check additional account for address change and submit
-    When confirm the changes made
-    Then check for completed or cancelled task "Address Change"
+    When Launch "Dispute Transaction" service process
+    When select the verification questions for service cases and click on verified
+    Then verify "Dispute Transaction" flow is launched
+    Then select transaction "2089" for dispute
+    When Select dispute reason "Merchandise not received" and submit
+    When Confirm the flow
+    Then check for completed or cancelled task "Dispute Transaction"
     When launch warpup to complete the interaction
     When Operator logs of the portal
 

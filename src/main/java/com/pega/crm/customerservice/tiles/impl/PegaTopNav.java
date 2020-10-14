@@ -294,7 +294,8 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 
 	@Override
 	public ResearchInteraction selectandSearchResearchType(String searchType, String value) {
-
+		
+		pegaDriver.switchTo().defaultContent();
 		DropDown selectType = findSelectBox(By.xpath(TopNav.SELECT_DATA_SOURCE_XPATH));
 		selectType.selectByValue(searchType);
 

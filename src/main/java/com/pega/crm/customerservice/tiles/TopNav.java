@@ -46,7 +46,7 @@ public interface TopNav {
 	String PHONE_ICON_XPATH = "//i[@name='PegaCallControlPanel_CTIPhone_1']";
 	String LOGIN_BUTTON_XPATH = "//button[text()='Login']";
 	String SEARCH_BOX_XPATH = "//input[@data-test-id='2015052504543705231680']";
-	String SEARCH_ITEM_XPATH = "//i[@title='Search for an item']";
+	String SEARCH_ITEM_XPATH = "//*[@data-test-id='2015052504543705282660']";
 	String SELECT_DATA_SOURCE_XPATH = "//select[@data-test-id='201610190747440120129777']";
 
 	String CHAT_SERVER_XPATH = "//select[@data-test-id='2014121804320102541978']";

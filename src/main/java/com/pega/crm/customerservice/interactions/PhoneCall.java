@@ -5,7 +5,7 @@ public interface PhoneCall extends Interactions {
 	String SEARCH_EMAIL_ID = "SearchStringEmail";
 	String UNKNOWN_CUSTOMER_XPATH = "//div[text()='Unknown customer']";
 	String REASON_XPATH = "//span[text()='Reason']";
-	String PHONE_XPATH = "//span[text()='Phone']";
+	String PHONE_XPATH = "//label[text()='Callback']";
 	String NPS_XPATH = "//span[contains(text(),'NPS')]";
 	String LAST_INTERACTION_XPATH = "//span[text()='Last interaction']";
 	String ADDRESS_XPATH = "//span[text()='Address']";
@@ -24,7 +24,7 @@ public interface PhoneCall extends Interactions {
 	String WHERE_AM_I_XPATH = "//span[text()='Where am I']";
 	String REFRESH_XPATH = "//span[text()='Refresh']";
 	String PULSE_XPATH = "//span[text()='Pulse']";
-	String HISTORY_ATTACHMENTS_XPATH = "//span[text()='History and Attachments']";
+	String HISTORY_ATTACHMENTS_XPATH = "//span[text()='History and attachments']";
 
 	String SEARCH_XPATH = "//h6[@class='layout-group-item-title' and contains(text(),'Search')]";
 	String GENERAL_ASSISTANCE_XPATH = "//h6[@class='layout-group-item-title' and contains(text(),'General assistance')]";
