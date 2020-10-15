@@ -39,6 +39,8 @@ public interface Offer extends RuleInstance {
 	By OFFER_STARTED_SUCCESSFULLY_MESSAGE = By
 			.xpath("//div[@node_name='OfferTestRunStatus']//*[text()='Offer test started successfully']");
 	By IMAGE_URL_COG = By.xpath("//*[@title='View folder contents']");
+	By DELETE_MENU = By.xpath("//*[text()='Delete']");
+	
 
 	public enum Shape {
 		SEND_EMAIL("Send Email"), SEND_SMS("Send SMS"), SEND_GENERIC("Send Generic"), SEND_MULTI(
@@ -261,4 +263,6 @@ public interface Offer extends RuleInstance {
 	void clickDetails();
 
 	ImageCatalogDialog clickImageURLCog();
+
+	public void DeleteMenuClick();
 }

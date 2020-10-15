@@ -363,4 +363,10 @@ public class PegaOffer extends PegaRuleInstance implements Offer {
 
 	}
 
+	@Override
+	public void DeleteMenuClick() {
+		findElement(DELETE_MENU).click();
+		
+	}
+
 }

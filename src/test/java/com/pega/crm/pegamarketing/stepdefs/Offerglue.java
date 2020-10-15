@@ -1,5 +1,6 @@
 package com.pega.crm.pegamarketing.stepdefs;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 import com.pega.crm.pegamarketing.elmt.OfferShape;
@@ -58,8 +59,12 @@ public class Offerglue {
 
 	@When("^user deletes the existing start connector$")
 	public void user_deletes_the_existing_start_connector() {
-		ObjectsBean.getOffer().findConnector(PegaOffer.START_CONNECTOR).delete();
-	}
+		ObjectsBean.getOffer().findConnector(PegaOffer.START_CONNECTOR).mouseOver();
+		ObjectsBean.getOffer().findConnector(PegaOffer.START_CONNECTOR).doClickWithMouse();
+		ObjectsBean.getOffer().findConnector(PegaOffer.START_CONNECTOR).rightClick();
+		ObjectsBean.getOffer().DeleteMenuClick();
+		//ObjectsBean.getOffer().findConnector(PegaOffer.START_CONNECTOR).delete();
+			}
 
 	@When("^adds a new send email shape to the offer$")
 	public void adds_a_new_send_email_shape_to_the_offer() {
