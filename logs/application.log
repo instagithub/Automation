@@ -1,0 +1,1380 @@
+2021-03-09 10:41:03,371 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 10:41:03,423 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 10:41:03,424 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 10:41:03,833 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 10:41:04,224 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 2.46.628402
+2021-03-09 10:41:04,227 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 2.46.628402
+2021-03-09 10:41:05,530 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 10:41:05,530 INFO  c.p.c.u.GetChromeDriver [getChromeDriver:143] [main] - Downloading the required chrome driver
+2021-03-09 10:43:52,146 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 10:43:52,443 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (b3b36a88e714966d8b1fd9c67608b064)
+2021-03-09 10:43:52,444 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 10:43:53,579 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 10:43:53,695 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 10:43:53,699 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 10:43:53,827 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 10:43:54,091 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 10:44:18,828 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 10:44:25,319 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Territories']
+2021-03-09 11:14:13,874 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:14:13,925 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:14:13,926 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:14:14,192 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:14:14,418 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:14:14,421 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:14:15,975 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:14:15,976 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:14:18,360 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:14:18,526 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (2de31b249f2bcfd3420cbbe0e92333cd)
+2021-03-09 11:14:18,527 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:14:22,564 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:14:23,229 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:14:23,234 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:14:23,416 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:20:28,416 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:20:28,472 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:20:28,474 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:20:28,854 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:20:29,086 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:20:29,089 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:20:30,673 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:20:30,673 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:20:33,174 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:20:33,318 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (e60ce3c82f70dffae27f3b5e9e05c7ef)
+2021-03-09 11:20:33,319 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:20:36,674 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:20:37,255 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:20:37,261 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:20:37,444 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:21:05,753 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:21:05,798 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:21:05,798 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:21:06,021 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:21:06,247 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:21:06,250 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:21:07,801 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:21:07,801 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:21:10,416 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:21:10,609 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (40e5eccdd3745f41574ff1a5ecc58e15)
+2021-03-09 11:21:10,610 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:21:14,027 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:21:14,577 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:21:14,581 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:21:14,763 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:22:09,629 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:22:09,675 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:22:09,676 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:22:09,938 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:22:10,362 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:22:10,365 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:22:11,803 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:22:11,804 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:22:14,191 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:22:14,360 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (c9d856baeaeb77dc5625583a611d2463)
+2021-03-09 11:22:14,361 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:22:17,563 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:22:18,126 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:22:18,130 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:22:18,383 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:22:18,661 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 11:22:49,822 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:175] [main] - !!! Document state div was never identified...are you sure your system is doc state aware?
+2021-03-09 11:22:49,912 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Organizations']
+2021-03-09 11:24:23,745 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:24:23,797 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:24:23,797 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:24:24,060 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:24:24,279 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:24:24,282 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:24:25,786 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:24:25,786 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:24:28,240 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:24:28,391 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (e30bdd0c140a953b6895ad4125005fdf)
+2021-03-09 11:24:28,392 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:24:31,634 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:24:32,172 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:24:32,177 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:24:32,298 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:25:30,992 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:25:31,041 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:25:31,042 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:25:31,291 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:25:31,524 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:25:31,527 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:25:33,304 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:25:33,305 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:25:35,737 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:25:35,906 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (203a18ec04a8d0118e487381e1c5399b)
+2021-03-09 11:25:35,907 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:25:38,867 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:25:39,396 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:25:39,399 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:25:39,535 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:25:39,786 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 11:26:10,897 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:175] [main] - !!! Document state div was never identified...are you sure your system is doc state aware?
+2021-03-09 11:26:10,986 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Organizations']
+2021-03-09 11:28:45,727 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:28:45,788 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:28:45,789 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:28:46,175 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:28:46,525 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:28:46,528 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:28:48,206 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:28:48,207 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:28:50,589 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:28:50,733 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (bcea4133d67529dcb4dd7a5d4a895cb8)
+2021-03-09 11:28:50,735 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:28:54,017 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:28:54,567 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:28:54,572 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:28:54,739 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:28:55,082 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 11:29:26,744 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:175] [main] - !!! Document state div was never identified...are you sure your system is doc state aware?
+2021-03-09 11:29:26,849 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Organizations']
+2021-03-09 11:35:44,240 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 11:35:44,285 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 11:35:44,285 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 11:35:44,517 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 11:35:44,738 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 11:35:44,741 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 11:35:46,063 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 11:35:46,064 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 11:35:48,311 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 11:35:48,490 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (8990467885477a3c81b6d3fad2c37dc9)
+2021-03-09 11:35:48,491 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:35:51,441 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 11:35:51,865 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 11:35:51,870 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 11:35:52,097 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 11:35:52,444 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 11:36:01,695 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52812}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8990467885477a3c81b6d3fad2c37dc9
+2021-03-09 11:36:01,725 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 11:36:07,714 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Organizations']
+2021-03-09 17:00:42,581 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 17:00:42,634 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 17:00:42,634 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 17:00:43,039 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 17:00:43,956 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 17:00:43,959 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 17:00:45,329 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 17:00:45,330 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 17:00:48,476 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 17:00:48,720 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (45e2abf5cb9a1d1f9f197c45694c6bc6)
+2021-03-09 17:00:48,721 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 17:00:49,398 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 17:00:49,749 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 17:00:49,756 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 17:00:49,931 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 17:00:50,299 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 17:00:55,812 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 17:01:02,955 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //span[text()='Accounts']
+2021-03-09 18:26:53,296 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 18:26:53,343 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 18:26:53,344 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 18:26:53,623 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 18:26:53,848 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 18:26:53,851 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 18:26:55,435 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 18:26:55,436 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 18:26:57,982 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 18:26:58,187 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (c0016c0f11696eb4383893449fb8ae4c)
+2021-03-09 18:26:58,189 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 18:26:59,428 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 18:26:59,580 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 18:26:59,587 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 18:26:59,733 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 18:27:00,021 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 18:27:04,783 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 18:39:58,305 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 18:39:58,355 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 18:39:58,357 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 18:39:58,608 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 18:39:58,832 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 18:39:58,835 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 18:40:00,616 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 18:40:00,617 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 18:40:03,027 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 18:40:03,183 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (8b373233226dd3de96862d2bb80f7f42)
+2021-03-09 18:40:03,184 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 18:40:04,479 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 18:40:04,641 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 18:40:04,647 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 18:40:04,783 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 18:40:05,072 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 18:40:10,431 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 19:21:45,665 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 19:21:45,721 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 19:21:45,722 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 19:21:46,000 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 19:21:46,252 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 19:21:46,254 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 19:21:48,450 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 19:21:48,450 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 19:21:51,252 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 19:21:51,484 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (fefbbc03bfaf60b6fd0e46e7e43b0edc)
+2021-03-09 19:21:51,485 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 19:21:52,829 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 19:21:53,069 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 19:21:53,075 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 19:21:53,247 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 19:21:53,537 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 19:21:59,738 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 20:07:36,267 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 20:07:36,310 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 20:07:36,311 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 20:07:36,664 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 20:07:36,898 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 20:07:36,901 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 20:07:38,250 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 20:07:38,251 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 20:07:40,738 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 20:07:40,882 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (2c745a914cfed11a8ebec2de16c6dac6)
+2021-03-09 20:07:40,883 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:07:42,233 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:07:42,387 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 20:07:42,392 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 20:07:42,545 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 20:07:42,808 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 20:07:47,598 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 20:13:20,398 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 20:13:20,445 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 20:13:20,446 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 20:13:20,777 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 20:13:21,026 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 20:13:21,029 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 20:13:22,485 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 20:13:22,485 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 20:13:24,918 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 20:13:25,086 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (43ef0c9d705e0faef5503327489abf64)
+2021-03-09 20:13:25,088 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:13:26,444 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:13:26,613 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 20:13:26,616 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 20:13:26,747 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 20:13:27,017 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 20:13:32,104 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-09 20:31:32,809 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-09 20:31:32,856 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-09 20:31:32,856 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-09 20:31:33,199 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-09 20:31:33,424 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-09 20:31:33,427 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-09 20:31:34,784 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-09 20:31:34,785 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-09 20:31:37,063 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-09 20:31:37,200 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (a8d7621e17cd8bbb10f555b469bd46ce)
+2021-03-09 20:31:37,202 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:31:38,693 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-09 20:31:38,853 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-09 20:31:38,859 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-09 20:31:38,986 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-09 20:31:39,289 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-09 20:31:43,850 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:47:42,467 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 10:47:42,511 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 10:47:42,512 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 10:47:42,936 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 10:47:43,637 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 10:47:43,639 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 10:47:45,044 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 10:47:45,045 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 10:47:47,401 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 10:47:47,557 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (ec3eb6b7ff7d21e2aca614eb4c40d58a)
+2021-03-10 10:47:47,558 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:47:48,922 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:47:49,104 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 10:47:49,111 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 10:47:49,265 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 10:47:49,647 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 10:47:54,673 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:48:01,109 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 10:48:01,490 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:48:01,582 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57917}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ec3eb6b7ff7d21e2aca614eb4c40d58a
+2021-03-10 10:48:02,789 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:48:02,824 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 10:48:38,312 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:49:03,583 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-10 10:52:31,873 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 10:52:31,917 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 10:52:31,918 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 10:52:32,246 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 10:52:32,475 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 10:52:32,478 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 10:52:33,905 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 10:52:33,905 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 10:52:36,244 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 10:52:36,387 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (957a981ebf0da3ac4cc701da43169ec4)
+2021-03-10 10:52:36,388 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:52:37,747 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:52:37,925 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 10:52:37,930 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 10:52:38,063 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 10:52:38,325 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 10:52:42,803 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:52:49,701 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 10:52:49,980 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:52:50,207 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59327}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 957a981ebf0da3ac4cc701da43169ec4
+2021-03-10 10:52:51,370 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:52:51,407 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 10:53:01,645 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59327}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 957a981ebf0da3ac4cc701da43169ec4
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-10 10:53:26,862 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:53:47,189 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 10:55:58,550 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 10:55:58,600 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 10:55:58,601 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 10:55:58,950 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 10:55:59,169 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 10:55:59,172 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 10:56:00,817 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 10:56:00,818 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 10:56:03,148 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 10:56:03,297 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (ac1d835a66e30c8c4f519382cd4cf97c)
+2021-03-10 10:56:03,298 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:56:04,683 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 10:56:04,841 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 10:56:04,851 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 10:56:05,010 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 10:56:05,281 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 10:56:09,870 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:56:16,563 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 10:56:16,834 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 10:56:17,008 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60421}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ac1d835a66e30c8c4f519382cd4cf97c
+2021-03-10 10:56:18,238 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:56:18,277 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 10:56:53,808 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 10:57:19,091 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-10 11:29:40,069 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 11:29:40,127 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 11:29:40,128 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 11:29:40,546 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 11:29:40,767 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 11:29:40,770 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 11:29:42,594 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 11:29:42,595 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 11:29:44,876 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 11:29:45,033 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (4eea3d33f1b1dd3c5efb45243c8f5cd3)
+2021-03-10 11:29:45,034 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:29:48,536 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:29:48,688 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 11:29:48,696 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 11:29:48,854 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 11:29:49,173 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 11:29:54,596 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:30:01,801 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 11:30:02,293 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53300}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 4eea3d33f1b1dd3c5efb45243c8f5cd3
+2021-03-10 11:30:02,416 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:30:03,720 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:30:03,776 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 11:30:39,515 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:31:04,781 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-10 11:40:01,567 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 11:40:01,618 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 11:40:01,619 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 11:40:01,932 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 11:40:02,186 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 11:40:02,189 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 11:40:03,542 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 11:40:03,542 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 11:40:05,810 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 11:40:05,961 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (bbe2b3dfb7a278038226829cdd7ba438)
+2021-03-10 11:40:05,962 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:40:07,339 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:40:07,478 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 11:40:07,483 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 11:40:07,614 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 11:40:07,905 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 11:40:12,143 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:40:18,073 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 11:40:18,491 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:40:19,708 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:40:19,743 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 11:40:29,982 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56181}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: bbe2b3dfb7a278038226829cdd7ba438
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-10 11:40:55,183 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:41:10,458 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 11:52:46,735 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 11:52:46,779 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 11:52:46,780 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 11:52:47,101 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 11:52:47,328 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 11:52:47,330 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 11:52:48,670 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 11:52:48,670 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 11:52:51,041 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 11:52:51,183 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (5b5b5d79ff12bacacb03716d7e80ed0f)
+2021-03-10 11:52:51,184 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:52:52,455 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:52:52,621 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 11:52:52,627 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 11:52:52,751 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 11:52:53,023 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 11:52:57,696 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:53:04,334 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 11:53:04,719 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:53:04,781 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59833}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5b5b5d79ff12bacacb03716d7e80ed0f
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-10 11:53:05,973 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:53:06,005 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 11:53:41,401 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:53:54,522 INFO  c.p.BrowserImpl [switchToWindow:248] [main] - Switching successful to window no: 2
+2021-03-10 11:53:59,663 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 11:58:30,907 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 11:58:30,958 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 11:58:30,958 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 11:58:31,292 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 11:58:31,512 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 11:58:31,515 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 11:58:32,881 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 11:58:32,881 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 11:58:35,294 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 11:58:35,436 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (6b77fb7a72a764518c79df0e5b26c88e)
+2021-03-10 11:58:35,438 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:58:36,565 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 11:58:36,709 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 11:58:36,714 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 11:58:36,834 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 11:58:37,109 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 11:58:41,403 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:58:48,040 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 11:58:48,434 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 11:58:49,678 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:58:49,718 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 11:59:00,012 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61540}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 6b77fb7a72a764518c79df0e5b26c88e
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-10 11:59:25,223 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 11:59:38,406 INFO  c.p.BrowserImpl [switchToWindow:248] [main] - Switching successful to window no: 2
+2021-03-10 11:59:43,424 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: *//[@data-test-id='2016033102475004767540']
+2021-03-10 12:04:49,987 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 12:04:50,078 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 12:04:50,079 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 12:04:50,326 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 12:04:50,549 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 12:04:50,552 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 12:04:52,064 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 12:04:52,065 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 12:04:54,434 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 12:04:54,605 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (3afe8a956b33d1223f7b02aeb1deeed2)
+2021-03-10 12:04:54,606 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:04:55,789 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:04:55,928 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 12:04:55,935 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 12:04:56,053 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 12:04:56,335 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 12:05:01,025 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:05:07,690 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 12:05:07,954 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63306}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3afe8a956b33d1223f7b02aeb1deeed2
+2021-03-10 12:05:07,986 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:05:09,217 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:05:09,255 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 12:05:14,521 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63306}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 3afe8a956b33d1223f7b02aeb1deeed2
+2021-03-10 12:05:14,638 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:05:44,840 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:06:00,098 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Summary for Pega Platform']
+2021-03-10 12:20:43,103 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 12:20:43,150 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 12:20:43,151 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 12:20:43,406 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 12:20:43,632 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 12:20:43,635 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 12:20:45,223 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 12:20:45,223 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 12:20:48,059 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 12:20:48,270 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (e73546d34b73fb325725bd5827ebda4e)
+2021-03-10 12:20:48,271 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:20:49,522 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:20:49,672 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 12:20:49,677 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 12:20:49,810 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 12:20:50,122 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 12:20:54,470 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:21:01,039 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 12:21:01,315 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:21:02,714 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:21:02,754 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 12:21:38,282 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:21:51,398 INFO  c.p.BrowserImpl [switchToWindow:248] [main] - Switching successful to window no: 2
+2021-03-10 12:22:01,574 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 12:47:42,992 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 12:47:43,035 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 12:47:43,036 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 12:47:43,372 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 12:47:43,953 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 12:47:43,955 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 12:47:45,247 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 12:47:45,247 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 12:47:47,742 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 12:47:47,883 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (ae3b1019b7935eaca4d824289e66c9a3)
+2021-03-10 12:47:47,884 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:47:49,044 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:47:49,167 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 12:47:49,173 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 12:47:49,289 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 12:47:49,565 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 12:47:54,332 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:48:00,905 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 12:48:01,141 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:48:01,299 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:58704}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ae3b1019b7935eaca4d824289e66c9a3
+2021-03-10 12:48:02,551 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:48:02,591 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 12:48:37,978 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:48:51,101 INFO  c.p.BrowserImpl [switchToWindow:248] [main] - Switching successful to window no: 2
+2021-03-10 12:49:01,294 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 12:49:01,315 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='201804190311430750141' and text()='My WorkList']
+2021-03-10 12:51:06,510 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-10 12:51:06,553 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-10 12:51:06,554 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-10 12:51:06,816 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-10 12:51:07,049 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-10 12:51:07,052 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-10 12:51:08,295 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-10 12:51:08,296 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-10 12:51:10,625 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-10 12:51:10,770 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (19caa1cdb3209013536b243d2323a747)
+2021-03-10 12:51:10,771 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:51:11,932 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-10 12:51:12,054 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-10 12:51:12,060 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-10 12:51:12,201 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-10 12:51:12,482 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-10 12:51:17,345 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:51:23,666 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='20140927131516034349915']
+2021-03-10 12:51:23,916 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-10 12:51:25,316 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:51:25,347 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Case Manager']
+2021-03-10 12:52:00,792 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-10 12:52:13,901 INFO  c.p.BrowserImpl [switchToWindow:248] [main] - Switching successful to window no: 2
+2021-03-10 12:52:24,056 INFO  c.p.f.PegaWebDriverImpl [getActiveFrameId:379] [main] - Current Active Frame ID: PegaGadget0Ifr
+2021-03-10 12:52:24,072 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-test-id='201804190311430750141' and text()='My WorkList']
+2021-03-11 11:48:48,848 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 11:48:48,898 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 11:48:48,899 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 11:48:49,425 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 11:48:50,300 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 11:48:50,303 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 11:48:52,231 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 11:48:52,232 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 11:48:54,914 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 11:48:55,077 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (a6298b29870317de69c7cafd5833201b)
+2021-03-11 11:48:55,077 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 11:48:56,612 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 11:48:56,868 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 11:48:56,874 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 11:48:57,052 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 11:48:57,426 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 11:49:01,366 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 11:49:02,354 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@id='menu-1615435983710']
+2021-03-11 12:00:54,094 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:00:54,146 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:00:54,146 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:00:54,513 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:00:54,742 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:00:54,744 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:00:56,132 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:00:56,132 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:00:58,382 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:00:58,540 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (29dd988749fb509c6cc07ee35dce922c)
+2021-03-11 12:00:58,541 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:00:59,894 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:01:00,123 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:01:00,126 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:01:00,248 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:01:00,504 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:01:03,730 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:01:04,805 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@id='menu-item-$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:17:01,110 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:17:01,169 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:17:01,170 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:17:01,502 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:17:01,800 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:17:01,803 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:17:03,502 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:17:03,502 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:17:06,162 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:17:06,344 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (132fea36f311ed94c0fcf3d9256c85ac)
+2021-03-11 12:17:06,345 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:17:07,666 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:17:07,855 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:17:07,860 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:17:08,064 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:17:08,347 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:17:11,813 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:17:12,812 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:31:17,706 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:31:17,752 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:31:17,753 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:31:18,074 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:31:18,300 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:31:18,303 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:31:19,722 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:31:19,723 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:31:21,991 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:31:22,132 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (6445a5d59167b009d4a7b07a9e2db1fc)
+2021-03-11 12:31:22,133 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:31:23,397 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:31:23,560 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:31:23,566 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:31:23,712 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:31:24,085 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:31:27,460 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:31:28,476 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:39:18,606 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:39:18,654 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:39:18,655 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:39:18,970 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:39:19,215 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:39:19,218 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:39:20,563 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:39:20,563 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:39:22,846 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:39:22,984 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (74cbc3ec62a1bbd3d6a078833ebbb0e7)
+2021-03-11 12:39:22,985 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:39:24,277 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:39:24,412 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:39:24,418 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:39:24,546 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:39:24,827 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:39:28,043 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:39:28,925 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Personal Details']
+2021-03-11 12:39:29,337 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:39:29,651 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60442}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 74cbc3ec62a1bbd3d6a078833ebbb0e7
+2021-03-11 12:39:30,277 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60442}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 74cbc3ec62a1bbd3d6a078833ebbb0e7
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-11 12:39:31,651 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 12:39:31,697 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:40:54,487 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:40:54,538 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:40:54,539 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:40:54,796 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:40:55,017 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:40:55,019 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:40:56,364 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:40:56,365 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:40:58,551 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:40:58,701 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (4e87fad66cc41afafe43aa80fd6643b5)
+2021-03-11 12:40:58,701 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:41:00,024 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:41:00,145 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:41:00,151 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:41:00,288 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:41:00,553 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:41:03,364 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:41:04,346 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Personal Details']
+2021-03-11 12:41:04,594 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:41:21,466 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 12:41:21,511 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:42:42,875 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:42:43,023 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:42:43,024 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:42:43,777 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:42:43,995 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:42:43,997 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:42:45,350 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:42:45,351 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:42:47,530 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:42:47,671 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (f9c6ec80636c959680d1f7a3fe353eb8)
+2021-03-11 12:42:47,672 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:42:48,987 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:42:49,181 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:42:49,186 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:42:49,304 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:42:49,589 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:42:52,009 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='throbber']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61652}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f9c6ec80636c959680d1f7a3fe353eb8
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-11 12:42:52,089 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:42:53,013 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Personal Details']
+2021-03-11 12:42:53,306 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:42:55,218 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 12:42:55,262 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:48:20,751 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:48:20,798 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:48:20,799 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:48:21,155 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:48:21,384 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:48:21,386 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:48:22,935 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:48:22,936 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:48:25,346 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:48:25,498 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (833fb0c7a0974f2fb12ed5b191c1313c)
+2021-03-11 12:48:25,499 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:48:26,898 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:48:27,094 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:48:27,100 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:48:27,254 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:48:27,612 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:48:30,642 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:48:31,505 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 12:48:31,697 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:48:32,838 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 12:48:32,890 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@data-childnodesid='$PpyNavigation1615435983710$ppyElements$l1']
+2021-03-11 12:50:04,872 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 12:50:04,930 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 12:50:04,931 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 12:50:05,243 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 12:50:05,499 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 12:50:05,501 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 12:50:07,255 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 12:50:07,255 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 12:50:10,318 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 12:50:10,489 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (f70dff15a5758f6334b2d545c0c1c15d)
+2021-03-11 12:50:10,490 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:50:13,784 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 12:50:13,933 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 12:50:13,939 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 12:50:14,078 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 12:50:14,333 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 12:50:16,903 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:50:17,767 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 12:50:17,981 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:50:19,109 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 12:50:19,144 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 12:50:24,472 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 12:50:44,779 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=89.0.4389.82)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63724}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f70dff15a5758f6334b2d545c0c1c15d
+*** Element info: {Using=xpath, value=//*[@class='throbber']}
+2021-03-11 20:47:44,566 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 20:47:44,619 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 20:47:44,620 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 20:47:45,101 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 20:47:45,801 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 20:47:45,804 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 20:47:47,928 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 20:47:47,929 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 20:47:52,463 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 20:47:52,821 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (5b0bf032f01318cff7e3e772e76ec4cd)
+2021-03-11 20:47:52,822 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 20:47:54,017 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 20:47:54,227 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 20:47:54,235 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 20:47:54,456 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 20:47:54,889 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 20:47:59,857 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 20:48:00,841 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 20:48:02,295 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 20:48:02,330 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 20:48:07,615 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 20:48:38,384 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 20:48:58,639 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-11 20:50:33,422 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 20:50:33,477 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 20:50:33,478 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 20:50:33,849 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 20:50:34,081 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 20:50:34,084 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 20:50:35,484 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 20:50:35,485 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 20:50:38,017 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 20:50:38,173 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (42626293008398b1248b5c6a5aef9794)
+2021-03-11 20:50:38,174 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 20:50:39,574 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 20:50:39,717 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 20:50:39,723 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 20:50:39,906 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 20:50:40,226 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 20:50:43,288 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 20:50:44,158 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 20:50:44,360 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 20:50:45,515 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 20:50:45,546 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 20:50:50,994 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 20:50:51,637 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60645}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 42626293008398b1248b5c6a5aef9794
+2021-03-11 20:51:21,931 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 21:43:20,006 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 21:43:20,057 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 21:43:20,059 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 21:43:20,406 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 21:43:20,647 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 21:43:20,650 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 21:43:22,316 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 21:43:22,317 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 21:43:24,821 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 21:43:24,982 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (72fa5e673c85ffa0e559538e71c6f117)
+2021-03-11 21:43:24,983 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 21:43:26,208 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 21:43:26,355 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 21:43:26,362 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 21:43:26,503 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 21:43:26,741 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 21:43:29,294 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 21:43:30,289 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 21:43:31,631 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 21:43:31,662 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 21:43:36,977 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 21:44:07,735 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 21:44:27,938 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-11 23:27:18,881 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 23:27:18,931 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 23:27:18,932 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 23:27:19,267 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 23:27:19,499 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 23:27:19,502 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 23:27:20,823 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 23:27:20,824 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 23:27:23,248 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 23:27:23,420 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (af8989591657da9e9b86281f031a01de)
+2021-03-11 23:27:23,422 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 23:27:24,646 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 23:27:24,810 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 23:27:24,814 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 23:27:24,957 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 23:27:25,416 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 23:27:28,730 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:27:29,699 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 23:27:29,914 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:27:31,051 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 23:27:31,087 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 23:27:36,347 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:27:36,702 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54598}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: af8989591657da9e9b86281f031a01de
+2021-03-11 23:28:07,263 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 23:28:27,498 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-11 23:28:27,545 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pApplicantName
+2021-03-11 23:28:32,688 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDateOfBirth
+2021-03-11 23:28:37,993 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pMobile
+2021-03-11 23:28:43,159 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pAddress
+2021-03-11 23:28:48,313 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-11 23:28:53,608 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:28:53,981 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54598}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: af8989591657da9e9b86281f031a01de
+2021-03-11 23:29:24,247 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 23:59:27,290 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-11 23:59:27,352 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-11 23:59:27,353 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-11 23:59:27,681 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-11 23:59:27,909 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-11 23:59:27,912 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-11 23:59:29,218 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-11 23:59:29,219 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-11 23:59:31,530 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-11 23:59:31,676 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (9e150e20769b542c37b3e18bd23e06bf)
+2021-03-11 23:59:31,677 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 23:59:33,015 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-11 23:59:33,136 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-11 23:59:33,142 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-11 23:59:33,271 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-11 23:59:33,697 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-11 23:59:36,689 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:59:37,603 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-11 23:59:37,834 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:59:39,014 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-11 23:59:39,047 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-11 23:59:44,371 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-11 23:59:44,533 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63485}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9e150e20769b542c37b3e18bd23e06bf
+2021-03-12 00:00:14,963 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 00:00:35,278 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-12 00:13:03,622 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 00:13:03,666 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 00:13:03,666 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 00:13:04,015 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 00:13:04,239 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 00:13:04,241 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 00:13:05,765 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 00:13:05,766 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 00:13:08,162 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 00:13:08,308 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (5b0632832537b2741a71777ef24c35f3)
+2021-03-12 00:13:08,309 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 00:13:09,654 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 00:13:09,794 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 00:13:09,801 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 00:13:09,934 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 00:13:10,218 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 00:13:12,686 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:13:13,540 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 00:13:13,747 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:13:14,880 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 00:13:14,913 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 00:13:20,319 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:13:50,997 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 00:14:11,211 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-12 00:28:58,870 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 00:28:58,914 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 00:28:58,915 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 00:28:59,246 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 00:28:59,467 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 00:28:59,470 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 00:29:01,095 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 00:29:01,095 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 00:29:03,464 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 00:29:03,616 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (e547040d3e04c7f8c3a37771abd2e8b8)
+2021-03-12 00:29:03,617 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 00:29:04,844 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 00:29:04,992 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 00:29:04,999 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 00:29:05,125 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 00:29:05,363 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 00:29:08,116 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:29:09,168 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 00:29:09,395 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:29:10,601 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 00:29:10,646 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 00:29:15,927 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 00:29:46,590 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 00:30:06,845 ERROR c.p.f.PegaWebDriverImpl [getActiveFrameId:389] [main] - No active frames available on application: null
+2021-03-12 01:24:28,002 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 01:24:28,056 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 01:24:28,056 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 01:24:28,392 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 01:24:28,631 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 01:24:28,634 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 01:24:29,865 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 01:24:29,865 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 01:24:32,314 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 01:24:32,460 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (c7da6a8c709b69a12821d886d2cbd32d)
+2021-03-12 01:24:32,461 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:24:33,814 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:24:33,964 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 01:24:33,968 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 01:24:34,125 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 01:24:34,397 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 01:24:36,849 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:24:37,875 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 01:24:38,067 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:24:39,218 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:24:39,251 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 01:24:44,582 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:25:15,272 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:31:51,066 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 01:31:51,112 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 01:31:51,113 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 01:31:51,431 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 01:31:51,671 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 01:31:51,674 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 01:31:52,990 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 01:31:52,991 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 01:31:55,538 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 01:31:55,689 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (56db5e799fe60eca2919cd88d9234f55)
+2021-03-12 01:31:55,690 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:31:57,044 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:31:57,200 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 01:31:57,208 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 01:31:57,333 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 01:31:57,633 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 01:32:00,059 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:32:00,854 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 01:32:01,089 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:32:02,224 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:32:02,257 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 01:32:07,577 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:32:38,273 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:32:48,377 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pApplicantName
+2021-03-12 01:32:53,591 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDateOfBirth
+2021-03-12 01:32:58,751 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pMobile
+2021-03-12 01:33:03,913 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pAddress
+2021-03-12 01:33:09,085 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:33:14,337 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:33:14,637 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56905}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 56db5e799fe60eca2919cd88d9234f55
+2021-03-12 01:33:44,901 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:34:10,069 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pTotalExperience
+2021-03-12 01:34:15,222 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPreviousOrganization
+2021-03-12 01:34:20,348 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pCurrentJobRole
+2021-03-12 01:34:45,834 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:34:51,082 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:34:51,333 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56905}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 56db5e799fe60eca2919cd88d9234f55
+2021-03-12 01:35:21,576 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:35:46,786 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPrimarySkill
+2021-03-12 01:35:51,981 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pSecondarySkills
+2021-03-12 01:35:57,120 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 01:36:02,388 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:36:34,969 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:37:00,181 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@name='Applicant Name']//following-sibling::div/span
+2021-03-12 01:41:24,941 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 01:41:24,991 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 01:41:24,992 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 01:41:25,255 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 01:41:25,472 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 01:41:25,475 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 01:41:26,978 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 01:41:26,978 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 01:41:29,357 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 01:41:29,572 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (77fdd118387eada4b17f5ecbb1a2eb2d)
+2021-03-12 01:41:29,573 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:41:30,735 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:41:30,901 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 01:41:30,907 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 01:41:31,050 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 01:41:31,311 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 01:41:34,241 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:41:35,149 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 01:41:35,434 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:41:36,606 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:41:36,637 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 01:41:41,906 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:41:42,140 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59598}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77fdd118387eada4b17f5ecbb1a2eb2d
+2021-03-12 01:42:12,552 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:42:22,669 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pApplicantName
+2021-03-12 01:42:27,838 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDateOfBirth
+2021-03-12 01:42:32,981 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pMobile
+2021-03-12 01:42:38,143 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pAddress
+2021-03-12 01:42:43,305 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:42:48,594 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:43:19,162 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:43:44,381 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pTotalExperience
+2021-03-12 01:43:49,568 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPreviousOrganization
+2021-03-12 01:43:54,705 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pCurrentJobRole
+2021-03-12 01:44:20,116 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:44:25,357 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:44:25,632 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59598}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77fdd118387eada4b17f5ecbb1a2eb2d
+2021-03-12 01:44:55,845 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:45:21,064 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPrimarySkill
+2021-03-12 01:45:26,226 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pSecondarySkills
+2021-03-12 01:45:31,437 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 01:45:36,786 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:46:09,602 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:46:34,874 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 01:46:40,202 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:46:41,519 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59598}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77fdd118387eada4b17f5ecbb1a2eb2d
+2021-03-12 01:47:11,906 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:47:37,050 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@name='Applicant Name']//following-sibling::div/span
+2021-03-12 01:54:35,319 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 01:54:35,366 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 01:54:35,367 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 01:54:35,688 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 01:54:35,908 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 01:54:35,911 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 01:54:37,391 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 01:54:37,392 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 01:54:39,671 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 01:54:39,814 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (9825fbf6b5265974c2ebfb1b0ec071e8)
+2021-03-12 01:54:39,815 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:54:41,208 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 01:54:41,362 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 01:54:41,366 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 01:54:41,477 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 01:54:41,904 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 01:54:45,249 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:54:46,142 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 01:54:46,409 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:54:47,599 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:54:47,665 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Job Application']
+2021-03-12 01:54:52,994 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:55:23,678 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:55:33,797 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pApplicantName
+2021-03-12 01:55:39,016 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDateOfBirth
+2021-03-12 01:55:44,177 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pMobile
+2021-03-12 01:55:49,331 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pAddress
+2021-03-12 01:55:54,527 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:55:59,772 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:56:30,312 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:56:55,490 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pTotalExperience
+2021-03-12 01:57:00,638 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPreviousOrganization
+2021-03-12 01:57:05,795 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pCurrentJobRole
+2021-03-12 01:57:31,197 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 01:57:36,453 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:57:36,702 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9825fbf6b5265974c2ebfb1b0ec071e8
+2021-03-12 01:58:06,930 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:58:32,071 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pPrimarySkill
+2021-03-12 01:58:37,228 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pSecondarySkills
+2021-03-12 01:58:42,439 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 01:58:47,769 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 01:58:50,310 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9825fbf6b5265974c2ebfb1b0ec071e8
+2021-03-12 01:59:20,586 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 01:59:45,878 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 01:59:51,246 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:00:22,893 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:01:08,258 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //i[contains(@class,'icons avatar name')]
+2021-03-12 02:01:28,601 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Log off']
+2021-03-12 02:38:09,056 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 02:38:09,110 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 02:38:09,111 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 02:38:09,475 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 02:38:09,733 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 02:38:09,735 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 02:38:11,385 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 02:38:11,385 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 02:38:13,826 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 02:38:14,013 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (c4ead0cd0da8c2b4f2029f6e6c747f4f)
+2021-03-12 02:38:14,014 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 02:38:15,353 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 02:38:15,536 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 02:38:15,544 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 02:38:15,693 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 02:38:15,947 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 02:38:18,974 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:38:19,835 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 02:38:20,139 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:38:21,292 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:38:21,347 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Expense Report']
+2021-03-12 02:38:26,641 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:38:26,959 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59350}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c4ead0cd0da8c2b4f2029f6e6c747f4f
+2021-03-12 02:38:57,183 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:39:07,248 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDepartmentID
+2021-03-12 02:39:12,400 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Engineering']
+2021-03-12 02:39:47,822 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:39:57,898 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pProjectManager
+2021-03-12 02:40:03,106 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 02:40:08,396 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:40:39,155 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:41:04,338 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Referral Bonuses']
+2021-03-12 02:41:39,639 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:41:49,686 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pExpenseAmount
+2021-03-12 02:41:54,847 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pIncurredDate
+2021-03-12 02:44:47,743 INFO  c.p.c.SUTConfig [<init>:82] [main] - Setting is.pipeline.run property to false
+2021-03-12 02:44:47,786 INFO  c.p.c.SUTConfig [<init>:102] [main] - Debug mode is: false
+2021-03-12 02:44:47,787 INFO  c.p.TestEnvironmentImpl [setLoggerLevel:184] [main] - Logger level is set to : INFO
+2021-03-12 02:44:48,113 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:59] [main] - yes chrome.exe exists
+2021-03-12 02:44:48,333 INFO  c.p.c.u.GetChromeDriver [getCurrentVersionOfDriverAsString:138] [main] - current driver version is 89.0.4389.23
+2021-03-12 02:44:48,336 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:65] [main] - current version of chrome 89.0.4389.23
+2021-03-12 02:44:49,626 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:107] [main] - Chrome Version: 89	ChromeDriver version needed:89.0.4389.23
+2021-03-12 02:44:49,627 INFO  c.p.c.u.GetChromeDriver [getChromeDriverForChrome:109] [main] - Required chromedriver version is already available. Not attempting to download any new version
+2021-03-12 02:44:52,067 INFO  c.p.d.PegaChromeDriver [initializeDriver:148] [main] - Chrome Driver launched successfully
+2021-03-12 02:44:52,291 INFO  c.p.TestEnvironmentImpl [initializeEnvironment:134] [main] - Driver is initialised::ChromeDriver: chrome on WINDOWS (dcd6ae4882e709f5bdb2220af9c89d51)
+2021-03-12 02:44:52,293 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 02:44:53,961 INFO  c.p.BrowserImpl [open:163] [main] - Opening the URL
+2021-03-12 02:44:54,133 INFO  c.p.BrowserImpl [login:68] [main] - Logging in the user
+2021-03-12 02:44:54,141 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtUserID
+2021-03-12 02:44:54,270 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.id: txtPassword
+2021-03-12 02:44:54,585 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: pyActivity=Code-Security.Login
+2021-03-12 02:44:57,493 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:44:58,389 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='New']
+2021-03-12 02:44:58,662 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:44:59,849 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:44:59,886 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[@title='Expense Report']
+2021-03-12 02:45:05,191 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:45:35,682 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:45:45,788 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pDepartmentID
+2021-03-12 02:45:50,946 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Engineering']
+2021-03-12 02:46:26,379 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:46:36,466 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pProjectManager
+2021-03-12 02:46:41,631 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Continue' and @title='Click here to submit']
+2021-03-12 02:46:46,896 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:46:47,387 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: dcd6ae4882e709f5bdb2220af9c89d51
+2021-03-12 02:47:17,608 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:47:42,768 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Referral Bonuses']
+2021-03-12 02:48:18,192 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:48:28,244 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pExpenseAmount
+2021-03-12 02:48:33,405 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PpyWorkPage$pIncurredDate
+2021-03-12 02:48:38,600 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 02:48:43,836 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:48:44,898 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: dcd6ae4882e709f5bdb2220af9c89d51
+2021-03-12 02:48:45,640 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: dcd6ae4882e709f5bdb2220af9c89d51
+2021-03-12 02:49:16,097 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:49:41,306 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Add a task']
+2021-03-12 02:49:46,656 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:50:16,909 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:50:42,140 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.name: $PTempAdhocWork$pAdHocProcess$l1$pTasks$l1$ppyLabel
+2021-03-12 02:50:47,572 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Submit' and @title='Click here to submit']
+2021-03-12 02:50:52,986 INFO  c.p.s.WaitForDocStateReady [waitForDocStateReady:143] [main] - Document currently active, waiting entire document to load
+2021-03-12 02:50:54,382 ERROR c.p.f.WaitHandlerImpl [verifyAndWaitIfThrobberPresent:399] [main] - Error while waiting for throbber in verifyAndWaitIfThrobberPresent():stale element reference: element is not attached to the page document
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: dcd6ae4882e709f5bdb2220af9c89d51
+2021-03-12 02:51:24,683 INFO  c.p.s.Throbber [waitForNoThrobber:68] [main] - Throbbing never started
+2021-03-12 02:52:10,086 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //i[contains(@class,'icons avatar name')]
+2021-03-12 02:52:30,348 INFO  c.p.f.PegaWebDriverImpl [findElement:76] [main] - element identification by logic:By.xpath: //*[text()='Log off']

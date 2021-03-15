@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Implementation class for TestEnvironment interface is: com.pega.CRMTestEnvironment]]>
+    </line>
+    <line>
+      <![CDATA[existing driver pathbinaries\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[in method: getCurrentVersionOfDriverAsString]]>
+    </line>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="427731" started-at="2021-03-11T20:24:32Z" finished-at="2021-03-11T20:31:40Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:RunCukesTest@2b98378d]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Surefire test" duration-ms="427731" started-at="2021-03-11T20:24:32Z" finished-at="2021-03-11T20:31:40Z">
+      <class name="RunCukesTest">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:RunCukesTest@2b98378d]" name="setUpClass" is-config="true" duration-ms="1881" started-at="2021-03-12T01:54:32Z" finished-at="2021-03-12T01:54:34Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Implementation class for TestEnvironment interface is: com.pega.CRMTestEnvironment]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:RunCukesTest@2b98378d]" name="feature" duration-ms="425072" started-at="2021-03-12T01:54:35Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-03-12T02:01:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Personal edition scenarios]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[existing driver pathbinaries\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[in method: getCurrentVersionOfDriverAsString]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:RunCukesTest@2b98378d]" name="tearDownClass" is-config="true" duration-ms="543" started-at="2021-03-12T02:01:40Z" finished-at="2021-03-12T02:01:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- RunCukesTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

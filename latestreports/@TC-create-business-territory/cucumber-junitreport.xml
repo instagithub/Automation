@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="510.151327">
+<testcase classname="Sales Automation Business Territory feature" name="create a Business Territory Hierarchy by Global Sales Ops" time="510.151327">
+<failure message="com.pega.exceptions.PegaElementNotFoundException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()='Territories']&quot;}&#10;  (Session info: chrome=89.0.4389.82)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:58102}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: b3b36a88e714966d8b1fd9c67608b064&#10;*** Element info: {Using=xpath, value=//span[text()='Territories']}&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'&#10;Driver info: driver.version: unknown&#13;&#10;&#9;at com.pega.framework.WaitHandlerImpl.waitForElementPresence(WaitHandlerImpl.java:217)&#13;&#10;&#9;at com.pega.framework.WaitHandlerImpl.waitForElementPresence(WaitHandlerImpl.java:206)&#13;&#10;&#9;at com.pega.framework.PegaWebDriverImpl.findElement(PegaWebDriverImpl.java:83)&#13;&#10;&#9;at com.pega.page.TopDocumentImpl.findElement(TopDocumentImpl.java:50)&#13;&#10;&#9;at com.pega.page.TopDocumentImpl.findElement(TopDocumentImpl.java:55)&#13;&#10;&#9;at com.pega.crm.customerservice.tiles.impl.PegaLeftNav.getTerritoriesList(PegaLeftNav.java:150)&#13;&#10;&#9;at com.pega.crm.salesautomation.stepdefs.BusinessTerritory.user_Navigates_to_Territories_tab_to_Create_Territories(BusinessTerritory.java:73)&#13;&#10;&#9;at ✽.When User Navigates to Territories tab(salesautomation/features/BusinessTerritory.feature:10)&#13;&#10;"><![CDATA[Given User logs in to SA Application as salesops............................passed
+When User Navigates to Territories tab......................................failed
+When User clicks on Create Territory button.................................skipped
+Then verify that Business Territory New modal dialog is displayed...........skipped
+When User enters the data for "South East" "Global" "Terry Mason" "<ReservedForPartner>" and submits.skipped
+Then verify that Business Territory with name "South East" and "Terry Mason" is created.skipped
+
+StackTrace:
+com.pega.exceptions.PegaElementNotFoundException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Territories']"}
+  (Session info: chrome=89.0.4389.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:58102}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b3b36a88e714966d8b1fd9c67608b064
+*** Element info: {Using=xpath, value=//span[text()='Territories']}
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: driver.version: unknown
+	at com.pega.framework.WaitHandlerImpl.waitForElementPresence(WaitHandlerImpl.java:217)
+	at com.pega.framework.WaitHandlerImpl.waitForElementPresence(WaitHandlerImpl.java:206)
+	at com.pega.framework.PegaWebDriverImpl.findElement(PegaWebDriverImpl.java:83)
+	at com.pega.page.TopDocumentImpl.findElement(TopDocumentImpl.java:50)
+	at com.pega.page.TopDocumentImpl.findElement(TopDocumentImpl.java:55)
+	at com.pega.crm.customerservice.tiles.impl.PegaLeftNav.getTerritoriesList(PegaLeftNav.java:150)
+	at com.pega.crm.salesautomation.stepdefs.BusinessTerritory.user_Navigates_to_Territories_tab_to_Create_Territories(BusinessTerritory.java:73)
+	at ✽.When User Navigates to Territories tab(salesautomation/features/BusinessTerritory.feature:10)
+]]></failure>
+</testcase>
+</testsuite>

@@ -1,0 +1,122 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5679231800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "CRMTestEnvironment.setUp(Scenario)"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Submitting a Job Application",
+        "description": "",
+        "id": "personal-edition-scenarios;submitting-a-job-application",
+        "after": [
+          {
+            "result": {
+              "duration": 6112159400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "CRMTestEnvironment.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5044798500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User logs in to Application as Recruiter",
+            "match": {
+              "location": "CRMBrowser.user_logs_in_to_Application_as_Recruiter()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 47615883300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "navigates to \"Job Application\" List page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Job Application",
+                  "offset": 14
+                }
+              ],
+              "location": "CRMBrowser.navigates_to_page(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 252106203300,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user enters Application details",
+            "match": {
+              "location": "CRMBrowser.user_enters_Application_details()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 67309967900,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user Reviews Application",
+            "match": {
+              "location": "CRMBrowser.user_Reviews_Application()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 40809900600,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user will logout",
+            "match": {
+              "location": "CRMBrowser.user_will_logout()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 4,
+            "name": "@TC-JobApplication"
+          }
+        ]
+      }
+    ],
+    "name": "Personal edition scenarios",
+    "description": "",
+    "id": "personal-edition-scenarios",
+    "keyword": "Feature",
+    "uri": "salesautomation/features/PersonalEdition.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@PELogin"
+      }
+    ]
+  }
+]

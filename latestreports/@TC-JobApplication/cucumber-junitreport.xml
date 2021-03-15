@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="424.678145">
+<testcase classname="Personal edition scenarios" name="Submitting a Job Application" time="424.678145">
+<system-out><![CDATA[Given User logs in to Application as Recruiter..............................passed
+Given navigates to "Job Application" List page..............................passed
+Then user enters Application details........................................passed
+Then user Reviews Application...............................................passed
+And user will logout........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,7 +1,14 @@
 package com.pega.crm.customerservice.tiles.impl;
 
-import org.openqa.selenium.By;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import com.pe.workobjects.JobApplication;
+import com.pe.workobjects.MyWorkListPE;
+import com.pe.workobjects.impl.JobApplicationImpl;
+import com.pe.workobjects.impl.MyWorkListPEImpl;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.tiles.LeftNav;
 import com.pega.crm.salesautomation.workobjects.AccountList;
@@ -54,6 +61,11 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 	String EGMAP_LIST_XPATH = "//span[text()='Engagement Map']";
 	String FORECAST_LIST_XPATH = "//span[text()='Forecast']";
 	String CLOSEPLANS_LIST_XPATH = "//h3[text()='Close plans']";
+	
+	String Name = "Jason";
+	String DOB = "1/1/1990";
+	String Mobile = "6060609090";
+	String Address = "California, USA";
 
 	public PegaLeftNav(TestEnvironment testEnv) {
 		super(testEnv);
@@ -169,6 +181,96 @@ public class PegaLeftNav extends TopDocumentImpl implements LeftNav {
 		closeplans.findElement(By.xpath(CLOSEPLANS_LIST_XPATH)).click();
 		return closeplans;
 
+	}
+
+	@Override
+	public MyWorkListPE getWorkList() {
+		// TODO Auto-generated method stub
+		findElement(By.xpath("//*[@data-test-id='201804190311430750141' and text()='My WorkList']")).click();
+		String frameId = getActiveFrameId(false);
+		MyWorkListPE list = new MyWorkListPEImpl(frameId, testEnv);
+		return list;
+	}
+	
+	public void launchJobApplication() {
+		
+		findElement(By.xpath("//*[@title='New']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		findElement(By.xpath("//*[@title='Job Application']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//String frameId = getActiveFrameId(false);
+		//JobApplication link = new JobApplicationImpl(frameId, testEnv);
+		//return link;
+	}
+	
+public void launchExpenseReport() {
+		
+		findElement(By.xpath("//*[@title='New']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		findElement(By.xpath("//*[@title='Expense Report']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//String frameId = getActiveFrameId(false);
+		//JobApplication link = new JobApplicationImpl(frameId, testEnv);
+		//return link;
+	}
+	
+	public void enterDetails() {
+		
+		verifyElement(PERSONAL_DETAILS);
+		verifyElement(PROFESSIONAL_EXPERIENCE);
+		verifyElement(SKILLSET);
+		findElement(APPLICANT_NAME).sendKeys(Name);
+		findElement(DATE_OF_BIRTH).sendKeys(DOB);
+		findElement(MOBILE_INPUT).sendKeys(Mobile);
+		findElement(ADDRESS_INPUT).sendKeys(Address);
+		findElement(CONTINUE_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+		findElement(TOTAL_EXPERIENCE).sendKeys("10");
+		findElement(PREVIOUS_ORGANIZATION).sendKeys("TESLA");
+		findElement(CURRENT_JOB_ROLE).sendKeys("LEAD");
+		findSelectBox(JOB_TYPE).selectByIndex(2);
+		findElement(CONTINUE_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+		findElement(AREA_OF_EXPERTISE).sendKeys("Robotics");
+		findElement(SECONDARY_SKILLS).sendKeys("AI");
+		findElement(SUBMIT_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+						
+	}
+	
+	public void reviewDetails() {
+		verifyElement(REVIEW_TEXT);
+		findElement(SUBMIT_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+		//String Applicant = findElement(APPLICANT_NAME_TEXT).getText();
+		//Assert.assertEquals(Name, Applicant);
+		verifyElement(STATUS);
+	}
+	
+public void enterExpenseDetails() {
+		
+		verifyElement(EXPENSE_DETAILS);
+		findElement(DEPARTMENT_ID).sendKeys("D-20");
+		findElement(DEPARTMENT_INPUT).click();
+		findElement(PROJECT_MANAGER).sendKeys("Karl Maxon");
+		findElement(CONTINUE_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+		findElement(CATEGORY_INPUT).click();
+		findElement(AMOUNT_INPUT).sendKeys("20000");
+		findElement(INCURRED_DATE).sendKeys("1/1/2021");
+		findElement(SUBMIT_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+								
+	}
+	
+	public void reviewExpenseDetails() {
+	
+		findElement(ADD_TASK).click();
+		pegaDriver.waitForDocStateReady();
+		findElement(TASK_INSTRUCTIONS).sendKeys("Expense report for referral bonuses submitted");
+		findElement(SUBMIT_BUTTON).click();
+		pegaDriver.waitForDocStateReady();
+		verifyElement(STATUS);
 	}
 
 }

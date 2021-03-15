@@ -25,7 +25,10 @@ import com.pega.crm.salesautomation.workobjects.TerritoriesList;
 import com.pega.crm.salesautomation.workobjects.impl.PegaUtil;
 import com.pega.framework.PegaWebDriver;
 import com.pega.framework.PegaWebElement;
+import com.pe.workobjects.JobApplication;
+import com.pe.workobjects.MyWorkListPE;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -57,6 +60,8 @@ public class CRMBrowser extends PegaBrowser {
 	public Interactions interactions;
 	// variable to check whether campaign exists or not
 	public boolean campaignExists;
+	public JobApplication jobApplication;
+	public MyWorkListPE workListPE;
 
 	public static String EDIT_XPATH = PegaUtil.getButtonXpath("Edit");
 	public static String WO_FOLLOW_XPATH = PegaUtil.getButtonXpath("Follow");
@@ -144,6 +149,13 @@ public class CRMBrowser extends PegaBrowser {
 		login(configuration.getCredential("SALESREP_ID"), configuration.getCredential("SALESREP_PASSWORD"));
 
 	}
+	
+	@Given("^User logs in to Application as Recruiter$")
+	public void user_logs_in_to_Application_as_Recruiter() throws Throwable {
+		open();
+		login(configuration.getCredential("LOGIN_ID"), configuration.getCredential("LOGIN_PASSWORD"));
+				
+	}
 
 	@Given("^navigates to \"([^\"]*)\" List page$")
 	public void navigates_to_page(String LeftNavItem) {
@@ -199,6 +211,18 @@ public class CRMBrowser extends PegaBrowser {
 			closeplans = sfaPortal.getLeftNav().getClosePlans();
 			break;
 		}
+		case "My WorkList": {
+			workListPE = sfaPortal.getLeftNav().getWorkList();
+			break;
+		}
+		case "Job Application": {
+			sfaPortal.getLeftNav().launchJobApplication();
+			break;
+		}
+		case "Expense Report": {
+			sfaPortal.getLeftNav().launchExpenseReport();
+			break;
+		}
 
 		}
 	}
@@ -221,6 +245,35 @@ public class CRMBrowser extends PegaBrowser {
 	@When("^Operator logs of the portal$")
 	public void csr_logout_of_the_portal() {
 		logout();
+	}
+	
+	@Then("^user enters Application details")
+	public void user_enters_Application_details() {
+		sfaPortal = getPortal(SFAPortal.class);
+		sfaPortal.getLeftNav().enterDetails();
+	}
+	
+	@Then("^user Reviews Application")
+	public void user_Reviews_Application() {
+		sfaPortal = getPortal(SFAPortal.class);
+		sfaPortal.getLeftNav().reviewDetails();
+	}
+	
+	@Then("^user enters expense details")
+	public void user_enters_expense_details() {
+		sfaPortal = getPortal(SFAPortal.class);
+		sfaPortal.getLeftNav().enterExpenseDetails();
+	}
+	
+	@Then("^user creates task and submits report")
+	public void user_creates_task_and_submits_report() {
+		sfaPortal = getPortal(SFAPortal.class);
+		sfaPortal.getLeftNav().reviewExpenseDetails();
+	}
+	
+	@And("^user will logout")
+	public void user_will_logout() {
+		sfaPortal.getTopNav().logoutPE();
 	}
 
 }

@@ -1,11 +1,14 @@
 package com.pega.crm.customerservice.tiles;
 
+import com.pe.workobjects.JobApplication;
+import com.pe.workobjects.DesignerStudioPE;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.NewDemoInteraction;
 import com.pega.crm.customerservice.interactions.NewInboundInteraction;
 import com.pega.crm.customerservice.interactions.OutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.PhoneCall;
 import com.pega.crm.customerservice.interactions.ResearchInteraction;
+import com.pega.crm.salesautomation.workobjects.OrganizationsList;
 
 public interface TopNav {
 
@@ -87,5 +90,10 @@ public interface TopNav {
 	ResearchInteraction ClickFavourite();
 
 	ResearchInteraction switchInteraction(String interactionItem);
+
+	JobApplication launchCaseManager();
+	
+	void logoutPE();
+	
 
 }

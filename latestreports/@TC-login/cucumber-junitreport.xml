@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="45.773561">
+<testcase classname="Personal edition scenarios" name="Logging in to Personal Edition" time="45.773561">
+<failure message="org.openqa.selenium.NoSuchWindowException: no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=89.0.4389.82)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63724}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: f70dff15a5758f6334b2d545c0c1c15d&#10;*** Element info: {Using=tag name, value=iframe}&#13;&#10;&#9;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;&#10;&#9;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)&#13;&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)&#13;&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)&#13;&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)&#13;&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)&#13;&#10;&#9;at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:353)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElementsByTagName(RemoteWebDriver.java:400)&#13;&#10;&#9;at org.openqa.selenium.By$ByTagName.findElements(By.java:312)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:311)&#13;&#10;&#9;at com.pega.framework.PegaWebDriverImpl.findElements(PegaWebDriverImpl.java:172)&#13;&#10;&#9;at com.pega.sync.Throbber.isThrobbingOnAllFrames(Throbber.java:124)&#13;&#10;&#9;at com.pega.sync.Throbber.waitForThrobber(Throbber.java:103)&#13;&#10;&#9;at com.pega.sync.Throbber.waitForNoThrobber(Throbber.java:58)&#13;&#10;&#9;at com.pega.sync.Throbber.waitForNoThrobber(Throbber.java:94)&#13;&#10;&#9;at com.pega.framework.WaitHandlerImpl.waitForNoThrobber(WaitHandlerImpl.java:256)&#13;&#10;&#9;at com.pega.framework.PegaWebElementImpl.click(PegaWebElementImpl.java:508)&#13;&#10;&#9;at com.pega.framework.PegaWebElementImpl.click(PegaWebElementImpl.java:402)&#13;&#10;&#9;at com.pega.crm.customerservice.tiles.impl.PegaLeftNav.launchJobApplication(PegaLeftNav.java:193)&#13;&#10;&#9;at com.pega.CRMBrowser.navigates_to_page(CRMBrowser.java:218)&#13;&#10;&#9;at ✽.Given navigates to &quot;Job Application&quot; List page(salesautomation/features/Login.feature:7)&#13;&#10;"><![CDATA[Given User logs in to Application as Recruiter..............................passed
+Given navigates to "Job Application" List page..............................failed
+
+StackTrace:
+org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=89.0.4389.82)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-4GOC9V2', ip: '192.168.29.157', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\KARTHI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63724}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f70dff15a5758f6334b2d545c0c1c15d
+*** Element info: {Using=tag name, value=iframe}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementsByTagName(RemoteWebDriver.java:400)
+	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:311)
+	at com.pega.framework.PegaWebDriverImpl.findElements(PegaWebDriverImpl.java:172)
+	at com.pega.sync.Throbber.isThrobbingOnAllFrames(Throbber.java:124)
+	at com.pega.sync.Throbber.waitForThrobber(Throbber.java:103)
+	at com.pega.sync.Throbber.waitForNoThrobber(Throbber.java:58)
+	at com.pega.sync.Throbber.waitForNoThrobber(Throbber.java:94)
+	at com.pega.framework.WaitHandlerImpl.waitForNoThrobber(WaitHandlerImpl.java:256)
+	at com.pega.framework.PegaWebElementImpl.click(PegaWebElementImpl.java:508)
+	at com.pega.framework.PegaWebElementImpl.click(PegaWebElementImpl.java:402)
+	at com.pega.crm.customerservice.tiles.impl.PegaLeftNav.launchJobApplication(PegaLeftNav.java:193)
+	at com.pega.CRMBrowser.navigates_to_page(CRMBrowser.java:218)
+	at ✽.Given navigates to "Job Application" List page(salesautomation/features/Login.feature:7)
+]]></failure>
+</testcase>
+</testsuite>

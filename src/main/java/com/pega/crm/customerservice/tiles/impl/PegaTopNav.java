@@ -1,10 +1,15 @@
 package com.pega.crm.customerservice.tiles.impl;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import com.pe.workobjects.JobApplication;
+import com.pe.workobjects.DesignerStudioPE;
+import com.pe.workobjects.impl.JobApplicationImpl;
+import com.pe.workobjects.impl.DesignerStudioPEImpl;
 import com.pega.TestEnvironment;
 import com.pega.crm.customerservice.interactions.Interactions;
 import com.pega.crm.customerservice.interactions.NewDemoInteraction;
@@ -18,6 +23,8 @@ import com.pega.crm.customerservice.interactions.impl.PegaOutboundPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaPhoneCall;
 import com.pega.crm.customerservice.interactions.impl.PegaResearchInteraction;
 import com.pega.crm.customerservice.tiles.TopNav;
+import com.pega.crm.salesautomation.workobjects.OrganizationsList;
+import com.pega.crm.salesautomation.workobjects.impl.PegaOrganizationsList;
 import com.pega.framework.PegaWebElement;
 import com.pega.framework.elmt.DropDown;
 import com.pega.page.TopDocumentImpl;
@@ -27,6 +34,7 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 	public String COPYRIGHT = "Copyright (c) 2018  Pegasystems Inc.";
 	public String VERSION = "$Id: PegaTopNav.java 117333 2018-10-01 09:12:21Z JayaPrakash $";
 	public static String AppName = null;
+	String OPERATOR_MENU_XPATH = "//i[contains(@class,'icons avatar name')]";
 
 	public static List<List<String>> myvariables = null;
 	int connectorsCount = 0;
@@ -330,5 +338,30 @@ public class PegaTopNav extends TopDocumentImpl implements TopNav {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public JobApplication launchCaseManager() {
 
+		findElement(By.xpath("//*[@data-test-id='20140927131516034349915']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		findElement(By.xpath("//*[text()='Case Manager']")).click();
+		pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//testEnv.getBrowser().switchToWindow(2);
+		//pegaDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		verifyElement(By.xpath("//*[text()='Summary for Pega Platform']"));
+		String frameId = getActiveFrameId(false);
+		JobApplication link = new JobApplicationImpl(frameId, testEnv);
+		return link;
+	}
+	
+	@Override
+	public void logoutPE() {
+		pegaDriver.waitForDocStateReady();
+		pegaDriver.switchTo().defaultContent();
+		pegaDriver.findElement(By.xpath(OPERATOR_MENU_XPATH)).click(false);
+		pegaDriver.switchTo().defaultContent();
+		pegaDriver.waitForDocStateReady();
+		pegaDriver.findElement(By.xpath("//*[text()='Log off']")).click(false);
+	}
+	
 }
